@@ -35,4 +35,6 @@ FreshWriting::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  config.cas_base = 'https://cas.library.nd.edu/cas'
 end
