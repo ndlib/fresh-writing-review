@@ -1,4 +1,11 @@
 GIT
+  remote: git@git.library.nd.edu:hesburgh_api
+  revision: 2b0b6c44c140205d6ac7889b27ea0b7edf9602e3
+  specs:
+    hesburgh_api (0.0.1)
+      rails (~> 4.0.3)
+
+GIT
   remote: git@git.library.nd.edu:hesburgh_infrastructure
   revision: d65f008b2eaa72cb6d81fc55c4c77a688a44923f
   specs:
@@ -285,6 +292,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   guard-spork
+  hesburgh_api!
   hesburgh_infrastructure!
   jbuilder (~> 1.2)
   jquery-rails

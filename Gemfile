@@ -31,6 +31,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'devise_cas_authenticatable'
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
+gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 gem 'mysql2'
 gem "rb-readline"
 gem 'compass-rails' # Required for zurb-foundation
