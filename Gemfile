@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
+gem 'mysql2'
 gem "rb-readline"
 gem 'compass-rails' # Required for zurb-foundation
 gem 'zurb-foundation', '~> 3.2'
