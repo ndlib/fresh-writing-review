@@ -28,6 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
+gem "rb-readline"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -45,3 +46,20 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  gem "debugger"
+  gem "rspec-rails"
+  gem "capybara"
+  gem "factory_girl_rails", require: false
+  gem "faker"
+
+  gem "guard"
+  gem "guard-bundler"
+  gem "guard-coffeescript"
+  gem "guard-rails"
+  gem "guard-rspec"
+  gem "guard-spork"
+  gem "spork", "1.0.0rc4"
+  gem "growl"
+end
