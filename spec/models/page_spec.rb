@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe User do
+describe Page do
   subject { described_class.new }
 
-  [:username].each do |field|
+  [:issue, :slug, :title, :body].each do |field|
     it "has the ##{field} attribute" do
       expect(subject).to respond_to(field)
       expect(subject).to respond_to("#{field}=")
