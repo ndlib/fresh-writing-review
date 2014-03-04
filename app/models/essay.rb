@@ -1,4 +1,6 @@
 
 class Essay < ActiveRecord::Base
-  store :data, accessors: [ :body ]
+  belongs_to :issue
+
+  store :data, accessors: [ :body, :title ]
 end

@@ -8,7 +8,7 @@ describe Essay do
   end
 
   it "has the essay attributes" do
-    ['title', 'body'].each do | attr |
+    ['title', 'body', 'issue'].each do | attr |
       expect(@issue.respond_to?(attr)).to be_true
       expect(@issue.respond_to?("#{attr}=")).to be_true
     end
