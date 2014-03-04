@@ -1,4 +1,8 @@
+require 'hesburgh/symlink_shared'
+
 Capistrano::Configuration.instance(:must_exist).load do
+
+  set :recipe_symlinks, fetch(:recipe_symlinks) + ['/log', '/vendor/bundle', '/config/database.yml']
 
   _cset(:ruby) {fetch(:ruby_bin) ? File.join(ruby_bin, 'ruby') : 'ruby'}
   _cset(:bundler) {fetch(:ruby_bin) ? File.join(ruby_bin, 'bundle') : 'bundle'}
