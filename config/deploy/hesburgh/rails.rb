@@ -7,6 +7,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   _cset(:ruby) {fetch(:ruby_bin) ? File.join(ruby_bin, 'ruby') : 'ruby'}
   _cset(:bundler) {fetch(:ruby_bin) ? File.join(ruby_bin, 'bundle') : 'bundle'}
   _cset(:binstubs_path)  {File.join(shared_path, 'vendor/bundle/bin')}
+  unset(:rake)
   _cset(:rake) {"cd #{release_path}; #{fetch(:bundler)} exec #{File.join(fetch(:binstubs_path), 'rake')} RAILS_ENV=#{fetch(:rails_env)}"}
 
   after 'deploy:update_code',
