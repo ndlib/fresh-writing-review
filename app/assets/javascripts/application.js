@@ -17,3 +17,4 @@
 //= require_tree .
 //= font-awesome
 //= pagedown_bootstrap
+//= require pagedown_init
