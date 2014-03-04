@@ -7,6 +7,6 @@ class AddEssays < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :issue_id
+    add_index :essays, :issue_id
   end
 end
