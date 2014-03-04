@@ -14,7 +14,8 @@
 ActiveRecord::Schema.define(version: 20140303212759) do
 
   create_table "essays", force: true do |t|
-    t.text "data"
+    t.integer "issue_id"
+    t.text    "data"
   end
 
   create_table "issues", force: true do |t|
