@@ -15,6 +15,7 @@ module FreshWriting
     config.autoload_paths += Dir[Rails.root.join('lib', '{**}')]
     config.autoload_paths += Dir[Rails.root.join('app', 'view_models', '{*}')]
     config.autoload_paths += Dir[Rails.root.join('app', 'query', '{*}')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'service', '{*}')]
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
