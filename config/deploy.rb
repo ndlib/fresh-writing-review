@@ -1,0 +1,25 @@
+# Add the deploy directory to the load path
+$:.unshift File.join(File.dirname(__FILE__),'deploy')
+require 'hesburgh/common'
+require 'hesburgh/git'
+require 'hesburgh/vm'
+require 'hesburgh/rails'
+require 'hesburgh/jenkins'
+# require 'hesburgh/whenever'
+
+set :application, 'freshwriting'
+set :repository,  "git@git.library.nd.edu:fresh_writing"
+
+desc "Setup for the Pre-Production environment"
+task :pre_production do
+  # Customize pre_production configuration
+  set :rails_env, 'pre_production'
+  set :domain, "fwpprd-vm.library.nd.edu"
+end
+
+desc "Setup for the production environment"
+task :production do
+  # Customize production configuration
+  set :rails_env, 'production'
+  set :domain, "fwprod-vm.library.nd.edu"
+end
