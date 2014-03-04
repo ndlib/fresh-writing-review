@@ -1,0 +1,12 @@
+development:
+  token: sqBTwxqyU7zH3W4DxMzc
+  url: https://apipprd.library.nd.edu
+test:
+  token: sqBTwxqyU7zH3W4DxMzc
+  url: https://apipprd.library.nd.edu
+pre_production:
+  token: sqBTwxqyU7zH3W4DxMzc
+  url: https://apipprd.library.nd.edu
+production:
+  token: oPKY5x5xJNvdxGm8vH1g
+  url: https://api.library.nd.edu
