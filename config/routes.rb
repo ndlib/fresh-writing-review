@@ -8,6 +8,8 @@ FreshWriting::Application.routes.draw do
 
   get 'public/:action' => 'public'
 
+  resources :errors
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
