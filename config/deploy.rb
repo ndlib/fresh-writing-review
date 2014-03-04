@@ -4,6 +4,7 @@ require 'hesburgh/common'
 require 'hesburgh/git'
 require 'hesburgh/vm'
 require 'hesburgh/rails'
+require 'hesburgh/rails_db'
 require 'hesburgh/jenkins'
 # require 'hesburgh/whenever'
 
