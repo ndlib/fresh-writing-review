@@ -35,6 +35,8 @@ gem 'mysql2'
 gem "rb-readline"
 gem 'compass-rails' # Required for zurb-foundation
 gem 'zurb-foundation', '~> 3.2'
+gem 'font-awesome-rails'
+gem 'pagedown-bootstrap-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

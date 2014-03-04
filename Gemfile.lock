@@ -102,6 +102,8 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     ffi (1.9.3)
+    font-awesome-rails (4.0.3.1)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     fssm (0.2.10)
     growl (1.0.3)
@@ -166,6 +168,8 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
+    pagedown-bootstrap-rails (2.0.0)
+      railties (> 3.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -271,6 +275,7 @@ DEPENDENCIES
   devise_cas_authenticatable
   factory_girl_rails
   faker
+  font-awesome-rails
   growl
   guard
   guard-bundler
@@ -282,6 +287,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
+  pagedown-bootstrap-rails
   rails (= 4.0.3)
   rb-readline
   rspec-rails
