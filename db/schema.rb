@@ -11,28 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304182923) do
+ActiveRecord::Schema.define(version: 20140303212759) do
 
   create_table "essays", force: true do |t|
-    t.integer "issue_id"
-    t.text    "data"
-  end
-
-  create_table "issues", force: true do |t|
-    t.integer "year"
-    t.text    "data"
-  end
-
-  create_table "pages", force: true do |t|
     t.integer  "issue_id"
-    t.string   "slug"
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "pages", ["issue_id"], name: "index_pages_on_issue_id", using: :btree
-  add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
+  add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
+
+  create_table "issues", force: true do |t|
+    t.integer  "year"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username",                       null: false

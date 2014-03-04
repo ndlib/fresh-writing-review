@@ -1,17 +1,12 @@
 require 'spec_helper'
 
-
 describe Issue do
+  subject { described_class.new }
 
-  before(:each) do
-    @issue = Issue.new
-  end
-
-  it "has the issue attributes" do
-    ['year'].each do | attr |
-      expect(@issue.respond_to?(attr)).to be_true
-      expect(@issue.respond_to?("#{attr}=")).to be_true
+  [:year, :editorial_notes, :editorial_board, :acknowledgments].each do |field|
+    it "has the ##{field} attribute" do
+      expect(subject).to respond_to(field)
+      expect(subject).to respond_to("#{field}=")
     end
   end
-
 end
