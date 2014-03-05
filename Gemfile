@@ -33,6 +33,9 @@ gem 'mysql2'
 gem "rb-readline"
 gem 'simple_form'
 
+# Extended PORO functionality
+gem 'virtus'
+
 # for zurb-foundation
 gem 'compass-rails' 
 gem 'zurb-foundation', '~> 3.2'
