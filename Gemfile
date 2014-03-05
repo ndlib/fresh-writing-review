@@ -37,6 +37,9 @@ gem 'simple_form'
 # Extended PORO functionality
 gem 'virtus'
 
+# for file uploads
+gem 'paperclip'
+
 # two gems for markdown editor
 gem 'font-awesome-rails'
 gem 'pagedown-bootstrap-rails'
