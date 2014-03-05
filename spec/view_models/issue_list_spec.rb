@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe IssueList, type: :model do
+describe IssueList do
   let(:controller) { double(ApplicationController) }
 
   subject { described_class.build(controller) }
