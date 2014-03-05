@@ -26,13 +26,19 @@ ActiveRecord::Schema.define(version: 20140304232231) do
   end
 
   create_table "essays", force: true do |t|
-    t.integer "issue_id"
-    t.text    "data"
+    t.integer  "issue_id"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
+  add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
+
   create_table "issues", force: true do |t|
-    t.integer "year"
-    t.text    "data"
+    t.integer  "year"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", force: true do |t|
