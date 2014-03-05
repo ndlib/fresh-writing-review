@@ -27,15 +27,15 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'devise_cas_authenticatable'
+gem 'foundation-rails'
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 gem 'mysql2'
 gem "rb-readline"
 gem 'simple_form'
 
-# for zurb-foundation
-gem 'compass-rails' 
-gem 'zurb-foundation', '~> 3.2'
+# Extended PORO functionality
+gem 'virtus'
 
 # two gems for markdown editor
 gem 'font-awesome-rails'

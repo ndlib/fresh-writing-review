@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
 //= require pagedown_bootstrap
 //= require pagedown_init
+
+$(function(){ $(document).foundation(); });
