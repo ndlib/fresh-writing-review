@@ -1,4 +1,4 @@
-class AddErrorLog < ActiveRecord::Migration
+class CreateErrorLog < ActiveRecord::Migration
   def change
     create_table "error_logs", force: true do |t|
       t.string   "netid"
