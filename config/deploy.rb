@@ -10,6 +10,7 @@ require 'hesburgh/jenkins'
 
 set :application, 'freshwriting'
 set :repository,  "git@git.library.nd.edu:fresh_writing"
+set :application_symlinks, ['config/initializers/devise_secret.rb']
 
 desc "Setup for the Pre-Production environment"
 task :pre_production do
