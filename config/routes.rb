@@ -15,4 +15,6 @@ FreshWriting::Application.routes.draw do
   resources :errors
 
   resources :essays
+
+  resources :issues
 end
