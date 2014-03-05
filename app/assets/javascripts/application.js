@@ -15,6 +15,5 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
-//= font-awesome
-//= pagedown_bootstrap
+//= require pagedown_bootstrap
 //= require pagedown_init
