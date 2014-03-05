@@ -6,5 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+Essay.delete_all
 Essay.create(id: 1, title: "Super Essay", body: 'TEXT GOES HERE'  )
+Essay.create(id: 2, title: "You Tube", body: "You tube is awesome", embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/unWnZvXJH2o" frameborder="0" allowfullscreen></iframe>')

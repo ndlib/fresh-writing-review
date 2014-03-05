@@ -34,6 +34,9 @@ gem 'mysql2'
 gem "rb-readline"
 gem 'simple_form'
 
+# Extended PORO functionality
+gem 'virtus'
+
 # two gems for markdown editor
 gem 'font-awesome-rails'
 gem 'pagedown-bootstrap-rails'
