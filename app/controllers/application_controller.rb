@@ -1,5 +1,3 @@
-require 'controller_error_trapping'
-
 class ApplicationController < ActionController::Base
 
   # Prevent CSRF attacks by raising an exception.
