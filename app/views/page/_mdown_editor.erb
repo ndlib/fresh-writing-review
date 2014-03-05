@@ -1,0 +1,19 @@
+<%= simple_form_for @page, :url => pages_path(@page), html: {class: "form-horizontal"} do |f| %>
+
+  <div class="control-group">
+    <%= f.label :content, "Page Content", class: "control-label" %>
+    <div class="controls wmd-panel" style="margin-left:0px;">
+      <%= f.input :content, cols: 40, rows: 20, label:false, :as => :pagedown, :input_html => { :preview => true } %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="form-actions">
+      <%= f.submit "Update", class: "btn btn-primary" %>
+      <button type="button" class="btn">Cancel</button>
+    </div>
+  </div>
+
+<% end %>
+
+

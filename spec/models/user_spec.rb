@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { described_class.new }
+
+  [:username].each do |field|
+    it "has the ##{field} attribute" do
+      expect(subject).to respond_to(field)
+      expect(subject).to respond_to("#{field}=")
+    end
+  end
 end

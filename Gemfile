@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -16,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -30,12 +27,19 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'devise_cas_authenticatable'
+gem 'foundation-rails'
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 gem 'mysql2'
 gem "rb-readline"
-gem 'compass-rails' # Required for zurb-foundation
-gem 'zurb-foundation', '~> 3.2'
+gem 'simple_form'
+
+# two gems for markdown editor
+gem 'font-awesome-rails'
+gem 'pagedown-bootstrap-rails'
+
+# for the error model
+gem 'state_machine'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
