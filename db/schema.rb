@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304232231) do
+ActiveRecord::Schema.define(version: 20140305192000) do
 
   create_table "error_logs", force: true do |t|
     t.string   "netid"
@@ -42,7 +42,19 @@ ActiveRecord::Schema.define(version: 20140304232231) do
   end
 
   create_table "pages", force: true do |t|
-    t.text "data"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages_images", force: true do |t|
+    t.integer  "page_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
