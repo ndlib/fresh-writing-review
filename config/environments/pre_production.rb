@@ -81,4 +81,5 @@ FreshWriting::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.cas_base = 'https://login-test.cc.nd.edu/cas'
+  Paperclip.options[:command_path] = "/usr/local/bin"
 end
