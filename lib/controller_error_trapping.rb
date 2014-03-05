@@ -1,4 +1,3 @@
-require 'error_trapping'
 
 module ControllerErrorTrapping
 
