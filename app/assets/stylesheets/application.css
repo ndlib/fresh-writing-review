@@ -12,3 +12,104 @@
  *= require foundation_and_overrides
  *= require_tree .
  */
+
+/* Fonts
+   ----------------------------------------------------*/
+@font-face {font-family:NDIcons;
+  src:url('//www.nd.edu/assets/fonts/nd.v2.eot');
+  src:url('//www.nd.edu/assets/fonts/nd.v2.eot?iefix') format('embedded-opentype'),
+      url('//www.nd.edu/assets/fonts/nd.v2.woff') format('woff'),
+      url('//www.nd.edu/assets/fonts/nd.v2.ttf') format('truetype'),
+      url('//www.nd.edu/assets/fonts/nd.v2.svg') format('svg');
+}
+@font-face {font-family:GPC; font-weight:300; font-style:normal;
+  src:url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Book.min.eot');
+  src:url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Book.min.eot?iefix') format('embedded-opentype'),
+      url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Book.min.woff') format('woff'),
+      url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Book.min.ttf') format('truetype');
+}
+@font-face {font-family:GPC; font-weight:400; font-style:normal;
+  src:url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.eot');
+  src:url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.eot?iefix') format('embedded-opentype'),
+      url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.woff') format('woff'),
+      url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.ttf') format('truetype');
+}
+
+/* HEADER
+     ----------------------------------------------------*/
+  .site-header {margin:0; text-align:center;}
+  .brandbar,
+  .titlebar {overflow:hidden;}
+
+   .brandbar ul {margin:0; list-style:none;}
+   .brandbar li {margin:0;}
+
+  .dept { border-top: 1px solid  #000; @include box-shadow(0 1px 0 rgba(0,122,217,0.4) inset);}
+  .site-header li {margin:0; padding:0;}
+  .brandbar a {display:block;  margin:0 auto; text-decoration:none; height:50px; text-indent:-9999px; overflow:hidden; background-repeat:no-repeat;}
+  .dept-nd img {display:none;}
+    .dept-nd a {background-position:left 0;}
+    .dept a {background-position:right 0;}
+
+  .titlebar {padding:0.75em 0;}
+  .site-title {clear:both; margin:0.4em auto; padding:0; line-height:1em; font-size:1.75em; font-weight:300; text-shadow:0 1px rgba(255,255,255,0.7);}
+   .site-title a {display:block; border:none; color:#002b5b; text-decoration:none;}
+    .site-title  a:visited {color:#002b5b;}
+    .site-title  a:hover {text-decoration:none;}
+  
+
+ 
+
+
+  .site-header {text-align:left;}
+  .brandbar,
+  .titlebar {padding:0;}
+  .dept-nd a {float:left; height:50px;}
+  .dept {border-top:0 none; @include box-shadow(none);}
+  .dept a {float:right; height:50px;}
+
+
+
+  /* Footer */
+  .site-footer {padding-top:2em; text-align:left;}
+    .contact-info {margin:0;}
+    .address {margin:0;}
+    .ndmark {position:absolute; right:0; top:2em; margin:0;}
+    .site-link {display:block;}
+    .org {display:inline;}
+
+
+@media screen,projection {
+
+  /** Brand Bar **/
+  .brandbar.theme-bb-blue {border-bottom:1px solid #001227;
+    @include box-shadow(0 1px #007ad9 inset, 0 -12px 3px -10px rgba(0,0,0,0.4) inset);
+    background:#002b5b url(images/texture-checkers-lightblue50.png) 0 0 repeat;
+    background:-webkit-linear-gradient(top, #003b7c 0%, #001227 100%);
+    background:   -moz-linear-gradient(top, #003b7c 0%, #001227 100%);
+    background:        linear-gradient(top, #003b7c 0%, #001227 100%);
+  }
+
+  .theme-bb-gold .dept { border-top: 1px solid  #600;
+    @include box-shadow(0 1px rgba(255,255,255,.4) inset);
+  }
+
+    /** White Text (Default) **/
+    .dept-nd a   {width:301px; background-image:url(//www.nd.edu/assets/images/brandbar/dept-nd-white.png);}
+    .dept-coal a {width:316px; background-image:url(//www.nd.edu/assets/images/brandbar/dept-coal-white.png);} /* College of Arts and Letters */
+    
+  
+}
+/* 700px
+   ----------------------------------------------------*/
+@media only screen and (min-width:43.75em) {
+  .theme-tb-blue .header-util a,
+  .theme-tb-blue .header-util a:hover {color:#fff; text-shadow:0 1px rgba(0,0,0,.9);}
+}
+
+/* 920px
+   ----------------------------------------------------*/
+@media only screen and (min-width:57.5em) {
+  .theme-bb-gold .dept {border-top:0 none; @include box-shadow(none);}
+}
+
