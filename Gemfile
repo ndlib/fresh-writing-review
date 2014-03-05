@@ -31,11 +31,18 @@ gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastruct
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 gem 'mysql2'
 gem "rb-readline"
-gem 'compass-rails' # Required for zurb-foundation
+gem 'simple_form'
+
+# for zurb-foundation
+gem 'compass-rails' 
 gem 'zurb-foundation', '~> 3.2'
+
+# two gems for markdown editor
 gem 'font-awesome-rails'
 gem 'pagedown-bootstrap-rails'
-gem 'simple_form'
+
+# for the error model
+gem 'state_machine'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

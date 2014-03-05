@@ -11,5 +11,7 @@ FreshWriting::Application.routes.draw do
   scope :admin do
     resources :pages, :controller => :page, :only => [:new, :create, :edit, :update]
   end
+  
+  resources :errors
 
 end

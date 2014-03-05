@@ -4,6 +4,7 @@ class AddIssues < ActiveRecord::Migration
     create_table 'issues' do | t |
       t.integer :year
       t.text :data
+      t.timestamps
     end
 
 

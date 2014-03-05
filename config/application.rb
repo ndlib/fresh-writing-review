@@ -12,11 +12,16 @@ module FreshWriting
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.autoload_paths += %W(#{config.root}/lib)
-    config.autoload_paths += Dir[Rails.root.join('lib', '{**}')]
-    config.autoload_paths += Dir[Rails.root.join('app', 'view_models', '{*}')]
-    config.autoload_paths += Dir[Rails.root.join('app', 'query', '{*}')]
-    config.autoload_paths += Dir[Rails.root.join('app', 'service', '{*}')]
+    additional_autoload_directories = [
+      Rails.root.join('lib'),
+      Rails.root.join('app', 'view_models'),
+      Rails.root.join('app', 'query'),
+      Rails.root.join('app', 'service')
+    ]
+    additional_autoload_directories.each do |directory|
+      config.autoload_paths += Dir[directory]
+      config.autoload_paths += Dir[File.join(directory, '{**}')].find_all { |f| File.stat(f).directory? }
+    end
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
