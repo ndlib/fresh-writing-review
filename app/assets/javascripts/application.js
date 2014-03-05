@@ -18,3 +18,5 @@
 //= require_tree .
 //= require pagedown_bootstrap
 //= require pagedown_init
+
+$(function(){ $(document).foundation(); });
