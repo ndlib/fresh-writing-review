@@ -1,0 +1,118 @@
+$lt-green: #A4A774;
+$dk-green: #44834B;
+$lt-grey : #ABABAB;
+$dk-grey : #111111;
+$yellow : #FFC926;
+$page: 900px;
+$headers : "Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
+
+
+body {
+	background: url(/assets/bg.png) repeat-x 0 50px;
+}
+
+.branding {
+	border-top:solid 11px $lt-green;
+	border-bottom:solid 3px $lt-green;
+	height: 139px;
+
+}
+
+.branding .columns {
+	position: relative;
+	height: 125px;
+}
+
+.branding h2 {
+	font-size:1.8rem;
+	color:$lt-green;
+	font-family: $headers;
+	width:280px;
+	position: absolute;
+	left:0.9375rem;
+	bottom:0;
+}
+
+.top-bar {
+	background:none;
+}
+
+.top-bar-section ul, .top-bar-section ul a, .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section a:hover {
+	background:none !important;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+	line-height: 1em;
+}
+
+.top-bar-section ul li {
+	padding:0 15px;
+}
+
+.top-bar-section ul li:first-child {
+	padding-left: 0;
+}
+
+.top-bar-section ul li > a:link {
+	font-family: $headers;
+	color:$lt-grey !important;
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	padding:5px 0;
+	border-bottom:solid 3px #fff;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+	padding:5px 0;
+	color: $lt-grey !important;
+	border-bottom:solid 3px #fff;
+}
+
+.top-bar-section ul li > a:hover {
+	color:$lt-grey;
+	border-bottom:solid 3px $yellow !important;
+	text-decoration: none;
+}
+
+.top-bar-section .has-dropdown > a {
+	padding-right: 0 !important;
+}
+
+article {
+	h1 {
+	color:$dk-green;
+	font-size: 3.2rem;
+	font-family: $headers;
+	font-weight: normal;
+	}
+	h2 {
+	color:$lt-green;
+	font-size: 1.8rem;
+	font-family: $headers;
+	font-weight: normal;
+	}
+}
+
+.discussion {
+  border-top:solid 1px #c4c4c4;
+  h3 {
+  	color:$dk-green;
+  	font-size:1.8rem;
+  }
+  ul {
+  	margin-left:48px;
+  	margin-right:30px;
+  }
+  li {
+  	font-size:1.4rem;
+  	color: $dk-grey;
+  	list-style-image: url(/assets/bullet.png);
+  	margin-bottom: 1em;
+  }
+}
+
+
+#header .row, #navigation, .page-body, #footer {
+	width:$page;
+	margin:0 auto;
+}
