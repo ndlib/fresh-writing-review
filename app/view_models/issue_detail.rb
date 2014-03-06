@@ -7,7 +7,7 @@ class IssueDetail
     self.new(issue)
   end
 
-  delegate :friendly_id, :year, :editorial_notes, :editorial_board, :acknowledgments, to: :issue
+  delegate :friendly_id, :year, :essays, :editorial_notes, :editorial_board, :acknowledgments, to: :issue
 
   def initialize(issue)
     @issue = issue

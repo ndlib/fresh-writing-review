@@ -5,7 +5,12 @@
   <li><%= @issue_detail.link_to_acknowledgments %></li>
 </ul>
 <hr>
-<h2>Hightlighted Essay Carousel</h2>
+<h2>Essays</h2>
+<ul>
+  <% @issue_detail.essays.each do |essay| %>
+    <li><%= link_to(essay.title, issue_essay_path(@issue_detail.friendly_id, essay.friendly_id)) %></li>
+  <% end %>
+</ul>
 <hr>
 <h2>Essay Styles</h2>
 <ul>
