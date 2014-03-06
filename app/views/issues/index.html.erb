@@ -1,6 +1,6 @@
 <h1>Issues</h1>
 <ul>
   <% @issue_list.each do |issue| %>
-    <li><%= link_to(issue.year, issue_path(issue)) %></li>
+    <li><%= @issue_list.link_to_issue(issue) %></li>
   <% end %>
 </ul>

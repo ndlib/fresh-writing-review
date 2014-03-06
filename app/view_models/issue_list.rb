@@ -13,6 +13,10 @@ class IssueList
     @issues = issues
   end
 
+  def link_to_issue(issue)
+    helpers.link_to(issue.year, routes.issue_path(issue.year))
+  end
+
   private
     def issues
       @issues
