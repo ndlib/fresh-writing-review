@@ -3,14 +3,13 @@ class EssayDetail
   include RailsHelpers
 
   def self.build(controller)
-    issue = IssueQuery.year(controller.params[:issue_id])
-    essay = EssayQuery.find(controller.params[:id])
+    issue = IssueQuery.find(controller.params[:issue_id])
+    essay = EssayQuery.essay_for_issue_from_url(issue, controller.params[:id])
 
     self.new(essay)
   end
 
   delegate :title, :author, to: :essay
-
 
   attr_accessor :essay
 

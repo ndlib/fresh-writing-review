@@ -28,15 +28,16 @@ describe EssayQuery do
 
 
     it "returns the essay for a specific issue" do
-      expect(EssayQuery.essay_for_issue_from_url(@essay.issue.id, @essay.id)).to eq(@essay)
+      expect(EssayQuery.essay_for_issue_from_url(@essay.issue, @essay.friendly_id)).to eq(@essay)
     end
 
     it "raises active record not found when the issue is not found " do
-      expect{ EssayQuery.essay_for_issue_from_url(0, @essay.id)}.to raise_error(ActiveRecord::RecordNotFound)
+      i = FactoryGirl.create(:issue)
+      expect{ EssayQuery.essay_for_issue_from_url(i, @essay.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it "raises active record not found when the id is not found" do
-      expect{ EssayQuery.essay_for_issue_from_url(@essay.issue.id, 0)}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ EssayQuery.essay_for_issue_from_url(@essay.issue, 0)}.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
