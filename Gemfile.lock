@@ -217,6 +217,7 @@ GEM
     rb-readline (0.5.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    redcarpet (3.1.1)
     ref (1.0.5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -320,6 +321,7 @@ DEPENDENCIES
   paperclip
   rails (= 4.0.3)
   rb-readline
+  redcarpet
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc

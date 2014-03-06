@@ -2,6 +2,7 @@
 
 class MarkDownConverter
 
+  include RailsHelpers
 
   def self.call(text)
     self.new(text).convert
@@ -14,7 +15,7 @@ class MarkDownConverter
 
 
   def convert
-    renderer.render(@text)
+    helpers.raw renderer.render(@text)
   end
 
 

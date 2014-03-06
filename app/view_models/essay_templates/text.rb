@@ -1,9 +1,9 @@
-class TextEssayDetail
+class EssayTemplates::Text
 
   include RailsHelpers
 
   attr_accessor :essay
-  delegate :alt_title, :alt_body, to: :essay
+  delegate :alt_title, to: :essay
 
   def initialize(essay)
     @essay = essay
@@ -15,13 +15,13 @@ class TextEssayDetail
   end
 
 
-  def title
-    @essay.title
+  def alt_body
+    MarkDownConverter.call(@essay.alt_body)
   end
 
 
   def render
-    ApplicationController.new.render_to_string(partial: '/essays/text_template', locals: { object: self })
+    render_to_string('/essays/text_template', { object: self })
   end
 
 
@@ -29,12 +29,6 @@ class TextEssayDetail
     if show_alt_body?
       yield
     end
-  end
-
-
-
-  def render_values
-    { partial: '/essays/text_template', locals: { object: self }}
   end
 
 

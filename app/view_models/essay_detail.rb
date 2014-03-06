@@ -19,7 +19,7 @@ class EssayDetail
 
 
   def render
-    helpers.raw display_template.render
+    display_template.render
   end
 
   protected
@@ -30,9 +30,11 @@ class EssayDetail
 
     def determine_template_class
       if @essay.template == 'text'
-        TextEssayDetail
+        EssayTemplates::Text
+      elsif @essay.template == 'media'
+        EssayTemplates::Media
       else
-        MediaEssayDetail
+        raise "Invalid Template"
       end
     end
 
