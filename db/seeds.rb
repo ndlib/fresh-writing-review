@@ -13,10 +13,10 @@ end
 
 issue_id = Issue.first.id
 Essay.delete_all
-Essay.create(id: 1, issue_id: issue_id, template: 'text', title: "1 section text", body: IO.read(Rails.root.join('spec', 'fixtures', 'narrative_text.txt')))
-Essay.create(id: 2, issue_id: issue_id, template: 'media', title: "No Transcript", body: IO.read(Rails.root.join('spec', 'fixtures', 'video_text.txt')), embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/unWnZvXJH2o" frameborder="0" allowfullscreen></iframe>')
-Essay.create(id: 3, issue_id: issue_id, template: 'text', title: "2 section text", body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part1.txt')), alt_body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part2.txt')), alt_title: "Pied Beauty")
-Essay.create(id: 4, issue_id: issue_id, template: 'media', title: "Transcript", body: IO.read(Rails.root.join('spec', 'fixtures', 'video_text.txt')), embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/unWnZvXJH2o" frameborder="0" allowfullscreen></iframe>', alt_body: "Transcript", alt_title: 'Body section title')
+Essay.create(id: 1, issue_id: issue_id, template: 'text', title: "1 section text", body: IO.read(Rails.root.join('spec', 'fixtures', 'narrative_text.txt')), author: "Terence Clines")
+Essay.create(id: 2, issue_id: issue_id, template: 'media', title: "No Transcript", body: IO.read(Rails.root.join('spec', 'fixtures', 'video_text.txt')), embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/unWnZvXJH2o" frameborder="0" allowfullscreen></iframe>', author: "Terence Clines")
+Essay.create(id: 3, issue_id: issue_id, template: 'text', title: "2 section text", body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part1.txt')), alt_body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part2.txt')), alt_title: "Pied Beauty", author: "Terence Clines")
+Essay.create(id: 4, issue_id: issue_id, template: 'media', title: "Transcript", body: IO.read(Rails.root.join('spec', 'fixtures', 'video_text.txt')), embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/unWnZvXJH2o" frameborder="0" allowfullscreen></iframe>', alt_body: "Transcript", alt_title: 'Body section title', author: "Terence Clines")
 
 
 
