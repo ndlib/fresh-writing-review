@@ -1,5 +1,3 @@
-
-
 class EssayDetail
 
   include RailsHelpers
@@ -10,66 +8,33 @@ class EssayDetail
     self.new(essay)
   end
 
-  attr_accessor :essay
-
   delegate :title, to: :essay
 
+
+  attr_accessor :essay
 
   def initialize(essay)
     @essay = essay
   end
 
 
-  def body_top
-    @essay.body
+  def render
+    helpers.raw display_template.render
   end
 
+  protected
 
-  def body_bottom
+    def display_template
+      @template ||= determine_template_class.new(essay)
+    end
 
-  end
-
-
-  def media_bar
-
-  end
-
-  def body
-  end
-
-
-  private
-
-    def detail_type
-      if @essay.embed.present?
-        YouTubeVideoEssayDetail.new()
+    def determine_template_class
+      if @essay.template == 'text'
+        TextEssayDetail
       else
-
+        MediaEssayDetail
       end
     end
-end
 
-
-
-class TextEssayDetail
-  def body
-
-  end
-end
-
-
-class YouTubeVideoEssayDetail
-  def body
-
-  end
-end
-
-class CalturaVideoEssayDetail
-end
-
-class CalturaAudioEssayDetail
-end
-
-class ImageGalleryEssayDetail
 end
 

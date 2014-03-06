@@ -13,7 +13,7 @@ describe EssayQuery do
 
 
     it "raises active record not found when it is not found" do
-      expect{ EssayQuery.find(312)}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ EssayQuery.find(0)}.to raise_error(ActiveRecord::RecordNotFound)
     end
 
   end
