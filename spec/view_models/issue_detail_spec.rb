@@ -53,4 +53,11 @@ describe IssueDetail do
       expect(subject.link_to_acknowledgments).to match "/issues/#{issue.year}/acknowledgments"
     end
   end
+
+  describe '#essay_styles' do
+    it 'calls EssayStyleQuery' do
+      expect(EssayStyleQuery).to receive(:all)
+      subject.essay_styles
+    end
+  end
 end

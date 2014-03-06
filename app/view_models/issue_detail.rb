@@ -29,6 +29,10 @@ class IssueDetail
     helpers.link_to("Acknowledgments", routes.acknowledgments_issue_path(year))
   end
 
+  def essay_styles
+    EssayStyleQuery.all
+  end
+
   private
     def issue
       @issue
