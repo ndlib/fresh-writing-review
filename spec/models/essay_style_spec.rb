@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe EssayStyle do
-  subject { FactoryGirl.build(:essay_style) }
+  subject { described_class.new }
 
   [:title].each do |field|
     it "has the ##{field} attribute" do
@@ -12,7 +12,9 @@ describe EssayStyle do
 
   describe '#friendly_id' do
     it "is based on the title" do
-      expect(subject.friendly_id).to be == subject.title.downcase
+      subject.title = 'Test'
+      subject.save
+      expect(subject.friendly_id).to be == 'test'
     end
   end
 end
