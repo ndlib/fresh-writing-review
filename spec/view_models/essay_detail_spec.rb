@@ -13,36 +13,44 @@ describe EssayDetail do
 
   end
 
-  let(:essay) { double(Essay, title: 'title', template: "text", body: "", alt_body: "", alt_title: "") }
+  let(:essay) { double(Essay, title: 'title', template: "text", body: "", alt_body: "", alt_title: "", author: "Bob Bobbers") }
+  subject { described_class.new(essay)}
 
   describe :title do
 
     it "delegates this to essay" do
       expect(essay).to receive(:title)
 
-      EssayDetail.new(essay).title
+      subject.title
     end
   end
 
+
+  describe :author do
+
+    it "creates a named anchor link and adds the by text" do
+      expect(subject.author).to eq("By <a href=\"#author_biography\">Bob Bobbers</a>")
+    end
+  end
 
   describe :determine_template_class do
 
     it "determines the template is text_template when the essay template is text" do
       essay.stub(:template).and_return('text')
 
-      expect(EssayDetail.new(essay).send(:determine_template_class)).to eq(EssayTemplates::Text)
+      expect(subject.send(:determine_template_class)).to eq(EssayTemplates::Text)
     end
 
     it "determines the template is media_template when the essay template is text" do
       essay.stub(:template).and_return('media')
 
-      expect(EssayDetail.new(essay).send(:determine_template_class)).to eq(EssayTemplates::Media)
+      expect(subject.send(:determine_template_class)).to eq(EssayTemplates::Media)
     end
 
     it "raises an exception if the essay template is incorrect" do
       essay.stub(:template).and_return('not_a_template')
 
-      expect { EssayDetail.new(essay).send(:determine_template_class)}.to raise_error
+      expect {subject.send(:determine_template_class)}.to raise_error
     end
   end
 
@@ -50,10 +58,9 @@ describe EssayDetail do
   describe :render do
 
     it "passes the render off to the determinied template" do
-      ed = EssayDetail.new(essay)
-      expect(ed.send(:display_template)).to receive(:render)
+      expect(subject.send(:display_template)).to receive(:render)
 
-      ed.render
+      subject.render
     end
   end
 

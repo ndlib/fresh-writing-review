@@ -18,6 +18,26 @@ class EssayDetail
   end
 
 
+  def author
+    helpers.raw "By #{helpers.link_to(@essay.author, "#author_biography")}"
+  end
+
+
+  def biography
+
+  end
+
+
+  def discussion_questions
+
+  end
+
+
+  def citation
+
+  end
+
+
   def render
     display_template.render
   end
