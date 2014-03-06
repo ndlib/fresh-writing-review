@@ -1,4 +1,4 @@
-class AddIssues < ActiveRecord::Migration
+class CreateIssues < ActiveRecord::Migration
   def change
 
     create_table 'issues' do | t |

@@ -26,7 +26,7 @@ class EssayList
   def highlighted_essay
     e = HighlightedEssay.new(find_essay)
 
-    helpers.render 'highlight_partial', locals: highlighted_essay: e
+    helpers.render 'highlight_partial', locals: {highlighted_essay: e}
   end
 
 

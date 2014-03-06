@@ -30,4 +30,5 @@ FreshWriting::Application.configure do
   config.assets.debug = true
 
   config.cas_base = 'https://cas.library.nd.edu/cas'
+  Paperclip.options[:command_path] = "/usr/local/bin"
 end

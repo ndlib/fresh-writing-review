@@ -1,0 +1,15 @@
+<h1><%= @issue_detail.year %></h1>
+<ul>
+  <li><%= @issue_detail.link_to_editorial_notes %></li>
+  <li><%= @issue_detail.link_to_editorial_board %></li>
+  <li><%= @issue_detail.link_to_acknowledgments %></li>
+</ul>
+<hr>
+<h2>Hightlighted Essay Carousel</h2>
+<hr>
+<h2>Essay Styles</h2>
+<ul>
+  <% @issue_detail.essay_styles.each do |style| %>
+    <li><%= style.link_to_show %></li>
+  <% end %>
+</ul>
