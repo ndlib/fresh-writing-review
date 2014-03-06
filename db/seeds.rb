@@ -14,3 +14,8 @@ Issue.delete_all
 [2014,2013,2012].each do |year|
   Issue.create(year: year, editorial_notes: "Notes for #{year}", editorial_board: "Editorial Board for #{year}", acknowledgments: "Acknowledgments for #{year}")
 end
+
+EssayStyle.delete_all
+%w(Narrative Analysis Research Definition Rebuttal Reflective).each do |style|
+  EssayStyle.create(slug: style.downcase, title: style)
+end
