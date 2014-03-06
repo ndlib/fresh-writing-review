@@ -3,19 +3,19 @@
 
   <ul class="left">
     <li>
-      <a href="#">Home</a>
+      <%= link_to("Home", root_path) %>
     </li>
     <li class="has-dropdown">
-      <a href="#">Issues</a>
+      <%= link_to("Issues", issues_path) %>
       <ul class="dropdown">
         <li>
-          <a href="#">2014</a>
+          <%= link_to(2014, issue_path(2014)) %>
         </li>
         <li>
-          <a href="#">2013</a>
+          <%= link_to(2013, issue_path(2013)) %>
         </li>
         <li>
-          <a href="">Full Archive</a>
+          <%= link_to("Full Archive", issues_path) %>
         </li>
       </ul>
     </li>
