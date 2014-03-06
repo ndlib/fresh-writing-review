@@ -5,7 +5,7 @@ describe EssayStylesController do
   let(:essay_style) { FactoryGirl.create(:essay_style) }
   describe "#show" do
     it "succeeds" do
-      get :show, issue_id: issue.year, id: essay_style.slug
+      get :show, issue_id: issue.friendly_id, id: essay_style.friendly_id
       expect(response).to be_success
     end
   end

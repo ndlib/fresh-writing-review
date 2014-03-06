@@ -1,4 +1,6 @@
-STYLES = %w(Narrative Analysis Research Definition Rebuttal Reflective)
+if !defined?(STYLES)
+  STYLES = %w(Narrative Analysis Research Definition Rebuttal Reflective)
+end
 FactoryGirl.define do
 
   factory :essay_style do

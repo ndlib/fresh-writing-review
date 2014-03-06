@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140306161812) do
     t.datetime "updated_at"
   end
 
-  add_index "essay_styles", ["slug"], name: "index_essay_styles_on_slug", using: :btree
+  add_index "essay_styles", ["slug"], name: "index_essay_styles_on_slug", unique: true, using: :btree
 
   create_table "essays", force: true do |t|
     t.integer  "issue_id"
@@ -45,10 +45,13 @@ ActiveRecord::Schema.define(version: 20140306161812) do
 
   create_table "issues", force: true do |t|
     t.integer  "year"
+    t.string   "slug"
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "issues", ["slug"], name: "index_issues_on_slug", unique: true, using: :btree
 
   create_table "pages", force: true do |t|
     t.text     "data"
