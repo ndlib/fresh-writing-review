@@ -45,12 +45,20 @@ body {
 	line-height: 1em;
 }
 
+.top-bar-section ul {
+	width: 100%;
+}
+
 .top-bar-section ul li {
-	padding:0 15px;
+	padding:0 47px;
 }
 
 .top-bar-section ul li:first-child {
 	padding-left: 0;
+}
+.top-bar-section ul li:last-child {
+	padding-right:0;
+	float: right;
 }
 
 .top-bar-section ul li > a:link {
