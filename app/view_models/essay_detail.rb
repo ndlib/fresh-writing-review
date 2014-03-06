@@ -3,6 +3,7 @@ class EssayDetail
   include RailsHelpers
 
   def self.build(controller)
+    issue = IssueQuery.year(controller.params[:issue_id])
     essay = EssayQuery.find(controller.params[:id])
 
     self.new(essay)
