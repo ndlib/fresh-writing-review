@@ -15,4 +15,12 @@ FreshWriting::Application.routes.draw do
   resources :errors
 
   resources :essays
+
+  resources :issues do
+    member do
+      get :editorial_board, path: "editorial-board"
+      get :acknowledgments
+      get :editorial_notes, path: "note"
+    end
+  end
 end

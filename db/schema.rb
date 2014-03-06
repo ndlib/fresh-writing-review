@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305192000) do
+ActiveRecord::Schema.define(version: 20140306161812) do
 
   create_table "error_logs", force: true do |t|
     t.string   "netid"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20140305192000) do
     t.text     "user_agent"
     t.string   "exception_class"
   end
+
+  create_table "essay_styles", force: true do |t|
+    t.string   "slug"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "essay_styles", ["slug"], name: "index_essay_styles_on_slug", using: :btree
 
   create_table "essays", force: true do |t|
     t.integer  "issue_id"
@@ -56,6 +65,8 @@ ActiveRecord::Schema.define(version: 20140305192000) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pages_images", ["page_id"], name: "index_pages_images_on_page_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                       null: false
