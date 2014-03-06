@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe IssueDetail do
   let(:issue) { FactoryGirl.create(:issue) }
-  let(:controller) { double(ApplicationController, params: ActionController::Parameters.new(id: issue.year)) }
+  let(:controller) { double(ApplicationController, params: ActionController::Parameters.new(id: issue.friendly_id)) }
 
   subject { described_class.build(controller) }
 

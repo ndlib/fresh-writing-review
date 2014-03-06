@@ -11,24 +11,13 @@ describe EssayStyleQuery do
   end
 
   describe '#find' do
-    it "returns the requested record" do
-      expect(subject.find(essay_style.id)).to eq(essay_style)
+    it "returns the requested record by friendly id" do
+      expect(subject.find(essay_style.friendly_id)).to eq(essay_style)
     end
 
 
     it "raises an error when the record doesn't exist" do
-      expect{ subject.find(0)}.to raise_error(ActiveRecord::RecordNotFound)
-    end
-  end
-
-  describe '#slug' do
-    it "returns the requested record" do
-      expect(subject.slug(essay_style.slug)).to eq(essay_style)
-    end
-
-
-    it "raises an error when the record doesn't exist" do
-      expect{ subject.slug(essay_style.slug + "test")}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ subject.find('fake')}.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end

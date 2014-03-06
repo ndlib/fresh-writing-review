@@ -19,24 +19,13 @@ describe IssueQuery do
   end
 
   describe '#find' do
-    it "returns the requested record" do
-      expect(subject.find(issue.id)).to eq(issue)
+    it "returns the requested record by friendly id" do
+      expect(subject.find(issue.friendly_id)).to eq(issue)
     end
 
 
     it "raises an error when the record doesn't exist" do
-      expect{ subject.find(0)}.to raise_error(ActiveRecord::RecordNotFound)
-    end
-  end
-
-  describe '#year' do
-    it "returns the requested record" do
-      expect(subject.year(issue.year)).to eq(issue)
-    end
-
-
-    it "raises an error when the record doesn't exist" do
-      expect{ subject.year(issue.year - 1)}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ subject.find('fake')}.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end

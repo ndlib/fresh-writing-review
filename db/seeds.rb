@@ -22,6 +22,6 @@ Essay.create(id: 4, issue_id: issue_id, template: 'media', title: "Transcript", 
 
 EssayStyle.delete_all
 %w(Narrative Analysis Research Definition Rebuttal Reflective).each do |style|
-  EssayStyle.create(slug: style.downcase, title: style)
+  EssayStyle.create(title: style)
 end
 

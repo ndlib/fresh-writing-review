@@ -2,13 +2,13 @@ class EssayStyleDetail
   include RailsHelpers
 
   def self.build(controller)
-    issue = IssueQuery.year(controller.params.require(:issue_id))
-    essay_style = EssayStyleQuery.slug(controller.params.require(:id))
+    issue = IssueQuery.find(controller.params.require(:issue_id))
+    essay_style = EssayStyleQuery.find(controller.params.require(:id))
 
     self.new(issue, essay_style)
   end
 
-  delegate :slug, :title, to: :essay_style
+  delegate :friendly_id, :title, to: :essay_style
   delegate :year, to: :issue_detail
 
   def initialize(issue, essay_style)
@@ -17,7 +17,7 @@ class EssayStyleDetail
   end
 
   def link_to_show
-    helpers.link_to(title, routes.issue_essay_style_path(issue_detail.year, slug))
+    helpers.link_to(title, routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id))
   end
 
   def link_to_issue
