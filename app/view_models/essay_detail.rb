@@ -8,7 +8,7 @@ class EssayDetail
     self.new(essay)
   end
 
-  delegate :title, to: :essay
+  delegate :title, :author, to: :essay
 
 
   attr_accessor :essay

@@ -1,3 +1,5 @@
-<h1><%= @essay_detail.title %></h1>
-
-<%= @essay_detail.render %>
+<article>
+  <h1><%= @essay_detail.title %></h1>
+  <h2>By <%= link_to @essay_detail.author, "#" %></h2>
+  <%= @essay_detail.render %>
+</article>
