@@ -16,7 +16,7 @@ FreshWriting::Application.routes.draw do
 
 
 
-  resources :issues do
+  resources :issues, only: [:index, :show] do
     member do
       get :editorial_board, path: "editorial-board"
       get :acknowledgments
@@ -26,5 +26,6 @@ FreshWriting::Application.routes.draw do
     resources :essays do
       get :transcript
     end
+    resources :essay_styles, only: [:show], path: "style"
   end
 end

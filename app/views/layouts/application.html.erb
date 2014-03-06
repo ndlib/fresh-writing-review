@@ -9,13 +9,95 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
-  </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+</head>
+<body>
 
-    <%= yield %>
+
+	    <header id="header" role="banner" class="site-header">
+      <div class="brandbar theme-bb-blue">
+        <div class="row">
+          <div class="large-12 columns">
+          <ul>
+            <li class="dept-nd"><a href="http://www.nd.edu">University <i>of</i> Notre Dame</a></li>
+            <li class="dept dept-coal"><a href="http://oit.nd.edu">College <i>of</i> Arts and Letters</a></li>
+           </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="branding row">
+          <div class="large-4 columns"><h1>Fresh Writing</h1></div>
+          <div class="large-8 columns"><h2>An Interactive Archive of Exemplary First-Year Writing Projects</h2></div>
+        </div>
+
+
+    </header>
+    <nav class="top-bar" id="navigation" data-topbar>
+        <section class="top-bar-section">
+
+        <ul class="left">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Issues</a>
+            <ul class="dropdown">
+              <li>
+                <a href="#">2014</a>
+              </li>
+              <li>
+                <a href="#">2013</a>
+              </li>
+              <li>
+                <a href="">Full Archive</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Essays</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">ND University Writing Program</a>
+          </li>
+        </ul>
+
+        </section>
+      </nav>
+      <div class="row page-body">
+        <div class="large-4 columns">
+          left column
+        </div>
+        <div class="large-8 columns">
+
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+        </div>
+      </div>
+
+      <footer id="footer" class="site-footer row" role="contentinfo">
+      <div class="large-12 columns">
+        <div class="footer-inner">
+          <div class="vcard">
+            <p class="copyright url fn org">
+              <a href="http://www.nd.edu/copyright/">Copyright</a> &copy; <%= Time.now.year %>
+              <a href="http://www.nd.edu" class="org">University of Notre Dame</a>
+            </p>
+            <p class="contact-info adr">
+              <span class="address"><span class="street-address">502 Grace Hall</span>, <span class="locality">Notre Dame</span>, <span class="region" title="Indiana">IN</span> <span class="postal-code">46556</span></span>
+              <span class="tel"><span class="type">Phone</span> 574-631-5000</span>
+              <span class="tel fax"><span class="type">Fax</span> 574-631-5000</span>
+              <span class="email"><a href="mailto:email@nd.edu">email@nd.edu</a></span>
+            </p>
+            <a href="http://www.nd.edu" class="ndmark"><img src="//www.nd.edu/assets/images/marks/blue/ndmark300.png" alt="University of Notre Dame"></a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <%= javascript_include_tag "application" %>
-  </body>
+
 </html>
