@@ -56,7 +56,7 @@ describe IssueDetail do
 
   describe '#essay_styles' do
     it 'calls EssayStyleQuery' do
-      expect(EssayStyleQuery).to receive(:all)
+      expect(EssayStyleQuery).to receive(:all).and_return([])
       subject.essay_styles
     end
   end

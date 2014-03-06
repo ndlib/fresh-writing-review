@@ -12,4 +12,16 @@ describe EssayStyleDetail do
       expect(subject.title).to be == essay_style.title
     end
   end
+
+  describe '#year' do
+    it 'is the year of the issue' do
+      expect(subject.year).to be == issue.year
+    end
+  end
+
+  describe '#link_to_show' do
+    it 'links to the style show page' do
+      expect(subject.link_to_show).to match "/issues/#{issue.year}/style/#{essay_style.slug}"
+    end
+  end
 end

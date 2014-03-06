@@ -30,7 +30,7 @@ class IssueDetail
   end
 
   def essay_styles
-    EssayStyleQuery.all
+    EssayStyleQuery.all.collect {|essay_style| EssayStyleDetail.new(issue, essay_style)}
   end
 
   private
