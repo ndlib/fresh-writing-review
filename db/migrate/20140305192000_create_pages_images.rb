@@ -5,5 +5,6 @@ class CreatePagesImages < ActiveRecord::Migration
       t.attachment :image
       t.timestamps
     end
+    add_index :pages_images, :page_id
   end
 end

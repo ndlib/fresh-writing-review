@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20140305192000) do
     t.datetime "updated_at"
   end
 
+  add_index "pages_images", ["page_id"], name: "index_pages_images_on_page_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "username",                       null: false
     t.integer  "sign_in_count",      default: 0, null: false
