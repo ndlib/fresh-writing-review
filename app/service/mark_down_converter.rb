@@ -2,9 +2,10 @@
 
 class MarkDownConverter
 
+  include RailsHelpers
 
   def self.call(text)
-    self.new.convert
+    self.new(text).convert
   end
 
 
@@ -14,7 +15,12 @@ class MarkDownConverter
 
 
   def convert
-    @text
+    helpers.raw renderer.render(@text)
+  end
+
+
+  def renderer
+    @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
   end
 
 end
