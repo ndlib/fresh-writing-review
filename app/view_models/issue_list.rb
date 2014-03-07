@@ -14,7 +14,7 @@ class IssueList
   end
 
   def link_to_issue(issue)
-    helpers.link_to(issue.year, routes.issue_path(issue.friendly_id))
+    helpers.link_to(issue.title, routes.issue_path(issue.friendly_id))
   end
 
   private
