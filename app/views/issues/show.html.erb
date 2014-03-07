@@ -1,19 +1,16 @@
-<h1><%= @issue_detail.year %></h1>
-<ul>
-  <li><%= @issue_detail.link_to_editorial_notes %></li>
-  <li><%= @issue_detail.link_to_editorial_board %></li>
-  <li><%= @issue_detail.link_to_acknowledgments %></li>
-</ul>
-<hr>
+<% content_for(:left_column) do %>
+  <%= render partial: 'issues/nav', locals: { issue_nav: @issue_detail.issue_nav } %>
+<% end %>
+
 <h2>Essays</h2>
-<ul>
+<ul class="small-block-grid-3">
   <% @issue_detail.essays.each do |essay| %>
     <li><%= link_to(essay.title, issue_essay_path(@issue_detail.friendly_id, essay.friendly_id)) %></li>
   <% end %>
 </ul>
 <hr>
 <h2>Essay Styles</h2>
-<ul>
+<ul class="small-block-grid-3">
   <% @issue_detail.essay_styles.each do |style| %>
     <li><%= style.link_to_show %></li>
   <% end %>

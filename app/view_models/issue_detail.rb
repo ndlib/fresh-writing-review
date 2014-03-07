@@ -17,16 +17,12 @@ class IssueDetail
     helpers.link_to(year, routes.issue_path(friendly_id))
   end
 
-  def link_to_editorial_board
-    helpers.link_to("Editorial Board", routes.editorial_board_issue_path(friendly_id))
+  def render_nav
+    issue_nav.render
   end
 
-  def link_to_editorial_notes
-    helpers.link_to("Note from the Editors", routes.editorial_notes_issue_path(friendly_id))
-  end
-
-  def link_to_acknowledgments
-    helpers.link_to("Acknowledgments", routes.acknowledgments_issue_path(friendly_id))
+  def issue_nav
+    @issue_nav ||= IssueNav.new(issue)
   end
 
   def essay_styles
