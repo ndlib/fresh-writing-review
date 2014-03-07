@@ -5,6 +5,7 @@ $dk-grey : #111111;
 $yellow : #FFC926;
 $page: 900px;
 $headers : "Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
+$content : Georgia,Cambria,"Times New Roman",Times,serif;
 
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow:$shadow;
@@ -78,10 +79,12 @@ html { font-size: 62.5%; }
 /* ARTICLE */
 
 article p {
-  color:#111;
+  color:#333;
+  font-family: $content;
   font-size:2rem;
   margin-left:30px;
   margin-right:30px;
+  margin-bottom:3rem;
 }
 
 article {
@@ -159,6 +162,7 @@ article {
 
 body {
 	background: url(/assets/bg.png) repeat-x 0 50px;
+	cursor: auto;
 }
 
 .branding {
@@ -185,6 +189,13 @@ body {
 
 .top-bar {
 	background:none;
+}
+
+#navigation {
+  margin:10px auto 7px;
+  border-bottom:solid 1px $lt-green;
+  height:auto;
+  padding-bottom:7px;
 }
 
 .top-bar-section ul, .top-bar-section ul a, .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section a:hover {
@@ -236,13 +247,63 @@ body {
 	padding-right: 0 !important;
 }
 
+/* ESSAY LISTS */
+
+.listing {
+  li {
+    position:relative;
+    a {
+      position: absolute;
+      left:0.625rem;
+      bottom:1.25rem;
+      background:rgba(68,131,75,0.7);
+      color: #fff;
+      width: 210px;
+      padding:5px;
+      font-size: 1.8rem;
+      font-family: $headers;
+    }
+  }
+
+}
+
+.page-body h1 {
+  color:$dk-green;
+  font-size: 3.8rem;
+  font-family: $headers;
+  font-weight: normal;
+  }
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+    margin-left:30px;
+  margin-right:30px;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.transcript {
+  margin-left:30px;
+  margin-right:30px;
+  background:$lt-grey;
+  text-align: right;
+  a {
+    color:#fff;
+    padding:3px 10px;
+    display: inline-block;
+  }
+}
+
 article {
-	h1 {
-	color:$dk-green;
-	font-size: 3.8rem;
-	font-family: $headers;
-	font-weight: normal;
-	}
+	
 	h2 {
 	color:$lt-green;
 	font-size: 1.8rem;
@@ -269,8 +330,23 @@ article {
   }
 }
 
+.side-nav li a:not(.button) {
+  font-size: 1.8rem;
+  color:$lt-grey;
+  font-family: $headers;
+  text-transform: uppercase;
+  border-bottom:solid 2px #fff;
+  display: inline;
+}
+
+.side-nav li a:hover:not(.button) {
+  border-bottom-color: $yellow;
+  color:$lt-grey;
+  text-decoration: none;
+}
+
 
 #header .row, #navigation, .page-body, #footer {
 	max-width:$page;
-	margin:0 auto;
+
 }
