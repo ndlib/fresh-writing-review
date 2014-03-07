@@ -12,8 +12,8 @@
  *= require font-awesome
  *= require pagedown_bootstrap
  *= require_self
- *= require fresh_writing
  *= require_tree .
+ *= require fresh_writing
  */
 
 
