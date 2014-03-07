@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Issue.delete_all
-Issue.create(year: 2014, editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: "Editorial Board for 2012", acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')), cover_image_fixture_path: Rails.root.join('spec', 'fixtures', 'issues', '2012', 'cover.jpg'))
-Issue.create(year: 2012, editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: "Editorial Board for 2012", acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')), cover_image_fixture_path: Rails.root.join('spec', 'fixtures', 'issues', '2012', 'cover.jpg'))
-Issue.create(year: 2011, editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'foreword.md')), editorial_board: "Editorial Board for 2011", acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'acknowledgments.md')), cover_image_fixture_path: Rails.root.join('spec', 'fixtures', 'issues', '2011', 'cover.jpg'))
+Issue.create(year: 2014, editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')), cover_image_fixture_path: Rails.root.join('spec', 'fixtures', 'issues', '2012', 'cover.jpg'))
+Issue.create(year: 2012, editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')), cover_image_fixture_path: Rails.root.join('spec', 'fixtures', 'issues', '2012', 'cover.jpg'))
+Issue.create(year: 2011, editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'acknowledgments.md')), cover_image_fixture_path: Rails.root.join('spec', 'fixtures', 'issues', '2011', 'cover.jpg'))
 
 
 issue_id = Issue.first.id
