@@ -8,12 +8,11 @@
     <li class="has-dropdown">
       <%= link_to("Issues", issues_path) %>
       <ul class="dropdown">
-        <li>
-          <%= link_to(2014, issue_path(2014)) %>
-        </li>
-        <li>
-          <%= link_to(2013, issue_path(2013)) %>
-        </li>
+        <% IssueQuery.all.limit(2).each do |issue| %>
+          <li>
+            <%= link_to(issue.year, issue_path(issue.friendly_id)) %>
+          </li>
+        <% end %>
         <li>
           <%= link_to("Full Archive", issues_path) %>
         </li>
