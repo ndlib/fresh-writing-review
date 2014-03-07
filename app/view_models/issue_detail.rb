@@ -7,7 +7,7 @@ class IssueDetail
     self.new(issue)
   end
 
-  delegate :friendly_id, :year, :essays, to: :issue
+  delegate :friendly_id, :title, :year, :essays, :is_pdf?, to: :issue
 
   def initialize(issue)
     @issue = issue
@@ -19,6 +19,10 @@ class IssueDetail
 
   def render_nav
     issue_nav.render
+  end
+
+  def cover_image
+    helpers.image_tag("covers/#{year}.jpg")
   end
 
   def issue_nav

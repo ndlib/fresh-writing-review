@@ -1,17 +1,21 @@
 <% content_for(:left_column) do %>
   <%= render partial: 'issues/nav', locals: { issue_nav: @issue_detail.issue_nav } %>
 <% end %>
-
-<h2>Essays</h2>
-<ul class="small-block-grid-3">
-  <% @issue_detail.essays.each do |essay| %>
-    <li><%= link_to(essay.title, issue_essay_path(@issue_detail.friendly_id, essay.friendly_id)) %></li>
-  <% end %>
-</ul>
-<hr>
-<h2>Essay Styles</h2>
-<ul class="small-block-grid-3">
-  <% @issue_detail.essay_styles.each do |style| %>
-    <li><%= style.link_to_show %></li>
-  <% end %>
-</ul>
+<% if @issue_detail.is_pdf? %>
+  <p><%= @issue_detail.title %> is available as a PDF download. <%= link_to('Download', '#') %></p>
+  <%= @issue_detail.cover_image %>
+<% else %>
+  <h2>Essays</h2>
+  <ul class="small-block-grid-3">
+    <% @issue_detail.essays.each do |essay| %>
+      <li><%= link_to(essay.title, issue_essay_path(@issue_detail.friendly_id, essay.friendly_id)) %></li>
+    <% end %>
+  </ul>
+  <hr>
+  <h2>Essay Styles</h2>
+  <ul class="small-block-grid-3">
+    <% @issue_detail.essay_styles.each do |style| %>
+      <li><%= style.link_to_show %></li>
+    <% end %>
+  </ul>
+<% end %>
