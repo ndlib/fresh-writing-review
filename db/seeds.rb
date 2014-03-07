@@ -7,9 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Issue.delete_all
-[2014,2013,2012].each do |year|
-  Issue.create(year: year, editorial_notes: "Notes for #{year}", editorial_board: "Editorial Board for #{year}", acknowledgments: "Acknowledgments for #{year}")
-end
+Issue.create(year: 2014, title: "Fresh Writing Volume 14", editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')))
+Issue.create(year: 2012, title: "Fresh Writing Volume 12", editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')), is_pdf: true)
+Issue.create(year: 2011, title: "Fresh Writing Volume 11", editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'acknowledgments.md')), is_pdf: true)
+
 
 issue_id = Issue.first.id
 Essay.delete_all

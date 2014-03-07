@@ -7,7 +7,7 @@ class IssueDetail
     self.new(issue)
   end
 
-  delegate :friendly_id, :year, :essays, :editorial_notes, :editorial_board, :acknowledgments, to: :issue
+  delegate :friendly_id, :title, :year, :essays, :is_pdf?, to: :issue
 
   def initialize(issue)
     @issue = issue
@@ -21,8 +21,24 @@ class IssueDetail
     issue_nav.render
   end
 
+  def cover_image
+    helpers.image_tag("covers/#{year}.jpg")
+  end
+
   def issue_nav
     @issue_nav ||= IssueNav.new(issue)
+  end
+
+  def editorial_notes
+    MarkDownConverter.call(issue.editorial_notes)
+  end
+
+  def editorial_board
+    MarkDownConverter.call(issue.editorial_board)
+  end
+
+  def acknowledgments
+    MarkDownConverter.call(issue.acknowledgments)
   end
 
   def essay_styles

@@ -13,20 +13,23 @@ describe IssueDetail do
   end
 
   describe '#editorial_notes' do
-    it 'is the issue notes' do
-      expect(subject.editorial_notes).to be == issue.editorial_notes
+    it 'formats the issue editorial_notes' do
+      expect(MarkDownConverter).to receive(:call).with(issue.editorial_notes)
+      subject.editorial_notes
     end
   end
 
   describe '#editorial_board' do
-    it 'is the issue board' do
-      expect(subject.editorial_board).to be == issue.editorial_board
+    it 'formats the issue board' do
+      expect(MarkDownConverter).to receive(:call).with(issue.editorial_board)
+      subject.editorial_board
     end
   end
 
   describe '#acknowledgments' do
-    it 'is the issue acknowledgments' do
-      expect(subject.acknowledgments).to be == issue.acknowledgments
+    it 'formats the issue acknowledgments' do
+      expect(MarkDownConverter).to receive(:call).with(issue.acknowledgments)
+      subject.acknowledgments
     end
   end
 
