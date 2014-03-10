@@ -36,20 +36,33 @@
     <%= render partial: 'layouts/navigation' %>
       <div class="row page-body">
         <%
-        content_width = 12
+        content_width = 10
         if content_for?(:left_column)
-          content_width -= 4
+          content_width -= 1
         end
         %>
         <% if content_for?(:left_column) %>
-          <div class="large-4 columns">
+          <div class="large-3 columns">
             <%= content_for(:left_column) %>
+          </div>
+          <% else %>
+          <div class="large-1 columns">
+            &nbsp;
           </div>
         <% end %>
         <div class="large-<%= content_width %> columns">
           <%= display_notices %>
           <%= yield %>
         </div>
+        <% if content_for?(:left_column) %>
+          
+          <% else %>
+          <div class="large-1 columns">
+            &nbsp;
+          </div>
+        <% end %>
+        
+
       </div>
 
       <footer id="footer" class="site-footer row" role="contentinfo">
@@ -70,6 +83,7 @@
           </div>
         </div>
       </div>
+      
     </footer>
     <%= javascript_include_tag "application" %>
 
