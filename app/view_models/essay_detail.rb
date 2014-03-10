@@ -84,7 +84,7 @@ class EssayDetail
 
 
     def author_biography
-      @author_biography ||= MarkdownDetail.new(@essay.author_biography)
+      @author_biography ||= AuthorBiographyDetail.new(@essay)
     end
 end
 
