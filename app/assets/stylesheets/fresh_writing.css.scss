@@ -321,8 +321,7 @@ h2.year {
 }
 
 article {
-  background:url(/assets/branch.jpg)no-repeat center bottom;
-  padding-bottom:30px;
+  
   margin-bottom:40px;
   h2 {
     font-size: 3rem;
@@ -330,24 +329,52 @@ article {
     font-family: $headers;
     font-weight: normal;
   }
-  h2.author {
+  h2.author, .author h2 {
     font-size: 1.8rem;
     border:solid 1px $lt-green;
     border-width: 1px 0;
     margin-bottom:2em;
     padding:8px 0;
-    text-align: center;
+    text-align: left;
     a {
       border: none;
       color: $lt-green;
     }
+    .crumb {
+      float: right;
+    }
 
   }
-	
+  .body {
+    background:url(/assets/branch.jpg)no-repeat center bottom;
+    padding-bottom:30px;
+  
+   p:first-of-type:first-letter { 
+    float: left; 
+    color: $dk-green; 
+    font-size: 75px; 
+    line-height: 60px; 
+    padding-top: 4px; 
+    padding-right: 8px; 
+    padding-left: 3px; 
+     }
+	}
+  .author img {
+    float: left;
+    margin:0 1rem 1rem 0;
+    width:140px;
+  }
+  aside {
+    clear:both;
+  }
 }
 
 .discussion {
   border-top:solid 1px #c4c4c4;
+  //position:absolute;
+  //top:0;
+  //right:-8.33333%;
+  //width:25%;
   h3 {
   	color:$dk-green;
   	font-size:1.8rem;
@@ -357,11 +384,25 @@ article {
   	margin-right:30px;
   }
   li {
-  	font-size:1.4rem;
+  	font-size:1.6rem;
   	color: $dk-grey;
   	list-style-image: url(/assets/bullet.png);
   	margin-bottom: 1em;
+    font-family: $content;
 
+  }
+}
+
+.worksited {
+  h3 {
+    color:$dk-green;
+    font-size: 1.8rem;
+  }
+  p {
+    font-size:1.4rem;
+    font-family: $content;
+    text-indent: -2rem;
+    margin-left:60px;
   }
 }
 

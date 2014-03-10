@@ -1,7 +1,8 @@
 <article>
+
   <h1><%= @essay_detail.title %></h1>
-  <h2 class="author"><%= @essay_detail.author %></h2>
-  <%= @essay_detail.render %>
+  <h2 class="author"><%= @essay_detail.author %> <section class="crumb"><a href="#">2014</a> • <a href="#">Narrative</a></section></h2>
+  <div class="body"><%= @essay_detail.render %></div>
   <%= @essay_detail.render_author_biography %>
   <%= @essay_detail.render_discussion_questions %>
   <%= @essay_detail.render_works_cited %>
