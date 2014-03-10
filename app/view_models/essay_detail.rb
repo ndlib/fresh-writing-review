@@ -38,9 +38,12 @@ class EssayDetail
 
 
   def render_discussion_questions
+    if discussion_questions.present?
+      return render_to_string('/essays/discussion_questions', { object: discussion_questions })
+    end
 
+    ""
   end
-
 
 
   def render

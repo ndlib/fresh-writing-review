@@ -1,6 +1,5 @@
 class MarkdownDetail
 
-
   def initialize(text)
     @text = text
   end

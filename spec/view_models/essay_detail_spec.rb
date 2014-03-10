@@ -62,6 +62,33 @@ describe EssayDetail do
   end
 
 
+  describe :render_discussion_questions do
+    context :has_discussion_questions do
+      let(:essay) { double(Essay, discussion_questions: "questions") }
+
+      it "renders the template " do
+        expect(subject).to receive(:render_to_string).with('/essays/discussion_questions', { object: subject.send(:discussion_questions) })
+
+        subject.render_discussion_questions
+      end
+
+      it "generates a makrdown_detail" do
+        expect(MarkdownDetail).to receive(:new).with("questions")
+        subject.render_discussion_questions
+      end
+    end
+
+    context :no_work_cited do
+      let(:essay) { double(Essay, discussion_questions: nil) }
+
+      it "does not render the template" do
+        expect(subject).to_not receive(:render_to_string)
+        subject.render_discussion_questions
+      end
+    end
+  end
+
+
   describe :determine_template_class do
 
     it "determines the template is text_template when the essay template is text" do
