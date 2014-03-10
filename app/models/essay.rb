@@ -7,5 +7,5 @@ class Essay < ActiveRecord::Base
 
   validates :title, presence: true
 
-  store :data, accessors: [ :body, :title, :embed, :template, :alt_body, :alt_title, :author, :author_biography ]
+  store :data, accessors: [ :body, :title, :embed, :template, :alt_body, :alt_title, :author, :author_biography, :works_cited ]
 end

@@ -28,14 +28,19 @@ class EssayDetail
   end
 
 
-  def discussion_questions
+  def render_works_cited
+    if works_cited.present?
+      return render_to_string('/essays/works_cited', { object: works_cited })
+    end
 
+    ""
   end
 
 
-  def citation
+  def render_discussion_questions
 
   end
+
 
 
   def render
@@ -48,6 +53,7 @@ class EssayDetail
       @template ||= determine_template_class.new(essay)
     end
 
+
     def determine_template_class
       if @essay.template == 'text'
         EssayTemplates::Text
@@ -58,5 +64,14 @@ class EssayDetail
       end
     end
 
+
+    def works_cited
+      @works_cited ||= MarkdownDetail.new(@essay.works_cited)
+    end
+
+
+    def discussion_questions
+      @discussion_questions ||= MarkdownDetail.new(@essay.discussion_questions)
+    end
 end
 

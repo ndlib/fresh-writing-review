@@ -17,6 +17,7 @@ describe EssayDetail do
   subject { described_class.new(essay)}
 
   describe :title do
+    let(:essay) { double(Essay, title: 'title') }
 
     it "delegates this to essay" do
       expect(essay).to receive(:title)
@@ -32,6 +33,34 @@ describe EssayDetail do
       expect(subject.author).to eq("By <a href=\"#author_biography\">Bob Bobbers</a>")
     end
   end
+
+
+  describe :render_works_cited do
+    context :has_works_cited do
+      let(:essay) { double(Essay, works_cited: "works_cited") }
+
+      it "renders the template " do
+        expect(subject).to receive(:render_to_string).with('/essays/works_cited', { object: subject.send(:works_cited) })
+
+        subject.render_works_cited
+      end
+
+      it "generates a makrdown_detail" do
+        expect(MarkdownDetail).to receive(:new).with("works_cited")
+        subject.render_works_cited
+      end
+    end
+
+    context :no_work_cited do
+      let(:essay) { double(Essay, works_cited: nil) }
+
+      it "does not render the template" do
+        expect(subject).to_not receive(:render_to_string)
+        subject.render_works_cited
+      end
+    end
+  end
+
 
   describe :determine_template_class do
 
