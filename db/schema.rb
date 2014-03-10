@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140306161812) do
   create_table "essays", force: true do |t|
     t.integer  "issue_id"
     t.string   "slug"
-    t.text     "data"
+    t.text     "data",       limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
   end
