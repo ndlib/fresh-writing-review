@@ -23,11 +23,6 @@ class EssayDetail
   end
 
 
-  def biography
-
-  end
-
-
   def render_works_cited
     if works_cited.present?
       return render_to_string('/essays/works_cited', { object: works_cited })
@@ -46,9 +41,19 @@ class EssayDetail
   end
 
 
+  def render_author_biography
+    if author_biography.present?
+      return render_to_string('/essays/author_biography', { object: author_biography })
+    end
+
+    ""
+  end
+
+
   def render
     display_template.render
   end
+
 
   protected
 
@@ -75,6 +80,11 @@ class EssayDetail
 
     def discussion_questions
       @discussion_questions ||= MarkdownDetail.new(@essay.discussion_questions)
+    end
+
+
+    def author_biography
+      @author_biography ||= MarkdownDetail.new(@essay.author_biography)
     end
 end
 
