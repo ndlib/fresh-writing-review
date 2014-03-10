@@ -36,18 +36,26 @@ Essay.create(id: 4, issue_id: issue_id, template: 'media', title: "Invisiball Re
     alt_title: 'Transcript'
 )
 
-
-Essay.create(id: 5, issue_id: issue_id, template: 'media', title: "The Streets Are Art", author: "Rachel Zavakos",
+Essay.create(id: 5, issue_id: issue_id, template: 'text', title: "The Streets Are Art", author: "Rachel Zavakos",
     body: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_body.txt')),
-    embed: nil,
-    alt_body: nil,
-    alt_title: nil,
     works_cited: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_works_cited.txt')),
     discussion_questions: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_discussion_questions.txt')),
     author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
 )
 
+Essay.create(id: 6, issue_id: issue_id, template: 'media', title: "Monsoon: Winds of Culture", author: "Jennifer Cha",
+    body: IO.read(Rails.root.join('spec', 'fixtures', 'cha_text.txt')),
+    embed: '<object id="kaltura_player_1_dfzuw68y" name="kaltura_player_1_dfzuw68y" type="application/x-shockwave-flash" allowFullScreen="true" allowNetworking="all" allowScriptAccess="always" height="30" width="480" bgcolor="#000000" xmlns:dc="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/searchmonkey/media/" rel="media:video" resource="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y" data="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y"><param name="allowFullScreen" value="true" /><param name="allowNetworking" value="all" /><param name="allowScriptAccess" value="always" /><param name="bgcolor" value="#000000" /><param name="flashVars" value="&entryId=1_dfzuw68y" /><param name="movie" value="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y" /></object>',
+    discussion_questions: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_discussion_questions.txt')),
+    author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
+)
 
+Essay.create(id: 7, issue_id: issue_id, template: 'text', title: "Easing into the Future: Federal Reserve Policy under Janet Yellen", author: "Emily Campagna",
+    body: IO.read(Rails.root.join('spec', 'fixtures', 'campagna_text.txt')),
+    works_cited: IO.read(Rails.root.join('spec', 'fixtures', 'campagna_works_cited.txt')),
+    discussion_questions: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_discussion_questions.txt')),
+    author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
+)
 
 EssayStyle.delete_all
 %w(Narrative Analysis Research Definition Rebuttal Reflective).each do |style|
