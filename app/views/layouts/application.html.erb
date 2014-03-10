@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Fresh Writing" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -33,56 +33,36 @@
 
 
     </header>
-    <nav class="top-bar" id="navigation" data-topbar>
-        <section class="top-bar-section">
-
-        <ul class="left">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li class="has-dropdown">
-            <a href="#">Issues</a>
-            <ul class="dropdown">
-              <li>
-                <a href="#">2014</a>
-              </li>
-              <li>
-                <a href="#">2013</a>
-              </li>
-              <li>
-                <a href="">Full Archive</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Essays</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">ND University Writing Program</a>
-          </li>
-        </ul>
-
-        </section>
-      </nav>
+    <%= render partial: 'layouts/navigation' %>
       <div class="row page-body">
         <%
-        content_width = 12
+        content_width = 10
         if content_for?(:left_column)
-          content_width -= 4
+          content_width -= 1
         end
         %>
         <% if content_for?(:left_column) %>
-          <div class="large-4 columns">
+          <div class="large-3 columns">
             <%= content_for(:left_column) %>
+          </div>
+          <% else %>
+          <div class="large-1 columns">
+            &nbsp;
           </div>
         <% end %>
         <div class="large-<%= content_width %> columns">
           <%= display_notices %>
           <%= yield %>
         </div>
+        <% if content_for?(:left_column) %>
+          
+          <% else %>
+          <div class="large-1 columns">
+            &nbsp;
+          </div>
+        <% end %>
+        
+
       </div>
 
       <footer id="footer" class="site-footer row" role="contentinfo">
@@ -103,6 +83,7 @@
           </div>
         </div>
       </div>
+      
     </footer>
     <%= javascript_include_tag "application" %>
 

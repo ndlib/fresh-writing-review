@@ -6,6 +6,6 @@ class CreateEssayStyles < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :essay_styles, :slug
+    add_index :essay_styles, :slug, unique: true
   end
 end

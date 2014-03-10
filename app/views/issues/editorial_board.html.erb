@@ -1,2 +1,5 @@
-<h1><%= @issue_detail.year %></h1>
+<% content_for(:left_column) do %>
+  <%= render partial: 'issues/nav', locals: { issue_nav: @issue_detail.issue_nav } %>
+<% end %>
+
 <p><%= @issue_detail.editorial_board %></p>

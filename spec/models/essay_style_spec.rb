@@ -3,10 +3,18 @@ require 'spec_helper'
 describe EssayStyle do
   subject { described_class.new }
 
-  [:slug, :title].each do |field|
+  [:title].each do |field|
     it "has the ##{field} attribute" do
       expect(subject).to respond_to(field)
       expect(subject).to respond_to("#{field}=")
+    end
+  end
+
+  describe '#friendly_id' do
+    it "is based on the title" do
+      subject.title = 'Test'
+      subject.save
+      expect(subject.friendly_id).to be == 'test'
     end
   end
 end

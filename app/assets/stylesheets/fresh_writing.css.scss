@@ -1,15 +1,166 @@
+$ltlt-green:#E8E9DC;
 $lt-green: #A4A774;
 $dk-green: #44834B;
 $lt-grey : #ABABAB;
 $dk-grey : #111111;
 $yellow : #FFC926;
+$link :#70C19A;
 $page: 900px;
 $headers : "Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
+$content : Georgia,Cambria,"Times New Roman",Times,serif;
 
-
-body {
-	background: url(/assets/bg.png) repeat-x 0 50px;
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow:$shadow;
+     -moz-box-shadow:$shadow;
+          box-shadow:$shadow;
 }
+
+
+.row {
+  max-width: none;
+}
+/* Fonts
+   ----------------------------------------------------*/
+@font-face {font-family:NDIcons;
+  src:url('//www.nd.edu/assets/fonts/nd.v2.eot');
+  src:url('//www.nd.edu/assets/fonts/nd.v2.eot?iefix') format('embedded-opentype'),
+      url('//www.nd.edu/assets/fonts/nd.v2.woff') format('woff'),
+      url('//www.nd.edu/assets/fonts/nd.v2.ttf') format('truetype'),
+      url('//www.nd.edu/assets/fonts/nd.v2.svg') format('svg');
+}
+@font-face {font-family:GPC; font-weight:300; font-style:normal;
+  src:url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Book.min.eot');
+  src:url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Book.min.eot?iefix') format('embedded-opentype'),
+      url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Book.min.woff') format('woff'),
+      url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Book.min.ttf') format('truetype');
+}
+@font-face {font-family:GPC; font-weight:400; font-style:normal;
+  src:url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.eot');
+  src:url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.eot?iefix') format('embedded-opentype'),
+      url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.woff') format('woff'),
+      url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.ttf') format('truetype');
+}
+
+html { font-size: 62.5%; } 
+
+/* HEADER
+     ----------------------------------------------------*/
+  .site-header {margin:0; text-align:center;}
+  .brandbar,
+  .titlebar {overflow:hidden;}
+
+   .brandbar ul {margin:0; list-style:none;}
+   .brandbar li {margin:0;}
+
+  .dept { border-top: 1px solid  #000; @include box-shadow(0 1px 0 rgba(0,122,217,0.4) inset);}
+  .site-header li {margin:0; padding:0;}
+  .brandbar a {display:block;  margin:0 auto; text-decoration:none; height:50px; text-indent:-9999px; overflow:hidden; background-repeat:no-repeat;}
+  .dept-nd img {display:none;}
+    .dept-nd a {background-position:left 0;}
+    .dept a {background-position:right 0;}
+
+  .titlebar {padding:0.75em 0;}
+  .site-title {clear:both; margin:0.4em auto; padding:0; line-height:1em; font-size:1.75em; font-weight:300; text-shadow:0 1px rgba(255,255,255,0.7);}
+   .site-title a {display:block; border:none; color:#002b5b; text-decoration:none;}
+    .site-title  a:visited {color:#002b5b;}
+    .site-title  a:hover {text-decoration:none;}
+  
+
+ 
+
+
+  .site-header {text-align:left;}
+  .brandbar,
+  .titlebar {padding:0;}
+  .dept-nd a {float:left; height:50px;border:none;}
+  .dept {border-top:0 none; @include box-shadow(none);}
+  .dept a {float:right; height:50px;border:none;}
+
+a {
+  color:$link;
+  border-bottom:solid 1px $yellow;
+}
+a:hover {
+  text-decoration: none;
+  color:$lt-green;
+}
+
+.page-body {
+  border-bottom:solid 3px $lt-green;
+}
+
+/* ARTICLE */
+
+article p {
+  color:#333;
+  font-family: $content;
+  font-size:2rem;
+  margin-left:30px;
+  margin-right:30px;
+  margin-bottom:3rem;
+}
+
+article {
+  
+  margin-bottom:3px;
+}
+
+blockquote {
+  border-left-color:$lt-green;
+  background-color: $ltlt-green;
+}
+
+
+
+@media screen,projection {
+
+  /** Brand Bar **/
+  .brandbar.theme-bb-blue {border-bottom:1px solid #001227;
+    @include box-shadow(0 1px #007ad9 inset, 0 -12px 3px -10px rgba(0,0,0,0.4) inset);
+    background:#002b5b url(images/texture-checkers-lightblue50.png) 0 0 repeat;
+    background:-webkit-linear-gradient(top, #003b7c 0%, #001227 100%);
+    background:   -moz-linear-gradient(top, #003b7c 0%, #001227 100%);
+    background:        linear-gradient(top, #003b7c 0%, #001227 100%);
+  }
+
+  .theme-bb-gold .dept { border-top: 1px solid  #600;
+    @include box-shadow(0 1px rgba(255,255,255,.4) inset);
+  }
+
+    /** White Text (Default) **/
+    .dept-nd a   {width:301px; background-image:url(//www.nd.edu/assets/images/brandbar/dept-nd-white.png);}
+    .dept-coal a {width:316px; background-image:url(//www.nd.edu/assets/images/brandbar/dept-coal-white.png);} /* College of Arts and Letters */
+    
+  
+}
+
+  /* Footer */
+  .site-footer {margin-top:4px; padding-top:0; text-align:left;border-top:solid 1px $lt-green;}
+    .contact-info {margin:0;}
+    .address {margin:0;}
+    .ndmark {position:absolute; right:0;  margin:0;display:block; width:200px; margin:0 auto; top:40px;border:none;}
+    .site-link {display:block;}
+    .org {display:inline;}
+
+  .site-footer {position:relative; clear:both; text-align:center; }
+  .site-footer .footer-inner {position:relative; padding-top:2em; padding-bottom:2em;  @include box-shadow(inset 0 1px 0 rgba(255,255,255,0.9));}
+    .vcard {border:none;}
+    .vcard .fn,
+    .site-footer p { font-size:14px; }
+  .site-info {margin:1em 0;}
+  .site-info  li {display:inline-block; *display:inline; *zoom:1; margin:0 2%;}
+  .site-info  a {text-decoration:underline;}
+  
+  .site-footer {text-align:left;position:relative; clear:both; }
+    .contact-info {margin:0;}
+    .address {margin:0;}
+    .site-link {}
+    .org {display:inline;}
+    .geo,
+    .country-name {display:none;}
+    .tel {}
+
+
 
 .branding {
 	border-top:solid 11px $lt-green;
@@ -23,6 +174,16 @@ body {
 	height: 125px;
 }
 
+.branding h1 {
+  height:0;
+  overflow: hidden;
+  padding-top:115px;
+  background: url(/assets/logo.svg) bottom left no-repeat;
+  background-size: contain ;
+
+  margin:5px 0 0;
+}
+
 .branding h2 {
 	font-size:1.8rem;
 	color:$lt-green;
@@ -30,11 +191,19 @@ body {
 	width:280px;
 	position: absolute;
 	left:0.9375rem;
-	bottom:0;
+	bottom:24px;
+  
 }
 
 .top-bar {
 	background:none;
+}
+
+#navigation {
+  margin:10px auto 7px;
+  border-bottom:solid 1px $lt-green;
+  height:auto;
+  padding-bottom:7px;
 }
 
 .top-bar-section ul, .top-bar-section ul a, .top-bar-section li:not(.has-form) a:not(.button), .top-bar-section a:hover {
@@ -86,19 +255,95 @@ body {
 	padding-right: 0 !important;
 }
 
+/* ESSAY LISTS */
+
+h2.year {
+  font-family: $headers;
+  font-size: 3.8rem;
+  a {
+    color:$lt-green;
+    border:none;
+  }
+}
+
+.listing {
+  li {
+    position:relative;
+    a {
+      position: absolute;
+      left:0.625rem;
+      bottom:1.25rem;
+      background:rgba(68,131,75,0.7);
+      color: #fff;
+      width: 210px;
+      padding:5px;
+      font-size: 1.8rem;
+      font-family: $headers;
+      border:none;
+    }
+  }
+
+}
+
+.page-body h1 {
+  color:$dk-green;
+  font-size: 3.8rem;
+  font-family: $headers;
+  font-weight: normal;
+  }
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+    margin-left:30px;
+  margin-right:30px;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.transcript {
+  margin-left:30px;
+  margin-right:30px;
+  background:$lt-grey;
+  text-align: right;
+  a {
+    color:#fff;
+    padding:3px 10px;
+    display: inline-block;
+  }
+}
+
 article {
-	h1 {
-	color:$dk-green;
-	font-size: 3.2rem;
-	font-family: $headers;
-	font-weight: normal;
-	}
-	h2 {
-	color:$lt-green;
-	font-size: 1.8rem;
-	font-family: $headers;
-	font-weight: normal;
-	}
+  background:url(/assets/branch.jpg)no-repeat center bottom;
+  padding-bottom:30px;
+  margin-bottom:40px;
+  h2 {
+    font-size: 3rem;
+    color:$lt-green;
+    font-family: $headers;
+    font-weight: normal;
+  }
+  h2.author {
+    font-size: 1.8rem;
+    border:solid 1px $lt-green;
+    border-width: 1px 0;
+    margin-bottom:2em;
+    padding:8px 0;
+    text-align: center;
+    a {
+      border: none;
+      color: $lt-green;
+    }
+
+  }
+	
 }
 
 .discussion {
@@ -116,11 +361,74 @@ article {
   	color: $dk-grey;
   	list-style-image: url(/assets/bullet.png);
   	margin-bottom: 1em;
+
   }
+}
+
+.side-nav li a:not(.button) {
+  font-size: 1.8rem;
+  color:$lt-grey;
+  font-family: $headers;
+  text-transform: uppercase;
+  border-bottom:solid 2px #fff;
+  display: inline;
+
+}
+
+.side-nav li a:hover:not(.button) {
+  border-bottom-color: $yellow;
+  color:$lt-grey;
+  text-decoration: none;
 }
 
 
 #header .row, #navigation, .page-body, #footer {
-	width:$page;
-	margin:0 auto;
+	max-width:$page;
+
+}
+
+/* -- 320px */
+
+@media only screen and (max-width : 480px) {
+    article p {
+    font-size:1.6rem;
+  }
+  .branding { 
+    height:auto;
+    .columns {
+      height:auto;
+      position: static;
+      h2 {
+        position: static;
+      }
+    }
+  }
+}
+
+
+/* 700px
+   ----------------------------------------------------*/
+@media only screen and (min-width:43.75em) {
+  .theme-tb-blue .header-util a,
+  .theme-tb-blue .header-util a:hover {color:#fff; text-shadow:0 1px rgba(0,0,0,.9);}
+
+}
+@media only screen and (max-width : 700px) {
+    article p, .videoWrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+
+/* 920px
+   ----------------------------------------------------*/
+@media only screen and (min-width:57.5em) {
+  .theme-bb-gold .dept {border-top:0 none; @include box-shadow(none);}
+}
+
+body {
+  background: url(/assets/bg.png) repeat-x 0 50px;
+  cursor: auto;
 }

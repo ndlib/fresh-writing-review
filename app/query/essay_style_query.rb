@@ -4,12 +4,8 @@ class EssayStyleQuery
     relation
   end
 
-  def self.slug(slug)
-    relation.where(slug: slug).first!
-  end
-
   def self.find(id)
-    relation.find(id)
+    relation.friendly.find(id)
   end
 
   def self.relation
