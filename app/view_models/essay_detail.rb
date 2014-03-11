@@ -22,7 +22,7 @@ class EssayDetail
 
 
   def render_works_cited
-    EssayWorksCited.render(essay)
+    EssayDetail::WorksCited.render(essay)
   end
 
 

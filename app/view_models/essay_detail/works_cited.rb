@@ -1,4 +1,4 @@
-class EssayWorksCited
+class EssayDetail::WorksCited
 
   include RailsHelpers
 

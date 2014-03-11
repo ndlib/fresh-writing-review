@@ -29,7 +29,7 @@ describe EssayDetail do
 
   describe :render_works_cited do
     it "calls the sub view model" do
-      expect(EssayWorksCited).to receive(:render).with(essay)
+      expect(EssayDetail::WorksCited).to receive(:render).with(essay)
       subject.render_works_cited
     end
   end

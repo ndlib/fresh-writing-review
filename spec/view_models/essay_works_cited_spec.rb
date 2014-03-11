@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe EssayWorksCited do
+describe EssayDetail::WorksCited do
 
   let(:essay) { double(Essay, works_cited: "works_cited") }
   subject { described_class.new(essay) }
