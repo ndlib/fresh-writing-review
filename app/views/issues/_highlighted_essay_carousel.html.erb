@@ -1,0 +1,13 @@
+<% if issue_detail.highlighted_essays.present? %>
+  <h2>Highlighted Essays</h2>
+  <ul data-orbit data-options="slide_number:false; timer_speed: 5000; resume_on_mouseout: true;">
+    <% issue_detail.highlighted_essays.each do |highlighted_essay| %>
+      <li>
+        <%= placeholder_image(656, 270, highlighted_essay.essay_id) %>
+        <div class="orbit-caption">
+          <%= link_to(highlighted_essay.title, issue_essay_path(issue_detail.friendly_id, highlighted_essay.essay.friendly_id)) %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
