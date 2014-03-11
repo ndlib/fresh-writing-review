@@ -17,4 +17,12 @@ describe EssayStyle do
       expect(subject.friendly_id).to be == 'test'
     end
   end
+
+  describe '#essays' do
+    subject { FactoryGirl.create(:essay_style) }
+
+    it 'has many essays' do
+      expect{ FactoryGirl.create_list(:essay, 2, essay_style_id: subject.id) }.to change{ subject.essays.count }.by(2)
+    end
+  end
 end

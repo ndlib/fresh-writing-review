@@ -51,11 +51,13 @@ ActiveRecord::Schema.define(version: 20140311140044) do
   create_table "essays", force: true do |t|
     t.integer  "issue_id"
     t.string   "slug"
-    t.text     "data",       limit: 2147483647
+    t.text     "data",           limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "essay_style_id"
   end
 
+  add_index "essays", ["essay_style_id"], name: "index_essays_on_essay_style_id", using: :btree
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree
 

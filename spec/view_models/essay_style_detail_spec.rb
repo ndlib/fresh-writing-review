@@ -3,6 +3,7 @@ require 'spec_helper'
 describe EssayStyleDetail do
   let(:issue) { FactoryGirl.create(:issue) }
   let(:essay_style) { FactoryGirl.create(:essay_style) }
+  let(:essay) { FactoryGirl.create(:essay, issue: issue, essay_style: essay_style) }
   let(:controller) { double(ApplicationController, params: ActionController::Parameters.new(issue_id: issue.friendly_id, id: essay_style.friendly_id)) }
 
   subject { described_class.build(controller) }
@@ -22,6 +23,18 @@ describe EssayStyleDetail do
   describe '#link_to_show' do
     it 'links to the style show page' do
       expect(subject.link_to_show).to match "/issues/#{issue.friendly_id}/style/#{essay_style.friendly_id}"
+    end
+  end
+
+  describe '#link_to_issue' do
+    it 'links to the issue path' do
+      expect(subject.link_to_issue).to match "/issues/#{issue.friendly_id}"
+    end
+  end
+
+  describe '#link_to_essay' do
+    it 'links to the essay path' do
+      expect(subject.link_to_essay(essay)).to match "/essays/#{essay.friendly_id}"
     end
   end
 end

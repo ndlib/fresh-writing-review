@@ -1,2 +1,8 @@
 <h1><%= @essay_style_detail.title %></h1>
-<p>Issue <%= @essay_style_detail.link_to_issue %></p>
+<section class="crumb"><%= @essay_style_detail.link_to_issue %></section>
+
+<ul class="small-block-grid-3 listing">
+  <% @essay_style_detail.essays.each do |essay| %>
+    <li><img src="http://placehold.it/211x135"><%= @essay_style_detail.link_to_essay(essay) %></li>
+  <% end %>
+</ul>

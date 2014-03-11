@@ -13,6 +13,7 @@ class EssayStyleDetail
 
   def initialize(issue, essay_style)
     @essay_style = essay_style
+    @issue = issue
     @issue_detail = IssueDetail.new(issue)
   end
 
@@ -24,6 +25,14 @@ class EssayStyleDetail
     issue_detail.link_to_show
   end
 
+  def link_to_essay(essay)
+    helpers.link_to(essay.title, routes.issue_essay_path(issue_detail.friendly_id, essay.friendly_id))
+  end
+
+  def essays
+    EssayQuery.essays_for_issue_and_essay_style(issue, essay_style)
+  end
+
   private
     def essay_style
       @essay_style
@@ -31,5 +40,9 @@ class EssayStyleDetail
 
     def issue_detail
       @issue_detail
+    end
+
+    def issue
+      @issue
     end
 end

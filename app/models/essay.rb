@@ -4,6 +4,7 @@ class Essay < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   belongs_to :issue
+  belongs_to :essay_style
 
   has_many :essay_files
   has_many :attached_files,  through: :essay_files
