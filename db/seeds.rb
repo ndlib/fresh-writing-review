@@ -12,10 +12,9 @@ EssayStyle.delete_all
 end
 
 Issue.delete_all
-Issue.create(year: 2014, title: "Fresh Writing Volume 14", editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')))
+current_issue = Issue.create(year: 2014, title: "Fresh Writing Volume 14", editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')))
 Issue.create(year: 2012, title: "Fresh Writing Volume 12", editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2012', 'acknowledgments.md')), is_pdf: true)
 Issue.create(year: 2011, title: "Fresh Writing Volume 11", editorial_notes: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'foreword.md')), editorial_board: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'board.md')), acknowledgments: IO.read(Rails.root.join('spec', 'fixtures', 'issues', '2011', 'acknowledgments.md')), is_pdf: true)
-
 
 issue_id = Issue.first.id
 narrative_style = EssayStyle.all[0]
@@ -67,3 +66,10 @@ Essay.create(id: 7, issue_id: issue_id, essay_style: research_style, template: '
     author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
 )
 
+HighlightedEssay.delete_all
+EssayStyle.all.each do |essay_style|
+  essay = current_issue.essays.where(essay_style: essay_style).first
+  if essay.present?
+    HighlightedEssay.create(essay: essay, issue: current_issue, essay_style: essay_style, body: essay.body.to_s[0,200], biography: essay.author_biography.to_s[0,200])
+  end
+end

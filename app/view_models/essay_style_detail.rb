@@ -17,6 +17,10 @@ class EssayStyleDetail
     @issue_detail = IssueDetail.new(issue)
   end
 
+  def style_id
+    essay_style.id
+  end
+
   def link_to_show
     helpers.link_to(title, routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id))
   end
@@ -31,6 +35,18 @@ class EssayStyleDetail
 
   def essays
     EssayQuery.essays_for_issue_and_essay_style(issue, essay_style)
+  end
+
+  def render_highlighted_essay
+    if highlighted_essay.present?
+      render_to_string "essay_styles/highlighted_essay", highlighted_essay_detail: highlighted_essay
+    else
+      nil
+    end
+  end
+
+  def highlighted_essay
+    @highlighted_essay ||= HighlightedEssayDetail.new(issue, essay_style)
   end
 
   private
