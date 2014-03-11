@@ -1,5 +1,3 @@
-
-
 class MarkDownConverter
 
   include RailsHelpers

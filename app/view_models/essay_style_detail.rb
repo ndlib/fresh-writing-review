@@ -17,6 +17,10 @@ class EssayStyleDetail
     @issue_detail = IssueDetail.new(issue)
   end
 
+  def style_id
+    essay_style.id
+  end
+
   def link_to_show
     helpers.link_to(title, routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id))
   end

@@ -6,4 +6,8 @@ class EssaysController < ApplicationController
   end
 
 
+  def transcript
+    @essay_detail = EssayDetail.build(self)
+  end
+
 end

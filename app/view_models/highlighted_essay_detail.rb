@@ -11,10 +11,6 @@ class HighlightedEssayDetail
     @highlighted_essay = HighlightedEssayQuery.for_issue_and_essay_style(issue, essay_style)
   end
 
-  def image_path
-    "http://placehold.it/211x135"
-  end
-
   def link_to_essay
     helpers.link_to(highlighted_essay.title, routes.issue_essay_path(issue.friendly_id, highlighted_essay.friendly_id))
   end
@@ -25,6 +21,10 @@ class HighlightedEssayDetail
 
   def biography
     MarkDownConverter.call(highlighted_essay.biography)
+  end
+
+  def essay_id
+    highlighted_essay.essay_id
   end
 
   private

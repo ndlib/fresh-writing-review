@@ -13,24 +13,16 @@ describe EssayDetail do
 
   end
 
-  let(:essay) { double(Essay, title: 'title', template: "text", body: "", alt_body: "", alt_title: "", author: "Bob Bobbers") }
+  let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
+  let(:essay_style) { double(EssayStyle, title: 'narrative', friendly_id: 'id')}
+  let(:essay) { double(Essay, title: 'title', template: "text", body: "", alt_body: "", alt_title: "", author: "Bob Bobbers", issue: issue, essay_style: essay_style) }
   subject { described_class.new(essay)}
 
-  describe :title do
-    let(:essay) { double(Essay, title: 'title') }
 
-    it "delegates this to essay" do
-      expect(essay).to receive(:title)
-
-      subject.title
-    end
-  end
-
-
-  describe :author do
-
-    it "creates a named anchor link and adds the by text" do
-      expect(subject.author).to eq("By <a href=\"#author_biography\">Bob Bobbers</a>")
+  describe :render_header do
+    it "calls the sub view model" do
+      expect(EssayHeader).to receive(:render).with(essay)
+      subject.render_header
     end
   end
 

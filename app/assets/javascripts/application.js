@@ -17,5 +17,3 @@
 //= require turbolinks
 //= require_tree .
 //= require pagedown_bootstrap
-
-$(function(){ $(document).foundation(); });
