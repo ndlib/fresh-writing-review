@@ -16,8 +16,35 @@ class EssayDetail
   end
 
 
+  def transcript_link
+    if essay_format.media?
+      "<div class=\"transcript\">#{helpers.link_to('Transcript', routes.transcript_issue_essay_path(essay.issue.friendly_id, essay.friendly_id))}</div>"
+    end
+  end
+
+
   def render_header
     EssayDetail::Header.render(essay)
+  end
+
+
+  def render_embed
+    EssayDetail::Embed.render(essay)
+  end
+
+
+  def render_body
+    EssayDetail::Body.render(essay)
+  end
+
+
+  def render_alternate_body
+    EssayDetail::AlternateBody.render(essay)
+  end
+
+
+  def render_transcript
+    EssayDetail::Transcript.render(essay)
   end
 
 
@@ -36,31 +63,11 @@ class EssayDetail
   end
 
 
-  def render
-    display_template.render
-  end
-
-
   protected
 
-    def display_template
-      @template ||= determine_template_class.new(essay)
-    end
 
-
-    def determine_template_class
-      if @essay.template == 'text'
-        EssayDetail::Text
-      elsif @essay.template == 'media'
-        EssayDetail::Media
-      else
-        raise "Invalid Template"
-      end
-    end
-
-
-    def discussion_questions
-      @discussion_questions ||= MarkdownDetail.new(@essay.discussion_questions)
+    def essay_format
+      @essay_format ||= EssayFormat.new(essay)
     end
 
 end

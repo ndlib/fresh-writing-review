@@ -48,9 +48,8 @@ describe EssayDetail::AuthorBiography do
         subject.render
       end
 
-      it "generates a makrdown_detail" do
-        expect(MarkdownDetail).to receive(:new).with("biography")
-        subject.render
+      it "renders with out error " do
+        expect { subject.render }.to_not raise_error
       end
     end
 

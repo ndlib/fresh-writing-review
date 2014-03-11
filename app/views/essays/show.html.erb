@@ -1,7 +1,9 @@
 <article>
 
   <%= @essay_detail.render_header %>
-  <div class="body"><%= @essay_detail.render %></div>
+  <%= @essay_detail.render_embed %>
+  <%= @essay_detail.render_body %>
+  <%= @essay_detail.render_alternate_body %>
   <%= @essay_detail.render_author_biography %>
   <%= @essay_detail.render_discussion_questions %>
   <%= @essay_detail.render_works_cited %>

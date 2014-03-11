@@ -1,4 +1,4 @@
-class EssayDetail::AlternateBody
+class EssayDetail::Transcript
 
   include RailsHelpers
 
@@ -14,26 +14,14 @@ class EssayDetail::AlternateBody
   end
 
 
-  def title
-    essay.alt_title
-  end
-
-
-  def display_title?(&block)
-    if title.present?
-      yield
-    end
-  end
-
-
   def markdown
     markdown_object.markdown
   end
 
 
   def render
-    if display_alt_body?
-      return render_to_string('/essays/alternate_body', { object: self })
+    if display_body?
+      return render_to_string('/essays/transcript', { object: self })
     end
 
     ""
@@ -41,8 +29,8 @@ class EssayDetail::AlternateBody
 
   protected
 
-    def display_alt_body?
-      markdown_object.present? && essay_format.text?
+    def display_body?
+      essay_format.media? && markdown_object.present?
     end
 
 

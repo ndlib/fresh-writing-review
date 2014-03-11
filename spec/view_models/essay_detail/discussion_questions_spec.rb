@@ -36,9 +36,8 @@ describe EssayDetail::DiscussionQuestions do
       end
 
 
-      it "generates a makrdown_detail" do
-        expect(MarkdownDetail).to receive(:new).with("questions")
-        subject.render
+      it "renders with out error " do
+        expect { subject.render }.to_not raise_error
       end
     end
 

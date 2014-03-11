@@ -58,6 +58,10 @@ describe EssayDetail::Header do
       expect(subject).to receive(:render_to_string).with('/essays/header', { object: subject })
       subject.render
     end
+
+    it "renders with out error " do
+      expect { subject.render }.to_not raise_error
+    end
   end
 
 end
