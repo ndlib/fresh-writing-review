@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306161812) do
+ActiveRecord::Schema.define(version: 20140311140044) do
+
+  create_table "attached_files", force: true do |t|
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
 
   create_table "error_logs", force: true do |t|
     t.string   "netid"
@@ -24,6 +31,13 @@ ActiveRecord::Schema.define(version: 20140306161812) do
     t.text     "user_agent"
     t.string   "exception_class"
   end
+
+  create_table "essay_files", force: true do |t|
+    t.integer "essay_id"
+    t.integer "attached_file_id"
+  end
+
+  add_index "essay_files", ["essay_id", "attached_file_id"], name: "index_essay_files_on_essay_id_and_attached_file_id", using: :btree
 
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
