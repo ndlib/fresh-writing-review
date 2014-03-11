@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306161812) do
+ActiveRecord::Schema.define(version: 20140311144629) do
 
   create_table "error_logs", force: true do |t|
     t.string   "netid"
@@ -45,6 +45,24 @@ ActiveRecord::Schema.define(version: 20140306161812) do
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree
 
+  create_table "essays_images", id: false, force: true do |t|
+    t.integer "essay_id", null: false
+    t.integer "image_id", null: false
+    t.string  "title"
+  end
+
+  add_index "essays_images", ["essay_id", "image_id"], name: "index_essays_images_on_essay_id_and_image_id", using: :btree
+  add_index "essays_images", ["image_id", "essay_id"], name: "index_essays_images_on_image_id_and_essay_id", using: :btree
+
+  create_table "images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "issues", force: true do |t|
     t.integer  "year"
     t.string   "slug"
@@ -55,23 +73,11 @@ ActiveRecord::Schema.define(version: 20140306161812) do
 
   add_index "issues", ["slug"], name: "index_issues_on_slug", unique: true, using: :btree
 
-  create_table "pages", force: true do |t|
+  create_table "markdown_contents", force: true do |t|
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "pages_images", force: true do |t|
-    t.integer  "page_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "pages_images", ["page_id"], name: "index_pages_images_on_page_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                       null: false

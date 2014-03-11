@@ -6,10 +6,10 @@ FreshWriting::Application.routes.draw do
 
   get 'public/:action' => 'public'
 
-  resources :pages, :controller => :page, :only => [:show]
+  resources :markdown_contents, :controller => :markdown, :only => [:show]
 
   scope :admin do
-    resources :pages, :controller => :page, :only => [:new, :create, :edit, :update]
+    resources :markdown_contents, :controller => :markdown, :only => [:new, :create, :edit, :update]
   end
 
   resources :errors
