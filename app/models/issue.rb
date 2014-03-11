@@ -3,6 +3,7 @@ class Issue < ActiveRecord::Base
   friendly_id :year, use: :slugged
 
   has_many :essays
+  has_many :highlighted_essays
 
   store :data, accessors: [ :title, :editorial_notes, :editorial_board, :acknowledgments, :cover_image_fixture_path, :is_pdf ]
 

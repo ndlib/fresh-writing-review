@@ -4,4 +4,5 @@ class EssayStyle < ActiveRecord::Base
   store :data, accessors: [ :title ]
 
   has_many :essays
+  has_many :highlighted_essays
 end
