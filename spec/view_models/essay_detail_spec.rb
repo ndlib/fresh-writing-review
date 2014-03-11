@@ -28,28 +28,9 @@ describe EssayDetail do
 
 
   describe :render_works_cited do
-    context :has_works_cited do
-      let(:essay) { double(Essay, works_cited: "works_cited") }
-
-      it "renders the template " do
-        expect(subject).to receive(:render_to_string).with('/essays/works_cited', { object: subject.send(:works_cited) })
-
-        subject.render_works_cited
-      end
-
-      it "generates a makrdown_detail" do
-        expect(MarkdownDetail).to receive(:new).with("works_cited")
-        subject.render_works_cited
-      end
-    end
-
-    context :no_work_cited do
-      let(:essay) { double(Essay, works_cited: nil) }
-
-      it "does not render the template" do
-        expect(subject).to_not receive(:render_to_string)
-        subject.render_works_cited
-      end
+    it "calls the sub view model" do
+      expect(EssayWorksCited).to receive(:render).with(essay)
+      subject.render_works_cited
     end
   end
 

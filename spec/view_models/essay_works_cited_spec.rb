@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 
-describe AuthorBiographyDetail do
+describe EssayWorksCited do
 
-  let(:essay) { double(Essay, author: 'author', author_biography: 'biography' ) }
+  let(:essay) { double(Essay, works_cited: "works_cited") }
   subject { described_class.new(essay) }
-
 
   describe :self_render do
 
@@ -23,39 +22,29 @@ describe AuthorBiographyDetail do
   end
 
 
-  it "reutrns the author name" do
-    expect(subject.name).to eq("author")
-  end
-
-
   it "returns the markdown" do
-    expect(subject.markdown).to eq("<p>biography</p>\n")
+    expect(subject.markdown).to eq("<p>works_cited</p>\n")
   end
-
-
-  it "returns the image" do
-    expect(subject.image).to eq("<img alt=\"Author\" src=\"/assets/author.jpg\" width=\"50px\" />")
-  end
-
 
 
   describe :render do
-    context :has_discussion_questions do
+    context :has_works_cited do
 
       it "renders the template " do
-        expect(subject).to receive(:render_to_string).with('/essays/author_biography', { object: subject })
+        expect(subject).to receive(:render_to_string).with('/essays/works_cited', { object: subject })
 
         subject.render
       end
 
+
       it "generates a makrdown_detail" do
-        expect(MarkdownDetail).to receive(:new).with("biography")
+        expect(MarkdownDetail).to receive(:new).with("works_cited")
         subject.render
       end
     end
 
     context :no_work_cited do
-      let(:essay) { double(Essay, author_biography: nil, author: 'author') }
+      let(:essay) { double(Essay, works_cited: nil) }
 
       it "does not render the template" do
         expect(subject).to_not receive(:render_to_string)

@@ -1,4 +1,5 @@
-class AuthorBiographyDetail
+class EssayWorksCited
+
   include RailsHelpers
 
   attr_accessor :essay
@@ -18,28 +19,18 @@ class AuthorBiographyDetail
   end
 
 
-  def name
-    essay.author
-  end
-
-
-  def image
-    helpers.image_tag 'author.jpg', width:'50px'
-  end
-
-
   def render
     if markdown_object.present?
-      return render_to_string('/essays/author_biography', { object: self })
+      return render_to_string('/essays/works_cited', { object: self })
     end
 
     ""
   end
 
-  private
+  protected
 
     def markdown_object
-      @markdown_object ||= MarkdownDetail.new(essay.author_biography)
+      @markdown_object ||= MarkdownDetail.new(essay.works_cited)
     end
 
 end

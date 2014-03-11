@@ -22,11 +22,7 @@ class EssayDetail
 
 
   def render_works_cited
-    if works_cited.present?
-      return render_to_string('/essays/works_cited', { object: works_cited })
-    end
-
-    ""
+    EssayWorksCited.render(essay)
   end
 
 
