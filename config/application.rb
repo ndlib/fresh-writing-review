@@ -14,9 +14,10 @@ module FreshWriting
 
     additional_autoload_directories = [
       Rails.root.join('lib'),
-      Rails.root.join('app', 'view_models'),
+      Rails.root.join('app', 'forms'),
       Rails.root.join('app', 'query'),
-      Rails.root.join('app', 'service')
+      Rails.root.join('app', 'service'),
+      Rails.root.join('app', 'view_models')
     ]
     additional_autoload_directories.each do |directory|
       config.autoload_paths += Dir[directory]
@@ -29,6 +30,7 @@ module FreshWriting
     config.time_zone = 'Eastern Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+    config.i18n.enforce_available_locales = true
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
   end
