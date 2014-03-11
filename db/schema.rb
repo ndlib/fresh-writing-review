@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311150954) do
+ActiveRecord::Schema.define(version: 20140311164734) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -61,14 +61,11 @@ ActiveRecord::Schema.define(version: 20140311150954) do
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree
 
-  create_table "essays_images", id: false, force: true do |t|
-    t.integer "essay_id", null: false
-    t.integer "image_id", null: false
+  create_table "essays_markdown_contents", id: false, force: true do |t|
+    t.integer "essay_id",            null: false
+    t.integer "markdown_content_id", null: false
     t.string  "title"
   end
-
-  add_index "essays_images", ["essay_id", "image_id"], name: "index_essays_images_on_essay_id_and_image_id", using: :btree
-  add_index "essays_images", ["image_id", "essay_id"], name: "index_essays_images_on_image_id_and_essay_id", using: :btree
 
   create_table "highlighted_essays", force: true do |t|
     t.integer  "issue_id"
@@ -91,6 +88,14 @@ ActiveRecord::Schema.define(version: 20140311150954) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  create_table "images_markdown_contents", id: false, force: true do |t|
+    t.integer "markdown_content_id", null: false
+    t.integer "image_id",            null: false
+  end
+
+  add_index "images_markdown_contents", ["image_id", "markdown_content_id"], name: "image_md_index", using: :btree
+  add_index "images_markdown_contents", ["markdown_content_id", "image_id"], name: "md_image_index", using: :btree
 
   create_table "issues", force: true do |t|
     t.integer  "year"
