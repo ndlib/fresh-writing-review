@@ -33,6 +33,18 @@ class EssayStyleDetail
     EssayQuery.essays_for_issue_and_essay_style(issue, essay_style)
   end
 
+  def render_highlighted_essay
+    if highlighted_essay.present?
+      render_to_string "essay_styles/highlighted_essay", highlighted_essay_detail: highlighted_essay
+    else
+      nil
+    end
+  end
+
+  def highlighted_essay
+    @highlighted_essay ||= HighlightedEssayDetail.new(issue, essay_style)
+  end
+
   private
     def essay_style
       @essay_style

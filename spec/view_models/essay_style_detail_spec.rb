@@ -37,4 +37,23 @@ describe EssayStyleDetail do
       expect(subject.link_to_essay(essay)).to match "/essays/#{essay.friendly_id}"
     end
   end
+
+  describe '#highlighted_essay' do
+    it 'returns a HighlightedEssayDetail' do
+      expect(subject.highlighted_essay).to be_a_kind_of(HighlightedEssayDetail)
+    end
+  end
+
+  describe '#render_highlighted_essay' do
+    it 'renders the partial' do
+      FactoryGirl.create(:highlighted_essay, essay: essay, issue: issue, essay_style: essay_style)
+      expect(subject).to receive(:render_to_string).with("essay_styles/highlighted_essay", highlighted_essay_detail: subject.highlighted_essay)
+      subject.render_highlighted_essay
+    end
+
+    it 'renders nothing if there is no highlighted essay' do
+      expect(subject).to_not receive(:render_to_string)
+      subject.render_highlighted_essay
+    end
+  end
 end

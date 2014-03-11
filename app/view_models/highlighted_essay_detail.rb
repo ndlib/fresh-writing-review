@@ -19,6 +19,14 @@ class HighlightedEssayDetail
     helpers.link_to(highlighted_essay.title, routes.issue_essay_path(issue.friendly_id, highlighted_essay.friendly_id))
   end
 
+  def body
+    MarkDownConverter.call(highlighted_essay.body)
+  end
+
+  def biography
+    MarkDownConverter.call(highlighted_essay.biography)
+  end
+
   private
 
     def issue
