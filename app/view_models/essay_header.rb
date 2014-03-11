@@ -7,7 +7,7 @@ class EssayHeader
 
 
   def self.render(essay)
-    new(essay).render
+    self.new(essay).render
   end
 
 
@@ -22,7 +22,7 @@ class EssayHeader
 
 
   def issue_link
-    helpers.link_to(essay.issue.title, routes.issue_path(essay.issue.friendly_id))
+    helpers.link_to(essay.issue.year, routes.issue_path(essay.issue.friendly_id))
   end
 
 

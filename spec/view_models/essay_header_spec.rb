@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe EssayHeader do
 
-  let(:issue) { double(Issue, title: '2014', friendly_id: 'id') }
+  let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
   let(:essay_style) { double(EssayStyle, title: 'narrative', friendly_id: 'id')}
   let(:essay) { double(Essay, title: 'title', author: "Bob Bobbers", issue: issue, essay_style: essay_style) }
   subject { described_class.new(essay)}
@@ -10,7 +10,8 @@ describe EssayHeader do
   describe :self_render do
 
     it "instanciates itself and renders" do
-      expect(EssayHeader.any_instance).to receive(:render)
+      EssayHeader.any_instance.should_receive(:render)
+
       EssayHeader.render(essay)
     end
 
@@ -54,8 +55,8 @@ describe EssayHeader do
 
   describe :render do
     it "renders the template " do
-      expect(subject).to receive(:render_to_string).with('/essays/works_cited', { object: subject.send(:works_cited) })
-      subject.render_works_cited
+      expect(subject).to receive(:render_to_string).with('/essays/header', { object: subject })
+      subject.render
     end
   end
 
