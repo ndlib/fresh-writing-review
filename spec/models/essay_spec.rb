@@ -6,7 +6,7 @@ describe Essay do
   subject { Essay.new }
 
   it "has the essay attributes" do
-    ['title', 'body', 'issue', 'embed', 'template', 'alt_body', 'alt_title', 'author', 'author_biography', 'works_cited', 'discussion_questions'].each do | attr |
+    ['title', 'body', 'issue', 'embed', 'template', 'alt_body', 'alt_title', 'author', 'author_biography', 'works_cited', 'discussion_questions', 'attached_files'].each do | attr |
       expect(subject.respond_to?(attr)).to be_true
       expect(subject.respond_to?("#{attr}=")).to be_true
     end
@@ -23,6 +23,16 @@ describe Essay do
     subject.save
 
     expect(subject.friendly_id).to eq("title")
+  end
+
+  describe '#essay_style' do
+    let(:essay_style) { FactoryGirl.create(:essay_style) }
+
+    it 'belongs to an essay style' do
+      expect(subject.essay_style).to be_nil
+      subject.essay_style_id = essay_style.id
+      expect(subject.essay_style).to be == essay_style
+    end
   end
 
 
