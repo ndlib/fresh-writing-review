@@ -4,6 +4,7 @@ class Essay < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   belongs_to :issue
+  belongs_to :essay_style
 
   validates :title, presence: true
 

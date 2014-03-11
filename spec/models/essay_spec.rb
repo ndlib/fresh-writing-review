@@ -25,5 +25,15 @@ describe Essay do
     expect(subject.friendly_id).to eq("title")
   end
 
+  describe '#essay_style' do
+    let(:essay_style) { FactoryGirl.create(:essay_style) }
+
+    it 'belongs to an essay style' do
+      expect(subject.essay_style).to be_nil
+      subject.essay_style_id = essay_style.id
+      expect(subject.essay_style).to be == essay_style
+    end
+  end
+
 
 end
