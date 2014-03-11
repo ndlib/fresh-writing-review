@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EssayHeader do
+describe EssayDetail::Header do
 
   let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
   let(:essay_style) { double(EssayStyle, title: 'narrative', friendly_id: 'id')}
@@ -10,9 +10,9 @@ describe EssayHeader do
   describe :self_render do
 
     it "instanciates itself and renders" do
-      EssayHeader.any_instance.should_receive(:render)
+      described_class.any_instance.should_receive(:render)
 
-      EssayHeader.render(essay)
+      described_class.render(essay)
     end
 
   end

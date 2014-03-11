@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe EssayTemplates::Text do
+describe EssayDetail::Text do
   let(:essay) { double(Essay, title: 'title', body: 'body', alt_title: 'alt_title', alt_body: 'alt_body') }
   subject { described_class.new(essay)}
 
