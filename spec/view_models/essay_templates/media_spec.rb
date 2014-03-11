@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe EssayTemplates::Media do
+describe EssayDetail::Media do
   let(:essay) { double(Essay, title: 'title', body: 'body', alt_title: 'alt_title', embed: "embed") }
   subject { described_class.new(essay)}
 

@@ -1,4 +1,4 @@
-class EssayTemplates::Text
+class EssayDetail::Text
 
   include RailsHelpers
 

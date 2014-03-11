@@ -1,4 +1,4 @@
-class EssayTemplates::Media
+class EssayDetail::Media
   include RailsHelpers
 
   attr_accessor :essay
