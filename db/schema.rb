@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311135656) do
+ActiveRecord::Schema.define(version: 20140311150954) do
 
   create_table "error_logs", force: true do |t|
     t.string   "netid"
@@ -46,6 +46,19 @@ ActiveRecord::Schema.define(version: 20140311135656) do
   add_index "essays", ["essay_style_id"], name: "index_essays_on_essay_style_id", using: :btree
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree
+
+  create_table "highlighted_essays", force: true do |t|
+    t.integer  "issue_id"
+    t.integer  "essay_style_id"
+    t.integer  "essay_id"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "highlighted_essays", ["essay_id"], name: "index_highlighted_essays_on_essay_id", using: :btree
+  add_index "highlighted_essays", ["essay_style_id"], name: "index_highlighted_essays_on_essay_style_id", using: :btree
+  add_index "highlighted_essays", ["issue_id"], name: "index_highlighted_essays_on_issue_id", using: :btree
 
   create_table "issues", force: true do |t|
     t.integer  "year"
