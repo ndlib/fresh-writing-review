@@ -7,14 +7,14 @@
   <%= @issue_detail.cover_image %>
 <% else %>
   <h1>Essays</h1>
-<ul class="small-block-grid-3 listing">
+<ul class="small-block-grid-2 medium-block-grid-3 listing">
   <% @issue_detail.essays.each do |essay| %>
     <li><%= placeholder_image(211, 135, essay.id) %><%= link_to(essay.title, issue_essay_path(@issue_detail.friendly_id, essay.friendly_id)) %></li>
   <% end %>
 </ul>
 <hr>
 <h1>Essay Styles</h1>
-<ul class="small-block-grid-3 listing">
+<ul class="small-block-grid-2 medium-block-grid-3 listing">
   <% @issue_detail.essay_styles.each do |style| %>
     <li><%= placeholder_image(211, 135, style.style_id) %><%= style.link_to_show %></li>
   <% end %>

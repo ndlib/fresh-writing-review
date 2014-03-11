@@ -25,7 +25,7 @@ Wessel, David. “Yellen’s Challenge: Finding a Safe Exit.” Wall Street Jour
 
 Yellen, Janet. “Macroprudential Supervision and Monetary Policy in the Post-crisis World.” Business Economics 46.1 (2011): 3-12. Business Source Complete. Web.
 ￼￼
-## Statistical References
+### Statistical References
 Trading Economics. “United States GDP Growth Rate”. http://www.tradingeconomics.com/united-states/gdp-growth. Online resource.
 
 World Bank. “GDP growth (annual %)”. http://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG. Online resource.
