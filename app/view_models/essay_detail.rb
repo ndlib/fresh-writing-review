@@ -9,8 +9,6 @@ class EssayDetail
     self.new(essay)
   end
 
-  delegate :title, :author, to: :essay
-
   attr_accessor :essay
 
   def initialize(essay)
@@ -18,8 +16,8 @@ class EssayDetail
   end
 
 
-  def author
-    helpers.raw "By #{helpers.link_to(@essay.author, "#author_biography")}"
+  def render_header
+    EssayHeader.render(essay)
   end
 
 
@@ -70,6 +68,11 @@ class EssayDetail
       else
         raise "Invalid Template"
       end
+    end
+
+
+    def header
+      @header ||= EssayHeader.new(@essay)
     end
 
 
