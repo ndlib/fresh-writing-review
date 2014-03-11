@@ -32,7 +32,7 @@ class EssayDetail
 
 
   def render_author_biography
-    AuthorBiographyDetail.render(@essay)
+    EssayDetail::AuthorBiography.render(@essay)
   end
 
 

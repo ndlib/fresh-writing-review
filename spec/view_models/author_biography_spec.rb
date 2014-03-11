@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe AuthorBiographyDetail do
+describe EssayDetail::AuthorBiography do
 
   let(:essay) { double(Essay, author: 'author', author_biography: 'biography' ) }
   subject { described_class.new(essay) }

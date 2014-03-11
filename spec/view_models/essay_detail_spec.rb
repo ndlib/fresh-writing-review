@@ -45,7 +45,7 @@ describe EssayDetail do
 
   describe :render_author_biography do
     it "calls the sub view model" do
-      expect(AuthorBiographyDetail).to receive(:render).with(essay)
+      expect(EssayDetail::AuthorBiography).to receive(:render).with(essay)
       subject.render_author_biography
     end
   end

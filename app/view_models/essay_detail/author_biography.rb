@@ -1,4 +1,4 @@
-class AuthorBiographyDetail
+class EssayDetail::AuthorBiography
   include RailsHelpers
 
   attr_accessor :essay
