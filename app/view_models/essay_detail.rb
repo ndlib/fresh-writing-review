@@ -40,11 +40,7 @@ class EssayDetail
 
 
   def render_author_biography
-    if author_biography.present?
-      return render_to_string('/essays/author_biography', { object: author_biography })
-    end
-
-    ""
+    AuthorBiographyDetail.render(@essay)
   end
 
 

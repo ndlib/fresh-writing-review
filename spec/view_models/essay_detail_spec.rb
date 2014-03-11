@@ -82,28 +82,9 @@ describe EssayDetail do
 
 
   describe :render_author_biography do
-    context :has_discussion_questions do
-      let(:essay) { double(Essay, author_biography: "biography") }
-
-      it "renders the template " do
-        expect(subject).to receive(:render_to_string).with('/essays/author_biography', { object: subject.send(:author_biography) })
-
-        subject.render_author_biography
-      end
-
-      it "generates a makrdown_detail" do
-        expect(MarkdownDetail).to receive(:new).with("biography")
-        subject.render_author_biography
-      end
-    end
-
-    context :no_work_cited do
-      let(:essay) { double(Essay, author_biography: nil) }
-
-      it "does not render the template" do
-        expect(subject).to_not receive(:render_to_string)
-        subject.render_author_biography
-      end
+    it "calls the sub view model" do
+      expect(AuthorBiographyDetail).to receive(:render).with(essay)
+      subject.render_author_biography
     end
   end
 

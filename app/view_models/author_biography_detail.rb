@@ -1,6 +1,11 @@
 class AuthorBiographyDetail
   include RailsHelpers
 
+  def self.render(essay)
+    self.new(essay).render
+  end
+
+
   def initialize(essay)
     @essay = essay
   end
@@ -21,10 +26,13 @@ class AuthorBiographyDetail
   end
 
 
-  def present?
-    markdown_object.present?
-  end
+  def render
+    if markdown_object.present?
+      return render_to_string('/essays/author_biography', { object: self })
+    end
 
+    ""
+  end
 
   private
 
