@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EssayHeader do
+describe EssayDetail::Header do
 
   let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
   let(:essay_style) { double(EssayStyle, title: 'narrative', friendly_id: 'id')}

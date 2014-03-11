@@ -21,7 +21,7 @@ describe EssayDetail do
 
   describe :render_header do
     it "calls the sub view model" do
-      expect(EssayHeader).to receive(:render).with(essay)
+      expect(EssayDetail::Header).to receive(:render).with(essay)
       subject.render_header
     end
   end

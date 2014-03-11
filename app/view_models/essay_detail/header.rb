@@ -1,4 +1,4 @@
-class EssayHeader
+class EssayDetail::Header
   include RailsHelpers
 
   delegate :title, :author, to: :essay

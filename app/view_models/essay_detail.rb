@@ -17,7 +17,7 @@ class EssayDetail
 
 
   def render_header
-    EssayHeader.render(essay)
+    EssayDetail::Header.render(essay)
   end
 
 
