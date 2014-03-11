@@ -1,8 +1,7 @@
 jQuery ($) ->
-
-  $(document).ready ->
-    document.getElementById("uploadFile").onchange = ->
-      document.getElementById("uploadPlaceholder").value = @value
+  ready = ->
+    $("#uploadFile").change ->
+      $("#uploadPlaceholder").val(@val())
       return
 
     $('textarea.wmd-input').each (i, input) ->
@@ -19,11 +18,11 @@ jQuery ($) ->
             file.val ""
             dialog.modal('hide')
             return
-         
+
          uploadStart = ->
            loader.css("display", "inline-block").show()
            return
-      
+
          uploadComplete = (response) ->
            loader.hide()
            if response.success
@@ -33,7 +32,7 @@ jQuery ($) ->
              alert response.message
              file.val ""
            return
-         
+
          $("#uploadImageButton").click ->
            formData = new FormData(document.getElementById('uploadForm'))
            $.ajax
@@ -45,9 +44,12 @@ jQuery ($) ->
              cache: false
              contentType: false
              processData: false
-      
+
          dialog.modal('show')
 
          true
-      
+
       editor.run()
+
+  $(document).ready(ready)
+  $(document).on('page:load', ready)
