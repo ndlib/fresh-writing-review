@@ -35,14 +35,16 @@ Essay.create(id: 3, issue_id: issue_id, essay_style: analysis_style, template: '
   body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part1.txt')),
   alt_body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part2.txt')),
   alt_title: "Pied Beauty",
-  author: "Nathan McDevitt"
+  author: "Nathan McDevitt",
+  author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
 )
 
 Essay.create(id: 4, issue_id: issue_id, essay_style: narrative_style, template: 'media', title: "Invisiball Report", author: "Chizo Ekechukwu",
     body: IO.read(Rails.root.join('spec', 'fixtures', 'video_text.txt')),
     embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/zlMYf8MWI-4" frameborder="0" allowfullscreen></iframe>',
     alt_body: IO.read(Rails.root.join('spec', 'fixtures', 'ekechukwu_transcript.txt')),
-    alt_title: 'Transcript'
+    alt_title: 'Transcript',
+    author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
 )
 
 Essay.create(id: 5, issue_id: issue_id, essay_style: research_style, template: 'text', title: "The Streets Are Art", author: "Rachel Zavakos",
