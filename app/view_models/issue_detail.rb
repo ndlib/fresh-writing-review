@@ -29,6 +29,10 @@ class IssueDetail
     @issue_nav ||= IssueNav.new(issue)
   end
 
+  def highlighted_essays
+    issue.highlighted_essays
+  end
+
   def editorial_notes
     MarkDownConverter.call(issue.editorial_notes)
   end
