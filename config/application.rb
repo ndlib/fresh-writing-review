@@ -17,7 +17,8 @@ module FreshWriting
       Rails.root.join('app', 'forms'),
       Rails.root.join('app', 'query'),
       Rails.root.join('app', 'service'),
-      Rails.root.join('app', 'view_models')
+      Rails.root.join('app', 'view_models'),
+      Rails.root.join('app', 'policy')
     ]
     additional_autoload_directories.each do |directory|
       config.autoload_paths += Dir[directory]
