@@ -17,3 +17,6 @@
 
 # Image uploads
 /uploads
+
+# Test coverage dir
+/coverage
