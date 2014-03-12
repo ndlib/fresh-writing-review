@@ -1,0 +1,1 @@
+We are proud to share these excellent examples of student writing with you. These essays are solely the work of their individual authors and are not intended to reflect the views of the University Writing Program or the University of Notre Dame.

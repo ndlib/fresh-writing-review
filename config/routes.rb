@@ -29,4 +29,6 @@ FreshWriting::Application.routes.draw do
     end
     resources :essay_styles, only: [:show], path: "style"
   end
+
+  resources :pages, path: "/", only: :show
 end
