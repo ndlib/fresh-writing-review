@@ -33,11 +33,11 @@
 </section>
 
 <section class="results">
-  <ul class="list-unstyled">
+  <ul class="small-block-grid-2 medium-block-grid-3 listing">
     <% @essay_search.results.each do | essay | %>
       <li>
         <%= link_to placeholder_image(211, 135, essay.id), issue_essay_path(essay.issue.friendly_id, essay.friendly_id) %>
-        <%= link_to essay.title, issue_essay_path(essay.issue.friendly_id, essay.friendly_id) %>
+        <%= link_to essay.title, issue_essay_path(essay.issue.friendly_id, essay.friendly_id), class: "title" %>
         By <%= essay.author %>
         <%= link_to(essay.issue.year, issue_path(essay.issue.friendly_id)) %>
          •
