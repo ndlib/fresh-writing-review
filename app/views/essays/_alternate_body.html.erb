@@ -1,4 +1,4 @@
-<%= object.display_title? do %>
+<% if object.display_title? %>
   <h2><%= object.title %></h2>
 <% end %>
 <%= object.markdown %>
