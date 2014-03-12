@@ -19,3 +19,4 @@
 //= require mdown_editor.js
 //= require issues.js
 //= require foundation_init.js
+//= require fresh_writting.js
