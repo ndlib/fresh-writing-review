@@ -5,11 +5,22 @@ describe EssayDetail do
 
 
   describe :build do
+    before(:each) do
+      @issue = double(Issue, friendly_id: 'issue_id')
+      @essay = double(Essay, id: 1, friendly_id: 'id', issue: @issue)
+      @controller = double(ApplicationController, params: { issue_id: @issue.friendly_id, id: @essay.friendly_id})
+      EssayQuery.stub(:essay_for_issue_from_url).with(@issue.friendly_id, @essay.friendly_id).and_return(@essay)
+    end
 
-    it "builds from the url slug"
+    subject { described_class }
 
-    it "takes into account which issue the essay is a part of "
+    it "builds from the url slug" do
+      expect { subject.build(@controller) }.to_not raise_error
+    end
 
+    it "passes the essay into the object" do
+      expect(subject.build(@controller).essay).to eq(@essay)
+    end
 
   end
 
