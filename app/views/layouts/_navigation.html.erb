@@ -5,32 +5,17 @@
     <li>
       <%= link_to("Home", root_path) %>
     </li>
-    <li class="has-dropdown">
+    <li>
       <%= link_to("Issues", issues_path) %>
-      <ul class="dropdown">
-        <% IssueQuery.all.limit(2).each do |issue| %>
-          <li>
-            <%= link_to(issue.year, issue_path(issue.friendly_id)) %>
-          </li>
-        <% end %>
-        <li>
-          <%= link_to("Full Archive", issues_path) %>
-        </li>
-      </ul>
     </li>
     <li>
       <a href="/essays">Essays</a>
     </li>
-    <li class="has-dropdown">
+    <li>
       <%= link_to("About", page_path("about")) %>
-      <ul class="dropdown">
-        <li>
-          <%= link_to("Contact", page_path("contact")) %>
-        </li>
-      </ul>
     </li>
     <li>
-      <a href="#">ND University Writing Program</a>
+      <a href="http://uwp.nd.edu/" target="_blank">ND University Writing Program</a>
     </li>
   </ul>
 
