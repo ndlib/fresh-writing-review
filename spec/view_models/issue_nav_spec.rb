@@ -34,4 +34,10 @@ describe IssueNav do
       expect(subject.link_to_acknowledgments).to match "/issues/#{issue.year}/acknowledgments"
     end
   end
+
+  describe '#render' do
+    it 'renders' do
+      expect(subject.render).to be_a_kind_of String
+    end
+  end
 end

@@ -6,7 +6,7 @@ $dk-grey : #111111;
 $yellow : #FFC926;
 $link :#70C19A;
 $page: 900px;
-$headers : "Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
+$headers : "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 $content : Georgia,Cambria,"Times New Roman",Times,serif;
 
 @mixin box-shadow($shadow...) {
@@ -41,7 +41,7 @@ $content : Georgia,Cambria,"Times New Roman",Times,serif;
       url('//www.nd.edu/assets/fonts/GalaxiePolarisCondensed-Medium.min.ttf') format('truetype');
 }
 
-html { font-size: 62.5%; } 
+html { font-size: 62.5%; }
 
 /* HEADER
      ----------------------------------------------------*/
@@ -64,9 +64,9 @@ html { font-size: 62.5%; }
    .site-title a {display:block; border:none; color:#002b5b; text-decoration:none;}
     .site-title  a:visited {color:#002b5b;}
     .site-title  a:hover {text-decoration:none;}
-  
 
- 
+
+
 
 
   .site-header {text-align:left;}
@@ -101,7 +101,7 @@ article p {
 }
 
 article {
-  
+
   margin-bottom:3px;
 }
 
@@ -130,8 +130,8 @@ blockquote {
     /** White Text (Default) **/
     .dept-nd a   {width:301px; background-image:url(//www.nd.edu/assets/images/brandbar/dept-nd-white.png);}
     .dept-coal a {width:316px; background-image:url(//www.nd.edu/assets/images/brandbar/dept-coal-white.png);} /* College of Arts and Letters */
-    
-  
+
+
 }
 
   /* Footer */
@@ -150,7 +150,7 @@ blockquote {
   .site-info {margin:1em 0;}
   .site-info  li {display:inline-block; *display:inline; *zoom:1; margin:0 2%;}
   .site-info  a {text-decoration:underline;}
-  
+
   .site-footer {text-align:left;position:relative; clear:both; }
     .contact-info {margin:0;}
     .address {margin:0;}
@@ -192,7 +192,7 @@ blockquote {
 	position: absolute;
 	left:0.9375rem;
 	bottom:22px;
-  
+
 }
 
 .top-bar {
@@ -316,7 +316,7 @@ h2.year {
 }
 
 article {
-  
+
   margin-bottom:40px;
   h2 {
     font-size: 3rem;
@@ -349,15 +349,15 @@ article {
   .body {
     background:url(/assets/branch.jpg)no-repeat center bottom;
     padding-bottom:30px;
-  
-    p:first-of-type:first-letter { 
-      float: left; 
-      color: $dk-green; 
-      font-size: 75px; 
-      line-height: 60px; 
-      padding-top: 4px; 
-      padding-right: 8px; 
-      padding-left: 3px; 
+
+    p:first-of-type:first-letter {
+      float: left;
+      color: $dk-green;
+      font-size: 75px;
+      line-height: 60px;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-left: 3px;
     }
     blockquote p:first-of-type:first-letter {
       float:none;
@@ -436,6 +436,10 @@ article {
 
 }
 
+.highlighted-essay-carousel {
+  background-color: #ddd;
+}
+
 /* -- 320px */
 
 @media only screen and (max-width : 480px) {
@@ -445,7 +449,7 @@ article {
   .listing li a {
     font-size:1.4rem;
   }
-  .branding { 
+  .branding {
     height:auto;
     h1 {
         padding-top:75px;

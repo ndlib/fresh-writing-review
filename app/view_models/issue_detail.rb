@@ -29,8 +29,12 @@ class IssueDetail
     @issue_nav ||= IssueNav.new(issue)
   end
 
-  def highlighted_essays
-    issue.highlighted_essays
+  def render_carousel
+    highlighted_essay_carousel.render
+  end
+
+  def highlighted_essay_carousel
+    @highlighted_essay_carousel ||= HighlightedEssayCarousel.new(issue)
   end
 
   def editorial_notes
