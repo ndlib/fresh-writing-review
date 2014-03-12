@@ -81,12 +81,12 @@ ActiveRecord::Schema.define(version: 20140311164734) do
   add_index "highlighted_essays", ["issue_id"], name: "index_highlighted_essays_on_issue_id", using: :btree
 
   create_table "images", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "images_markdown_contents", id: false, force: true do |t|
