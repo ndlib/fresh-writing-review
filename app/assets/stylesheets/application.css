@@ -12,8 +12,11 @@
  *= require font-awesome
  *= require pagedown_bootstrap
  *= require_self
- *= require_tree .
- *= require fresh_writing
+ *= require ./bootstrap-custom
+ *= require ./foundation_and_overrides
+ *= require ./mdown_editor
+ *= require ./public
+ *= require ./fresh_writing
  */
 
 

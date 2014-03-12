@@ -15,128 +15,88 @@ describe EssayDetail do
 
   let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
   let(:essay_style) { double(EssayStyle, title: 'narrative', friendly_id: 'id')}
-  let(:essay) { double(Essay, title: 'title', template: "text", body: "", alt_body: "", alt_title: "", author: "Bob Bobbers", issue: issue, essay_style: essay_style) }
+  let(:essay) { double(Essay, title: 'title', template: "text", friendly_id: 'id', body: "", alt_body: "", alt_title: "", author: "Bob Bobbers", issue: issue, essay_style: essay_style) }
   subject { described_class.new(essay)}
+
+
+  describe :transcript_link do
+    context :is_media_page do
+      before(:each) do
+        subject.stub(:essay_format).and_return(double(EssayFormat, media?: true))
+      end
+
+      it "returns the link" do
+        expect(subject.transcript_link).to eq("<div class=\"transcript\"><a href=\"/issues/id/essays/id/transcript\">Transcript</a></div>")
+      end
+    end
+
+    context :is_mot_media_page do
+      before(:each) do
+        subject.stub(:essay_format).and_return(double(EssayFormat, media?: false))
+      end
+
+      it "does not return the link" do
+        expect(subject.transcript_link).to eq(nil)
+      end
+    end
+  end
+
 
 
   describe :render_header do
     it "calls the sub view model" do
-      expect(EssayHeader).to receive(:render).with(essay)
+      expect(EssayDetail::Header).to receive(:render).with(essay)
       subject.render_header
+    end
+  end
+
+  describe :render_embed do
+    it "calls the sub view model" do
+      expect(EssayDetail::Embed).to receive(:render).with(essay)
+      subject.render_embed
+    end
+  end
+
+
+  describe :render_body do
+    it "calls the sub view model" do
+      expect(EssayDetail::Body).to receive(:render).with(essay)
+      subject.render_body
+    end
+  end
+
+
+  describe :render_alternate_body do
+    it "calls the sub view model" do
+      expect(EssayDetail::AlternateBody).to receive(:render).with(essay)
+      subject.render_alternate_body
     end
   end
 
 
   describe :render_works_cited do
-    context :has_works_cited do
-      let(:essay) { double(Essay, works_cited: "works_cited") }
-
-      it "renders the template " do
-        expect(subject).to receive(:render_to_string).with('/essays/works_cited', { object: subject.send(:works_cited) })
-
-        subject.render_works_cited
-      end
-
-      it "generates a makrdown_detail" do
-        expect(MarkdownDetail).to receive(:new).with("works_cited")
-        subject.render_works_cited
-      end
-    end
-
-    context :no_work_cited do
-      let(:essay) { double(Essay, works_cited: nil) }
-
-      it "does not render the template" do
-        expect(subject).to_not receive(:render_to_string)
-        subject.render_works_cited
-      end
+    it "calls the sub view model" do
+      expect(EssayDetail::WorksCited).to receive(:render).with(essay)
+      subject.render_works_cited
     end
   end
 
 
   describe :render_discussion_questions do
-    context :has_discussion_questions do
-      let(:essay) { double(Essay, discussion_questions: "questions") }
-
-      it "renders the template " do
-        expect(subject).to receive(:render_to_string).with('/essays/discussion_questions', { object: subject.send(:discussion_questions) })
-
-        subject.render_discussion_questions
-      end
-
-      it "generates a makrdown_detail" do
-        expect(MarkdownDetail).to receive(:new).with("questions")
-        subject.render_discussion_questions
-      end
-    end
-
-    context :no_work_cited do
-      let(:essay) { double(Essay, discussion_questions: nil) }
-
-      it "does not render the template" do
-        expect(subject).to_not receive(:render_to_string)
-        subject.render_discussion_questions
-      end
+    it "calls the sub view model" do
+      expect(EssayDetail::DiscussionQuestions).to receive(:render).with(essay)
+      subject.render_discussion_questions
     end
   end
 
 
   describe :render_author_biography do
-    context :has_discussion_questions do
-      let(:essay) { double(Essay, author_biography: "biography") }
-
-      it "renders the template " do
-        expect(subject).to receive(:render_to_string).with('/essays/author_biography', { object: subject.send(:author_biography) })
-
-        subject.render_author_biography
-      end
-
-      it "generates a makrdown_detail" do
-        expect(MarkdownDetail).to receive(:new).with("biography")
-        subject.render_author_biography
-      end
-    end
-
-    context :no_work_cited do
-      let(:essay) { double(Essay, author_biography: nil) }
-
-      it "does not render the template" do
-        expect(subject).to_not receive(:render_to_string)
-        subject.render_author_biography
-      end
+    it "calls the sub view model" do
+      expect(EssayDetail::AuthorBiography).to receive(:render).with(essay)
+      subject.render_author_biography
     end
   end
 
 
-  describe :determine_template_class do
-
-    it "determines the template is text_template when the essay template is text" do
-      essay.stub(:template).and_return('text')
-
-      expect(subject.send(:determine_template_class)).to eq(EssayTemplates::Text)
-    end
-
-    it "determines the template is media_template when the essay template is text" do
-      essay.stub(:template).and_return('media')
-
-      expect(subject.send(:determine_template_class)).to eq(EssayTemplates::Media)
-    end
-
-    it "raises an exception if the essay template is incorrect" do
-      essay.stub(:template).and_return('not_a_template')
-
-      expect {subject.send(:determine_template_class)}.to raise_error
-    end
-  end
-
-
-  describe :render do
-
-    it "passes the render off to the determinied template" do
-      expect(subject.send(:display_template)).to receive(:render)
-
-      subject.render
-    end
-  end
 
 end
