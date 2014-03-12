@@ -1,13 +1,16 @@
 <article>
 
   <%= @essay_detail.render_header %>
-  <%= @essay_detail.render_embed %>
   <div class="follow">
+  <a href="/issues/2014" class="tool-link">Volumn 14</a>
+  <a href="/issues/2014" class="tool-link">Narrative Essay</a>
   <%= @essay_detail.render_discussion_questions %>
+  <a href="#" class="tool-link">Instructor Resources</a>
   <a href="#author_biography" class="author tool-link">Author<br>Biography</a>
   <a href="#works_cited" class="cited tool-link">Works Cited</a>
   <a href="#" target="_top" class="top tool-link">Top of Page</a>
   </div>
+  <%= @essay_detail.render_embed %>
   <%= @essay_detail.render_body %>
   <%= @essay_detail.render_alternate_body %>
   <%= @essay_detail.render_author_biography %>
