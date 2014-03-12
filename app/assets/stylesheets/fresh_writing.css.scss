@@ -84,6 +84,9 @@ a:hover {
   text-decoration: none;
   color:$lt-green;
 }
+a:visited {
+  text-decoration: none;
+}
 
 .page-body {
   border-bottom:solid 3px $lt-green;
