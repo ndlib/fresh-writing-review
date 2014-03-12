@@ -287,6 +287,14 @@ h2.year {
 
 }
 
+.large-10 {
+  .listing {
+    img {
+      width:100%;
+    }
+  }
+}
+
 .page-body h1 {
   color:$dk-green;
   font-size: 3.8rem;
@@ -366,6 +374,12 @@ article {
       padding:0;
       color:$dk-grey;
     }
+    img {
+      float: right;
+      margin:.4em 0 1.4em 1.4em;
+      vertical-align: text-top;
+      display: inline-block;
+    }
 	}
   .author img {
     float: left;
@@ -378,11 +392,12 @@ article {
 }
 
 .discussion {
-  border-top:solid 1px #c4c4c4;
+  //border-top:solid 1px #c4c4c4;
   //position:absolute;
   //top:0;
   //right:-8.33333%;
   //width:25%;
+  border-radius: 6px;
   h3 {
   	color:$dk-green;
   	font-size:1.8rem;
@@ -399,7 +414,83 @@ article {
     font-family: $content;
 
   }
+  a {
+    border:none;
+  }
+  span {
+    border:none !important;
+  }
 }
+
+.follow {
+
+  right:-75px;
+  z-index: 50;
+  background:none;
+  position: absolute;
+  .accordion {
+    width:60%;
+    float: right;
+    a {
+      padding:0;
+      display: inline-block;
+      float: right;
+      background:none;
+      span {
+        display: block;
+        
+        padding-right:38px;
+        
+        height: 36px;
+        background:url(/assets/discussion.svg)no-repeat top right;
+        position: relative;
+        z-index: 40;
+        color:$lt-grey;
+        font-size: 1rem;
+        width: 90px;
+      }
+    }
+    a:hover {background: none;}
+    .content.active {
+       
+        background-color: $ltlt-green;
+        -webkit-box-shadow: 0px 0px 5px 0 rgba(100,100,100,.8);
+        box-shadow: 0px 0px 5px 0 rgba(100,100,100,.8);
+        top:-4px;
+        right:-4px;
+        position: relative;
+    }
+  }
+  .tool-link {
+    display: block;
+    height:36px;
+    width: 90px;
+    float: right;
+    clear: both;
+    border:none;
+    color:$lt-grey;
+    font-size: 1rem;
+  }
+}
+.top {
+  display:none;
+  background: url(/assets/top.svg) no-repeat top right;
+  padding-top:12px;
+}
+a.author {
+  background: url(/assets/author.svg) no-repeat top right;
+
+}
+a.cited {
+  background: url(/assets/cited.svg) no-repeat top right;
+  padding-top:12px;
+}
+.on {display:block;}
+.abs { position: absolute; }
+.fixed {
+position: fixed;
+top: 30px !important;
+width:900px;}
 
 .worksited {
   h3 {
