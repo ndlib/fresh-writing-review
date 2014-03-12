@@ -7,6 +7,12 @@ Spork.prefork do
   # need to restart spork for it take effect.
   ENV["RAILS_ENV"] ||= 'test'
 
+  # Required for generating test coverage reports
+  unless ENV['DRB']
+    require 'simplecov'
+    SimpleCov.start 'rails'
+  end
+
   # Trap methods to prevent model caching: https://github.com/sporkrb/spork/wiki/Spork.trap_method-Jujitsu
   require "rails/application"
   Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
@@ -64,8 +70,14 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  # This code will be run each time you run your specs.
 
+  # Required for generating test coverage reports
+  unless ENV['DRB']
+    require 'simplecov'
+    SimpleCov.start 'rails'
+  end
+
+  # This code will be run each time you run your specs.
   FactoryGirl.reload
   Rails.application.reload_routes!
 
