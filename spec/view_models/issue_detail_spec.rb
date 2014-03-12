@@ -52,4 +52,11 @@ describe IssueDetail do
       subject.render_nav
     end
   end
+
+  describe '#render_carousel' do
+    it 'calls HighlightedEssayCarousel#render' do
+      expect(subject.highlighted_essay_carousel).to receive(:render)
+      subject.render_carousel
+    end
+  end
 end

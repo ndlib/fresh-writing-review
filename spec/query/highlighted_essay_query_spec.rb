@@ -24,4 +24,20 @@ describe HighlightedEssayQuery do
       expect(subject.for_issue_and_essay_style(@issue, alternate_style)).to be_nil
     end
   end
+
+  describe "#for_issue" do
+    before do
+      @issue = FactoryGirl.create(:issue)
+      @highlighted_essays = FactoryGirl.create_list(:highlighted_essay, 2, issue: @issue)
+    end
+
+    it "returns the highlighted essays for the issue" do
+      expect(subject.for_issue(@issue)).to eq(@highlighted_essays)
+    end
+
+    it "returns an empty set for a different issue" do
+      alternate_issue = FactoryGirl.create(:issue)
+      expect(subject.for_issue(alternate_issue).count).to be == 0
+    end
+  end
 end
