@@ -18,6 +18,19 @@ describe IssueQuery do
     end
   end
 
+  describe '#current' do
+    it 'returns the most recent issue' do
+      current = FactoryGirl.create(:issue, year: 2010)
+      FactoryGirl.create(:issue, year: 2000)
+      FactoryGirl.create(:issue, year: 2005)
+      expect(subject.current).to eq(current)
+    end
+
+    it "raises an error when there are no issues" do
+      expect{ subject.current }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
+
   describe '#find' do
     it "returns the requested record by friendly id" do
       expect(subject.find(issue.friendly_id)).to eq(issue)
@@ -25,7 +38,7 @@ describe IssueQuery do
 
 
     it "raises an error when the record doesn't exist" do
-      expect{ subject.find('fake')}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ subject.find('fake') }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end

@@ -3,6 +3,15 @@ class IssuesController < ApplicationController
     @issue_list = IssueList.build(self)
   end
 
+  def current
+    if IssueQuery.current?
+      @issue_detail = IssueDetail.current
+      render action: :show
+    else
+      redirect_to(issues_path)
+    end
+  end
+
   def show
     @issue_detail = IssueDetail.build(self)
   end

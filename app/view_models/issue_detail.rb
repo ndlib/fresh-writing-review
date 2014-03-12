@@ -7,6 +7,12 @@ class IssueDetail
     self.new(issue)
   end
 
+  def self.current
+    issue = IssueQuery.current
+
+    self.new(issue)
+  end
+
   delegate :friendly_id, :title, :year, :essays, :is_pdf?, to: :issue
 
   def initialize(issue)

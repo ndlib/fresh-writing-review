@@ -59,4 +59,11 @@ describe IssueDetail do
       subject.render_carousel
     end
   end
+
+  describe 'self#current' do
+    it 'returns the most recent issue' do
+      expect(IssueQuery).to receive(:current)
+      described_class.current
+    end
+  end
 end
