@@ -77,6 +77,6 @@ EssayStyle.all.each do |essay_style|
 end
 
 Page.delete_all
-%w(about).each do |page|
+%w(about contact).each do |page|
   Page.create(title: page.titleize, path: page, body: IO.read(Rails.root.join('spec', 'fixtures', 'pages', "#{page}.md")))
 end

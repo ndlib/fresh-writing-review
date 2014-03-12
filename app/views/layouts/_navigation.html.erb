@@ -21,8 +21,13 @@
     <li>
       <a href="#">Essays</a>
     </li>
-    <li>
+    <li class="has-dropdown">
       <%= link_to("About", page_path("about")) %>
+      <ul class="dropdown">
+        <li>
+          <%= link_to("Contact", page_path("contact")) %>
+        </li>
+      </ul>
     </li>
     <li>
       <a href="#">ND University Writing Program</a>
