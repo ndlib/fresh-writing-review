@@ -14,6 +14,11 @@ class EssayDetail::Embed
   end
 
 
+  def transcript_link
+    helpers.link_to('Transcript', routes.transcript_issue_essay_path(essay.issue.friendly_id, essay.friendly_id))
+  end
+
+
   def render
     if display_embed?
       return render_to_string('/essays/embed', { object: self })

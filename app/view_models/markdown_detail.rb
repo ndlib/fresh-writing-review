@@ -10,12 +10,12 @@ class MarkdownDetail
   end
 
 
-  def present?(&block)
+  def present?
     @text.present?
   end
 
 
-  def blank?(&block)
+  def blank?
     @text.blank?
   end
 

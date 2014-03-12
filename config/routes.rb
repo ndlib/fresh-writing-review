@@ -22,7 +22,7 @@ FreshWriting::Application.routes.draw do
       get :editorial_notes, path: "note"
     end
 
-    resources :essays do
+    resources :essays, only: [:index, :show ] do
       member do
         get :transcript
       end
