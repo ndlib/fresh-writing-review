@@ -14,6 +14,7 @@ FreshWriting::Application.routes.draw do
 
   resources :errors
 
+  get :essays, to: 'search#index'
 
   resources :issues, only: [:index, :show] do
     member do

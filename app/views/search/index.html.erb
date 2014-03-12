@@ -1,0 +1,48 @@
+<section class="search">
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label class="sr-only" for="keywords">Search</label>
+      <input type="text" class="form-control" id="keywords" placeholder="Search">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="essay_style">Essay Style</label>
+      <select class="form-control" id="essay_style" placeholder="Essay Style">
+        <option>Essay Style</option>
+        <option>Narrative</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="essay_style">Issue</label>
+      <select class="form-control" id="essay_style" placeholder="Essay Style">
+        <option>Issue</option>
+        <option>2014</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label class="sr-only" for="essay_style">Medium</label>
+      <select class="form-control" id="essay_style" placeholder="Essay Style">
+        <option>Medium</option>
+        <option>Multimedia</option>
+        <option>Traditional</option>
+      </select>
+    </div>
+  </form>
+</section>
+
+<section class="results">
+  <ul class="list-unstyled">
+    <% @essay_search.results.each do | essay | %>
+      <li>
+        <%= link_to placeholder_image(211, 135, essay.id), issue_essay_path(essay.issue.friendly_id, essay.friendly_id) %>
+        <%= link_to essay.title, issue_essay_path(essay.issue.friendly_id, essay.friendly_id) %>
+        By <%= essay.author %>
+        <%= link_to(essay.issue.year, issue_path(essay.issue.friendly_id)) %>
+         •
+        <%= link_to(essay.essay_style.title, issue_essay_style_path(essay.issue.friendly_id, essay.essay_style.friendly_id)) %>
+      </li>
+    <% end %>
+  </ul>
+</section>
