@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Image uploads
+/uploads
+
+# Test coverage dir
+/coverage

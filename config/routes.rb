@@ -2,7 +2,7 @@ FreshWriting::Application.routes.draw do
   devise_for :users
 
   # You can have the root of your site routed with "root"
-  root 'public#home'
+  root 'issues#current'
 
   get 'public/:action' => 'public'
 
@@ -22,11 +22,13 @@ FreshWriting::Application.routes.draw do
       get :editorial_notes, path: "note"
     end
 
-    resources :essays do
+    resources :essays, only: [:index, :show ] do
       member do
         get :transcript
       end
     end
     resources :essay_styles, only: [:show], path: "style"
   end
+
+  resources :pages, path: "/", only: :show
 end

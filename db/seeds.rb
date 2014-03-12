@@ -75,3 +75,8 @@ EssayStyle.all.each do |essay_style|
     HighlightedEssay.create(essay: essay, issue: current_issue, essay_style: essay_style, body: essay.body.to_s[0,200], biography: essay.author_biography.to_s[0,200])
   end
 end
+
+Page.delete_all
+%w(about contact).each do |page|
+  Page.create(title: page.titleize, path: page, body: IO.read(Rails.root.join('spec', 'fixtures', 'pages', "#{page}.md")))
+end

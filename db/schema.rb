@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311164734) do
+ActiveRecord::Schema.define(version: 20140312143427) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20140311164734) do
 
   add_index "essay_files", ["essay_id", "attached_file_id"], name: "index_essay_files_on_essay_id_and_attached_file_id", using: :btree
 
+  create_table "essay_markdown_contents", id: false, force: true do |t|
+    t.integer "essay_id",            null: false
+    t.integer "markdown_content_id", null: false
+    t.string  "title"
+  end
+
+  add_index "essay_markdown_contents", ["essay_id", "markdown_content_id"], name: "essay_md_content", using: :btree
+  add_index "essay_markdown_contents", ["markdown_content_id", "essay_id"], name: "md_content_essay", using: :btree
+
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
     t.text     "data"
@@ -61,12 +70,6 @@ ActiveRecord::Schema.define(version: 20140311164734) do
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree
 
-  create_table "essays_markdown_contents", id: false, force: true do |t|
-    t.integer "essay_id",            null: false
-    t.integer "markdown_content_id", null: false
-    t.string  "title"
-  end
-
   create_table "highlighted_essays", force: true do |t|
     t.integer  "issue_id"
     t.integer  "essay_style_id"
@@ -81,21 +84,13 @@ ActiveRecord::Schema.define(version: 20140311164734) do
   add_index "highlighted_essays", ["issue_id"], name: "index_highlighted_essays_on_issue_id", using: :btree
 
   create_table "images", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  create_table "images_markdown_contents", id: false, force: true do |t|
-    t.integer "markdown_content_id", null: false
-    t.integer "image_id",            null: false
-  end
-
-  add_index "images_markdown_contents", ["image_id", "markdown_content_id"], name: "image_md_index", using: :btree
-  add_index "images_markdown_contents", ["markdown_content_id", "image_id"], name: "md_image_index", using: :btree
 
   create_table "issues", force: true do |t|
     t.integer  "year"
@@ -107,11 +102,30 @@ ActiveRecord::Schema.define(version: 20140311164734) do
 
   add_index "issues", ["slug"], name: "index_issues_on_slug", unique: true, using: :btree
 
+  create_table "markdown_content_images", id: false, force: true do |t|
+    t.integer "markdown_content_id", null: false
+    t.integer "image_id",            null: false
+  end
+
+  add_index "markdown_content_images", ["image_id", "markdown_content_id"], name: "image_md_index", using: :btree
+  add_index "markdown_content_images", ["markdown_content_id", "image_id"], name: "md_image_index", using: :btree
+
   create_table "markdown_contents", force: true do |t|
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.string   "path"
+    t.string   "slug"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                       null: false

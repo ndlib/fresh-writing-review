@@ -21,18 +21,19 @@ describe EssayQuery do
   describe :essay_for_issue_from_url do
 
     it "returns the essay for a specific issue" do
-      expect(subject.essay_for_issue_from_url(essay.issue, essay.friendly_id)).to eq(essay)
+      expect(subject.essay_for_issue_from_url(essay.issue.friendly_id, essay.friendly_id)).to eq(essay)
     end
 
     it "raises active record not found when the issue is not found " do
       i = FactoryGirl.create(:issue)
-      expect{ described_class.essay_for_issue_from_url(i, essay.id)}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ described_class.essay_for_issue_from_url(i.friendly_id, essay.friendly_id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it "raises active record not found when the id is not found" do
-      expect{ described_class.essay_for_issue_from_url(essay.issue, 0)}.to raise_error(ActiveRecord::RecordNotFound)
+      expect{ described_class.essay_for_issue_from_url(essay.issue.friendly_id, 0)}.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
+
 
   describe "#essays_for_issue_and_essay_style" do
     before do
@@ -42,20 +43,20 @@ describe EssayQuery do
     end
 
     it "returns the essays for the issue and essay_style" do
-      found = subject.essays_for_issue_and_essay_style(@issue, @essay_style)
+      found = subject.essays_for_issue_and_essay_style(@issue.friendly_id, @essay_style)
       expect(found.count).to be == 2
       expect(found).to eq(@essays)
     end
 
     it "returns an empty array for a different issue" do
       alternate_issue = FactoryGirl.create(:issue)
-      found = subject.essays_for_issue_and_essay_style(alternate_issue, @essay_style)
+      found = subject.essays_for_issue_and_essay_style(alternate_issue.friendly_id, @essay_style)
       expect(found.count).to be == 0
     end
 
     it "returns an empty array for a different essay_style" do
       alternate_style = FactoryGirl.create(:essay_style)
-      found = subject.essays_for_issue_and_essay_style(@issue, alternate_style)
+      found = subject.essays_for_issue_and_essay_style(@issue.friendly_id, alternate_style)
       expect(found.count).to be == 0
     end
   end

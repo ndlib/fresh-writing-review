@@ -3,23 +3,16 @@ class EssayDetail
   include RailsHelpers
 
   def self.build(controller)
-    issue = IssueQuery.find(controller.params[:issue_id])
-    essay = EssayQuery.essay_for_issue_from_url(issue, controller.params[:id])
+    essay = EssayQuery.essay_for_issue_from_url(controller.params[:issue_id], controller.params[:id])
 
     self.new(essay)
   end
+
 
   attr_accessor :essay
 
   def initialize(essay)
     @essay = essay
-  end
-
-
-  def transcript_link
-    if essay_format.media?
-      "<div class=\"transcript\">#{helpers.link_to('Transcript', routes.transcript_issue_essay_path(essay.issue.friendly_id, essay.friendly_id))}</div>"
-    end
   end
 
 
@@ -64,11 +57,6 @@ class EssayDetail
 
 
   protected
-
-
-    def essay_format
-      @essay_format ||= EssayFormat.new(essay)
-    end
 
 end
 

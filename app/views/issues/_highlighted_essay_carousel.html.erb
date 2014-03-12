@@ -1,11 +1,13 @@
-<% if issue_detail.highlighted_essays.present? %>
+<% if highlighted_essay_carousel.highlighted_essays.present? %>
   <h2>Highlighted Essays</h2>
-  <ul data-orbit data-options="slide_number:false; timer_speed: 5000; resume_on_mouseout: true;">
-    <% issue_detail.highlighted_essays.each do |highlighted_essay| %>
+  <ul id="highlighted-essays" class="highlighted-essay-carousel" data-orbit data-options="slide_number:false; timer_speed: 5000; resume_on_mouseout: true;">
+    <% highlighted_essay_carousel.highlighted_essays.each do |highlighted_essay| %>
       <li>
-        <%= placeholder_image(656, 270, highlighted_essay.essay_id) %>
-        <div class="orbit-caption">
-          <%= link_to(highlighted_essay.title, issue_essay_path(issue_detail.friendly_id, highlighted_essay.essay.friendly_id)) %>
+        <div>
+          <%= placeholder_image(211, 135, highlighted_essay.essay_id) %>
+          <%= highlighted_essay_carousel.link_to_essay(highlighted_essay) %>
+          <%= highlighted_essay_carousel.body(highlighted_essay) %>
+          <%= highlighted_essay_carousel.biography(highlighted_essay) %>
         </div>
       </li>
     <% end %>

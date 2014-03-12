@@ -9,6 +9,20 @@ describe IssuesController do
     end
   end
 
+  describe "#current" do
+    it "gets the current issue" do
+      current_issue = issue
+      expect(IssueDetail).to receive(:current)
+      get :current
+      expect(response).to be_success
+    end
+
+    it 'redirects if there is no issue' do
+      get :current
+      expect(response).to be_redirect
+    end
+  end
+
   describe "#show" do
     it "succeeds" do
       get :show, id: issue.friendly_id

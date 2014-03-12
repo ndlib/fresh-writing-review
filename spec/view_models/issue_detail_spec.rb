@@ -45,4 +45,25 @@ describe IssueDetail do
       subject.essay_styles
     end
   end
+
+  describe '#render_nav' do
+    it 'calls IssueNav#render' do
+      expect(subject.issue_nav).to receive(:render)
+      subject.render_nav
+    end
+  end
+
+  describe '#render_carousel' do
+    it 'calls HighlightedEssayCarousel#render' do
+      expect(subject.highlighted_essay_carousel).to receive(:render)
+      subject.render_carousel
+    end
+  end
+
+  describe 'self#current' do
+    it 'returns the most recent issue' do
+      expect(IssueQuery).to receive(:current)
+      described_class.current
+    end
+  end
 end

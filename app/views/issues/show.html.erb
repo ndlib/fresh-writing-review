@@ -1,5 +1,5 @@
 <% content_for(:left_column) do %>
-  <%= render partial: 'issues/nav', locals: { issue_nav: @issue_detail.issue_nav } %>
+  <%= @issue_detail.render_nav %>
 <% end %>
 
 <% if @issue_detail.is_pdf? %>
@@ -7,7 +7,7 @@
   <%= @issue_detail.cover_image %>
 <% else %>
 
-  <%= render partial: 'issues/highlighted_essay_carousel', locals: { issue_detail: @issue_detail } %>
+  <%= @issue_detail.render_carousel %>
   <h2>Essay Styles</h2>
   <ul class="small-block-grid-2 medium-block-grid-3 listing">
     <% @issue_detail.essay_styles.each do |style| %>
