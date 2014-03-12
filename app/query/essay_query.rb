@@ -2,17 +2,18 @@
 
 class EssayQuery
 
-
   def self.find(id)
     relation.find(id)
   end
 
 
-  def self.essay_for_issue_from_url(issue, id)
+  def self.essay_for_issue_from_url(issue_id, id)
+    issue = IssueQuery.find(issue_id)
     issue.essays.friendly.find(id)
   end
 
-  def self.essays_for_issue_and_essay_style(issue, essay_style)
+  def self.essays_for_issue_and_essay_style(issue_id, essay_style)
+    issue = IssueQuery.find(issue_id)
     issue.essays.where(essay_style: essay_style)
   end
 
@@ -26,3 +27,4 @@ class EssayQuery
   end
 
 end
+

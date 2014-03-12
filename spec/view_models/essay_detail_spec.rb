@@ -19,29 +19,6 @@ describe EssayDetail do
   subject { described_class.new(essay)}
 
 
-  describe :transcript_link do
-    context :is_media_page do
-      before(:each) do
-        subject.stub(:essay_format).and_return(double(EssayFormat, media?: true))
-      end
-
-      it "returns the link" do
-        expect(subject.transcript_link).to eq("<div class=\"transcript\"><a href=\"/issues/id/essays/id/transcript\">Transcript</a></div>")
-      end
-    end
-
-    context :is_mot_media_page do
-      before(:each) do
-        subject.stub(:essay_format).and_return(double(EssayFormat, media?: false))
-      end
-
-      it "does not return the link" do
-        expect(subject.transcript_link).to eq(nil)
-      end
-    end
-  end
-
-
 
   describe :render_header do
     it "calls the sub view model" do
@@ -62,6 +39,14 @@ describe EssayDetail do
     it "calls the sub view model" do
       expect(EssayDetail::Body).to receive(:render).with(essay)
       subject.render_body
+    end
+  end
+
+
+  describe :render_transcript do
+    it "calls the sub view model" do
+      expect(EssayDetail::Transcript).to receive(:render).with(essay)
+      subject.render_transcript
     end
   end
 
