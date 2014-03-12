@@ -12,7 +12,7 @@ FreshWriting::Application.routes.draw do
     resources :markdown_contents, :controller => :markdown, :only => [:new, :create, :edit, :update]
   end
 
-  resources :errors
+  resources :errors, only: [:index, :show, :update]
 
   get :essays, to: 'search#index'
 

@@ -19,10 +19,8 @@ class EssayDetail::AlternateBody
   end
 
 
-  def display_title?(&block)
-    if title.present?
-      yield
-    end
+  def display_title?()
+    title.present?
   end
 
 
