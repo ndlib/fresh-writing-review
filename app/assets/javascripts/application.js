@@ -15,5 +15,7 @@
 //= require foundation
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
 //= require pagedown_bootstrap
+//= require mdown_editor.js
+//= require issues.js
+//= require foundation_init.js
