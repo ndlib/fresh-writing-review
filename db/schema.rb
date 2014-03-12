@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311164734) do
+ActiveRecord::Schema.define(version: 20140312143427) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -115,6 +115,17 @@ ActiveRecord::Schema.define(version: 20140311164734) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.string   "path"
+    t.string   "slug"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                       null: false
