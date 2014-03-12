@@ -4,7 +4,7 @@ $(document).scroll ->
   if scrollPosition >= scrollReference
     $(".follow").addClass "fixed"
     windoww = $(window).width()
-    rightp = (windoww - 900) / 2
+    rightp = (windoww - 880) / 2
     $(".follow").css "left", rightp
     $(".top").css "display","block"
   else

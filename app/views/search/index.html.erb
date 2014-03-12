@@ -38,10 +38,10 @@
       <li>
         <%= link_to placeholder_image(211, 135, essay.id), issue_essay_path(essay.issue.friendly_id, essay.friendly_id) %>
         <%= link_to essay.title, issue_essay_path(essay.issue.friendly_id, essay.friendly_id), class: "title" %>
-        By <%= essay.author %>
-        <%= link_to(essay.issue.year, issue_path(essay.issue.friendly_id)) %>
-         •
-        <%= link_to(essay.essay_style.title, issue_essay_style_path(essay.issue.friendly_id, essay.essay_style.friendly_id)) %>
+        <div class="meta">By <%= essay.author %>
+                <span><%= link_to(essay.issue.year, issue_path(essay.issue.friendly_id)) %>
+                                 •
+                                <%= link_to(essay.essay_style.title, issue_essay_style_path(essay.issue.friendly_id, essay.essay_style.friendly_id)) %></span></div>
       </li>
     <% end %>
   </ul>

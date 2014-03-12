@@ -22,7 +22,7 @@ class EssayStyleDetail
   end
 
   def link_to_show
-    helpers.link_to(title, routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id))
+    helpers.link_to(title, routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id), class: "title")
   end
 
   def link_to_issue

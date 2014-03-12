@@ -298,6 +298,42 @@ h2.year {
   }
 }
 
+.search {
+  margin-bottom: 1.2em;
+  input, select {
+    font-size:1.3rem;
+    color:$lt-grey;
+  }
+  input {
+    padding:8px 12px;
+    margin:0;
+    height:auto;
+  }
+}
+
+.results .listing li{
+  padding-bottom:0;
+  margin-bottom:12px;
+}
+
+.results .listing .title {
+  bottom:3.1rem;
+}
+
+.results .meta {
+  color:$lt-green;
+  font-size:1.3rem;
+  padding:5px 0;
+  span {
+    float: right;
+  }
+  a {
+    color:$lt-grey;
+    border:none;
+  }
+  
+}
+
 .page-body h1 {
   color:$dk-green;
   font-size: 3.8rem;
@@ -318,6 +354,7 @@ h2.year {
   margin-right:30px;
   background:$lt-grey;
   text-align: right;
+  margin-bottom:3rem;
   a {
     color:#fff;
     padding:3px 10px;
@@ -384,10 +421,15 @@ article {
       display: inline-block;
     }
 	}
-  .author img {
+
+  asside.author {
+    margin-bottom:2em;
     float: left;
-    margin:0 1rem 1rem 0;
-    width:140px;
+    img {
+      float: left;
+      margin:0 1rem 1rem 0;
+      width:140px;
+    }
   }
   aside {
     clear:both;
@@ -426,6 +468,7 @@ article {
 }
 
 .worksited {
+  border-top:1px solid $lt-green;
   h3 {
     color:$dk-green;
     font-size: 1.8rem;
@@ -515,7 +558,7 @@ article {
   .theme-bb-gold .dept {border-top:0 none; @include box-shadow(none);}
   .follow {
 
-  right:-75px;
+  right:-85px;
   z-index: 50;
   background:none;
   position: absolute;
@@ -562,7 +605,19 @@ article {
     color:$lt-grey;
     font-size: 1rem;
   }
+  .volume {
+    height:auto;
+    text-transform: uppercase;
+    font-size:1.2rem;
+    color:$lt-green;
+    font-weight: bold;
+  }
+  .style {
+    height:auto;
+    margin-bottom:.8rem;
+  }
 }
+
 .top {
   display:none;
   background: url(/assets/top.svg) no-repeat top right;
