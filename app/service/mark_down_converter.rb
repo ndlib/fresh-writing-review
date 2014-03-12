@@ -8,7 +8,7 @@ class MarkDownConverter
 
 
   def initialize(text)
-    @text = text
+    @text = text.to_s
   end
 
 
