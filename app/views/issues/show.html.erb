@@ -1,5 +1,5 @@
 <% content_for(:left_column) do %>
-  <%= render partial: 'issues/nav', locals: { issue_nav: @issue_detail.issue_nav } %>
+  <%= @issue_detail.render_nav %>
 <% end %>
 
 <% if @issue_detail.is_pdf? %>

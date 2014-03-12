@@ -45,4 +45,11 @@ describe IssueDetail do
       subject.essay_styles
     end
   end
+
+  describe '#render_nav' do
+    it 'calls IssueNav#render' do
+      expect(subject.issue_nav).to receive(:render)
+      subject.render_nav
+    end
+  end
 end

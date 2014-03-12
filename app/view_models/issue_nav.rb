@@ -8,7 +8,7 @@ class IssueNav
   end
 
   def render
-    helpers.render partial: 'issues/nav', locals: { issue_nav: self }
+    render_to_string 'issues/nav', issue_nav: self
   end
 
   def link_to_show
