@@ -14,6 +14,7 @@ class IssueDetail
   end
 
   delegate :friendly_id, :title, :year, :essays, :is_pdf?, to: :issue
+  attr_accessor :issue
 
   def initialize(issue)
     @issue = issue
@@ -59,8 +60,4 @@ class IssueDetail
     EssayStyleQuery.all.collect {|essay_style| EssayStyleDetail.new(issue, essay_style)}
   end
 
-  private
-    def issue
-      @issue
-    end
 end

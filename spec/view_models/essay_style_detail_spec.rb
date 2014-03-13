@@ -26,6 +26,7 @@ describe EssayStyleDetail do
     end
   end
 
+
   describe '#link_to_issue' do
     it 'links to the issue path' do
       expect(subject.link_to_issue).to match "/issues/#{issue.friendly_id}"

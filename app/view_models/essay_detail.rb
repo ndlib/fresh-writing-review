@@ -9,10 +9,11 @@ class EssayDetail
   end
 
 
-  attr_accessor :essay
+  attr_accessor :essay, :issue
 
   def initialize(essay)
     @essay = essay
+    @issue = essay.issue
   end
 
 
