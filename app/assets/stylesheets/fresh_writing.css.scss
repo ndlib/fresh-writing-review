@@ -298,9 +298,26 @@ nav.top-bar {
   }
 }
 
+/* HIGHLIGHTED */
+.orbit-container {
+  a {
+    border:none;
+  }
+  img {
+    width:656px;
+  }
+  .orbit-timer {
+    display: none;
+  }
+  p {
+    font-size:1.4rem;
+  }
+}
+
+
 /* ESSAY LISTS */
 
-h2.year {
+.page-body h2.year {
   font-family: $headers;
   font-size: 3.8rem;
   margin-top:1.5em;
@@ -308,6 +325,7 @@ h2.year {
     color:$lt-green;
     border:none;
   }
+
 }
 
 .listing {
@@ -380,6 +398,12 @@ h2.year {
   font-family: $headers;
   font-weight: normal;
   margin-top:1.5em;
+  }
+.page-body h2 {
+    font-size: 3rem;
+    color:$lt-green;
+    font-family: $headers;
+    font-weight: normal;
   }
 
 .flex-video {
