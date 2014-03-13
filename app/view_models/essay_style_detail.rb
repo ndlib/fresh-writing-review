@@ -1,3 +1,4 @@
+
 class EssayStyleDetail
   include RailsHelpers
 
@@ -24,19 +25,16 @@ class EssayStyleDetail
   end
 
   def link_to_show
-    helpers.link_to(title, routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id), class: "title")
+    LinkToRouteWithImage.call(routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id), title, style_id, "")
   end
 
-  def link_to_show_with_image
-    helpers.link_to(PlaceholderImage.call(211, 135, style_id), routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id))
-  end
 
   def link_to_issue
     issue_detail.link_to_show
   end
 
   def link_to_essay(essay)
-    helpers.link_to(essay.title, routes.issue_essay_path(issue_detail.friendly_id, essay.friendly_id))
+    LinkToRouteWithImage.call(routes.issue_essay_path(issue_detail.friendly_id, essay.friendly_id), essay.title, essay.id, "")
   end
 
   def essays

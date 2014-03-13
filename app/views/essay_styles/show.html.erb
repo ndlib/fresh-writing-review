@@ -13,6 +13,6 @@
 <h2>Essays</h2>
 <ul class="small-block-grid-3 listing">
   <% @essay_style_detail.essays.each do |essay| %>
-    <li><%= placeholder_image(211, 135, essay.id) %><%= @essay_style_detail.link_to_essay(essay) %></li>
+    <li><%= raw @essay_style_detail.link_to_essay(essay) %></li>
   <% end %>
 </ul>

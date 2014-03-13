@@ -19,7 +19,7 @@
   <h2>Essay Styles</h2>
   <ul class="small-block-grid-2 medium-block-grid-3 listing">
     <% @issue_detail.essay_styles.each do |style| %>
-      <li><%= style.link_to_show_with_image %><%= style.link_to_show %></li>
+      <li><%= raw style.link_to_show %></li>
     <% end %>
   </ul>
 

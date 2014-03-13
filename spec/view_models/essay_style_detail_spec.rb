@@ -27,13 +27,6 @@ describe EssayStyleDetail do
   end
 
 
-  describe '#link_to_show_with_image' do
-    it 'links to the style show page' do
-      expect(subject.link_to_show_with_image).to match "/issues/#{issue.friendly_id}/style/#{essay_style.friendly_id}"
-    end
-  end
-
-
   describe '#link_to_issue' do
     it 'links to the issue path' do
       expect(subject.link_to_issue).to match "/issues/#{issue.friendly_id}"
