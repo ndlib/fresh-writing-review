@@ -11,6 +11,8 @@ class EssayStyleDetail
   delegate :friendly_id, :title, to: :essay_style
   delegate :year, to: :issue_detail
 
+  attr_accessor :issue, :essay_style
+
   def initialize(issue, essay_style)
     @essay_style = essay_style
     @issue = issue
@@ -23,6 +25,10 @@ class EssayStyleDetail
 
   def link_to_show
     helpers.link_to(title, routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id), class: "title")
+  end
+
+  def link_to_show_with_image
+    helpers.link_to(PlaceholderImage.call(211, 135, style_id), routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id))
   end
 
   def link_to_issue
@@ -50,15 +56,8 @@ class EssayStyleDetail
   end
 
   private
-    def essay_style
-      @essay_style
-    end
-
     def issue_detail
       @issue_detail
     end
 
-    def issue
-      @issue
-    end
 end

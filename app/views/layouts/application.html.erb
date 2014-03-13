@@ -35,18 +35,10 @@
 
     </header>
     <%= render partial: 'layouts/navigation' %>
-      <div class="row volume home">
-        <div class="large-12 header">
-          <img src="http://placehold.it/900x200" >
-          <p>Volume 14</p>
-        </div>
-      </div>
-      <div class="row volume sub">
-        <div class="large-12 header">
-          <img src="http://placehold.it/900x90" >
-          <p>Volume 14</p>
-        </div>
-      </div>
+    <% if content_for?(:issue_header) %>
+      <%= content_for(:issue_header) %>
+    <% end %>
+
       <div class="row page-body">
         <%
         content_width = 10
