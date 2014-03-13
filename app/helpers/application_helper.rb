@@ -19,4 +19,13 @@ module ApplicationHelper
       image_tag("http://placehold.it/#{width}x#{height}")
     end
   end
+
+
+  def header_class
+    if request.path != '/'
+      'sub'
+    else
+      'home'
+    end
+  end
 end
