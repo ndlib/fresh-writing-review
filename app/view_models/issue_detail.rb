@@ -60,4 +60,7 @@ class IssueDetail
     EssayStyleQuery.all.collect {|essay_style| EssayStyleDetail.new(issue, essay_style)}
   end
 
+  def render_issue_header
+    IssueHeader.render(issue, true)
+  end
 end

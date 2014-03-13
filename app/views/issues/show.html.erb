@@ -1,10 +1,5 @@
 <% content_for(:issue_header) do %>
-  <div class="row volume home">
-    <div class="large-12 header">
-      <a href="<%= issue_path(@issue_detail.issue) %>"><img src="http://placehold.it/900x200" ></a>
-      <p>Volume 14</p>
-    </div>
-  </div>
+  <%= @issue_detail.render_issue_header %>
 <% end %>
 <% content_for(:left_column) do %>
   <%= @issue_detail.render_nav %>

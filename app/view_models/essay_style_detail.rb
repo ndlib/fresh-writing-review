@@ -49,6 +49,11 @@ class EssayStyleDetail
     end
   end
 
+
+  def render_issue_header
+    IssueHeader.render(issue, false)
+  end
+
   def highlighted_essay
     @highlighted_essay ||= HighlightedEssayDetail.new(issue, essay_style)
   end
