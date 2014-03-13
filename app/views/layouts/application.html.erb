@@ -46,6 +46,13 @@
           content_width -= 1
         end
         %>
+
+        <div class="large-<%= content_width %> columns">
+          <%= display_notices %>
+          <%= yield %>
+        </div>
+
+
         <% if content_for?(:left_column) %>
           <div class="large-3 columns">
             <%= content_for(:left_column) %>
@@ -55,19 +62,6 @@
             &nbsp;
           </div>
         <% end %>
-        <div class="large-<%= content_width %> columns">
-          <%= display_notices %>
-          <%= yield %>
-        </div>
-        <% if content_for?(:left_column) %>
-
-          <% else %>
-          <div class="large-1 columns">
-            &nbsp;
-          </div>
-        <% end %>
-
-
       </div>
 
       <footer id="footer" class="site-footer row" role="contentinfo">
