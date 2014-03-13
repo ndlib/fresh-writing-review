@@ -1,4 +1,4 @@
-## Acknowledgments
+## Acknowledgements
 ----------
 Developing as a writer is a complex project. It doesn’t take place in a single course or over a single semester. It is a continual process that spans one’s life. Indeed, we never truly stop growing as writers. We can always learn more. The best learning takes place in close collaboration with other writers, amid a community of careful and thoughtful readers—professors, Writing Center tutors, and fellow students. Fresh Writing plays a key role in that process of development for many writers at the University of Notre Dame, providing a record of some of our community’s best work. And just as our development as writers depends upon our collaboration with other writers, so too this volume is the fruit of collaboration among several members of our writing community. Many people deserve thanks for making this volume possible.
 

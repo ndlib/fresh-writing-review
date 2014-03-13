@@ -1,4 +1,4 @@
-## Acknowledgments
+## Acknowledgements
 ----------
 Good writing does not happen in a vacuum. By its very nature, it is an act of collaboration, as it involves us intimately with the ideas of others as we work together to create and share knowledge in an attempt to advance our collective understanding of our world. So too this volume is the fruit of collaboration among many members of our writing community at the University of Notre Dame.
 

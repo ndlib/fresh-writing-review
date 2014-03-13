@@ -1,19 +1,17 @@
-<% content_for(:issue_header) do %>
-  <div class="row volume home">
-    <div class="large-12 header">
-      <a href="<%= issue_path(@issue_detail.issue) %>"><img src="http://lorempixel.com/900/200/nature/4/" ></a>
-      <p>Volume 14</p>
-    </div>
-  </div>
-<% end %>
-<% content_for(:left_column) do %>
-  <%= @issue_detail.render_nav %>
-<% end %>
+
 
 <% if @issue_detail.is_pdf? %>
   <article><p class="download"><%= @issue_detail.title %> is available as a PDF <%= link_to('Download', '#', class: "button") %> </p>
     <%= @issue_detail.cover_image %></article>
 <% else %>
+
+  <% content_for(:left_column) do %>
+    <%= @issue_detail.render_nav %>
+  <% end %>
+
+  <% content_for(:issue_header) do %>
+    <%= @issue_detail.render_issue_header %>
+  <% end %>
 
   <%= @issue_detail.render_carousel %>
   <h2>Essay Styles</h2>
