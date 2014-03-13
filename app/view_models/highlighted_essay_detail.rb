@@ -12,7 +12,7 @@ class HighlightedEssayDetail
   end
 
   def link_to_essay
-    LinkToRouteWithImage.call(routes.issue_essay_path(issue.friendly_id, highlighted_essay.friendly_id), highlighted_essay.title, highlighted_essay.id, "")
+    LinkToRouteWithImage.call(routes.issue_essay_path(issue.friendly_id, highlighted_essay.friendly_id), highlighted_essay.title, highlighted_essay.id)
   end
 
   def body

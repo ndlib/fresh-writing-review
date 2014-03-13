@@ -25,7 +25,7 @@ class EssayStyleDetail
   end
 
   def link_to_show
-    LinkToRouteWithImage.call(routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id), title, style_id, "")
+    LinkToRouteWithImage.call(routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id), title, style_id)
   end
 
 
@@ -34,7 +34,7 @@ class EssayStyleDetail
   end
 
   def link_to_essay(essay)
-    LinkToRouteWithImage.call(routes.issue_essay_path(issue_detail.friendly_id, essay.friendly_id), essay.title, essay.id, "")
+    LinkToRouteWithImage.call(routes.issue_essay_path(issue_detail.friendly_id, essay.friendly_id), essay.title, essay.id)
   end
 
   def essays
