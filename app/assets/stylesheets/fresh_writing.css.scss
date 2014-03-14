@@ -87,6 +87,9 @@ a:hover {
 a:visited {
   text-decoration: none;
 }
+a:active, a:link {
+  text-decoration: none !important;
+}
 
 .page-body {
   border-bottom:solid 3px $lt-green;
@@ -304,14 +307,37 @@ nav.top-bar {
     color:#fff;
     font-size:2.6rem;
     line-height: 1em;
-    background:rgba(68,131,75,0.7);
+    background:rgba(164,167,116,0.7);
     height:100%;
     vertical-align: bottom;
   }
+  a {
+      border:none;
+    }
+
 }
+
+.volume-list {
+  position:relative;
+  a {
+    color:#fff;
+    position: absolute;
+    background:rgba(164,167,116,0.7);
+    border:none;
+    left:0;
+    bottom:0;
+    height:100%;
+    padding:40px 12px 12px;
+  }
+}
+.large-9:first-child {
+    padding-left: 0;
+  }
+
 .volume.home p {
-  font-size: 4.7rem;
-  padding-top:147px;
+  font-size: 3.2rem;
+  padding-top:157px;
+  width:230px;
 }
 
 /* HIGHLIGHTED */
@@ -321,13 +347,37 @@ nav.top-bar {
     border:none;
   }
   img {
-    width:656px;
+    width:348px;
   }
   .orbit-timer {
     display: none;
   }
   p {
     font-size:1.4rem;
+  }
+  .cover {
+    float: left;
+    width: 50%;
+    position: relative;
+    .title {
+      position:absolute;
+      bottom:0;
+      background: none repeat scroll 0 0 rgba(68, 131, 75, 0.7);
+      font-size:1.8rem;
+      color:#fff;
+      display: block;
+      padding:5px;
+      width:100%;
+    }
+
+  }
+  .abstract {
+    float: left;
+    width: 50%;
+    padding:20px 0;
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 

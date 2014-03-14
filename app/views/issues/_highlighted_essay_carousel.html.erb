@@ -1,13 +1,17 @@
 <% if highlighted_essay_carousel.highlighted_essays.present? %>
 
-  <ul id="highlighted-essays" class="highlighted-essay-carousel" data-orbit data-options="slide_number:false; timer_speed: 5000; resume_on_mouseout: true;">
+  <ul id="highlighted-essays" class="highlighted-essay-carousel" data-orbit data-options="slide_number:false; timer_speed: 10000; resume_on_mouseout: true;animation:fade;">
     <% highlighted_essay_carousel.highlighted_essays.each do |highlighted_essay| %>
       <li>
         <div>
-          <%= placeholder_image(211, 135, highlighted_essay.essay_id) %>
-          <%= highlighted_essay_carousel.link_to_essay(highlighted_essay) %>
-          <%= highlighted_essay_carousel.body(highlighted_essay) %>
-          <%= highlighted_essay_carousel.biography(highlighted_essay) %>
+          <div class="cover">
+              <%= placeholder_image(211, 135, highlighted_essay.essay_id) %>
+              <%= highlighted_essay_carousel.link_to_essay(highlighted_essay) %>
+          </div>
+          <div class="abstract">
+              <%= highlighted_essay_carousel.body(highlighted_essay) %>
+              <!--<%= highlighted_essay_carousel.biography(highlighted_essay) %>-->
+          </div>
         </div>
       </li>
     <% end %>
