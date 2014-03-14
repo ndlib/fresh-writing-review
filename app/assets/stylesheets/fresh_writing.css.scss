@@ -193,7 +193,7 @@ blockquote {
   height:0;
   overflow: hidden;
   padding-top:115px;
-  background: image-url(logo.svg) bottom left no-repeat;
+  background: url(image-path('logo.svg')) bottom left no-repeat;
   background-size: contain ;
   margin:14px 0 0;
 }
@@ -317,12 +317,6 @@ nav.top-bar {
 
 }
 
-.volume.home p {
-  font-size: 3.2rem;
-  padding-top:157px;
-  width:230px;
-}
-
 .volume-list {
   position:relative;
   a {
@@ -336,16 +330,15 @@ nav.top-bar {
     padding:40px 12px 12px;
   }
 }
-
-.volume-list:last-child {
-  margin-bottom: 2em;
-}
-
 .large-9:first-child {
     padding-left: 0;
   }
 
-
+.volume.home p {
+  font-size: 3.2rem;
+  padding-top:157px;
+  width:230px;
+}
 
 /* HIGHLIGHTED */
 .orbit-container {
@@ -565,7 +558,7 @@ article {
     }
 	}
 
-  asside.author {
+  aside.author {
     margin-bottom:2em;
     float: left;
     img {
@@ -792,9 +785,6 @@ a.author {
 a.cited {
   background: url(/assets/cited.svg) no-repeat top right;
   padding-top:12px;
-}
-a.instructor {
-  background: url(/assets/instructor.svg) no-repeat top right;
 }
 .on {display:block;}
 .abs { position: absolute; }
