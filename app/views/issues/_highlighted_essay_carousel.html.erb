@@ -7,11 +7,12 @@
           <div class="cover">
               <%= placeholder_image(211, 135, highlighted_essay.essay_id) %>
               <%= highlighted_essay_carousel.link_to_essay(highlighted_essay) %>
+              <div class="meta"><%= highlighted_essay_carousel.highlighted_author(highlighted_essay) %>
+                            <span><%= highlighted_essay_carousel.highlighted_essay_style(highlighted_essay) %></span></div>
           </div>
           <div class="abstract">
               <%= highlighted_essay_carousel.body(highlighted_essay) %>
-              <%= highlighted_essay_carousel.highlighted_author(highlighted_essay) %>
-              <%= highlighted_essay_carousel.highlighted_essay_style(highlighted_essay) %>
+              
 
               <!--<%= highlighted_essay_carousel.biography(highlighted_essay) %>-->
           </div>
