@@ -14,6 +14,15 @@ class HighlightedEssayCarousel
     end
   end
 
+  def highlighted_author(highlighted_essay)
+    "by #{highlighted_essay.author}"
+  end
+
+
+  def highlighted_essay_style(highlighted_essay)
+    highlighted_essay.essay_style
+  end
+
   def highlighted_essays
     @highlighted_essays ||= HighlightedEssayQuery.for_issue(issue)
   end
