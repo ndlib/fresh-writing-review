@@ -22,9 +22,9 @@ class EssayDetail::Embed
   def render
     if display_embed?
       return render_to_string('/essays/embed', { object: self })
+    else
+      return render_to_string('/essays/coverimage', { object: self })
     end
-
-    ""
   end
 
 
