@@ -1,7 +1,7 @@
 jQuery ($) ->
   ready = ->
     $("#uploadFile").change ->
-      $("#uploadPlaceholder").val(@val())
+      $("#uploadPlaceholder").val($(this).val())
       return
 
     $('textarea.wmd-input').each (i, input) ->

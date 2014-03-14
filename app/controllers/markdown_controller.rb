@@ -1,7 +1,7 @@
 class MarkdownController < ApplicationController
 
   def new
-    @markdown_content = MarkdownContents.new
+    @markdown_content = MarkdownContent.new
   end
 
 
@@ -10,6 +10,13 @@ class MarkdownController < ApplicationController
 
 
   def show
+  end
+
+
+  def add_image
+    md = MarkdownContent.new(content: "test")
+    md.save
+    md.images.create(:image => params[:file])
   end
 
 end

@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require pagedown_bootstrap
-//= require mdown_editor.js
+//= require markdown_editor.js
 //= require issues.js
 //= require foundation_init.js
 //= require fresh_writting.js

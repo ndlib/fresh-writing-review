@@ -12,6 +12,8 @@ FreshWriting::Application.routes.draw do
     resources :markdown_contents, :controller => :markdown, :only => [:new, :create, :edit, :update]
   end
 
+  post 'media/upload', to: 'markdown#add_image'
+
   resources :errors, only: [:index, :show, :update]
 
   get :essays, to: 'search#index'
