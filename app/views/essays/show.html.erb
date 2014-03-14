@@ -13,11 +13,13 @@
   <div class="follow">
     <%= link_to @essay_detail.essay.issue.title, issue_path(@essay_detail.essay.issue.friendly_id), class: 'tool-link volume' %>
     <%= link_to @essay_detail.essay.essay_style.title, issue_essay_style_path(@essay_detail.essay.issue.friendly_id, @essay_detail.essay.essay_style), class: 'tool-link style' %>
-    <%= @essay_detail.render_discussion_questions %>
-    <a href="#" class="tool-link">Instructor Resources</a>
-    <a href="#author_biography" class="author tool-link">Author<br>Biography</a>
-    <a href="#works_cited" class="cited tool-link">Works Cited</a>
-    <a href="#" target="_top" class="top tool-link">Top of Page</a>
+
+  <%= @essay_detail.render_discussion_questions %>
+  <a href="#" class="tool-link instructor">Instructor Resources</a>
+  <a href="#author_biography" class="author tool-link">Author<br>Biography</a>
+  <a href="#works_cited" class="cited tool-link">Works Cited</a>
+  <a href="#" target="_top" class="top tool-link">Top of Page</a>
+
   </div>
   <%= @essay_detail.render_embed %>
   <%= @essay_detail.render_body %>
