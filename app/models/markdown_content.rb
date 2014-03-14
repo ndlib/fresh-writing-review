@@ -5,4 +5,6 @@ class MarkdownContent < ActiveRecord::Base
 
   store :data, accessors: [ :content ]
 
+  validates :content, presence: true
+
 end
