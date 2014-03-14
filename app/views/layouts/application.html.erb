@@ -47,14 +47,14 @@
         end
         %>
         <% if content_for?(:left_column) %>
-          
+
           <% else %>
           <div class="large-1 columns">
             &nbsp;
           </div>
         <% end %>
-        
-        
+
+
         <div class="large-<%= content_width %> columns">
           <%= display_notices %>
           <%= yield %>
@@ -85,7 +85,7 @@
               <span class="tel"><span class="type">Phone:</span> 574-631-5578</span>
               <span class="email"><a href="mailto:email@nd.edu">fwritting@nd.edu</a></span>
             </p>
-            <a href="http://al.nd.edu/" class="ndmark"><img src="/assets/arts_letters_mark_blue.svg" alt="University of Notre Dame" ></a>
+            <a href="http://al.nd.edu/" class="ndmark"><%= image_tag('arts_letters_mark_blue.svg', alt: "University of Notre Dame") %></a>
           </div>
         </div>
       </div>

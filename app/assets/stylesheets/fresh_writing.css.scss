@@ -531,7 +531,7 @@ article {
 
   }
   .body {
-    background:url(/assets/branch.jpg)no-repeat center bottom;
+    background:url(image-path('branch.jpg')) no-repeat center bottom;
     padding-bottom:30px;
 
     p:first-of-type:first-letter {
@@ -774,16 +774,16 @@ article {
 
 .top {
   display:none;
-  background: url(/assets/top.svg) no-repeat top right;
+  background: url(image-path('top.svg')) no-repeat top right;
   padding-top:12px;
 }
 a.author {
-  background: url(/assets/author.svg) no-repeat top right;
+  background: url(image-path('author.svg')) no-repeat top right;
   padding-right:36px;
 
 }
 a.cited {
-  background: url(/assets/cited.svg) no-repeat top right;
+  background: url(image-path('cited.svg')) no-repeat top right;
   padding-top:12px;
 }
 .on {display:block;}
@@ -795,7 +795,7 @@ width:900px;}
 }
 
 body {
-  background: url(/assets/bg.png) repeat-x 0 50px;
+  background: url(image-path('bg.png')) repeat-x 0 50px;
   cursor: auto;
 }
 
