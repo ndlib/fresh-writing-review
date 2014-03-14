@@ -7,5 +7,10 @@ class HighlightedEssay < ActiveRecord::Base
 
   validates_presence_of :essay
 
-  delegate :title, :friendly_id, to: :essay
+  delegate :title, :friendly_id, :author, to: :essay
+
+
+  def essay_style
+    essay.essay_style.title
+  end
 end

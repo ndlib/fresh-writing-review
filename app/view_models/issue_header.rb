@@ -34,7 +34,7 @@ class IssueHeader
 
 
   def header_image
-    helpers.link_to(image, routes.issues_path(issue.friendly_id))
+    helpers.link_to(image, routes.issue_path(issue.friendly_id))
   end
 
 
