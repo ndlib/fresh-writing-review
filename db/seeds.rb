@@ -29,14 +29,12 @@ Essay.create(id: 1, issue_id: issue_id, essay_style: narrative_style, template: 
     author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
 )
 
-Essay.create(id: 2, issue_id: issue_id, essay_style: definition_style, template: 'media', title: "No Transcript", body: IO.read(Rails.root.join('spec', 'fixtures', 'video_text.txt')), embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/unWnZvXJH2o" frameborder="0" allowfullscreen></iframe>', author: "Terence Clines")
-
 Essay.create(id: 3, issue_id: issue_id, essay_style: analysis_style, template: 'text', title: "Imperfect, Contradictory Beauty",
   body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part1.txt')),
   alt_body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part2.txt')),
   alt_title: "Pied Beauty",
   author: "Nathan McDevitt",
-  author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
+  author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography_long.md'))
 )
 
 Essay.create(id: 4, issue_id: issue_id, essay_style: narrative_style, template: 'media', title: "Invisiball Report", author: "Chizo Ekechukwu",
@@ -51,7 +49,7 @@ Essay.create(id: 5, issue_id: issue_id, essay_style: research_style, template: '
     body: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_body.txt')),
     works_cited: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_works_cited.txt')),
     discussion_questions: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_discussion_questions.txt')),
-    author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
+    author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography_long.md'))
 )
 
 Essay.create(id: 6, issue_id: issue_id, essay_style: analysis_style, template: 'media', title: "Monsoon: Winds of Culture", author: "Jennifer Cha",
@@ -65,7 +63,7 @@ Essay.create(id: 7, issue_id: issue_id, essay_style: research_style, template: '
     body: IO.read(Rails.root.join('spec', 'fixtures', 'campagna_text.txt')),
     works_cited: IO.read(Rails.root.join('spec', 'fixtures', 'campagna_works_cited.txt')),
     discussion_questions: IO.read(Rails.root.join('spec', 'fixtures', 'zavakos_discussion_questions.txt')),
-    author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography.txt'))
+    author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography_long.md'))
 )
 
 HighlightedEssay.delete_all
