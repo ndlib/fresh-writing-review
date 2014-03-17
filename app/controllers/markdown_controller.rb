@@ -16,7 +16,8 @@ class MarkdownController < ApplicationController
   def add_image
     md = MarkdownContent.new(content: "test")
     md.save
-    md.images.create(:image => params[:file])
+    i = md.images.create(:image => params[:file])
+    render json: { success: true, image_path: i.image.url }
   end
 
 end
