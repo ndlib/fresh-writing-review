@@ -52,9 +52,9 @@ describe EssayDetail::Embed do
     context :no_embed_essay do
       subject { described_class.new(no_embed_essay) }
 
-      it "does not render the template when there is no embed code" do
-
-        expect(subject.render).to eq("")
+      it "renders the feature image" do
+        expect(subject).to receive(:render_to_string).with('/essays/coverimage', { object: subject })
+        subject.render
       end
     end
 

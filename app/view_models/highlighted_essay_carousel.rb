@@ -20,7 +20,7 @@ class HighlightedEssayCarousel
 
 
   def highlighted_essay_style(highlighted_essay)
-    highlighted_essay.essay_style
+    highlighted_essay.essay_style.title
   end
 
   def highlighted_essays

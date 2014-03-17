@@ -27,6 +27,10 @@ class HighlightedEssayDetail
     highlighted_essay.essay_id
   end
 
+  def essay_style
+    essay_style.title
+  end
+
   private
 
     def issue

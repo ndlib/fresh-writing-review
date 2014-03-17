@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe EssayDetail::Header do
 
-  let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
+  let(:issue) { double(Issue, friendly_id: 'id', title: 'issue_title') }
   let(:essay_style) { double(EssayStyle, title: 'narrative', friendly_id: 'id')}
   let(:essay) { double(Essay, title: 'title', author: "Bob Bobbers", issue: issue, essay_style: essay_style) }
   subject { described_class.new(essay)}
@@ -40,7 +40,7 @@ describe EssayDetail::Header do
   describe :issue_link do
 
     it "generates an issue link " do
-      expect(subject.issue_link).to eq("<a href=\"/issues/id\">2014</a>")
+      expect(subject.issue_link).to eq("<a href=\"/issues/id\">issue_title</a>")
     end
   end
 
