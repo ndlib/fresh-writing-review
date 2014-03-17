@@ -14,10 +14,11 @@
   <% end %>
 
   <%= @issue_detail.render_carousel %>
-  <h2>Essay Styles</h2>
+
+  <h2>Essays</h2>
   <ul class="small-block-grid-2 medium-block-grid-3 listing">
-    <% @issue_detail.essay_styles.each do |style| %>
-      <li><%= raw style.link_to_show %></li>
+    <% @issue_detail.essays.each do | e | %>
+      <li><%= e.render %></li>
     <% end %>
   </ul>
 

@@ -38,8 +38,14 @@ class EssayStyleDetail
   end
 
   def essays
-    EssayQuery.essays_for_issue_and_essay_style(issue, essay_style)
+    @essays ||= EssayQuery.essays_for_issue_and_essay_style(issue, essay_style)
   end
+
+
+  def has_essays?
+    (essays.size > 0)
+  end
+
 
   def render_highlighted_essay
     if highlighted_essay.present?

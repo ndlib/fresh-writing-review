@@ -18,7 +18,7 @@ class EssayQuery
   end
 
   def self.essays_for_issue(issue)
-#    relation.where(issue_id: issue.id)
+    issue.essays
   end
 
 

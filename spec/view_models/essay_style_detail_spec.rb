@@ -45,6 +45,19 @@ describe EssayStyleDetail do
     end
   end
 
+  describe "#has_essays?" do
+
+    it "returns true if the style has essays" do
+      subject.stub(:essays).and_return([ double(Essay) ])
+      expect(subject.has_essays?).to be_true
+    end
+
+    it "returns false if the style does not" do
+      subject.stub(:essays).and_return([ ])
+      expect(subject.has_essays?).to be_false
+    end
+  end
+
   describe '#render_highlighted_essay' do
     it 'renders the partial' do
       FactoryGirl.create(:highlighted_essay, essay: essay, issue: issue, essay_style: essay_style)

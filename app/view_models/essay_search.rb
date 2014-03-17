@@ -4,12 +4,7 @@ class EssaySearch
     self.new
   end
 
-  def initialize()
-
-  end
-
-
   def results
-    Essay.all
+    Essay.all.collect { | e | EssayLink.new(e) }
   end
 end

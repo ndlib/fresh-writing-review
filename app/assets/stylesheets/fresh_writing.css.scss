@@ -575,12 +575,19 @@ article {
       padding:0;
       color:$dk-grey;
     }
+    figure {
+      float: right;
+      margin:.4em 0 1.4em 1.4em;
+      vertical-align: text-top;
+      display: inline-block;
+    }
     img {
       float: right;
       margin:.4em 0 1.4em 1.4em;
       vertical-align: text-top;
       display: inline-block;
     }
+
 	}
 
   aside.author {
