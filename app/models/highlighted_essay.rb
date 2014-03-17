@@ -9,8 +9,4 @@ class HighlightedEssay < ActiveRecord::Base
 
   delegate :title, :friendly_id, :author, to: :essay
 
-
-  def essay_style
-    essay.essay_style.title
-  end
 end

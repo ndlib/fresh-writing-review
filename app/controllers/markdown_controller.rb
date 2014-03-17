@@ -1,5 +1,7 @@
 class MarkdownController < ApplicationController
 
+  layout 'admin'
+
   def new
     @markdown_content = MarkdownContent.new
   end
