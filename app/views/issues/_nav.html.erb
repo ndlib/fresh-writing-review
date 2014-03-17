@@ -1,5 +1,13 @@
 
 <ul class="side-nav">
+   <ul class="list-unstyled">
+    <% issue_nav.essay_styles.each do |style| %>
+      <% if style.has_essays? %>
+        <li><%= raw style.link_to_show %></li>
+      <% end %>
+    <% end %>
+  </ul>
+
   <li><%= issue_nav.link_to_acknowledgments %></li>
   <li><%= issue_nav.link_to_editorial_notes %></li>
   <li><%= issue_nav.link_to_editorial_board %></li>

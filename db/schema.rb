@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140312143427) do
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
     t.text     "data"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

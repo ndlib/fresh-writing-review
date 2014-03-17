@@ -13,7 +13,7 @@ class IssueDetail
     self.new(issue)
   end
 
-  delegate :friendly_id, :title, :year, :essays, :is_pdf?, to: :issue
+  delegate :friendly_id, :title, :year, :is_pdf?, to: :issue
   attr_accessor :issue
 
   def initialize(issue)
@@ -56,8 +56,9 @@ class IssueDetail
     MarkDownConverter.call(issue.acknowledgments)
   end
 
-  def essay_styles
-    EssayStyleQuery.all.collect {|essay_style| EssayStyleDetail.new(issue, essay_style)}
+
+  def essays
+    EssayQuery.essays_for_issue(issue).collect { | e | EssayLink.new(e) }
   end
 
   def render_issue_header

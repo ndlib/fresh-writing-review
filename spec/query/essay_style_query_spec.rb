@@ -8,6 +8,14 @@ describe EssayStyleQuery do
       FactoryGirl.create_list(:essay_style, 2)
       expect(subject.all.count).to be == 2
     end
+
+    it "orders by title" do
+      # this is not the way I want to test this but the pattern that we have set out does not allow
+      # expect(subject.relation).to receive(:order).with(:title) to work
+      # I am not certain exactly why but it might have to do with the way that EssayStyleQuery#relation is defined.
+      FactoryGirl.create_list(:essay_style, 2)
+      expect(subject.all).to eq( EssayStyle.all.order(:title))
+    end
   end
 
   describe '#find' do

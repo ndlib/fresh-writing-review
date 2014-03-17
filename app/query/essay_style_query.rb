@@ -1,7 +1,7 @@
 class EssayStyleQuery
 
   def self.all
-    relation
+    relation.order(:title)
   end
 
 
