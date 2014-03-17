@@ -13,6 +13,7 @@ FreshWriting::Application.routes.draw do
   end
 
   post 'media/upload', to: 'markdown#add_image'
+  get 'attached_images/:id/:image_name', to: 'images#show'
 
   resources :errors, only: [:index, :show, :update]
 

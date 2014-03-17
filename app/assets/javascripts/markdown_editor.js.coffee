@@ -11,12 +11,16 @@ jQuery ($) ->
       dialog = $("#insertImageDialog").modal('hide')
       file = $("#uploadFile")
       loader = $("#uploadLoader")
+      placeholder = $("#uploadPlaceholder")
 
       editor.hooks.set "insertImageDialog", (callback) ->
 
          dialogClose = ->
-            file.val ""
+            file.val(null)
+            placeholder.val(null)
+            loader.hide()
             dialog.modal('hide')
+            callback(null)
             return
 
          uploadStart = ->
@@ -26,12 +30,16 @@ jQuery ($) ->
          uploadComplete = (response) ->
            loader.hide()
            if response.success
-             callback response.imagePath
+             callback response.image_path
              dialogClose()
            else
              alert response.message
-             file.val ""
+             file.val(null)
+             placeholder.val(null)
            return
+
+         $("#closeImageDialog").click ->
+           dialogClose()
 
          $("#uploadImageButton").click ->
            formData = new FormData(document.getElementById('uploadForm'))
