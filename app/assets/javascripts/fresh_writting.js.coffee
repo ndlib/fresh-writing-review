@@ -1,6 +1,6 @@
 jQuery ($) ->
   ready = ->
-    $(document).scroll ->
+    $(document).on 'scroll', ->
       scrollPosition = $(document).scrollTop()
       scrollReference = 440
       if scrollPosition >= scrollReference
@@ -16,4 +16,3 @@ jQuery ($) ->
       return
 
   $(document).ready(ready)
-  $(document).on('page:load', ready)
