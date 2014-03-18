@@ -31,7 +31,7 @@ class EssayAwardDetail
 
 
   def has_essays?
-    true
+    essays.size > 0
   end
 
 
