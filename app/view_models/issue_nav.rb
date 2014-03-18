@@ -32,6 +32,10 @@ class IssueNav
   end
 
 
+  def essay_awards
+    EssayAwardQuery.all.collect { |essay_award| EssayAwardLink.new(issue, essay_award) }
+  end
+
 
   private
     def issue
