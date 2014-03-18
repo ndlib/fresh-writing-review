@@ -4,4 +4,5 @@ class EssayAward < ActiveRecord::Base
 
   has_many :essay
 
+  store :data, accessors: [ :body ]
 end

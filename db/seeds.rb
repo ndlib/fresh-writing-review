@@ -25,7 +25,7 @@ definition_style = EssayStyle.all[3]
 
 EssayAward.delete_all
 ['McPartlin Award', 'Snite Museum of Art'].each do | title |
-  EssayAward.create(title: title)
+  EssayAward.create(title: title, body: IO.read(Rails.root.join('spec', 'fixtures', 'award_text.md')))
 end
 
 

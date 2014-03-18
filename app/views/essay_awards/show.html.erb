@@ -4,6 +4,8 @@
 
 <h1><%= @essay_award_detail.title %></h1>
 
+<%= @essay_award_detail.body %>
+
 <ul class="small-block-grid-3 listing">
   <% @essay_award_detail.essays.each do |essay| %>
     <li><%= raw @essay_award_detail.link_to_essay(essay) %></li>

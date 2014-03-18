@@ -40,6 +40,11 @@ class EssayAwardDetail
   end
 
 
+  def body
+    MarkDownConverter.call(essay_award.body)
+  end
+
+
   def render_issue_header
     IssueHeader.render(issue, false)
   end
