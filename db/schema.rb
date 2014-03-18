@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312143427) do
+ActiveRecord::Schema.define(version: 20140318143742) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20140312143427) do
     t.string   "state"
     t.text     "user_agent"
     t.string   "exception_class"
+  end
+
+  create_table "essay_awards", force: true do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "essay_files", force: true do |t|

@@ -74,6 +74,12 @@ EssayStyle.all.each do |essay_style|
   end
 end
 
+EssayAward.delete_all
+['McPartlin Award', 'Snite Museum of Art'].each do | title |
+  EssayAward.create(title: title)
+end
+
+
 Page.delete_all
 %w(about contact).each do |page|
   Page.create(title: page.titleize, path: page, body: IO.read(Rails.root.join('spec', 'fixtures', 'pages', "#{page}.md")))
