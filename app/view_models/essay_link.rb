@@ -4,6 +4,10 @@ class EssayLink
 
   attr_accessor :essay
 
+  def self.render(essay)
+    self.new(essay).render
+  end
+
   def initialize(essay)
     @essay = essay
   end

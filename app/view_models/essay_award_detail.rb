@@ -5,6 +5,16 @@ class EssayAwardDetail
 
   attr_accessor :essay_award, :issue
 
+  delegate :title, to: :essay_award
+
+  def self.build(controller)
+    issue = IssueQuery.find(controller.params.require(:issue_id))
+    essay_award = EssayAwardQuery.find(controller.params.require(:id))
+
+    self.new(issue, essay_award)
+  end
+
+
   def initialize(issue, essay_award)
     @essay_award = essay_award
     @issue = issue
@@ -15,7 +25,22 @@ class EssayAwardDetail
   end
 
 
+  def link_to_essay(essay)
+    EssayLink.render(essay)
+  end
+
+
   def has_essays?
     true
+  end
+
+
+  def essays
+    @essays ||= EssayQuery.essays_for_issue_and_essay_award(issue.friendly_id, essay_award)
+  end
+
+
+  def render_issue_header
+    IssueHeader.render(issue, false)
   end
 end
