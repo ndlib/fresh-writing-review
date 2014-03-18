@@ -13,4 +13,9 @@ class Essay < ActiveRecord::Base
   validates :title, presence: true
 
   store :data, accessors: [ :body, :embed, :template, :alt_body, :alt_title, :author, :author_biography, :works_cited, :discussion_questions, :instructor_resources ]
+
+  searchable do
+    text :title, :body
+  end
+
 end

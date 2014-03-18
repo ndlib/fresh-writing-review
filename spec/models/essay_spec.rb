@@ -2,6 +2,9 @@ require 'spec_helper'
 
 
 describe Essay do
+  before do
+    subject.stub(:perform_index_tasks)
+  end
 
   subject { Essay.new }
 
