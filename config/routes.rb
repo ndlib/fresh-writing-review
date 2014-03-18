@@ -28,6 +28,7 @@ FreshWriting::Application.routes.draw do
     resources :essays, only: [:index, :show ] do
       member do
         get :transcript
+        get :instructor_resources
       end
     end
     resources :essay_styles, only: [:show], path: "style"

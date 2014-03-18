@@ -40,7 +40,8 @@ Essay.create(id: 3, issue_id: issue_id, essay_style: analysis_style, template: '
   alt_body: IO.read(Rails.root.join('spec', 'fixtures', 'two_section_text_part2.txt')),
   alt_title: "Pied Beauty",
   author: "Nathan McDevitt",
-  author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography_long.md'))
+  author_biography: IO.read(Rails.root.join('spec', 'fixtures', 'biography_long.md')),
+  instructor_resources: IO.read(Rails.root.join('spec', 'fixtures', 'instructor_resources.md'))
 )
 
 Essay.create(id: 4, issue_id: issue_id, essay_style: narrative_style, template: 'media', title: "Invisiball Report", author: "Chizo Ekechukwu",
