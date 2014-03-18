@@ -6,7 +6,7 @@ describe Essay do
   subject { Essay.new }
 
   it "has the essay attributes" do
-    ['title', 'body', 'issue', 'embed', 'template', 'alt_body', 'alt_title', 'author', 'author_biography', 'works_cited', 'discussion_questions', 'attached_files'].each do | attr |
+    ['title', 'body', 'issue', 'embed', 'template', 'alt_body', 'alt_title', 'author', 'author_biography', 'works_cited', 'discussion_questions', 'attached_files', 'essay_style', 'essay_award'].each do | attr |
       expect(subject.respond_to?(attr)).to be_true
       expect(subject.respond_to?("#{attr}=")).to be_true
     end

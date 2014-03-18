@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318143742) do
+ActiveRecord::Schema.define(version: 20140318171441) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -69,12 +69,16 @@ ActiveRecord::Schema.define(version: 20140318143742) do
   create_table "essays", force: true do |t|
     t.integer  "issue_id"
     t.string   "slug"
+    t.string   "title"
+    t.integer  "placement"
     t.text     "data",           limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "essay_style_id"
+    t.integer  "essay_award_id"
   end
 
+  add_index "essays", ["essay_award_id"], name: "index_essays_on_essay_award_id", using: :btree
   add_index "essays", ["essay_style_id"], name: "index_essays_on_essay_style_id", using: :btree
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree

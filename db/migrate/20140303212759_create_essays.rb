@@ -4,6 +4,8 @@ class CreateEssays < ActiveRecord::Migration
     create_table "essays" do | t |
       t.integer :issue_id
       t.string :slug
+      t.string :title
+      t.integer :placement
       t.text :data
       t.timestamps
     end
