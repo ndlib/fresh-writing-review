@@ -14,4 +14,8 @@ class EssayAwardDetail
     LinkToRouteWithImage.call(routes.issue_essay_award_path(issue.friendly_id, essay_award.friendly_id), essay_award.title, essay_award.id)
   end
 
+
+  def has_essays?
+    true
+  end
 end
