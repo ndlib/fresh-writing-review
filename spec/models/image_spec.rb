@@ -19,7 +19,7 @@ describe Image do
     it "should store the file correctly" do
       image_object.image = image_file_1
       image_object.save!
-      FileTest.exist?(Rails.root.join("uploads/images/#{image_object.id}/test_image_1.jpg")).should be_true
+      FileTest.exist?(Rails.root.join("public/system/images/#{image_object.id}/original/test_image_1.jpg")).should be_true
     end
     it "should validate the file type" do
       image_object.image = image_file_2

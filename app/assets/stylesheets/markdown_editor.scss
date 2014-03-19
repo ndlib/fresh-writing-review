@@ -1,30 +1,39 @@
 #markdownEditor {
-  margin-top: 120px;
-  margin-left: 5%;
-  margin-right: 5%;
 
-  .wmd-panel {
-    width: 450px;
-    float: left;
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+
+  .control-label {
+    font-size: 18px;
+    padding-left: 5px;
+    padding-bottom: 10px;
   }
 
-  #previewWindow {
-    width: 700px;
-    float: right;
-    .wmd-preview {
-      margin: 0px;
-    }
-    .control-label {
-      padding-bottom: 0px;
-    }
+}
+
+#previewSurround {
+  border: 0px;
+}
+
+#previewWindow {
+  width: 98%;
+  float: right;
+  margin-top: 10px;
+  margin-right: 5px;
+
+  .wmd-preview {
+    margin-top: 0px;
   }
 
   .control-label {
-    font-size: 15px;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
     padding-left: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
   }
-
 }
 
 

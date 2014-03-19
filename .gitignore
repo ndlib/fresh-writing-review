@@ -16,7 +16,6 @@
 /tmp
 
 # Image uploads
-/uploads
 /public/system/images
 
 # Test coverage dir

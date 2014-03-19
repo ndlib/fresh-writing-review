@@ -1,7 +1,6 @@
 <%= simple_form_for @markdown_content, :url => new_markdown_content_path, html: {class: "form-horizontal"} do |f| %>
 
   <div class="control-group">
-    <%= f.label :content, "Markdown Content", class: "control-label" %>
     <div class="controls wmd-panel" id="markdownEditScreen" style="margin-left:0px;">
       <%= f.input :content, cols: 40, rows: 20, label:false, :as => :pagedown, :input_html => { :preview => false } %>
     </div>
