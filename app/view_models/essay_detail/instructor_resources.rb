@@ -35,8 +35,4 @@ class EssayDetail::InstructorResources
       @markdown_object ||= MarkdownDetail.new(essay.instructor_resources)
     end
 
-
-    def essay_format
-      @essay_format ||= EssayFormat.new(essay)
-    end
 end

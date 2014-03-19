@@ -28,6 +28,19 @@ describe EssayDetail::InstructorResources do
   end
 
 
+  describe "#has_content" do
+
+    it "returns true if the markdown_content object says it has content" do
+      subject.send(:markdown_object).stub(:present?).and_return(true)
+      expect(subject.has_content?).to be_true
+    end
+
+    it "returns false if the markdown_content object says it does not have content" do
+      subject.send(:markdown_object).stub(:present?).and_return(false)
+      expect(subject.has_content?).to be_false
+    end
+  end
+
   describe :render do
 
     it "renders the template " do
