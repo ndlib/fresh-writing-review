@@ -94,3 +94,10 @@ Page.delete_all
 %w(about contact).each do |page|
   Page.create(title: page.titleize, path: page, body: IO.read(Rails.root.join('spec', 'fixtures', 'pages', "#{page}.md")))
 end
+
+e = Essay.find(5)
+(1..8).each do | i |
+  img = Image.create(image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'zavakos', "figure_#{i}_orig.png")))
+  e.body = e.body.sub("<figure#{i}_url>", img.image.url)
+end
+e.save!
