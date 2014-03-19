@@ -1,14 +1,19 @@
+<div class="large-4 columns">
 <div id="markdownEditor">
   <div class="wmd-panel">
     <%= render :partial => '/markdown/mdown_editor', locals: {markdown: @markdown} %>
   </div>
-  <article>
+</div>
+</div>
+<div class="large-6 columns">
+  <article class="page-body">
   <div id="previewWindow" class="body">
-    <label class="control-label">Preview</label>
+    <h3 class="control-label">Preview</h3>
     <div class="wmd-preview" id="wmd-preview-content"/>
     </div>
   </div>
   </article>
+</div>  
 <div id="insertImageDialog" class="modal fade" title="Insert Image" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
