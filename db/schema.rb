@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312143427) do
+ActiveRecord::Schema.define(version: 20140318171441) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20140312143427) do
     t.string   "state"
     t.text     "user_agent"
     t.string   "exception_class"
+  end
+
+  create_table "essay_awards", force: true do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "essay_files", force: true do |t|
@@ -51,7 +59,6 @@ ActiveRecord::Schema.define(version: 20140312143427) do
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
     t.text     "data"
-    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,8 +72,10 @@ ActiveRecord::Schema.define(version: 20140312143427) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "essay_style_id"
+    t.integer  "essay_award_id"
   end
 
+  add_index "essays", ["essay_award_id"], name: "index_essays_on_essay_award_id", using: :btree
   add_index "essays", ["essay_style_id"], name: "index_essays_on_essay_style_id", using: :btree
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree

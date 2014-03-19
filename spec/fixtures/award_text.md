@@ -1,0 +1,3 @@
+Each year, the University Writing Program hosts an essay competition in conjunction with the First Year Academic Convocation. Founded in the early 1990s by Stephen McPartlin, this award honors excellent writing by first year students at the University of Notre Dame. Three awards are given, and winning essays will be published in the 2014 edition of Fresh Writing, the annual journal of the best essays written by students in the College of the First Year of Studies.
+
+First, second, and third place winners will receive $200, $150, and $150 cash awards, respectively, and certificates commemorating their achievement.

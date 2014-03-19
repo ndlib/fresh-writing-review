@@ -53,7 +53,12 @@ class EssayDetail
 
 
   def render_author_biography
-    EssayDetail::AuthorBiography.render(@essay)
+    EssayDetail::AuthorBiography.render(essay)
+  end
+
+
+  def render_instructor_resources
+    EssayDetail::InstructorResources.render(essay)
   end
 
 

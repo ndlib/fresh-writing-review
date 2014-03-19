@@ -9,4 +9,9 @@ class EssaysController < ApplicationController
     @essay_detail = EssayDetail.build(self)
   end
 
+
+  def instructor_resources
+    @essay_detail = EssayDetail.build(self)
+  end
+
 end

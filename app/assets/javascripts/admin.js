@@ -14,7 +14,11 @@
 //= require jquery_ujs
 //= require foundation
 //= require bootstrap
-//= require pagedown_bootstrap
+//= require markdown.converter
+//= require markdown.editor
+//= require markdown.sanitizer
+//= require markdown.extra
+//= require turbolinks
 //= require markdown_editor.js
 //= require issues.js
 //= require foundation_init.js
