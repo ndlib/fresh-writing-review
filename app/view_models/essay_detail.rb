@@ -22,6 +22,11 @@ class EssayDetail
   end
 
 
+  def render_attached_file
+    EssayDetail::DownloadFile.render(essay)
+  end
+
+
   def render_embed
     EssayDetail::Embed.render(essay)
   end
