@@ -1,6 +1,14 @@
-<div class="wmd-panel">
-  <%= render :partial => '/markdown/mdown_editor', locals: {markdown: @markdown} %>
-</div>
+<div id="markdownEditor">
+  <div class="wmd-panel">
+    <%= render :partial => '/markdown/mdown_editor', locals: {markdown: @markdown} %>
+  </div>
+  <article>
+  <div id="previewWindow" class="body">
+    <label class="control-label">Preview</label>
+    <div class="wmd-preview" id="wmd-preview-content"/>
+    </div>
+  </div>
+  </article>
 <div id="insertImageDialog" class="modal fade" title="Insert Image" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -16,10 +24,12 @@
           </div>
           <input id="uploadPlaceholder" placeholder="Choose File" disabled="disabled" />
           <span id="uploadLoader" class="loader_small"></span>
+          <label for="altText">Alternate Text</label>
+          <input id="altText" placeholder="Text for screen readers" type="text" name="alt_text" />
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="closeImageDialog" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" id="uploadImageButton" class="btn btn-primary">Upload</button>
       </div>
     </div>

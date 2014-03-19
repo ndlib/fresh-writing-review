@@ -6,17 +6,23 @@ jQuery ($) ->
 
     $('textarea.wmd-input').each (i, input) ->
       attr = $(input).attr('id').split('wmd-input')[1]
-      converter = new Markdown.Converter()
+      
+      converter = Markdown.getSanitizingConverter()
       editor = new Markdown.Editor(converter, attr)
+      
       dialog = $("#insertImageDialog").modal('hide')
       file = $("#uploadFile")
       loader = $("#uploadLoader")
+      placeholder = $("#uploadPlaceholder")
 
       editor.hooks.set "insertImageDialog", (callback) ->
 
          dialogClose = ->
-            file.val ""
+            file.val(null)
+            placeholder.val(null)
+            loader.hide()
             dialog.modal('hide')
+            callback(null)
             return
 
          uploadStart = ->
@@ -26,12 +32,22 @@ jQuery ($) ->
          uploadComplete = (response) ->
            loader.hide()
            if response.success
-             callback response.imagePath
+             setTimeout (->
+               callback response.image_path + ' "TEST"'
+               re = /enter image description here/g
+               new_value = $("#wmd-input-content").val().replace(re, 'TEST TEXT')
+               $("#wmd-input-content").val(new_value)
+               return
+               ), 0
              dialogClose()
            else
              alert response.message
-             file.val ""
+             file.val(null)
+             placeholder.val(null)
            return
+
+         $("#closeImageDialog").click ->
+           dialogClose()
 
          $("#uploadImageButton").click ->
            formData = new FormData(document.getElementById('uploadForm'))

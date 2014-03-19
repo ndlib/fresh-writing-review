@@ -1,9 +1,32 @@
-.wmd-panel {
-  margin-left: 25%;
-  margin-right: 25%;
-  width: 50%;
-  min-width: 500px;
+#markdownEditor {
+  margin-top: 120px;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  .wmd-panel {
+    width: 450px;
+    float: left;
+  }
+
+  #previewWindow {
+    width: 700px;
+    float: right;
+    .wmd-preview {
+      margin: 0px;
+    }
+    .control-label {
+      padding-bottom: 0px;
+    }
+  }
+
+  .control-label {
+    font-size: 15px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+  }
+
 }
+
 
 #insertImageDialog {
   display: none; 
@@ -21,6 +44,21 @@
     display: none;
     margin-left: 1px;
     display: none;
+  }
+
+  #uploadForm {
+    font-size: 14px;
+
+    input {
+      font-size: 14px;
+      width: 60%;
+      display: inline-block;
+    } 
+
+    label {
+      font-size: 14px;
+      display: inline-block;
+    }
   }
 
   .fileUpload {

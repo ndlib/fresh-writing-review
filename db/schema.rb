@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20140318171441) do
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
     t.text     "data"
-    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,8 +68,6 @@ ActiveRecord::Schema.define(version: 20140318171441) do
   create_table "essays", force: true do |t|
     t.integer  "issue_id"
     t.string   "slug"
-    t.string   "title"
-    t.integer  "placement"
     t.text     "data",           limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
