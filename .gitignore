@@ -17,6 +17,7 @@
 
 # Image uploads
 /uploads
+/public/system
 
 # Test coverage dir
 /coverage
