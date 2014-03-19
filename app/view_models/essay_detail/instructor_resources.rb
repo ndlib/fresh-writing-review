@@ -28,6 +28,7 @@ class EssayDetail::InstructorResources
     return render_to_string('/essays/instructor_resources', { object: self })
   end
 
+
   protected
 
     def markdown_object

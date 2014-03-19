@@ -93,7 +93,6 @@ describe EssayDetail::Transcript do
         subject.render
       end
     end
-
   end
 
 end
