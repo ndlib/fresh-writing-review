@@ -94,3 +94,10 @@ Page.delete_all
 %w(about contact).each do |page|
   Page.create(title: page.titleize, path: page, body: IO.read(Rails.root.join('spec', 'fixtures', 'pages', "#{page}.md")))
 end
+
+
+a = AttachedFile.create( file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
+e = Essay.find(5)
+
+EssayFile.create(essay: e, attached_file: a)
+
