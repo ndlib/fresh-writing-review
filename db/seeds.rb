@@ -98,6 +98,5 @@ end
 
 a = AttachedFile.create( file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
 e = Essay.find(5)
-
 EssayFile.create(essay: e, attached_file: a)
 

@@ -8,12 +8,12 @@ FreshWriting::Application.routes.draw do
 
   resources :markdown_contents, :controller => :markdown, :only => [:show]
 
-  scope :admin do
+  namespace :admin do
     resources :markdown_contents, :controller => :markdown, :only => [:new, :create, :edit, :update]
+    resources :issues, only: [:index, :new, :create, :edit, :update]
+    post 'media/upload', to: 'markdown#add_image'
   end
 
-  post 'media/upload', to: 'markdown#add_image'
-  get 'attached_images/:id/:image_name', to: 'images#show'
 
   resources :errors, only: [:index, :show, :update]
 

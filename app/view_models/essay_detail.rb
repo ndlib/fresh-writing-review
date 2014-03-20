@@ -22,6 +22,10 @@ class EssayDetail
   end
 
 
+  def render_nav
+    EssayDetail::Nav.render(essay)
+  end
+
   def render_attached_file
     EssayDetail::DownloadFile.render(essay)
   end
