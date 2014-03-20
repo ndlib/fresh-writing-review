@@ -2,7 +2,7 @@
   <div id="markdownEditor" class="body">
     <h3 class="control-label">Markdown Content</h3>
     <div class="wmd-panel">
-      <%= render :partial => '/markdown/mdown_editor', locals: {markdown: @markdown} %>
+      <%= render :partial => '/admin/markdown/mdown_editor', locals: {markdown: @markdown} %>
     </div>
   </div>
 </div>
@@ -13,7 +13,7 @@
     <div class="wmd-preview" id="wmd-preview-content"/>
   </div>
   </article>
-</div>  
+</div>
 <div id="insertImageDialog" class="modal fade" title="Insert Image" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">

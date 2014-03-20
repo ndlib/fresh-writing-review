@@ -3,7 +3,8 @@ require 'spec_helper'
 
 describe EssayDetail::Transcript do
 
-  let(:essay) { double(Essay, embed: "embed", alt_body: "alt_body") }
+  let(:issue) { double(Issue, id: 1, friendly_id: 'fid')}
+  let(:essay) { double(Essay, embed: "embed", alt_body: "alt_body", issue: issue) }
   subject { described_class.new(essay) }
 
   describe :self_render do

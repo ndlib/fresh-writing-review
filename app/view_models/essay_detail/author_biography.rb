@@ -18,6 +18,11 @@ class EssayDetail::AuthorBiography
   end
 
 
+  def has_content?
+    markdown.present?
+  end
+
+
   def name
     essay.author
   end
