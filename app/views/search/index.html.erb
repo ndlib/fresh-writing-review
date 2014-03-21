@@ -6,10 +6,7 @@
     </div>
     <div class="form-group">
       <label class="sr-only" for="essay_style">Essay Style</label>
-      <select class="form-control" id="essay_style" placeholder="Essay Style">
-        <option>Essay Style</option>
-        <option>Narrative</option>
-      </select>
+      <%= select_tag :essay_style, @essay_search.essay_style_options, prompt: "Essay Style", class: "form-control" %>
     </div>
 
     <div class="form-group">

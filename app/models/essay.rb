@@ -18,6 +18,7 @@ class Essay < ActiveRecord::Base
     text :title, :body_plain, :alt_body_plain, :discussion_questions_plain, :instructor_resources_plain
 
     string :sort_title
+    string :essay_style_title
   end
 
   def body_plain
@@ -38,6 +39,10 @@ class Essay < ActiveRecord::Base
 
   def sort_title
     title.downcase.gsub(/^(an?|the) /, '').strip
+  end
+
+  def essay_style_title
+    essay_style.title
   end
 
   private
