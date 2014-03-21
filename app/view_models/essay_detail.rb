@@ -22,6 +22,15 @@ class EssayDetail
   end
 
 
+  def render_nav
+    EssayDetail::Nav.render(essay)
+  end
+
+  def render_attached_file
+    EssayDetail::DownloadFile.render(essay)
+  end
+
+
   def render_embed
     EssayDetail::Embed.render(essay)
   end
@@ -53,7 +62,12 @@ class EssayDetail
 
 
   def render_author_biography
-    EssayDetail::AuthorBiography.render(@essay)
+    EssayDetail::AuthorBiography.render(essay)
+  end
+
+
+  def render_instructor_resources
+    EssayDetail::InstructorResources.render(essay)
   end
 
 

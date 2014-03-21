@@ -14,9 +14,10 @@
 //= require jquery_ujs
 //= require foundation
 //= require bootstrap
-//= require turbolinks
 //= require pagedown_bootstrap
 //= require markdown_editor.js
 //= require issues.js
 //= require foundation_init.js
 //= require fresh_writting.js
+//= require fool/fool.min.js
+

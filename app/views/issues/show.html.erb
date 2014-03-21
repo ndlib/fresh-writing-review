@@ -16,7 +16,7 @@
   <%= @issue_detail.render_carousel %>
 
   <h2>Essays</h2>
-  <ul class="small-block-grid-2 medium-block-grid-3 listing">
+  <ul class="small-block-grid-2 medium-block-grid-3 listing volume">
     <% @issue_detail.essays.each do | e | %>
       <li><%= e.render %></li>
     <% end %>

@@ -259,7 +259,7 @@ nav.top-bar {
 }
 
 .top-bar-section ul li {
-	padding:0 44px;
+	padding:0 43px;
 }
 
 .top-bar-section ul li:first-child {
@@ -392,6 +392,14 @@ nav.top-bar {
   }
 }
 
+.listing.volume li a.title {
+  bottom:4.3rem;
+}
+
+.listing.volume li em {
+  display: none;
+}
+
 
 /* ESSAY LISTS */
 
@@ -470,7 +478,7 @@ nav.top-bar {
   bottom:3.1rem;
 }
 
-.results .meta, .cover .meta {
+.results .meta, .cover .meta, .listing .meta {
   color:$lt-green;
   font-size:1.3rem;
   padding:5px 0;
@@ -575,18 +583,26 @@ article {
       padding:0;
       color:$dk-grey;
     }
-    figure {
-      float: right;
-      margin:.4em 0 1.4em 1.4em;
-      vertical-align: text-top;
-      display: inline-block;
-    }
+
+
     img {
       float: right;
       margin:.4em 0 1.4em 1.4em;
       vertical-align: text-top;
       display: inline-block;
+      width: 330px;
     }
+    figure {
+      float: right;
+      margin:.4em 0 1.4em 1.4em;
+      vertical-align: text-top;
+      display: inline-block;
+
+      img {
+        margin:0;
+      }
+    }
+
 
 	}
 
@@ -742,7 +758,7 @@ article {
   .theme-bb-gold .dept {border-top:0 none; @include box-shadow(none);}
   .follow {
 
-  right:-85px;
+  right:-87px;
   z-index: 50;
   background:none;
   position: absolute;
@@ -775,8 +791,9 @@ article {
         -webkit-box-shadow: 0px 0px 5px 0 rgba(100,100,100,.8);
         box-shadow: 0px 0px 5px 0 rgba(100,100,100,.8);
         top:-4px;
-        right:-4px;
+        right:340px;
         position: relative;
+        width:400px;
     }
   }
   .tool-link {
@@ -825,7 +842,9 @@ a.instructor {
 .fixed {
 position: fixed;
 top: 30px !important;
-width:900px;}
+width:90px;
+left:auto;
+}
 }
 
 body {

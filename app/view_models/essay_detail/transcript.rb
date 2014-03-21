@@ -14,6 +14,11 @@ class EssayDetail::Transcript
   end
 
 
+  def back_to_essay_link
+    helpers.link_to("Back to Essay", routes.issue_essay_path(essay.issue, essay), class: "tool-link back")
+  end
+
+
   def markdown
     markdown_object.markdown
   end

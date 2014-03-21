@@ -14,7 +14,7 @@
  *= require_self
  *= require ./bootstrap-custom
  *= require ./foundation_and_overrides
- *= require ./mdown_editor
+ *= require ./markdown_editor
  *= require ./fresh_writing
  *= require ./fresh_writing_admin
  */

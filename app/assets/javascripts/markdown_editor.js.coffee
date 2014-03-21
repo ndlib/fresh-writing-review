@@ -6,17 +6,23 @@ jQuery ($) ->
 
     $('textarea.wmd-input').each (i, input) ->
       attr = $(input).attr('id').split('wmd-input')[1]
-      converter = new Markdown.Converter()
+      
+      converter = Markdown.getSanitizingConverter()
       editor = new Markdown.Editor(converter, attr)
+      
       dialog = $("#insertImageDialog").modal('hide')
       file = $("#uploadFile")
       loader = $("#uploadLoader")
+      placeholder = $("#uploadPlaceholder")
 
       editor.hooks.set "insertImageDialog", (callback) ->
 
          dialogClose = ->
-            file.val ""
+            file.val(null)
+            placeholder.val(null)
+            loader.hide()
             dialog.modal('hide')
+            callback(null)
             return
 
          uploadStart = ->
@@ -26,12 +32,35 @@ jQuery ($) ->
          uploadComplete = (response) ->
            loader.hide()
            if response.success
-             callback response.imagePath
+             setTimeout (->
+               caption = decodeURI($("#captionText").val())
+               credit = decodeURI($("#creditText").val())
+               full_caption = deriveCaption(caption, credit)
+               callback response.image_path + ' "' + full_caption + '"'
+               re = /enter image description here/g
+               alt_text = $("#wmd-input-content").val().replace(re, $("#altText").val()) 
+               $("#wmd-input-content").val(alt_text)
+               return
+               ), 0
              dialogClose()
            else
              alert response.message
-             file.val ""
+             file.val(null)
+             placeholder.val(null)
            return
+
+         deriveCaption = (caption, credit) ->
+           full_caption = ''
+           if caption
+             full_caption = caption
+           
+           if credit
+             full_caption = full_caption + ' - ' + credit
+
+           return full_caption
+
+         $("#closeImageDialog").click ->
+           dialogClose()
 
          $("#uploadImageButton").click ->
            formData = new FormData(document.getElementById('uploadForm'))

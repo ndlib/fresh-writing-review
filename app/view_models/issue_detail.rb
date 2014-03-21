@@ -20,8 +20,8 @@ class IssueDetail
     @issue = issue
   end
 
-  def link_to_show
-    helpers.link_to(year, routes.issue_path(friendly_id))
+  def link_to_show(css = "")
+    helpers.link_to(title, routes.issue_path(friendly_id), class: css)
   end
 
   def render_nav

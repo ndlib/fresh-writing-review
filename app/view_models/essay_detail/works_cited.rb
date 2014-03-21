@@ -19,6 +19,11 @@ class EssayDetail::WorksCited
   end
 
 
+  def has_content?
+    markdown_object.present?
+  end
+
+
   def render
     if markdown_object.present?
       return render_to_string('/essays/works_cited', { object: self })

@@ -4,7 +4,6 @@
 
 <h1><%= @essay_style_detail.title %></h1>
 
-<% @essay_style_detail.render_highlighted_essay %>
 <ul class="small-block-grid-3 listing">
   <% @essay_style_detail.essays.each do |essay| %>
     <li><%= raw @essay_style_detail.link_to_essay(essay) %></li>

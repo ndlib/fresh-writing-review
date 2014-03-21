@@ -1,0 +1,93 @@
+#markdownEditor {
+
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+
+  .control-label {
+    font-size: 18px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+  }
+
+}
+
+#previewSurround {
+  border: 0px;
+}
+
+#previewWindow {
+  width: 98%;
+  float: right;
+  margin-top: 10px;
+  margin-right: 5px;
+
+  .wmd-preview {
+    margin-top: 0px;
+  }
+
+  .control-label {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+    padding-left: 5px;
+    padding-bottom: 10px;
+  }
+}
+
+
+#insertImageDialog {
+  display: none; 
+  padding: 10px;
+  width: 100%;
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  .loader_small { 
+    width: 16px; 
+    height: 16px; 
+    background: url('/assets/loader_small.gif') no-repeat; 
+    display: none;
+    margin-left: 1px;
+    display: none;
+  }
+
+  #uploadForm {
+    font-size: 14px;
+
+    input {
+      font-size: 14px;
+    } 
+
+    label {
+      font-size: 14px;
+    }
+
+  }
+
+  .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    float: right;
+
+    input.upload {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+  }
+
+  #uploadPlaceholder {
+    width: 90%;
+  }
+}

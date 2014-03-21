@@ -8,11 +8,14 @@ FreshWriting::Application.routes.draw do
 
   resources :markdown_contents, :controller => :markdown, :only => [:show]
 
-  scope :admin do
+  namespace :admin do
     resources :markdown_contents, :controller => :markdown, :only => [:new, :create, :edit, :update]
+    resources :issues do
+      resources :essays, only: [:new, :create, :show, :edit, :update]
+    end
+    post 'media/upload', to: 'markdown#add_image'
   end
 
-  post 'media/upload', to: 'markdown#add_image'
 
   resources :errors, only: [:index, :show, :update]
 
@@ -28,9 +31,11 @@ FreshWriting::Application.routes.draw do
     resources :essays, only: [:index, :show ] do
       member do
         get :transcript
+        get :instructor_resources
       end
     end
     resources :essay_styles, only: [:show], path: "style"
+    resources :essay_awards, only: [:show], path: "award"
   end
 
   resources :pages, path: "/", only: :show

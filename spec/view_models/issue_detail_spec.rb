@@ -1,10 +1,14 @@
 require 'spec_helper'
 
 describe IssueDetail do
-  let(:issue) { FactoryGirl.create(:issue) }
+  let(:issue) { double(Issue, id: 1, year: 'year', friendly_id: 'fid', title: 'title', acknowledgments: 'ack', editorial_notes: 'edn', editorial_board: 'eb') }
   let(:controller) { double(ApplicationController, params: ActionController::Parameters.new(id: issue.friendly_id)) }
 
   subject { described_class.build(controller) }
+
+  before(:each) do
+    IssueQuery.stub(:find).and_return(issue)
+  end
 
   describe '#year' do
     it 'is the issue year' do
@@ -35,7 +39,11 @@ describe IssueDetail do
 
   describe '#link_to_show' do
     it 'links to an issue show page' do
-      expect(subject.link_to_show).to match "/issues/#{issue.year}"
+      expect(subject.link_to_show).to eq("<a class=\"\" href=\"/issues/fid\">title</a>")
+    end
+
+    it "allows you to add the css to the link" do
+      expect(subject.link_to_show('css')).to eq("<a class=\"css\" href=\"/issues/fid\">title</a>")
     end
   end
 

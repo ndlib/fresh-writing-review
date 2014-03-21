@@ -1,0 +1,20 @@
+<h1>Volume 14</h1>
+<p><%= link_to 'Edit', edit_admin_issue_path(1), class: 'btn btn-primary' %></p>
+
+<h2>Essays</h2>
+<p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
+
+<ul>
+  <li><%= link_to 'Essay 1', admin_issue_essay_path(1, 1) %> <span>Delete</span></li>
+  <li><%= link_to 'Essay 2', admin_issue_essay_path(1, 1) %> <span>Delete</span></li>
+  <li><%= link_to 'Essay 3', admin_issue_essay_path(1, 1) %> <span>Delete</span></li>
+</ul>
+
+<h2>Images</h2>
+
+<h3>Large Cover Image</h3>
+<%= PlaceholderImage.call(900, 200, 1) %>
+
+
+<h3>Small Cover Image</h3>
+<%= PlaceholderImage.call(900, 90, 1) %>
