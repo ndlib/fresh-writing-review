@@ -33,10 +33,13 @@ jQuery ($) ->
            loader.hide()
            if response.success
              setTimeout (->
-               callback response.image_path + ' "TEST"'
+               caption = decodeURI($("#captionText").val())
+               credit = decodeURI($("#creditText").val())
+               full_caption = deriveCaption(caption, credit)
+               callback response.image_path + ' "' + full_caption + '"'
                re = /enter image description here/g
-               new_value = $("#wmd-input-content").val().replace(re, 'TEST TEXT')
-               $("#wmd-input-content").val(new_value)
+               alt_text = $("#wmd-input-content").val().replace(re, $("#altText").val()) 
+               $("#wmd-input-content").val(alt_text)
                return
                ), 0
              dialogClose()
@@ -45,6 +48,16 @@ jQuery ($) ->
              file.val(null)
              placeholder.val(null)
            return
+
+         deriveCaption = (caption, credit) ->
+           full_caption = ''
+           if caption
+             full_caption = caption
+           
+           if credit
+             full_caption = full_caption + ' - ' + credit
+
+           return full_caption
 
          $("#closeImageDialog").click ->
            dialogClose()

@@ -13,10 +13,9 @@ FreshWriting::Application.routes.draw do
     resources :issues do
       resources :essays, only: [:new, :create, :show, :edit, :update]
     end
+    post 'media/upload', to: 'markdown#add_image'
   end
 
-  post 'media/upload', to: 'markdown#add_image'
-  get 'attached_images/:id/:image_name', to: 'images#show'
 
   resources :errors, only: [:index, :show, :update]
 

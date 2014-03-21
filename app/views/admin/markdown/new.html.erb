@@ -10,29 +10,57 @@
   <article class="page-body" id="previewSurround">
   <div id="previewWindow" class="body">
     <h3 class="control-label">Preview</h3>
-    <div class="wmd-preview" id="wmd-preview-content"/>
-  </div>
-  </article>
-</div>
-<div id="insertImageDialog" class="modal fade" title="Insert Image" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3>Select Image</h3>
-      </div>
-      <div class="modal-body">
-        <form id="uploadForm" enctype="multipart/form-data">
-          <div class="fileUpload btn btn-primary">
-            <span>Choose Image</span>
-            <input type="file" name="file" id="uploadFile" class="upload" size="60" data-action="/media/upload" />
-          </div>
-          <input id="uploadPlaceholder" placeholder="Choose File" disabled="disabled" />
-          <span id="uploadLoader" class="loader_small"></span>
-          <label for="altText">Alternate Text</label>
-          <input id="altText" placeholder="Text for screen readers" type="text" name="alt_text" />
-        </form>
-      </div>
+    <div class="wmd-preview" id="wmd-preview-content">
+    </div>
+    </article>
+  </div>  
+  <div id="insertImageDialog" class="modal fade" title="Insert Image" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h3>Select Image</h3>
+        </div>
+        <div class="modal-body">
+          <form id="uploadForm" enctype="multipart/form-data">
+              <div class="row">
+                <div class="small-3 columns">
+                  <div class="fileUpload btn btn-primary">
+                    <span>Choose Image</span>
+                    <input type="file" name="file" id="uploadFile" class="upload" size="60" data-action="/admin/media/upload" />
+                  </div>
+                </div>
+                <div class="small-9 columns">
+                  <input id="uploadPlaceholder" placeholder="Choose File" disabled="disabled" />
+                  <span id="uploadLoader" class="loader_small"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="small-3 columns">
+                  <label class="right" for="altText">Alternate Text</label>
+                </div>
+                <div class="small-9 columns">
+                  <input id="altText" class="image_upload_input" placeholder="Text for screen readers" type="text" name="alt_text" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="small-3 columns">
+                  <label class="right" for="captionText">Caption</label>
+                </div>
+                <div class="small-9 columns">
+                  <input id="captionText" class="image_upload_input" placeholder="Caption for the image" type="text" name="alt_text" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="small-3 columns">
+                  <label class="right" for="creditText">Credit</label>
+                </div>
+                <div class="small-9 columns">
+                  <input id="creditText" class="image_upload_input" placeholder="Credit for the image" type="text" name="alt_text" />
+                </div>
+              </div>
+          </form>
+        </div>
       <div class="modal-footer">
         <button type="button" id="closeImageDialog" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" id="uploadImageButton" class="btn btn-primary">Upload</button>

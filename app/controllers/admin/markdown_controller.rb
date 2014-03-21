@@ -3,7 +3,9 @@ class Admin::MarkdownController < ApplicationController
   layout 'admin'
 
   def new
-    @markdown_content = MarkdownContent.new
+    @markdown_content = MarkdownContent.new(:content => "Edit Me")
+    @markdown_content
+    @markdown_content.save
   end
 
 
