@@ -13,6 +13,7 @@ class EssaySearch
     @search ||= EssaySolr.search(params)
   end
 
+
   def results
     search.results.collect { | e | EssayLink.new(e) }
   end

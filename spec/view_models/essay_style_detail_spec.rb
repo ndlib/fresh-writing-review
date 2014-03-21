@@ -45,6 +45,23 @@ describe EssayStyleDetail do
     end
   end
 
+
+  describe '#render_issue_header' do
+    it "calls the issue header with the small version" do
+      expect(IssueHeader).to receive(:render).with(issue, false)
+      subject.render_issue_header
+    end
+  end
+
+
+  describe :essays do
+    it "calls the query" do
+      expect(EssayQuery).to receive(:essays_for_issue_and_essay_style).with(issue, essay_style)
+      subject.essays
+    end
+  end
+
+
   describe "#has_essays?" do
 
     it "returns true if the style has essays" do
