@@ -38,5 +38,21 @@ describe Essay do
     end
   end
 
+  describe 'plaintext methods' do
+    %w(body alt_body discussion_questions instructor_resources).each do |method|
+      it "#{method} calls #stripdown" do
+        expect(subject).to receive(:stripdown)
+        subject.send("#{method}_plain")
+      end
+    end
+  end
+
+  describe '#stripdown' do
+    it 'calls StripDownConverter' do
+      text = '# test'
+      expect(StripDownConverter).to receive(:call).with(text)
+      subject.send(:stripdown, text)
+    end
+  end
 
 end

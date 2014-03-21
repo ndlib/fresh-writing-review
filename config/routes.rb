@@ -21,7 +21,7 @@ FreshWriting::Application.routes.draw do
 
   resources :errors, only: [:index, :show, :update]
 
-  get :essays, to: 'search#index'
+  get :essays, to: 'search#index', as: :essay_search
 
   resources :issues, only: [:index, :show] do
     member do

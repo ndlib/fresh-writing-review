@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe StripDownConverter do
 
   subject { described_class }
