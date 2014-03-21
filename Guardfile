@@ -23,13 +23,6 @@ hesburgh_guard.rails do
     output = `bundle exec rake sunspot:solr:start`
     puts output
   end
-  callback(:run_on_changes_end) do
-    UI.info("Restarting Solr Server")
-    output = `bundle exec rake sunspot:solr:stop`
-    puts output
-    output = `bundle exec rake sunspot:solr:start`
-    puts output
-  end
   callback(:stop_end) do
     UI.info("Stopping Solr Server")
     # For some reason guard hangs if this command isn't run as a fork
