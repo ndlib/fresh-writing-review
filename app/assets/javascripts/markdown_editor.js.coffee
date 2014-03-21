@@ -1,5 +1,11 @@
 jQuery ($) ->
   ready = ->
+
+    setTimeout (->
+      $(".alert").fadeOut()
+      return
+    ), 2000
+
     $("#uploadFile").change ->
       $("#uploadPlaceholder").val($(this).val())
       return
