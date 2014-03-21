@@ -8,6 +8,7 @@ class EssayDetail::Nav
     self.new(essay).render
   end
 
+
   def initialize(essay)
     @essay = essay
   end

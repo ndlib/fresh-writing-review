@@ -37,10 +37,12 @@ describe EssaysController do
 
 
   describe :instructor_resources do
+
     it "does not fail" do
       get :instructor_resources, issue_id: issue.friendly_id, id: essay.friendly_id
       expect(response).to be_success
     end
+
 
     it "assigns the view model" do
       get :instructor_resources, issue_id: issue.friendly_id, id: essay.friendly_id
