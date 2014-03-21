@@ -1,29 +1,36 @@
 <h1>Volume 14</h1>
+<p>Published - <a>Unpublish</a></p>
 <p><%= link_to 'Edit', edit_admin_issue_path(1), class: 'btn btn-primary' %></p>
+<hr>
+<div class="row">
+  <div class="large-6 columns">
+    <h2>Essays</h2>
+    <p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
 
-<h2>Essays</h2>
-<p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
+    <ul>
+      <li><%= link_to 'Essay 1', admin_issue_essay_path(1, 1) %> <span>By Bob Bobbers</span> <span>Delete</span></li>
+      <li><%= link_to 'Essay 2', admin_issue_essay_path(1, 1) %> <span>By Bob Bobbers</span> <span>Delete</span></li>
+      <li><%= link_to 'Essay 3', admin_issue_essay_path(1, 1) %> <span>By Bob Bobbers</span> <span>Delete</span></li>
+    </ul>
+    <hr>
+    <h2>Extra Pages</h2>
+    <ul>
+      <li><a href="">Acknowledgements</a></li>
+      <li><a href="">Note From the Editor</a></li>
+      <li><a href="">Editors</a></li>
+      <li><a href="">Editorial Board</a></li>
+    </ul>
+  </div>
 
-<ul>
-  <li><%= link_to 'Essay 1', admin_issue_essay_path(1, 1) %> <span>Delete</span></li>
-  <li><%= link_to 'Essay 2', admin_issue_essay_path(1, 1) %> <span>Delete</span></li>
-  <li><%= link_to 'Essay 3', admin_issue_essay_path(1, 1) %> <span>Delete</span></li>
-</ul>
+  <div class="large-6 columns">
+    <h2>Images</h2>
 
-<h2>Images</h2>
-
-<h3>Large Cover Image</h3>
-<%= PlaceholderImage.call(900, 200, 1) %>
+    <h3>Large Cover Image</h3>
+    <%= PlaceholderImage.call(900, 200, 1) %>
 
 
-<h3>Small Cover Image</h3>
-<%= PlaceholderImage.call(900, 90, 1) %>
+    <h3>Small Cover Image</h3>
+    <%= PlaceholderImage.call(900, 90, 1) %>
 
-
-<h2>Extra Pages</h2>
-<ul>
-  <li><a href="">Acknowledgements</a></li>
-  <li><a href="">Note From the Editor</a></li>
-  <li><a href="">Editors</a></li>
-  <li><a href="">Editorial Board</a></li>
-</ul>
+  </div>
+</div>
