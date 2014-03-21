@@ -13,6 +13,7 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/log/*.log.lck
 /tmp
 
 # Image uploads
@@ -20,3 +21,10 @@
 
 # Test coverage dir
 /coverage
+
+# Solr
+/solr/data
+/solr/default
+/solr/development
+/solr/pids
+/solr/test
