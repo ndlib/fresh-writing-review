@@ -10,7 +10,9 @@ FreshWriting::Application.routes.draw do
 
   namespace :admin do
     resources :markdown_contents, :controller => :markdown, :only => [:new, :create, :edit, :update]
-    resources :issues, only: [:index, :new, :create, :edit, :update]
+    resources :issues do
+      resources :essays, only: [:new, :create, :show, :edit, :update]
+    end
     post 'media/upload', to: 'markdown#add_image'
   end
 

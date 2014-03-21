@@ -30,6 +30,11 @@ class EssayStyleDetail
   end
 
 
+  def short_link_to_show(css = "")
+    helpers.link_to(essay_style.title, routes.issue_essay_style_path(@issue.friendly_id, @essay_style), class: css)
+  end
+
+
   def link_to_issue
     issue_detail.link_to_show
   end

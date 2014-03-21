@@ -7,13 +7,18 @@ class Admin::IssuesController < ApplicationController
   end
 
 
-  def new
+  def show
 
   end
 
 
-  def create
+  def new
+    @form = Admin::IssueForm.build(self)
+  end
 
+
+  def create
+    redirect_to admin_issue_path(1)
   end
 
 
