@@ -19,6 +19,8 @@ class Essay < ActiveRecord::Base
 
     string :sort_title
     string :essay_style_title
+    string :issue_year
+    string :medium
   end
 
   def body_plain
@@ -42,7 +44,27 @@ class Essay < ActiveRecord::Base
   end
 
   def essay_style_title
-    essay_style.title
+    if essay_style.present?
+      essay_style.title
+    else
+      nil
+    end
+  end
+
+  def issue_year
+    if issue.present?
+      issue.year
+    else
+      nil
+    end
+  end
+
+  def medium
+    if embed.present?
+      "Multimedia"
+    else
+      "Traditional"
+    end
   end
 
   private
