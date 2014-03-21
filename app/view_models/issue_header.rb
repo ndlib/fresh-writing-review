@@ -7,8 +7,6 @@ class IssueHeader
 
   attr_accessor :issue
 
-  delegate :title, to: :issue
-
   def initialize(issue, show_full_image)
     @issue = issue
     @show_full_image = show_full_image
@@ -30,6 +28,11 @@ class IssueHeader
     else
       PlaceholderImage.call(900, 90)
     end
+  end
+
+
+  def title
+    helpers.link_to(issue.title, routes.issue_path(issue.friendly_id))
   end
 
 

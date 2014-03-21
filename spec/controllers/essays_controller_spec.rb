@@ -51,3 +51,4 @@ describe EssaysController do
   end
 
 end
+

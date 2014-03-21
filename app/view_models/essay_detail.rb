@@ -17,6 +17,11 @@ class EssayDetail
   end
 
 
+  def render_issue_header
+    IssueHeader.render(essay.issue, false)
+  end
+
+
   def render_header
     EssayDetail::Header.render(essay)
   end
