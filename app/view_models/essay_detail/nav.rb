@@ -19,17 +19,17 @@ class EssayDetail::Nav
 
 
   def style_link
-    helpers.link_to(@essay.essay_style.title, routes.issue_essay_style_path(@essay.issue.friendly_id, @essay.essay_style), class: 'tool-link style')
+    EssayStyleDetail.new(essay.issue, essay.essay_style).short_link_to_show('tool-link style')
   end
 
 
   def discussion_questions_link
-    EssayDetail::DiscussionQuestions.render(@essay)
+    EssayDetail::DiscussionQuestions.render(essay)
   end
 
 
-  def instructor_rescouces_link
-    EssayDetail::InstructorResources.new(@essay).link_to_detail("tool-link instructor")
+  def instructor_resources_link
+    EssayDetail::InstructorResources.new(essay).link_to_detail("tool-link instructor")
   end
 
 
