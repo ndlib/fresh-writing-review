@@ -1,35 +1,27 @@
 <section class="search">
   <%= form_tag essay_search_path, method: :get, class: "form-inline", role: "form" do %>
     <div class="form-group">
-      <label class="sr-only" for="keywords">Search</label>
-      <input type="text" class="form-control" id="keywords" name="keywords" placeholder="Search">
+      <%= label_tag :q, "Search", class: "sr-only" %>
+      <%= text_field_tag :q, @essay_search.keywords, placeholder: "Search", class: "form-control" %>
     </div>
     <div class="form-group">
-      <label class="sr-only" for="essay_style">Essay Style</label>
-      <%= select_tag :essay_style, @essay_search.essay_style_options, prompt: "Essay Style", class: "form-control" %>
+      <%= label_tag :style, "Essay Style", class: "sr-only" %>
+      <%= select_tag :style, @essay_search.essay_style_options, prompt: "Essay Style", class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <label class="sr-only" for="essay_style">Issue</label>
-      <select class="form-control" id="essay_style" placeholder="Essay Style">
-        <option>Issue</option>
-        <option>2014</option>
-      </select>
+      <%= label_tag :issue, "Issue", class: "sr-only" %>
+      <%= select_tag :issue, @essay_search.issue_options, prompt: "Issue", class: "form-control" %>
     </div>
 
 
     <div class="form-group">
-      <label class="sr-only" for="essay_style">Medium</label>
-      <select class="form-control" id="essay_style" placeholder="Essay Style">
-        <option>Medium</option>
-        <option>Multimedia</option>
-        <option>Traditional</option>
-      </select>
+      <%= label_tag :medium, "Medium", class: "sr-only" %>
+      <%= select_tag :medium, @essay_search.medium_options, prompt: "Medium", class: "form-control" %>
     </div>
 
     <div class="form-group">
       <input type="submit" value="Search" >
-
     </div>
   <% end %>
 </section>
