@@ -31,6 +31,15 @@ describe EssayDetail do
 
 
 
+  describe :render_issue_header do
+    it "calls the sub view model" do
+      expect(IssueHeader).to receive(:render).with(issue, false)
+      subject.render_issue_header
+    end
+  end
+
+
+
   describe :render_header do
     it "calls the sub view model" do
       expect(EssayDetail::Header).to receive(:render).with(essay)
