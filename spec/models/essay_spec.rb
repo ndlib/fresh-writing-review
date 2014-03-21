@@ -55,4 +55,18 @@ describe Essay do
     end
   end
 
+  describe '#sort_title' do
+    it 'makes the title lowercase' do
+      subject.title = 'Test'
+      expect(subject.sort_title).to be == 'test'
+    end
+
+    %w(a an the).each do |article|
+      it "removes preceding #{article}" do
+        subject.title = "#{article} title"
+        expect(subject.sort_title).to be == "title"
+      end
+    end
+  end
+
 end
