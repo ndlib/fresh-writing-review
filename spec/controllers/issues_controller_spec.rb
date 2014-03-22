@@ -44,9 +44,9 @@ describe IssuesController do
     end
   end
 
-  describe "#acknowledgments" do
+  describe "#acknowledgements" do
     it "succeeds" do
-      get :acknowledgments, id: issue.friendly_id
+      get :acknowledgements, id: issue.friendly_id
       expect(response).to be_success
     end
   end

@@ -20,7 +20,7 @@ class IssuesController < ApplicationController
     @issue_detail = IssueDetail.build(self)
   end
 
-  def acknowledgments
+  def acknowledgements
     @issue_detail = IssueDetail.build(self)
   end
 

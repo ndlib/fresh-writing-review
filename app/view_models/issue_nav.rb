@@ -23,8 +23,8 @@ class IssueNav
     helpers.link_to("Note from the Editors", routes.editorial_notes_issue_path(friendly_id))
   end
 
-  def link_to_acknowledgments
-    helpers.link_to("Acknowledgments", routes.acknowledgments_issue_path(friendly_id))
+  def link_to_acknowledgements
+    helpers.link_to("Acknowledgements", routes.acknowledgements_issue_path(friendly_id))
   end
 
   def essay_styles

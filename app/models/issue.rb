@@ -5,7 +5,11 @@ class Issue < ActiveRecord::Base
   has_many :essays
   has_many :highlighted_essays
 
-  store :data, accessors: [ :title, :editorial_notes, :editorial_board, :acknowledgments, :cover_image_fixture_path, :is_pdf ]
+  belongs_to :editorial_notes, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "editorial_notes_id"
+  belongs_to :editorial_board, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "editorial_board_id"
+  belongs_to :acknowledgements, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "acknowledgements_id"
+
+  store :data, accessors: [ :title, :cover_image_fixture_path, :is_pdf ]
 
   validates_presence_of :year
   validates_uniqueness_of :year

@@ -52,8 +52,8 @@ class IssueDetail
     MarkDownConverter.call(issue.editorial_board)
   end
 
-  def acknowledgments
-    MarkDownConverter.call(issue.acknowledgments)
+  def acknowledgements
+    MarkDownConverter.call(issue.acknowledgements)
   end
 
 

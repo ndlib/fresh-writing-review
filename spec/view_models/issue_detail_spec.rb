@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe IssueDetail do
-  let(:issue) { double(Issue, id: 1, year: 'year', friendly_id: 'fid', title: 'title', acknowledgments: 'ack', editorial_notes: 'edn', editorial_board: 'eb') }
+  let(:issue) { double(Issue, id: 1, year: 'year', friendly_id: 'fid', title: 'title', acknowledgements: 'ack', editorial_notes: 'edn', editorial_board: 'eb') }
   let(:controller) { double(ApplicationController, params: ActionController::Parameters.new(id: issue.friendly_id)) }
 
   subject { described_class.build(controller) }
@@ -30,10 +30,10 @@ describe IssueDetail do
     end
   end
 
-  describe '#acknowledgments' do
-    it 'formats the issue acknowledgments' do
-      expect(MarkDownConverter).to receive(:call).with(issue.acknowledgments)
-      subject.acknowledgments
+  describe '#acknowledgements' do
+    it 'formats the issue acknowledgements' do
+      expect(MarkDownConverter).to receive(:call).with(issue.acknowledgements)
+      subject.acknowledgements
     end
   end
 

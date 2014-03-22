@@ -29,9 +29,9 @@ describe IssueNav do
     end
   end
 
-  describe '#link_to_acknowledgments' do
+  describe '#link_to_acknowledgements' do
     it 'links to an issue show page' do
-      expect(subject.link_to_acknowledgments).to match "/issues/#{issue.year}/acknowledgments"
+      expect(subject.link_to_acknowledgements).to match "/issues/#{issue.year}/acknowledgements"
     end
   end
 
