@@ -24,7 +24,7 @@ FreshWriting::Application.routes.draw do
   resources :issues, only: [:index, :show] do
     member do
       get :editorial_board, path: "editorial-board"
-      get :acknowledgments
+      get :acknowledgements
       get :editorial_notes, path: "note"
     end
 
