@@ -1,22 +1,22 @@
 class MarkdownDetail
 
-  def initialize(text)
-    @text = text
+  def initialize(markdown_content)
+    @markdown_content = markdown_content
   end
 
 
   def markdown
-    MarkDownConverter.call(@text)
+    MarkDownConverter.call(@markdown_content.content)
   end
 
 
   def present?
-    @text.present?
+    @markdown_content.content.present?
   end
 
 
   def blank?
-    @text.blank?
+    @markdown_content.content.blank?
   end
 
 end
