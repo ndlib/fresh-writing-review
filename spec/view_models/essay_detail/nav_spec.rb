@@ -9,6 +9,16 @@ describe EssayDetail::Nav do
   subject { described_class.new(essay) }
 
 
+  describe :self_render do
+
+    it "instanciates itself and renders" do
+      described_class.any_instance.should_receive(:render)
+
+      described_class.render(essay)
+    end
+
+  end
+
   describe :issue_link do
     it " calls the link method" do
       IssueDetail.any_instance.should_receive(:link_to_show).with('tool-link volume')

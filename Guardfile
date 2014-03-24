@@ -17,6 +17,21 @@ end
 # https://github.com/ranmocy/guard-rails
 hesburgh_guard.rails do
   # Watch any custom paths
+
+  callback(:start_end) do
+    UI.info("Starting Solr Server")
+    output = `bundle exec rake sunspot:solr:start`
+    puts output
+  end
+  callback(:stop_end) do
+    UI.info("Stopping Solr Server")
+    # For some reason guard hangs if this command isn't run as a fork
+    # Output is muted so it doesn't pollute the terminal
+    job1 = fork do
+      output = `bundle exec rake sunspot:solr:stop > /dev/null 2>&1`
+    end
+    Process.detach(job1)
+  end
 end
 
 # Intelligently start/reload your RSpec Drb spork server

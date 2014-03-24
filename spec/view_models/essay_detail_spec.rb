@@ -31,6 +31,15 @@ describe EssayDetail do
 
 
 
+  describe :render_issue_header do
+    it "calls the sub view model" do
+      expect(IssueHeader).to receive(:render).with(issue, false)
+      subject.render_issue_header
+    end
+  end
+
+
+
   describe :render_header do
     it "calls the sub view model" do
       expect(EssayDetail::Header).to receive(:render).with(essay)
@@ -86,6 +95,15 @@ describe EssayDetail do
   end
 
 
+
+  describe :render_instructor_resources do
+    it "calls the sub view model" do
+      expect(EssayDetail::InstructorResources).to receive(:render).with(essay)
+      subject.render_instructor_resources
+    end
+  end
+
+
   describe :render_author_biography do
     it "calls the sub view model" do
       expect(EssayDetail::AuthorBiography).to receive(:render).with(essay)
@@ -93,6 +111,21 @@ describe EssayDetail do
     end
   end
 
+
+  describe :render_nav do
+    it "calls the sub view model" do
+      expect(EssayDetail::Nav).to receive(:render).with(essay)
+      subject.render_nav
+    end
+  end
+
+
+  describe :render_attached_file do
+    it "calls the sub view model" do
+      expect(EssayDetail::DownloadFile).to receive(:render).with(essay)
+      subject.render_attached_file
+    end
+  end
 
 
 end

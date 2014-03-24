@@ -1,10 +1,5 @@
 <% content_for(:issue_header) do %>
-  <div class="row volume sub">
-    <div class="large-12 header">
-      <a href="<%= issue_path(@essay_detail.issue) %>"><img src="http://lorempixel.com/900/90/nature/4/" ></a>
-      <p>Volume 14</p>
-    </div>
-  </div>
+  <%= @essay_detail.render_issue_header %>
 <% end %>
 
 <article>

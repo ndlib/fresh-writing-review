@@ -28,10 +28,6 @@ class IssueDetail
     issue_nav.render
   end
 
-  def cover_image
-    helpers.image_tag("covers/#{year}.jpg")
-  end
-
   def issue_nav
     @issue_nav ||= IssueNav.new(issue)
   end

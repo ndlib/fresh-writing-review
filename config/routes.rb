@@ -11,7 +11,9 @@ FreshWriting::Application.routes.draw do
   namespace :admin do
     resources :markdown_contents, :controller => :markdown, :only => [:new, :create, :edit, :update]
     resources :issues do
-      resources :essays, only: [:new, :create, :show, :edit, :update]
+      resources :essays, only: [:new, :create, :show, :edit, :update] do
+        resources :essay_awards, only: [ :new, :create, :edit, :update ]
+      end
     end
     post 'media/upload', to: 'markdown#add_image'
   end
@@ -19,7 +21,7 @@ FreshWriting::Application.routes.draw do
 
   resources :errors, only: [:index, :show, :update]
 
-  get :essays, to: 'search#index'
+  get :essays, to: 'search#index', as: :essay_search
 
   resources :issues, only: [:index, :show] do
     member do

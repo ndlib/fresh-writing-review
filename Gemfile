@@ -34,6 +34,7 @@ gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 gem 'mysql2'
 gem "rb-readline"
 gem 'simple_form'
+gem 'sunspot_rails'
 
 # Extended PORO functionality
 gem 'virtus'
@@ -83,6 +84,8 @@ group :development, :test do
   gem "guard-spork"
   gem "spork", "1.0.0rc4"
   gem "growl"
+
+  gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 end
 
 group :test do

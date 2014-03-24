@@ -13,7 +13,6 @@ describe EssayDetail::Body do
 
       described_class.render(essay)
     end
-
   end
 
 

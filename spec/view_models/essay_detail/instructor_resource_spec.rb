@@ -28,6 +28,26 @@ describe EssayDetail::InstructorResources do
   end
 
 
+  describe '#link_to_detail' do
+    it "returns the link if there is instructor content" do
+      subject.stub(:has_content?).and_return(true)
+      expect(subject.link_to_detail).to eq("<a class=\"\" href=\"/issues/id/essays/id/instructor_resources\">Instructor Resources</a>")
+    end
+
+
+    it "allows you set the css class for the link" do
+      subject.stub(:has_content?).and_return(true)
+      expect(subject.link_to_detail('css')).to eq("<a class=\"css\" href=\"/issues/id/essays/id/instructor_resources\">Instructor Resources</a>")
+    end
+
+
+    it "returns nil if there is not instructor content" do
+      subject.stub(:has_content?).and_return(false)
+      expect(subject.link_to_detail).to eq(nil)
+    end
+  end
+
+
   describe "#has_content" do
 
     it "returns true if the markdown_content object says it has content" do
@@ -35,10 +55,13 @@ describe EssayDetail::InstructorResources do
       expect(subject.has_content?).to be_true
     end
 
+
     it "returns false if the markdown_content object says it does not have content" do
       subject.send(:markdown_object).stub(:present?).and_return(false)
       expect(subject.has_content?).to be_false
     end
+
+
   end
 
   describe :render do

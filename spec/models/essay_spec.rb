@@ -2,6 +2,9 @@ require 'spec_helper'
 
 
 describe Essay do
+  before do
+    subject.stub(:perform_index_tasks)
+  end
 
   subject { Essay.new }
 
@@ -35,5 +38,35 @@ describe Essay do
     end
   end
 
+  describe 'plaintext methods' do
+    %w(body alt_body discussion_questions instructor_resources).each do |method|
+      it "#{method} calls #stripdown" do
+        expect(subject).to receive(:stripdown)
+        subject.send("#{method}_plain")
+      end
+    end
+  end
+
+  describe '#stripdown' do
+    it 'calls StripDownConverter' do
+      text = '# test'
+      expect(StripDownConverter).to receive(:call).with(text)
+      subject.send(:stripdown, text)
+    end
+  end
+
+  describe '#sort_title' do
+    it 'makes the title lowercase' do
+      subject.title = 'Test'
+      expect(subject.sort_title).to be == 'test'
+    end
+
+    %w(a an the).each do |article|
+      it "removes preceding #{article}" do
+        subject.title = "#{article} title"
+        expect(subject.sort_title).to be == "title"
+      end
+    end
+  end
 
 end

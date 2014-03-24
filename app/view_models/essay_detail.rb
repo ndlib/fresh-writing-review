@@ -17,6 +17,11 @@ class EssayDetail
   end
 
 
+  def render_issue_header
+    IssueHeader.render(essay.issue, false)
+  end
+
+
   def render_header
     EssayDetail::Header.render(essay)
   end
@@ -25,6 +30,7 @@ class EssayDetail
   def render_nav
     EssayDetail::Nav.render(essay)
   end
+
 
   def render_attached_file
     EssayDetail::DownloadFile.render(essay)
