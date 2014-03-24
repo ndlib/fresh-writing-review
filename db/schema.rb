@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318171441) do
+ActiveRecord::Schema.define(version: 20140323201342) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -38,7 +38,10 @@ ActiveRecord::Schema.define(version: 20140318171441) do
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "body_id"
   end
+
+  add_index "essay_awards", ["body_id"], name: "index_essay_awards_on_body_id", using: :btree
 
   create_table "essay_files", force: true do |t|
     t.integer "essay_id"
@@ -46,15 +49,6 @@ ActiveRecord::Schema.define(version: 20140318171441) do
   end
 
   add_index "essay_files", ["essay_id", "attached_file_id"], name: "index_essay_files_on_essay_id_and_attached_file_id", using: :btree
-
-  create_table "essay_markdown_contents", id: false, force: true do |t|
-    t.integer "essay_id",            null: false
-    t.integer "markdown_content_id", null: false
-    t.string  "title"
-  end
-
-  add_index "essay_markdown_contents", ["essay_id", "markdown_content_id"], name: "essay_md_content", using: :btree
-  add_index "essay_markdown_contents", ["markdown_content_id", "essay_id"], name: "md_content_essay", using: :btree
 
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
@@ -71,17 +65,29 @@ ActiveRecord::Schema.define(version: 20140318171441) do
     t.string   "slug"
     t.string   "title"
     t.integer  "placement"
-    t.text     "data",           limit: 2147483647
+    t.text     "data",                    limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "essay_style_id"
     t.integer  "essay_award_id"
+    t.integer  "body_id"
+    t.integer  "alt_body_id"
+    t.integer  "author_biography_id"
+    t.integer  "works_cited_id"
+    t.integer  "discussion_questions_id"
+    t.integer  "instructor_resources_id"
   end
 
+  add_index "essays", ["alt_body_id"], name: "index_essays_on_alt_body_id", using: :btree
+  add_index "essays", ["author_biography_id"], name: "index_essays_on_author_biography_id", using: :btree
+  add_index "essays", ["body_id"], name: "index_essays_on_body_id", using: :btree
+  add_index "essays", ["discussion_questions_id"], name: "index_essays_on_discussion_questions_id", using: :btree
   add_index "essays", ["essay_award_id"], name: "index_essays_on_essay_award_id", using: :btree
   add_index "essays", ["essay_style_id"], name: "index_essays_on_essay_style_id", using: :btree
+  add_index "essays", ["instructor_resources_id"], name: "index_essays_on_instructor_resources_id", using: :btree
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree
+  add_index "essays", ["works_cited_id"], name: "index_essays_on_works_cited_id", using: :btree
 
   create_table "highlighted_essays", force: true do |t|
     t.integer  "issue_id"
@@ -111,8 +117,14 @@ ActiveRecord::Schema.define(version: 20140318171441) do
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "editorial_notes_id"
+    t.integer  "editorial_board_id"
+    t.integer  "acknowledgements_id"
   end
 
+  add_index "issues", ["acknowledgements_id"], name: "index_issues_on_acknowledgements_id", using: :btree
+  add_index "issues", ["editorial_board_id"], name: "index_issues_on_editorial_board_id", using: :btree
+  add_index "issues", ["editorial_notes_id"], name: "index_issues_on_editorial_notes_id", using: :btree
   add_index "issues", ["slug"], name: "index_issues_on_slug", unique: true, using: :btree
 
   create_table "markdown_content_images", id: false, force: true do |t|
@@ -133,11 +145,12 @@ ActiveRecord::Schema.define(version: 20140318171441) do
     t.string   "title"
     t.string   "path"
     t.string   "slug"
-    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "content_id"
   end
 
+  add_index "pages", ["content_id"], name: "index_pages_on_content_id", using: :btree
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
   create_table "users", force: true do |t|
