@@ -5,7 +5,7 @@ describe EssayDetail::InstructorResources do
 
 
   let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
-  let(:essay) { double(Essay, friendly_id: 'id', embed: "embed", issue: issue, instructor_resources: 'resource') }
+  let(:essay) { double(Essay, friendly_id: 'id', embed: "embed", issue: issue, instructor_resources: double(MarkdownContent, content: 'resource')) }
   subject { described_class.new(essay) }
 
   describe :self_render do

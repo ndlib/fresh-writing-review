@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayDetail::AlternateBody do
 
-  let(:essay) { double(Essay, embed: "embed", alt_body: "alt_body", alt_title: 'alt_title') }
+  let(:essay) { double(Essay, embed: "embed", alt_body: double(MarkdownContent, content: "alt_body"), alt_title: 'alt_title') }
   subject { described_class.new(essay) }
 
   describe :self_render do

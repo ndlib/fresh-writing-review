@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayDetail::Body do
 
-  let(:essay) { double(Essay, body: "body") }
+  let(:essay) { double(Essay, body: double(MarkdownContent, content: "body")) }
   subject { described_class.new(essay) }
 
   describe :self_render do

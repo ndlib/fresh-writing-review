@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayDetail::AuthorBiography do
 
-  let(:essay) { double(Essay, author: 'author', author_biography: 'biography' ) }
+  let(:essay) { double(Essay, author: 'author', author_biography: double(MarkdownContent, content: 'biography')) }
   subject { described_class.new(essay) }
 
 
@@ -54,7 +54,7 @@ describe EssayDetail::AuthorBiography do
     end
 
     context :no_work_cited do
-      let(:essay) { double(Essay, author_biography: nil, author: 'author') }
+      let(:essay) { double(Essay, author_biography: double(MarkdownContent, content: nil), author: 'author') }
 
       it "does not render the template" do
         expect(subject).to_not receive(:render_to_string)

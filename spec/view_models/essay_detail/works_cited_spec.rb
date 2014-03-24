@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayDetail::WorksCited do
 
-  let(:essay) { double(Essay, works_cited: "works_cited") }
+  let(:essay) { double(Essay, works_cited: double(MarkdownContent, content: "works_cited")) }
   subject { described_class.new(essay) }
 
   describe :self_render do
@@ -43,7 +43,7 @@ describe EssayDetail::WorksCited do
     end
 
     context :no_work_cited do
-      let(:essay) { double(Essay, works_cited: nil) }
+      let(:essay) { double(Essay, works_cited: double(MarkdownContent, content: nil)) }
 
       it "does not render the template" do
         expect(subject).to_not receive(:render_to_string)

@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayDetail::DiscussionQuestions do
 
-  let(:essay) { double(Essay, discussion_questions: "questions") }
+  let(:essay) { double(Essay, discussion_questions: double(MarkdownContent, content: "questions")) }
   subject { described_class.new(essay) }
 
   describe :self_render do
@@ -42,7 +42,7 @@ describe EssayDetail::DiscussionQuestions do
     end
 
     context :no_work_cited do
-      let(:essay) { double(Essay, discussion_questions: nil) }
+      let(:essay) { double(Essay, discussion_questions: double(MarkdownContent, content: nil)) }
 
       it "does not render the template" do
         expect(subject).to_not receive(:render_to_string)
