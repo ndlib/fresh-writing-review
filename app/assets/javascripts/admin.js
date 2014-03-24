@@ -18,7 +18,6 @@
 //= require markdown.editor
 //= require markdown.sanitizer
 //= require markdown.extra
-//= require turbolinks
 //= require markdown_editor.js
 //= require issues.js
 //= require foundation_init.js
