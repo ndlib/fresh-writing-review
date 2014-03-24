@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayAwardDetail do
   let(:issue) { double(Issue, title: 'title', id: 1, friendly_id: 'fid') }
-  let(:essay_award) { double(EssayAward, title: 'title', id: 1, friendly_id: 'eafid', body: "Body") }
+  let(:essay_award) { double(EssayAward, title: 'title', id: 1, friendly_id: 'eafid', body: double(MarkdownContent, content: "Body")) }
   let(:essay) { double(Essay, id: 1, title: 'essay')}
 
   subject { described_class.new(issue, essay_award)}
@@ -68,9 +68,8 @@ describe EssayAwardDetail do
 
 
   describe "#body" do
-    it "calls the markdown converter " do
-      expect(MarkDownConverter).to receive(:call).with(essay_award.body)
-      subject.body
+    it "references the markdown object" do
+      expect(essay_award.body).to respond_to(:content)
     end
   end
 
