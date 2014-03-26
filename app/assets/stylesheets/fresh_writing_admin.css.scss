@@ -8,6 +8,14 @@ $link :#70C19A;
 $headers : "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 $content : Georgia,Cambria,"Times New Roman",Times,serif;
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: $headers;
+}
+
+h2, h3 {
+	color:$lt-green;
+}
+
 body {
 	background: url("/assets/bg.png") repeat-x scroll 0 0 transparent;
 }
@@ -90,6 +98,10 @@ div.issues {
 	float: right;
 }
 
+.glyphicon {
+	color:$dk-green;
+}
+
 .essays .list .delete .glyphicon-trash {
 	display:none;
 }
@@ -121,4 +133,8 @@ button:hover, .button:hover, .btn-primary:hover {
 .form-horizontal .form-group {
 	margin-left:0;
 	margin-right:0;
+}
+
+article .body {
+	background:none;
 }
