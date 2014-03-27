@@ -16,7 +16,7 @@ class MarkdownDetail
 
 
   def blank?
-    markdown_content.nil? || @markdown_content.content.blank?
+    @markdown_content.nil? || @markdown_content.content.blank?
   end
 
 end
