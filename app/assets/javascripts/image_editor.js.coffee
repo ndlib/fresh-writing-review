@@ -12,5 +12,6 @@ jQuery ($) ->
       form.hide()
       form.siblings('.image').show()
 
+
   $(document).ready(ready)
   $(document).on('page:load', ready)

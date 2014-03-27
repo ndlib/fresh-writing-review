@@ -5,6 +5,7 @@ class CreateEssays < ActiveRecord::Migration
       t.integer :issue_id
       t.string :slug
       t.string :title
+      t.string :author
       t.integer :placement
       t.text :data
       t.timestamps
