@@ -3,7 +3,7 @@ class Admin::IssuesController < ApplicationController
   layout 'admin'
 
   def index
-
+    @volumes = IssueQuery.all
   end
 
 

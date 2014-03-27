@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20140323201342) do
     t.integer  "year"
     t.string   "slug"
     t.string   "title"
+    t.boolean  "published"
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

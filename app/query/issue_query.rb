@@ -4,8 +4,14 @@ class IssueQuery
     relation.order(year: :desc)
   end
 
+
+  def self.published
+    relation.where(published: true).order(year: :desc)
+  end
+
+
   def self.current
-    relation.order(year: :desc).first!
+    relation.order(year: :desc).where(published: true).first!
   end
 
   def self.current?

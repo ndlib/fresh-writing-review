@@ -5,6 +5,7 @@ class CreateIssues < ActiveRecord::Migration
       t.integer :year
       t.string :slug
       t.string :title
+      t.boolean :published
       t.text :data
       t.timestamps
     end

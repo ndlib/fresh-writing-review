@@ -2,7 +2,7 @@ class IssueList
   include RailsHelpers
 
   def self.build(controller)
-    issues = IssueQuery.all
+    issues = IssueQuery.published
 
     self.new(issues)
   end
