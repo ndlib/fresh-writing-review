@@ -11,8 +11,6 @@ class Issue < ActiveRecord::Base
 
   store :data, accessors: [ :title, :cover_image_fixture_path, :is_pdf, :published ]
 
-  store :data, accessors: [ :title, :editorial_notes, :editorial_board, :acknowledgments, :cover_image_fixture_path, :is_pdf, :published ]
-
   validates_presence_of :year
   validates_uniqueness_of :year
 
