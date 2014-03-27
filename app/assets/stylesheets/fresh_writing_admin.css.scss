@@ -81,12 +81,12 @@ h1 {
 	clear: both;
 }
 
-.essays h2, .issues h1 {
+.essays h2, .issues h1, .awards h2 {
 	float: left;
 	margin-top:0;
 }
 
-.essays p, .issues p {
+.essays p, .issues p, .awards p {
 	float: right;
 }
 
@@ -137,4 +137,12 @@ button:hover, .button:hover, .btn-primary:hover {
 
 article .body {
 	background:none;
+}
+
+h3.author {
+	margin-top: 0;
+}
+
+h4.style {
+	color: $lt-green;
 }
