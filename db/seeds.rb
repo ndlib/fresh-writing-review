@@ -93,7 +93,7 @@ HighlightedEssay.delete_all
 EssayStyle.all.each do |essay_style|
   essay = current_issue.essays.where(essay_style: essay_style).first
   if essay.present?
-    HighlightedEssay.create(essay: essay, issue: current_issue, essay_style: essay_style)
+    HighlightedEssay.create(essay: essay, issue: current_issue, essay_style: essay_style, body: essay.body.content[0..200])
   end
 end
 

@@ -11,12 +11,12 @@ class MarkdownDetail
 
 
   def present?
-    @markdown_content.content.present?
+    !@markdown_content.nil? && @markdown_content.content.present?
   end
 
 
   def blank?
-    @markdown_content.content.blank?
+    markdown_content.nil? || @markdown_content.content.blank?
   end
 
 end
