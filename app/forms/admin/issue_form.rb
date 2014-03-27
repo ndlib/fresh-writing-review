@@ -30,6 +30,17 @@ class Admin::IssueForm
 
     if params[:admin_issue_form]
       self.attributes = params[:admin_issue_form]
+    else
+      self.attributes = @issue.attributes
+    end
+  end
+
+
+  def page_title
+    if @issue.new_record?
+      "New Volume"
+    else
+      "Edit #{@issue.title}"
     end
   end
 

@@ -1,20 +1,22 @@
-<h1>Volume 14</h1>
-<p>Published - <a>Unpublish</a></p>
-<p><%= link_to 'Edit', edit_admin_issue_path(1), class: 'btn btn-primary' %></p>
+<h1>Volume 14 <%= link_to 'Edit', edit_admin_issue_path(1), class: 'btn btn-primary' %></h1>
+<p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published - <a><span class="glyphicon glyphicon-eye-close"></span> Unpublish</a></p>
+<p></p>
 <hr>
 <div class="row">
   <div class="large-6 columns">
-    <h2>Essays</h2>
-    <p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
+    <div class="essays">
+      <h2>Essays</h2>
+        <p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
 
-    <ul>
-      <li><%= link_to 'Essay 1', admin_issue_essay_path(1, 1) %> <span>By Bob Bobbers</span> <span>Delete</span></li>
-      <li><%= link_to 'Essay 2', admin_issue_essay_path(1, 1) %> <span>By Bob Bobbers</span> <span>Delete</span></li>
-      <li><%= link_to 'Essay 3', admin_issue_essay_path(1, 1) %> <span>By Bob Bobbers</span> <span>Delete</span></li>
-    </ul>
-    <hr>
+        <ul class="list ">
+          <li><%= link_to 'Essay 1', admin_issue_essay_path(1, 1) %> <span class="author">By Bob Bobbers</span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
+          <li><%= link_to 'Essay 2', admin_issue_essay_path(1, 1) %> <span class="author">By Bob Bobbers</span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
+          <li><%= link_to 'Essay 3', admin_issue_essay_path(1, 1) %> <span class="author">By Bob Bobbers</span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
+        </ul>
+        <hr>
+      </div>
     <h2>Extra Pages</h2>
-    <ul>
+    <ul class="list extras">
       <li><a href="">Acknowledgements</a></li>
       <li><a href="">Note From the Editor</a></li>
       <li><a href="">Editors</a></li>
@@ -23,13 +25,15 @@
   </div>
 
   <div class="large-6 columns">
-    <h2>Images</h2>
+    <div class="images">
+      <h2>Images</h2>
 
-    <h3>Large Cover Image</h3>
-    <%= UploadImageForm.render("image") %>
+      <h3>Large Cover Image</h3>
+      <%= render partial: '/admin/images/form', locals: { width: 900, height: 200 } %>
 
-    <h3>Small Cover Image</h3>
-    <%= PlaceholderImage.call(900, 90, 1) %>
+      <h3>Small Cover Image</h3>
+      <%= render partial: '/admin/images/form', locals: { width: 900, height: 90  } %>
 
+    </div>
   </div>
 </div>
