@@ -32,7 +32,7 @@ class IssueHeader
 
 
   def title
-    helpers.link_to(issue.title, routes.issue_path(issue.friendly_id))
+    helpers.link_to(issue.title, routes.issue_path(issue.friendly_id), class: 'vtitle')
   end
 
 

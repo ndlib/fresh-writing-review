@@ -106,6 +106,19 @@ a:active, a:link {
   margin-bottom:3rem;
 }
 
+.attachments {
+  margin:0 30px 3rem;
+  p {
+    margin:0;
+  }
+  .glyphicon {
+    top:5px;
+  }
+  a {
+    border:none;
+  }
+}
+
 article {
 
   margin-bottom:3px;
@@ -297,7 +310,7 @@ nav.top-bar {
 
 .volume {
   position: relative;
-  p {
+  a.vtitle {
     position: absolute;
     bottom:0;
     right:0;
@@ -334,7 +347,7 @@ nav.top-bar {
     padding-left: 0;
   }
 
-.volume.home p {
+.volume.home a.vtitle {
   font-size: 4.7rem;
   padding-top:147px;
   width:230px;
@@ -420,7 +433,7 @@ nav.top-bar {
     a.title {
       position: absolute;
       left:0.625rem;
-      bottom:1.25rem;
+      bottom:4.3rem;
       background:rgba(68,131,75,0.7);
       color: #fff;
       width: 210px;
@@ -586,21 +599,32 @@ article {
 
 
     img {
-      float: right;
       margin:.4em 0 1.4em 1.4em;
       vertical-align: text-top;
       display: inline-block;
       width: 330px;
     }
+
+    .small-block-grid-2 {
+      margin:0 30px;
+      li {
+        padding-left:0;
+      }
+    }
+
     figure {
-      float: right;
-      margin:.4em 0 1.4em 1.4em;
+
       vertical-align: text-top;
       display: inline-block;
 
       img {
         margin:0;
       }
+    }
+    figcaption {
+      font-size:1.2rem;
+      padding:5px 0;
+      display: block;
     }
 
 
@@ -681,15 +705,28 @@ article {
 
 .side-nav {
   margin-top:20px;
+  h3 {
+    font-family: $headers;
+    color:$lt-green;
+  }
+  h3:first-child {
+    margin-top: 0;
+  }
+  .list-unstyled {
+    margin-left: 0;
+  }
+  .awards {
+    margin-bottom:20px;
+  }
 }
 
 .side-nav li a:not(.button) {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   color:$lt-grey;
   font-family: $headers;
   text-transform: uppercase;
   border-bottom:solid 2px #fff;
-  display: inline;
+
 
 }
 
@@ -758,7 +795,7 @@ article {
   .theme-bb-gold .dept {border-top:0 none; @include box-shadow(none);}
   .follow {
 
-  right:-87px;
+  right:-44px;
   z-index: 50;
   background:none;
   position: absolute;
@@ -785,16 +822,7 @@ article {
       }
     }
     a:hover {background: none;}
-    .content.active {
-
-        background-color: $ltlt-green;
-        -webkit-box-shadow: 0px 0px 5px 0 rgba(100,100,100,.8);
-        box-shadow: 0px 0px 5px 0 rgba(100,100,100,.8);
-        top:-4px;
-        right:340px;
-        position: relative;
-        width:400px;
-    }
+    
   }
   .tool-link {
     display: block;
@@ -817,6 +845,27 @@ article {
     height:auto;
     margin-bottom:.8rem;
   }
+}
+
+.follow .content.active {
+
+        background-color: $ltlt-green;
+        -webkit-box-shadow: 0px 0px 5px 0 rgba(100,100,100,.8);
+        box-shadow: 0px 0px 5px 0 rgba(100,100,100,.8);
+        top:-4px;
+        right:155px;
+        position: relative;
+        width:400px;
+    }
+
+.follow.fixed .content.active {
+        
+        right:340px;
+
+    }
+
+.follow .content.active * {
+  clear: both;
 }
 
 .top {
