@@ -4,7 +4,7 @@ class EssayAwardDetail
 
   attr_accessor :essay_award, :issue
 
-  delegate :title, :body, to: :essay_award
+  delegate :title, to: :essay_award
 
   def self.build(controller)
     issue = IssueQuery.find(controller.params.require(:issue_id))
@@ -17,6 +17,11 @@ class EssayAwardDetail
   def initialize(issue, essay_award)
     @essay_award = essay_award
     @issue = issue
+  end
+
+
+  def body
+    MarkdownDetail.new(essay_award.body).markdown
   end
 
 
