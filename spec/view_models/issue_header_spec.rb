@@ -58,7 +58,7 @@ describe IssueHeader do
   describe :title do
 
     it "returns the title in a link" do
-      expect(subject.title).to eq("<a href=\"/issues/fid\">title</a>")
+      expect(subject.title).to eq("<a class=\"vtitle\" href=\"/issues/fid\">title</a>")
     end
 
   end
