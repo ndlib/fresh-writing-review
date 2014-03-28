@@ -7,9 +7,15 @@ describe EssaySearchRow do
   let(:issue) { double(Issue, title: 'issue', friendly_id: 'ifid') }
   let(:essay_style) { double(EssayStyle, title: 'title', friendly_id: 'esfid') }
 
-  describe '#link_to_image' do
+  describe '#image_link_to_essay' do
     it "renders the correct text" do
-      expect(subject.link_to_image).to eq("<a href=\"/issues/ifid/essays/fid\"><img alt=\"Fff\" src=\"http://placehold.it/211x135/A4A774/fff\" /></a> <a class=\"title\" href=\"/issues/ifid/essays/fid\">title</a>")
+      expect(subject.image_link_to_essay).to eq("<a href=\"/issues/ifid/essays/fid\"><img alt=\"Fff\" src=\"http://placehold.it/78x50/A4A774/fff\" /></a>")
+    end
+  end
+
+  describe '#link_to_essay' do
+    it "renders the correct text" do
+      expect(subject.link_to_essay).to eq("<a href=\"/issues/ifid/essays/fid\">title</a>")
     end
   end
 

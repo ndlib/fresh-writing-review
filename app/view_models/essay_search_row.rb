@@ -13,8 +13,16 @@ class EssaySearchRow
   end
 
 
-  def link_to_image
-    LinkToRouteWithImage.call(routes.issue_essay_path(essay.issue.friendly_id, essay.friendly_id), essay.title, essay.id)
+  def image_link_to_essay
+    helpers.link_to(PlaceholderImage.call(78, 50, essay.id), href)
+  end
+
+  def link_to_essay
+    helpers.link_to(essay.title, href)
+  end
+
+  def href
+    routes.issue_essay_path(essay.issue.friendly_id, essay.friendly_id)
   end
 
 
