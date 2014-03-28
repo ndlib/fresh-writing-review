@@ -298,7 +298,7 @@ nav.top-bar {
 	border-bottom:solid 3px #fff;
 }
 
-.top-bar-section ul li > a:hover {
+.top-bar-section ul li > a:hover, .top-bar-section ul li > a.active {
 	color:$lt-grey;
 	border-bottom:solid 3px $yellow !important;
 	text-decoration: none;
