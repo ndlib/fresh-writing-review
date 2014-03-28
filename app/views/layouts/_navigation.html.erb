@@ -9,7 +9,7 @@
       <%= link_to("Volumes", issues_path) %>
     </li>
     <li>
-      <%= link_to("Essays", essay_search_path, class: (request.original_fullpath == essay_search_path ? 'active' : nil)) %>
+      <%= link_to("Essays", essay_search_path, class: (request.original_fullpath =~ %r{^#{essay_search_path}} ? 'active' : nil)) %>
     </li>
     <li>
       <%= link_to("About", page_path("about")) %>
