@@ -730,7 +730,7 @@ article {
 
 }
 
-.side-nav li a:hover:not(.button) {
+.side-nav li a.title:hover:not(.button) {
   border-bottom-color: $yellow;
   color:$lt-grey;
   text-decoration: none;
