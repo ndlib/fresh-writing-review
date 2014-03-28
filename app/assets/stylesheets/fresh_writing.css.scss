@@ -298,7 +298,7 @@ nav.top-bar {
 	border-bottom:solid 3px #fff;
 }
 
-.top-bar-section ul li > a:hover {
+.top-bar-section ul li > a:hover, .top-bar-section ul li > a.active {
 	color:$lt-grey;
 	border-bottom:solid 3px $yellow !important;
 	text-decoration: none;
@@ -473,13 +473,18 @@ nav.top-bar {
   margin-top: 2.6rem;
   input, select {
     font-size:1.3rem;
-    color:$lt-grey;
+    // color:$lt-grey;
   }
   input {
     padding:8px 12px;
     margin:0;
     height:auto;
   }
+}
+
+.results td {
+  font-size: 1.25rem;
+  line-height: 1.6rem;
 }
 
 .results .listing li{
@@ -730,7 +735,7 @@ article {
 
 }
 
-.side-nav li a:hover:not(.button) {
+.side-nav li a.title:hover:not(.button) {
   border-bottom-color: $yellow;
   color:$lt-grey;
   text-decoration: none;
@@ -822,7 +827,7 @@ article {
       }
     }
     a:hover {background: none;}
-    
+
   }
   .tool-link {
     display: block;
@@ -859,7 +864,7 @@ article {
     }
 
 .follow.fixed .content.active {
-        
+
         right:340px;
 
     }

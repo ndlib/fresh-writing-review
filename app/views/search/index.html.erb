@@ -1,3 +1,5 @@
+<h1>Essays</h1>
+
 <section class="search">
   <%= form_tag essay_search_path, method: :get, class: "form-inline", role: "form" do %>
     <div class="form-group">
@@ -21,15 +23,18 @@
     </div>
 
     <div class="form-group">
-      <input type="submit" value="Search" >
+      <input type="submit" value="Search" class="btn btn-primary">
+      <%= link_to("Reset", essay_search_path, class: "btn btn-link") %>
     </div>
   <% end %>
 </section>
 
 <section class="results">
-  <ul class="small-block-grid-2 medium-block-grid-3 listing">
-    <% @essay_search.results.each do | essay_link | %>
-      <li><%= essay_link.render %></li>
-    <% end %>
-  </ul>
+  <table>
+    <tbody>
+      <% @essay_search.results.each do | essay_link | %>
+        <%= essay_link.render %>
+      <% end %>
+    </tbody>
+  </table>
 </section>

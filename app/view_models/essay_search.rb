@@ -15,7 +15,7 @@ class EssaySearch
 
 
   def results
-    search.results.collect { | e | EssayLink.new(e) }
+    search.results.collect { | e | EssaySearchRow.new(e) }
   end
 
   def keywords
