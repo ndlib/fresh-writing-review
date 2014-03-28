@@ -23,14 +23,15 @@
     <div class="row">
       <div class="large-2 columns">
         <ul class="side-nav">
-          <li><a href="<%= admin_issues_path() %>">Issues</a></li>
+          <li><a href="<%= admin_issues_path() %>">Volumes</a></li>
           <li><a href="">About Page</a></li>
           <li><a href="">Awards</a></li>
         </ul>
       </div>
 
       <div class="large-10 columns">
-      <%= yield %>
+        <%= display_notices %>
+        <%= yield %>
 
       </div>
 

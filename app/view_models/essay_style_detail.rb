@@ -26,7 +26,7 @@ class EssayStyleDetail
 
 
   def link_to_show()
-    LinkToRouteWithImage.call(routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id), title, style_id)
+    LinkToRouteWithImage.call(routes.issue_essay_style_path(issue_detail.friendly_id, friendly_id), title, style_id, 211, 75)
   end
 
 

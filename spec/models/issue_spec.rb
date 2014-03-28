@@ -3,7 +3,8 @@ require 'spec_helper'
 describe Issue do
   subject { described_class.new }
 
-  [:title, :year, :editorial_notes, :editorial_board, :acknowledgements, :is_pdf].each do |field|
+
+  [:title, :year, :editorial_notes, :editorial_board, :acknowledgements, :is_pdf, :published].each do |field|
     it "has the ##{field} attribute" do
       expect(subject).to respond_to(field)
       expect(subject).to respond_to("#{field}=")

@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140323201342) do
     t.integer  "issue_id"
     t.string   "slug"
     t.string   "title"
+    t.string   "author"
     t.integer  "placement"
     t.text     "data",                    limit: 2147483647
     t.datetime "created_at"
@@ -114,6 +115,8 @@ ActiveRecord::Schema.define(version: 20140323201342) do
   create_table "issues", force: true do |t|
     t.integer  "year"
     t.string   "slug"
+    t.string   "title"
+    t.boolean  "published"
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

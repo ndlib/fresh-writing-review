@@ -1,10 +1,10 @@
-<h1>Volume 14</h1>
-<h2>My Amazing Essay </h2>
-<p>Published - <a>Unpublish</a></p>
-<p><%= link_to 'Edit', edit_admin_issue_path(1), class: 'btn btn-primary' %></p>
+<h1>Volume 14 </h1>
+<h2>My Amazing Essay <%= link_to 'Edit', edit_admin_issue_essay_path(1, 1), class: 'btn btn-primary' %></h2>
+<p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published - <a><span class="glyphicon glyphicon-eye-close"></span> Unpublish</a></p>
 
-<p>By Bob Bobbers</p>
-<p>Narrative</p>
+
+<h3 class="author">By Bob Bobbers</h3>
+<h4 class="style">Narrative</h4>
 <hr>
 <div class="row">
   <div class="large-6 columns">
@@ -20,17 +20,19 @@
       <li><%= link_to 'Instructor Resources', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited</li>
     </ul>
     <hr>
+    <div class="awards">
     <h2>Awards</h2>
     <p><%= link_to 'Add Award', new_admin_issue_essay_essay_award_path(1, 1), class: 'btn btn-primary' %></p>
+     </div>
   </div>
-  <div class="large-6 columns">
 
+  <div class="large-6 columns">
     <h2>Images</h2>
 
     <h3>Cover Image</h3>
-    <%= PlaceholderImage.call(671, 429, 1) %>
+    <%= render partial: '/admin/images/form', locals: { width: 671, height: 429 } %>
 
     <h3>Author Image</h3>
-    <%= PlaceholderImage.call(50, 75, 1) %>
+    <%= render partial: '/admin/images/form', locals: { width: 50, height: 75 } %>
   </div>
 </div>

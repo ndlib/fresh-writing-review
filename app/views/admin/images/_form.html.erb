@@ -1,0 +1,24 @@
+<div class="image_editor">
+  <div class="image">
+    <%= PlaceholderImage.call(width, height, 1) %>
+    <br><a href="#" class="change">Change</a>
+  </div>
+  <div class="form" style="display:none;">
+    <form>
+      <div class="form-group file optional admin_issue_form_large_cover_image">
+        <label class="file optional" for="admin_issue_form_large_cover_image">Upload Image</label>
+        <div class="col-lg-6"><input class="file optional" id="admin_issue_form_large_cover_image" name="admin_issue_form[large_cover_image]" type="file"></div>
+      </div>
+
+      <div class="form-group file optional admin_issue_form_large_cover_image">
+        <label class="file optional" for="admin_issue_form_large_cover_image">Image Description</label>
+        <div class="col-lg-6"><input class="file optional" id="admin_issue_form_large_cover_image" name="admin_issue_form[large_cover_image]" type="text"></div>
+      </div>
+      <div class="form-group file optional admin_issue_form_large_cover_image">
+        <label class="file optional" for="admin_issue_form_large_cover_image">Image Credit</label>
+        <div class="col-lg-6"><input class="file optional" id="admin_issue_form_large_cover_image" name="admin_issue_form[large_cover_image]" type="text"></div>
+      </div>
+      <button type="submit" class="btn btn-default image_save_button">Save</button>
+    </form>
+  </div>
+</div>

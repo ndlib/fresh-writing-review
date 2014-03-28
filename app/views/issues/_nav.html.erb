@@ -10,7 +10,7 @@
   </ul>
 
   <h3>Awards</h3>
-   <ul class="list-unstyled">
+   <ul class="list-unstyled awards">
     <% issue_nav.essay_awards.each do |award| %>
       <% if award.has_essays? %>
         <li><%= raw award.link_to_detail %></li>

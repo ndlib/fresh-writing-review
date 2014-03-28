@@ -1,5 +1,28 @@
+$ltlt-green:#E8E9DC;
+$lt-green: #A4A774;
+$dk-green: #44834B;
+$lt-grey : #ABABAB;
+$dk-grey : #111111;
+$yellow : #FFC926;
+$link :#70C19A;
+$headers : "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+$content : Georgia,Cambria,"Times New Roman",Times,serif;
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $headers;
+}
+
+h2, h3 {
+	color:$lt-green;
+}
+
 body {
 	background: url("/assets/bg.png") repeat-x scroll 0 0 transparent;
+}
+
+label {
+	font-size: 1.6rem;
+	color:$lt-green;
 }
 
 #header .row {
@@ -13,4 +36,123 @@ body {
 
 h3.control-label {
 	margin-bottom:0;
+}
+
+h1 {
+	font-family: $headers;
+	color:$dk-green;
+}
+
+.list {
+	margin-left:0;
+}
+
+.list li {
+	font-size:1.6rem;
+	list-style:none;
+	padding:5px;
+}
+
+.on-off {
+	font-size:1.6rem;
+}
+
+.list li:nth-of-type(even) {
+	border-bottom:solid 1px $ltlt-green;
+}
+.list li:nth-of-type(odd) {
+	background:$ltlt-green;
+}
+
+.list.extras li {
+	border:none;
+	background: none;
+}
+
+.list.issues .status {
+	float: right;
+}
+
+.list.issues {
+	clear: both;
+}
+
+.essays .list {
+	clear: both;
+}
+
+.essays h2, .issues h1, .awards h2 {
+	float: left;
+	margin-top:0;
+}
+
+.essays p, .issues p, .awards p {
+	float: right;
+}
+
+div.issues {
+	margin-top:20px;
+}
+
+.essays .list .delete {
+	float: right;
+}
+
+.glyphicon {
+	color:$dk-green;
+}
+
+.essays .list .delete .glyphicon-trash {
+	display:none;
+}
+.essays .list .delete:hover .glyphicon-trash {
+	display: inline;
+}
+
+.images {
+	margin-left: 2em;
+}
+
+.images h2 {
+	margin-top:0;
+
+}
+
+h1 a.btn {
+	vertical-align: top;
+}
+
+button, .button, .btn-primary, button:active, .button:active, .btn-primary:active {
+	background: $dk-green;
+}
+
+button:hover, .button:hover, .btn-primary:hover {
+	background: $lt-green
+}
+
+.form-horizontal .form-group {
+	margin-left:0;
+	margin-right:0;
+}
+
+article .body {
+	background:none;
+}
+
+h3.author {
+	margin-top: 0;
+}
+
+h4.style {
+	color: $lt-green;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, select {
+	font-size:1.2rem;
+}
+
+select {
+	line-height: 1em;
+	overflow: visible;
+	height: auto;
 }
