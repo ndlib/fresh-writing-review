@@ -482,6 +482,11 @@ nav.top-bar {
   }
 }
 
+.results td {
+  font-size: 1.25rem;
+  line-height: 1.6rem;
+}
+
 .results .listing li{
   padding-bottom:0;
   margin-bottom:12px;
@@ -822,7 +827,7 @@ article {
       }
     }
     a:hover {background: none;}
-    
+
   }
   .tool-link {
     display: block;
@@ -859,7 +864,7 @@ article {
     }
 
 .follow.fixed .content.active {
-        
+
         right:340px;
 
     }
