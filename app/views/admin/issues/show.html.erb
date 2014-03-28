@@ -1,5 +1,6 @@
 <h1>Volume 14 <%= link_to 'Edit', edit_admin_issue_path(1), class: 'btn btn-primary' %></h1>
-<p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published - <a><span class="glyphicon glyphicon-eye-close"></span> Unpublish</a></p>
+<p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published and visible for all visitors - <a>unpublish</a></p>
+
 <p></p>
 <hr>
 <div class="row">
@@ -9,9 +10,9 @@
         <p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
 
         <ul class="list ">
-          <li><%= link_to 'Essay 1', admin_issue_essay_path(1, 1) %> <span class="author">By Bob Bobbers</span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
-          <li><%= link_to 'Essay 2', admin_issue_essay_path(1, 1) %> <span class="author">By Bob Bobbers</span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
-          <li><%= link_to 'Essay 3', admin_issue_essay_path(1, 1) %> <span class="author">By Bob Bobbers</span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
+          <% Essay.all.each do | e | %>
+            <li><%= link_to e.title.truncate(40), admin_issue_essay_path(e.issue, e) %> <span class="author">By <%= e.author %></span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
+          <% end %>
         </ul>
         <hr>
       </div>
@@ -28,10 +29,10 @@
     <div class="images">
       <h2>Images</h2>
 
-      <h3>Large Cover Image</h3>
+      <h4>Large Cover Image</h4>
       <%= render partial: '/admin/images/form', locals: { width: 900, height: 200 } %>
 
-      <h3>Small Cover Image</h3>
+      <h4>Small Cover Image</h4>
       <%= render partial: '/admin/images/form', locals: { width: 900, height: 90  } %>
 
     </div>
