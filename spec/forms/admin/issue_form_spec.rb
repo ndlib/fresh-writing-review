@@ -11,6 +11,7 @@ describe Admin::IssueForm do
   describe :build do
     before(:each) do
       IssueQuery.stub(:find).with(1).and_return(double(Issue, id: 1, new_record?: false, attributes: {} ))
+      Issue.stub(:first).and_return(double(Issue, id: 1, new_record?: false, attributes: {} ))
     end
 
 

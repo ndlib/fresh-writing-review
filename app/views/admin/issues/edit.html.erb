@@ -2,7 +2,7 @@
   <div class="large-8 columns end">
 <h1><%= @form.page_title %></h1>
 
-<%= simple_form_for @form, url: admin_issue_path(1), html: { class: 'form-horizontal'} do | f | %>
+<%= simple_form_for @form, url: admin_issue_path(1), html: { class: 'form-horizontal', method: 'put'} do | f | %>
   <%= render partial: 'form', locals: { f: f } %>
 <% end %>
 

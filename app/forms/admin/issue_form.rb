@@ -16,7 +16,8 @@ class Admin::IssueForm
 
   def self.build(controller)
     if controller.params[:id]
-      issue = IssueQuery.find(controller.params[:id])
+      #issue = IssueQuery.find(controller.params[:id])
+      issue = Issue.first
     else
       issue = Issue.new
     end
