@@ -6,7 +6,7 @@ class EssayQuery
     relation.find(id)
   end
 
-
+  # question: why is this method necessary? (RJF)
   def self.essay_for_issue_from_url(issue_id, id)
     issue = IssueQuery.find(issue_id)
     issue.essays.friendly.find(id)
