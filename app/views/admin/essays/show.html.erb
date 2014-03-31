@@ -1,23 +1,21 @@
-<h1>Volume 14 </h1>
-<h2>My Amazing Essay <%= link_to 'Edit', edit_admin_issue_essay_path(1, 1), class: 'btn btn-primary' %></h2>
+<h1><%= @essay_detail.volume_title %></h1>
+<h2><%= @essay_detail.essay_title %>  <%= link_to 'Edit', edit_admin_issue_essay_path(1, 1), class: 'btn btn-primary' %></h2>
 <p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published - <a><span class="glyphicon glyphicon-eye-close"></span> Unpublish</a></p>
 
 
-<h3 class="author">By Bob Bobbers</h3>
-<h4 class="style">Narrative</h4>
+<h3 class="author">By <%= @essay_detail.essay_author %></h3>
+<h4 class="style"><%= @essay_detail.essay_style %></h4>
 <hr>
 <div class="row">
   <div class="large-6 columns">
 
     <h2>Content</h2>
     <ul class="list">
-      <li><%= link_to 'Body Content', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Done</li>
-      <li><%= link_to 'Alternate Body', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited</li>
+      <% essay_components = @essay_detail.components %>
+      <% essay_components.keys.each do |component| %>
+        <li><%= link_to essay_components[component], @essay_detail.edit_content_link(component) %> - <%= @essay_detail.edit_content_status(component) %></li>
+      <% end %>
       <li><%= link_to 'Media Embed', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited</li>
-      <li><%= link_to 'Author Biography', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited </li>
-      <li><%= link_to 'Works Cited', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Done</li>
-      <li><%= link_to 'Discussion Questions', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited</li>
-      <li><%= link_to 'Instructor Resources', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited</li>
     </ul>
     <hr>
     <div class="awards">
