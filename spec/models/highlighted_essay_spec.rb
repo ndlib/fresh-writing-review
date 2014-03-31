@@ -7,7 +7,7 @@ describe HighlightedEssay do
   let(:essay) { FactoryGirl.create(:essay) }
   let(:essay_style) { FactoryGirl.create(:essay_style) }
 
-  [:body, :biography].each do |field|
+  [:body].each do |field|
     it "has the ##{field} attribute" do
       expect(subject).to respond_to(field)
       expect(subject).to respond_to("#{field}=")

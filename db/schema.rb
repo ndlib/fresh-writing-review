@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20140323201342) do
 
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
-    t.text     "data"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -66,7 +65,8 @@ ActiveRecord::Schema.define(version: 20140323201342) do
     t.string   "title"
     t.string   "author"
     t.integer  "placement"
-    t.text     "data",                    limit: 2147483647
+    t.text     "embed"
+    t.string   "alt_title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "essay_style_id"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20140323201342) do
     t.integer  "issue_id"
     t.integer  "essay_style_id"
     t.integer  "essay_id"
-    t.text     "data"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20140323201342) do
     t.string   "slug"
     t.string   "title"
     t.boolean  "published"
-    t.text     "data"
+    t.boolean  "is_pdf"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "editorial_notes_id"
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 20140323201342) do
   add_index "markdown_content_images", ["markdown_content_id", "image_id"], name: "md_image_index", using: :btree
 
   create_table "markdown_contents", force: true do |t|
-    t.text     "data"
+    t.text     "content",    limit: 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
   end

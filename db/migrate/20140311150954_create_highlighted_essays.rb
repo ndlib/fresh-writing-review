@@ -4,7 +4,7 @@ class CreateHighlightedEssays < ActiveRecord::Migration
       t.integer :issue_id
       t.integer :essay_style_id
       t.integer :essay_id
-      t.text :data
+      t.text :body
       t.timestamps
     end
 

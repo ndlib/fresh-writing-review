@@ -52,6 +52,9 @@ class IssueDetail
     MarkDownConverter.call(issue.acknowledgements.content)
   end
 
+  def cover_image
+    ""
+  end
 
   def essays
     EssayQuery.essays_for_issue(issue).collect { | e | EssayLink.new(e) }

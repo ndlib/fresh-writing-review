@@ -2,7 +2,6 @@ class CreateEssayStyles < ActiveRecord::Migration
   def change
     create_table :essay_styles do |t|
       t.string :slug
-      t.text :data
       t.string :title
       t.timestamps
     end

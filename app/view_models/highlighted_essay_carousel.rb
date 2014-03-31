@@ -35,10 +35,6 @@ class HighlightedEssayCarousel
     MarkDownConverter.call(highlighted_essay.body)
   end
 
-  def biography(highlighted_essay)
-    MarkDownConverter.call(highlighted_essay.biography)
-  end
-
   private
 
     def issue
