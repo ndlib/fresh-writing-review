@@ -6,7 +6,7 @@ class CreateIssues < ActiveRecord::Migration
       t.string :slug
       t.string :title
       t.boolean :published
-      t.text :data
+      t.boolean :is_pdf
       t.timestamps
     end
 

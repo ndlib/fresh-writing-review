@@ -7,8 +7,6 @@ class Admin::IssueForm
 
   attribute :title, String
   attribute :year, String
-  attribute :large_cover_image, String
-  attribute :small_cover_image, String
 
   validates :title, :year, presence: true
 
@@ -21,15 +19,15 @@ class Admin::IssueForm
       issue = Issue.new
     end
 
-    self.new(issue)
+    self.new(issue, controller.params[:admin_issue_form])
   end
 
 
   def initialize(issue, params = {})
     @issue = issue
 
-    if params[:admin_issue_form]
-      self.attributes = params[:admin_issue_form]
+    if params
+      self.attributes = params
     else
       self.attributes = @issue.attributes
     end
@@ -45,7 +43,7 @@ class Admin::IssueForm
   end
 
 
-  def update
+  def save!
     if valid?
       persist!
       true
@@ -57,10 +55,10 @@ class Admin::IssueForm
 
   protected
 
-    def perist!
+    def persist!
       @issue.attributes = attributes
       @issue.save!
+      CopyPreviousIssuePages.call(@issue)
     end
-
 
 end

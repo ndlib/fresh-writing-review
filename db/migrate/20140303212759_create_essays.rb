@@ -7,13 +7,12 @@ class CreateEssays < ActiveRecord::Migration
       t.string :title
       t.string :author
       t.integer :placement
-      t.text :data
+      t.text :embed
+      t.string :alt_title
       t.timestamps
     end
 
     add_index :essays, :issue_id
     add_index :essays, :slug, unique: true
-
-    change_column :essays, :data, :text, :limit => 4294967295
   end
 end

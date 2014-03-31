@@ -51,6 +51,7 @@ h1 {
 	font-size:1.6rem;
 	list-style:none;
 	padding:5px;
+	color: #666;
 }
 
 .on-off {
@@ -82,12 +83,11 @@ h1 {
 }
 
 .essays h2, .issues h1, .awards h2 {
-	float: left;
 	margin-top:0;
 }
 
 .essays p, .issues p, .awards p {
-	float: right;
+	font-size: 1.6rem;
 }
 
 div.issues {
