@@ -29,6 +29,17 @@ class Essay < ActiveRecord::Base
     string :medium
   end
 
+
+  def add_new_component(component_type, component_value)
+    unless self.send "#{component_type}"
+      self.send "#{component_type}=", MarkdownContent.new(content: component_value)
+      self.save!
+      return MarkdownContent.last.id
+    end
+    return nil
+  end
+
+
   def body_plain
     stripdown(body)
   end
