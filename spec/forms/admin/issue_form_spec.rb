@@ -28,7 +28,7 @@ describe Admin::IssueForm do
   end
 
 
-  ['large_cover_image', 'small_cover_image', 'title', 'year'].each do | field |
+  ['title', 'year'].each do | field |
     it "has the ##{field} attribute" do
       expect(subject).to respond_to(field)
       expect(subject).to respond_to("#{field}=")
@@ -36,8 +36,34 @@ describe Admin::IssueForm do
   end
 
 
-  describe :save do
+  describe :new_record do
+
+    subject { described_class.new(issue, valid_params) }
+
+    let(:issue) { Issue.new }
+    let(:valid_params) { { title: 'title', year: 'year' }}
+    let(:invalid_params) { { }}
 
 
+    before(:each) do
+      CopyPreviousIssuePages.stub(:call).and_return(true)
+    end
+
+    it "saves with valid params" do
+      expect(issue).to receive(:save!)
+      subject.save!
+    end
+
+
+    it "does not save with invalid params " do
+      expect(issue).to_not receive(:save!)
+      described_class.new(issue, invalid_params)
+    end
+
+
+    it "calls copy previous issue pages" do
+      expect(CopyPreviousIssuePages).to receive(:call)
+      subject.save!
+    end
   end
 end

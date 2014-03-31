@@ -14,6 +14,11 @@ class IssueQuery
     relation.order(year: :desc).where(published: true).first!
   end
 
+
+  def self.previous_issue
+    all[1]
+  end
+
   def self.current?
     relation.count > 0
   end

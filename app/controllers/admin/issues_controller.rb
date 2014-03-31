@@ -18,8 +18,15 @@ class Admin::IssuesController < ApplicationController
 
 
   def create
-    flash[:success] = 'Issue Created'
-    redirect_to admin_issue_path(1)
+    @form = Admin::IssueForm.build(self)
+
+    if @form.save!
+      flash[:success] = 'Issue Created'
+      redirect_to admin_issue_path(@form.issue)
+    else
+      flash.new[:error] = 'Unable to create the issue.  Please review the error messages below and correct the form.'
+      render :new
+    end
   end
 
 
@@ -29,8 +36,15 @@ class Admin::IssuesController < ApplicationController
 
 
   def update
-    flash[:success] = 'Issue Saved'
-    redirect_to admin_issue_path(1)
+    @form = Admin::IssueForm.build(self)
+
+    if @form.save!
+      flash[:success] = 'Issue Updated'
+      redirect_to admin_issue_path(@form.issue)
+    else
+      flash.new[:error] = 'Unable to update the issue.  Please review the error messages below and correct the form.'
+      render :new
+    end
   end
 
 end
