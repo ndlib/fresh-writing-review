@@ -65,5 +65,11 @@ describe Admin::IssueForm do
       expect(CopyPreviousIssuePages).to receive(:call)
       subject.save!
     end
+
+    it "creates unpublished issues" do
+      subject.save!
+
+      expect(subject.issue).to_not be_published
+    end
   end
 end
