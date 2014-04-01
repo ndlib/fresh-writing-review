@@ -1,4 +1,5 @@
 class Admin::EditorsController < AdminController
+  before_action :authorize_superuser!
 
   layout 'admin'
 
@@ -24,5 +25,11 @@ class Admin::EditorsController < AdminController
     @editor.destroy
     redirect_to admin_editors_path
   end
+
+  private
+
+    def authorize_superuser!
+      authorize! :manage_users, :all
+    end
 
 end
