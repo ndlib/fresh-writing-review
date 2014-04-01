@@ -10,6 +10,14 @@ describe Ability do
   end
 
   describe 'user' do
+    it 'can read published issues' do
+      expect(subject).to be_able_to(:read, Issue.new(published: true))
+    end
+
+    it 'can not read unpublished issues' do
+      expect(subject).to_not be_able_to(:read, Issue.new(published: false))
+    end
+
     it 'can not edit' do
       expect(subject).to_not be_able_to(:edit, :all)
     end
@@ -21,6 +29,14 @@ describe Ability do
 
   describe 'editor' do
     let(:user) { User.new(editor: Editor.new()) }
+
+    it 'can read published issues' do
+      expect(subject).to be_able_to(:read, Issue.new(published: true))
+    end
+
+    it 'can read unpublished issues' do
+      expect(subject).to be_able_to(:read, Issue.new(published: false))
+    end
 
     it 'can edit' do
       expect(subject).to be_able_to(:edit, :all)
