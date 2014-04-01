@@ -13,8 +13,8 @@ class Essay < ActiveRecord::Base
   belongs_to :discussion_questions, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "discussion_questions_id"
   belongs_to :instructor_resources, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "instructor_resources_id"
 
-  has_many :essay_files
-  has_many :attached_files, through: :essay_files
+  has_one :essay_file
+  has_one :attached_file, through: :essay_file
 
   validates :title, presence: true
 
