@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323201342) do
+ActiveRecord::Schema.define(version: 20140401135353) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20140323201342) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
   end
+
+  create_table "editors", force: true do |t|
+    t.string   "username"
+    t.boolean  "is_superuser"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "editors", ["username"], name: "index_editors_on_username", using: :btree
 
   create_table "error_logs", force: true do |t|
     t.string   "netid"
