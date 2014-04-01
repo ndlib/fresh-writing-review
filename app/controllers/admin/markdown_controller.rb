@@ -1,4 +1,4 @@
-class Admin::MarkdownController < ApplicationController
+class Admin::MarkdownController < AdminController
 
   layout 'admin'
 

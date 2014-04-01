@@ -1,3 +1,85 @@
+header, nav, .follow, footer {
+	display:none;
+}
+
+html { font-size: 62.5%; }
+
+body {
+	font-family: Georgia, serif;
+	background: none;
+	color: black;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.8rem;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+p {
+	font-size: 1.6rem;
+	line-height: 1.5em;
+}
+
+
+
+/*a:after {
+	content: " [" attr(href) "] ";
+}*/
+
 .page-body h1 {
-	font-size:200px !important;
+
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+[class*="block-grid-"] {
+    display: block;
+    margin: 0 -0.625rem;
+    padding: 0;
+}
+
+[class*="block-grid-"]:after {
+    clear: both;
+}
+
+[class*="block-grid-"]:before, [class*="block-grid-"]:after {
+    content: " ";
+    display: table;
+}
+
+.small-block-grid-2 > li:nth-of-type(2n+1) {
+    clear: both;
+}
+
+[class*="block-grid-"] > li {
+    display: block;
+    float: left;
+    height: auto;
+    padding: 0 0.625rem 1.25rem;
+}
+
+.small-block-grid-2 > li {
+	list-style: none outside none;
+    width: 50%;
+}
+
+figcaption {
+	font-size: 1.2rem;
+}
+
+figure {
+	margin:0;
+}
+
+figure img {
+	max-width: 100%;
 }
