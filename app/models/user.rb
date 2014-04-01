@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
     editor.present?
   end
 
+  def is_superuser?
+    editor? && editor.is_superuser?
+  end
+
   def create_editor!
     self.editor = Editor.new(user: self, is_superuser: true)
     editor.save!
