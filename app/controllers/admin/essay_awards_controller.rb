@@ -1,4 +1,4 @@
-class Admin::EssayAwardsController < ApplicationController
+class Admin::EssayAwardsController < AdminController
 
   layout 'admin'
 
