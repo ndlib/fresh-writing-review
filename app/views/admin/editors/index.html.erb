@@ -1,12 +1,15 @@
 <div class="row">
-  <div class="large-8 columns end issues">
+  <div class="large-8 columns end">
     <h1>Editors</h1>
 
     <p><%= link_to 'New Editor', new_admin_editor_path, class: 'btn btn-primary' %></p>
 
-    <ul class="issues list">
+    <ul class="editors list">
       <% @editors.each do |editor| %>
-        <li><a href="<%= admin_editor_path(editor) %>"><%= editor.username %></a></li>
+        <li>
+          <%= editor.username %>
+          <%= link_to(raw("<span class=\"glyphicon glyphicon-trash\"></span> Delete"), admin_editor_path(editor), method: :delete, class: 'delete') %>
+        </li>
       <% end %>
     </ul>
   </div>
