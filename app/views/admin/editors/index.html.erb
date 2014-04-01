@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="large-8 columns end">
+    <h1>Editors</h1>
+
+    <p><%= link_to 'New Editor', new_admin_editor_path, class: 'btn btn-primary' %></p>
+
+    <ul class="editors list">
+      <% @editors.each do |editor| %>
+        <li>
+          <%= editor.username %>
+          <% if current_user && editor.username != current_user.username %>
+            <%= link_to(raw("<span class=\"glyphicon glyphicon-trash\"></span> Delete"), admin_editor_path(editor), method: :delete, class: 'delete') %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
