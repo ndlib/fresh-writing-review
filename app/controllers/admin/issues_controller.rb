@@ -8,7 +8,7 @@ class Admin::IssuesController < ApplicationController
 
 
   def show
-    @issue_detail = IssueDetail.new(self)
+    @issue_detail = Admin::IssueDetail.build(self)
   end
 
 

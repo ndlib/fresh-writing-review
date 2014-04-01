@@ -1,4 +1,4 @@
-<h1><%= @issue_detail.volume_title %> <%= link_to 'Edit', edit_admin_issue_path(@issue_detail.issue_id), class: 'btn btn-primary' %></h1>
+<h1><%= @issue_detail.title %> <%= link_to 'Edit', edit_admin_issue_path(@issue_detail.issue), class: 'btn btn-primary' %></h1>
 <p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published - <a><span class="glyphicon glyphicon-eye-close"></span> Unpublish</a></p>
 <p></p>
 <hr>
@@ -6,7 +6,7 @@
   <div class="large-6 columns">
     <div class="essays">
       <h2>Essays</h2>
-        <p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
+        <p><%= link_to 'New Essay', new_admin_issue_essay_path(@issue_detail.issue), class: 'btn btn-primary' %></p>
 
         <ul class="list ">
           <% @issue_detail.essays.each do | e | %>

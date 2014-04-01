@@ -37,6 +37,11 @@ class Admin::IssueDetail
   end
 
 
+  def show_link(issue)
+
+  end
+
+
   def published_ui
 
   end
