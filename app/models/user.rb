@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def is_superuser?
-    editor? && editor.is_superuser?
+    editor.present? && editor.is_superuser?
   end
 
   def create_editor!

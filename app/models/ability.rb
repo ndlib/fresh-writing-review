@@ -9,7 +9,7 @@ class Ability
     if user.editor?
       can :edit, :all
 
-      if user.editor.is_superuser?
+      if user.is_superuser?
         can :manage_users, :all
       end
     end
