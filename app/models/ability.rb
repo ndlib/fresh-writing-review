@@ -8,10 +8,13 @@ class Ability
     end
     if user.editor?
       can :edit, :all
+      can :read, :all
 
       if user.is_superuser?
         can :manage_users, :all
       end
+    else
+      can :read, Issue, published: true
     end
 
     # Define abilities for the passed in user here. For example:
