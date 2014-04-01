@@ -9,7 +9,7 @@ class Admin::EssayForm
   attribute :author, String
   attribute :essay_style_id, Integer
 
-  attr_accessor :essay
+  attr_accessor :essay, :issue
 
   validates :title, :author, :essay_style_id, presence: true
 
@@ -20,12 +20,15 @@ class Admin::EssayForm
       essay = Essay.new
     end
 
-    self.new(essay, controller.params)
+    issue = IssueQuery.find(controller.params[:issue_id])
+
+    self.new(essay, issue, controller.params)
   end
 
 
-  def initialize(essay, params = {})
+  def initialize(essay, issue, params = {})
     @essay = essay
+    @issue = issue
 
     if params[:admin_essay_form]
       self.attributes = params[:admin_essay_form]
@@ -48,4 +51,22 @@ class Admin::EssayForm
     EssayStyleQuery.all.collect { | es | [ es.title, es.id] }
   end
 
+
+  def save!
+    if valid?
+      persist!
+      true
+    else
+      false
+    end
+  end
+
+
+  private
+
+    def persist!
+      essay.attributes = attributes
+      essay.issue = issue
+      essay.save!
+    end
 end
