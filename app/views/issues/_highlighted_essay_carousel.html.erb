@@ -1,4 +1,5 @@
 <% if highlighted_essay_carousel.highlighted_essays.present? %>
+<div class="slideshow-wrapper">
 
   <ul id="highlighted-essays" class="highlighted-essay-carousel" data-orbit data-options="slide_number:false; timer_speed: 10000; resume_on_mouseout: true;animation:fade;">
     <% highlighted_essay_carousel.highlighted_essays.each do |highlighted_essay| %>
@@ -17,4 +18,5 @@
       </li>
     <% end %>
   </ul>
+</div>
 <% end %>

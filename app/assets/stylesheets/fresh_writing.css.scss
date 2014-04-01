@@ -108,6 +108,10 @@ a:active, a:link {
 
 .attachments {
   margin:0 30px 3rem;
+  h3 {
+    font-size:1.8rem;
+    color:$lt-green;
+  }
   p {
     margin:0;
   }
@@ -308,6 +312,31 @@ nav.top-bar {
 	padding-right: 0 !important;
 }
 
+.orbit-bullets li {
+  cursor: pointer;
+}
+
+.orbit-container .orbit-prev, .orbit-container .orbit-next {
+  bottom:0;
+  top:auto !important;
+}
+
+.orbit-container .orbit-prev > span, .orbit-container .orbit-prev:hover > span {
+  border-color:rgba(0, 0, 0, 0) $dk-green rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+}
+
+.orbit-container .orbit-next > span, .orbit-container .orbit-next:hover > span {
+    border-color:rgba(0, 0, 0, 0)  rgba(0, 0, 0, 0)  rgba(0, 0, 0, 0)$dk-green;
+}
+
+.orbit-container .orbit-prev:hover, .orbit-container .orbit-next:hover {
+  background-color: transparent;
+}
+
+.slideshow-wrapper .orbit-container .orbit-bullets li {
+  display:inline-block;
+}
+
 .volume {
   position: relative;
   a.vtitle {
@@ -396,8 +425,20 @@ nav.top-bar {
     float: left;
     width: 50%;
     padding:20px 0;
+    position: relative;
     p {
       font-size:1.6rem;
+      text-indent:4rem;
+      font-style: italic;
+    }
+    p:before {
+      content: "“";
+      color:$lt-green;
+      font-size: 10rem;
+      position: absolute;
+      top:-30px;
+      left:-15px;
+      font-family: $headers;
     }
     p:last-child {
       margin-bottom: 0;
@@ -530,6 +571,10 @@ nav.top-bar {
   margin-bottom: 0;
 }
 
+div.audio {
+  padding-bottom:0;
+  padding-top:30px;
+}
 
 .transcript {
   margin-left:30px;
@@ -758,6 +803,19 @@ article {
   .listing li a {
     font-size:1.4rem;
   }
+  .dept-coal {
+    display: none;
+  }
+  .page-body article h1 {
+    margin-top: 0;
+  }
+  .page-body p {
+    margin-left:0;
+    margin-right:0;
+  }
+  .page-body .worksited p {
+    margin-left:2rem;
+  }
   .branding {
     height:auto;
     h1 {
@@ -774,6 +832,101 @@ article {
       }
 
     }
+  }
+  .top-bar-section ul li {
+    padding:0 5px !important;
+  }
+  .top-bar-section ul li:last-child {
+    float: left;
+  }
+
+.top-bar .toggle-topbar.menu-icon {
+    margin-top: 0;
+    padding-left: 40px;
+    right: 15px;
+    top: 0;
+}
+.top-bar .toggle-topbar.menu-icon a:after {
+  color:#333;
+  box-shadow: 0 10px 0 1px #333, 0 16px 0 1px #333, 0 22px 0 1px #333;
+}
+
+.top-bar a, .top-bar a:hover {
+  border:none !important;
+}
+  .toggle-topbar {
+    z-index: 400;
+  }
+
+  .top-bar .toggle-topbar.menu-icon a{
+    color:#333;
+    font-size:1.2rem;
+  }
+
+  nav.top-bar {
+    height:34px;
+    margin:0;
+    padding:0;
+  }
+  nav.top-bar ul {
+    margin-top: 34px;
+  }
+  .volume a.vtitle {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding:10px !important;
+  }
+
+  .follow {
+    position: fixed;
+    left: 0;
+    position: fixed;
+    top: auto;
+    bottom:0;
+    width: 100%;
+    z-index: 99;
+  }
+  .follow a {
+    display: block;
+    float: left;
+    width: 33%;
+    padding:4px;
+    color:#fff;
+    border:none;
+    font-size: 1rem;
+  }
+  a.volume, a.style {
+    display: none;
+  }
+
+  .follow {
+    background:$lt-green;
+  }
+
+  .accordion dd > a {
+    background:none;
+  }
+  .accordion dd.active a {
+    background:$lt-green;
+    width:100%;
+    color:#fff;
+  }
+  .discussion ul {
+    margin-left:2rem;
+    margin-right: 0;
+  }
+  footer {
+    padding-bottom:7rem;
+    p {text-align: center;}
+    p.org {
+      display: block;
+    }
+  }
+  .ndmark {
+    position: relative;
+    right:auto;
+    top:15px;
   }
 }
 
