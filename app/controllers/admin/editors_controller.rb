@@ -1,4 +1,4 @@
-class Admin::EditorsController < ApplicationController
+class Admin::EditorsController < AdminController
 
   layout 'admin'
 

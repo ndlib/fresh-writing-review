@@ -8,7 +8,9 @@
       <% @editors.each do |editor| %>
         <li>
           <%= editor.username %>
-          <%= link_to(raw("<span class=\"glyphicon glyphicon-trash\"></span> Delete"), admin_editor_path(editor), method: :delete, class: 'delete') %>
+          <% if current_user && editor.username != current_user.username %>
+            <%= link_to(raw("<span class=\"glyphicon glyphicon-trash\"></span> Delete"), admin_editor_path(editor), method: :delete, class: 'delete') %>
+          <% end %>
         </li>
       <% end %>
     </ul>
