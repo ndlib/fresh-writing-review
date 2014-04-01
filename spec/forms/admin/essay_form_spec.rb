@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::EssayFrom do
+describe Admin::EssayForm do
 
 
 
