@@ -5,10 +5,13 @@
     <p><%= link_to 'New Issue', new_admin_issue_path, class: 'btn btn-primary' %></p>
 
     <ul class="issues list">
-      <% @volumes.each do | v | %>
-        <li><a href="<%= admin_issue_path(v) %>"><%= v.title %></a> <span class="status"><span class="glyphicon glyphicon-eye-close"></span>Unpublished</span></li>
+      <% @issue_list.issues.each do | i | %>
+        <li>
+          <a href="<%= admin_issue_path(i.issue) %>"><%= i.title %></a>
+          <%= raw(i.file_icon) %>
+          <span class="status"><%= raw(i.issue_status) %></span>
+        </li>
       <% end %>
-      <li><a href="http://localhost:3015/admin/issues/1">Volume 13</a> <span class="pdf glyphicon glyphicon-file" title="PDF Only"></span>  <span class="status"><span class="glyphicon glyphicon-eye-open"></span> Published</span></li>
     </ul>
 	</div>
 </div>

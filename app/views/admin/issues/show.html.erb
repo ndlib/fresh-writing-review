@@ -1,13 +1,12 @@
-<h1>Volume 14 <%= link_to 'Edit', edit_admin_issue_path(1), class: 'btn btn-primary' %></h1>
-<p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published and visible for all visitors - <a>unpublish</a></p>
-
+<h1><%= @issue_detail.title %> <%= link_to 'Edit', edit_admin_issue_path(@issue_detail.issue), class: 'btn btn-primary' %></h1>
+<p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published - <a><span class="glyphicon glyphicon-eye-close"></span> Unpublish</a></p>
 <p></p>
 <hr>
 <div class="row">
   <div class="large-6 columns">
     <div class="essays">
       <h2>Essays</h2>
-        <p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
+        <p><%= link_to 'New Essay', new_admin_issue_essay_path(@issue_detail.issue), class: 'btn btn-primary' %></p>
 
         <ul class="list ">
           <% Essay.all.each do | e | %>
@@ -20,7 +19,6 @@
     <ul class="list extras">
       <li><a href="">Acknowledgements</a></li>
       <li><a href="">Note From the Editor</a></li>
-      <li><a href="">Editors</a></li>
       <li><a href="">Editorial Board</a></li>
     </ul>
   </div>

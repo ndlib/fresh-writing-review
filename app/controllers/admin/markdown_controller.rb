@@ -8,8 +8,16 @@ class Admin::MarkdownController < ApplicationController
     if MarkdownContent.exists?(params[:id])
       @markdown_content = MarkdownContent.find(params[:id])
     else
-      @markdown_content = MarkdownContent.create(:content => "Edit Me")
-      render :edit, id: @markdown_content.id
+      mcf = MarkdownComponentFactory.create(self)
+      markdown_id = nil
+      if mcf.content_type == 'essay'
+        markdown_id = mcf.essay.add_new_component(params[:component_type], "Please Edit")
+      elsif mcf.content_type = 'issue'
+        markdown_id = mcf.issue.add_new_component(params[:component_type], "Please Edit")
+      elsif mcf.content_type = 'essay_award'
+        markdown_id = mcf.essay_award.add_new_component(params[:component_type], "Please Edit")
+      end
+      redirect_to request.url.gsub(/new/, markdown_id.to_s)
     end
     @markdown_content
   end
