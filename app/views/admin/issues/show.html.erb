@@ -21,9 +21,6 @@
       <% issue_components.keys.each do |component| %>
         <li><%= link_to issue_components[component], @issue_detail.edit_content_link(component) %> - <%= @issue_detail.edit_content_status(component) %></li>
       <% end %>
-      <li><a href="">Acknowledgements</a></li>
-      <li><a href="">Note From the Editor</a></li>
-      <li><a href="">Editorial Board</a></li>
     </ul>
   </div>
 

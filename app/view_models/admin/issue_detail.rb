@@ -6,11 +6,28 @@ class Admin::IssueDetail
   delegate :title, to: :issue
 
 
-  def initialize(application)
+  def self.build(application)
     issue_id = application.request.params[:id]
-    @mef = Admin::MarkdownEditorFunctions.build(application)
-    @issue = @mef.mc.issue
+    mef = Admin::MarkdownEditorFunctions.build(application)
+    self.new(mef.mc.issue, mef)
   end
+
+
+  def initialize(issue, mef=nil)
+    @mef = mef
+    @issue = issue
+  end
+
+
+  def edit_content_link(content_type)
+    @mef.issue_content_link(content_type)
+  end
+
+
+  def edit_content_status(content_type)
+    @mef.issue_content_status(content_type)
+  end
+
 
 
   def volume_title

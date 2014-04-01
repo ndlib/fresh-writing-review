@@ -29,5 +29,4 @@ class MarkdownComponentFactory::IssueContent
     end
   end
 
-
 end

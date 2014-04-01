@@ -2,9 +2,7 @@ class MarkdownComponentFactory::EssayContent
   include RailsHelpers
   include MarkdownComponentFactory
 
-
   attr_accessor :essay
-
 
   def initialize(params)
     @params = params
