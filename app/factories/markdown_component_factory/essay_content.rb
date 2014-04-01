@@ -6,7 +6,7 @@ class MarkdownComponentFactory::EssayContent
 
   def initialize(params)
     @params = params
-    @essay = ::Essay.exists?(self.determine_id) ? ::Essay.find(self.determine_id) : nil
+    @essay = ::Essay.friendly.exists?(self.determine_id) ? ::Essay.friendly.find(self.determine_id) : nil
   end
 
 
