@@ -19,13 +19,13 @@ describe EssayDetail::DownloadFile do
   describe :has_files? do
 
     it "returns true if the essay_files has any files" do
-      essay.stub(:essay_files).and_return([ double(EssayStyle, id: 1) ])
+      essay.stub(:attached_file).and_return(double(AttachedFile, id: 1) )
       expect(subject.has_files?).to be_true
     end
 
 
     it "returns true if the essay_files has any files" do
-      essay.stub(:essay_files).and_return([ ])
+      essay.stub(:attached_file).and_return(nil)
       expect(subject.has_files?).to be_false
     end
 
@@ -33,6 +33,21 @@ describe EssayDetail::DownloadFile do
 
 
   describe :title do
+
+    it "returns the title from the file" do
+      essay.stub(:attached_file).and_return(double(AttachedFile, id: 1, title: "title"))
+      expect(subject.title).to eq("title")
+    end
+
+  end
+
+
+  describe :body do
+
+    it "returns the body if there is a body" do
+      essay.stub(:attached_file).and_return(double(AttachedFile, id: 1, body: "body"))
+      expect(subject.body).to eq("body")
+    end
 
   end
 end

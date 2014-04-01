@@ -87,8 +87,6 @@ Essay.create(id: 7, issue_id: issue_id, essay_style: research_style, title: "Eas
 )
 
 
-
-
 HighlightedEssay.delete_all
 EssayStyle.all.each do |essay_style|
   essay = current_issue.essays.where(essay_style: essay_style).first
@@ -105,7 +103,7 @@ Page.delete_all
 end
 
 
-a = AttachedFile.create( file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
+a = AttachedFile.create( title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
 e = Essay.find(5)
 EssayFile.create(essay: e, attached_file: a)
 

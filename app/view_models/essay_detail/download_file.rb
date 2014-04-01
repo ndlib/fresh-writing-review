@@ -13,22 +13,22 @@ class EssayDetail::DownloadFile
 
 
   def has_files?
-    @essay.essay_files.size > 0
+    @essay.attached_file.present?
   end
 
 
   def title
-    @essay.essay_files.first.attached_file.file_file_name
+    @essay.attached_file.title
   end
 
 
   def body
-
+    @essay.attached_file.body
   end
 
 
   def url
-    @essay.essay_files.first.attached_file.file.url
+    @essay.attached_file.file.url
   end
 
 
