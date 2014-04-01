@@ -9,7 +9,7 @@
         <p><%= link_to 'New Essay', new_admin_issue_essay_path(1), class: 'btn btn-primary' %></p>
 
         <ul class="list ">
-          <% Essay.all.each do | e | %>
+          <% @issue_detail.essays.each do | e | %>
             <li><%= link_to e.title.truncate(40), admin_issue_essay_path(e.issue, e) %> <span class="author">By <%= e.author %></span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
           <% end %>
         </ul>
@@ -17,6 +17,10 @@
       </div>
     <h2>Extra Pages</h2>
     <ul class="list extras">
+      <% issue_components = @issue_detail.components %>
+      <% issue_components.keys.each do |component| %>
+        <li><%= link_to issue_components[component], @issue_detail.edit_content_link(component) %> - <%= @issue_detail.edit_content_status(component) %></li>
+      <% end %>
       <li><a href="">Acknowledgements</a></li>
       <li><a href="">Note From the Editor</a></li>
       <li><a href="">Editorial Board</a></li>
