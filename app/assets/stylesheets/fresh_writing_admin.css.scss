@@ -94,7 +94,7 @@ div.issues {
 	margin-top:20px;
 }
 
-.essays .list .delete {
+.list .delete {
 	float: right;
 }
 
@@ -102,10 +102,10 @@ div.issues {
 	color:$dk-green;
 }
 
-.essays .list .delete .glyphicon-trash {
+.list .delete .glyphicon-trash {
 	display:none;
 }
-.essays .list .delete:hover .glyphicon-trash {
+.list .delete:hover .glyphicon-trash {
 	display: inline;
 }
 

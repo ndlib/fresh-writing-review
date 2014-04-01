@@ -25,6 +25,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'cancan'
 gem 'devise'
 gem 'devise_cas_authenticatable'
 gem 'foundation-rails', '~> 5.1.1'

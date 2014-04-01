@@ -4,6 +4,7 @@ class Admin::IssuesController < ApplicationController
 
   def index
     @volumes = IssueQuery.all
+    @issue_list = Admin::IssueList.build(self)
   end
 
 
