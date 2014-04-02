@@ -19,9 +19,9 @@ class Admin::IssueDetail
 
   def public_link
     if published?
-      link_text = "View Issue"
+      link_text = "View Volume"
     else
-      link_text = "Preview Issue"
+      link_text = "Preview Volume"
     end
     helpers.link_to(link_text, routes.issue_path(issue.friendly_id))
   end
