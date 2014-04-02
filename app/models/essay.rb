@@ -25,6 +25,7 @@ class Essay < ActiveRecord::Base
     string :essay_style_title
     string :issue_year
     string :medium
+    boolean :published_status
   end
 
 
@@ -80,6 +81,10 @@ class Essay < ActiveRecord::Base
     else
       "Traditional"
     end
+  end
+
+  def published?
+    issue.present? && issue.published?
   end
 
   private
