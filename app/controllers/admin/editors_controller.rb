@@ -26,10 +26,4 @@ class Admin::EditorsController < AdminController
     redirect_to admin_editors_path
   end
 
-  private
-
-    def authorize_superuser!
-      authorize! :manage_users, :all
-    end
-
 end
