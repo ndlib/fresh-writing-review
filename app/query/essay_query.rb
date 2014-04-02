@@ -3,7 +3,7 @@
 class EssayQuery
 
   def self.find(id)
-    relation.find(id)
+    relation.friendly.find(id)
   end
 
   # question: why is this method necessary? (RJF)

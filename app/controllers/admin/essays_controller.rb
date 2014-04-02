@@ -3,7 +3,7 @@ class Admin::EssaysController < AdminController
   layout 'admin'
 
   def show
-    @essay_detail = Admin::EssayDetail.new(self)
+    @essay_detail = Admin::EssayDetail.build(self)
   end
 
 

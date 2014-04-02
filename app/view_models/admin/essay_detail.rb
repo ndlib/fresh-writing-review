@@ -2,10 +2,16 @@ class Admin::EssayDetail
   include RailsHelpers
 
 
-  def initialize(application)
+  def self.build(application)
     essay_id = application.request.params[:id]
-    @mef = Admin::MarkdownEditorFunctions.build(application)
-    @essay = @mef.mc.essay
+    mef = Admin::MarkdownEditorFunctions.build(application)
+    self.new(mef.mc.essay, mef)
+  end
+
+
+  def initialize(essay, mef=nil)
+    @mef = mef
+    @essay = essay
   end
 
 
