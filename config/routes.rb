@@ -19,6 +19,10 @@ FreshWriting::Application.routes.draw do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
     resources :issues, path: "volumes" do
+      member do
+        put 'publish'
+        put 'unpublish'
+      end
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
       resources :essays, only: [:new, :create, :show, :edit, :update] do
         resources :essay_awards, only: [ :new, :create, :edit, :update ]

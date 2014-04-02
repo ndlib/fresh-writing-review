@@ -23,14 +23,13 @@ class IssuePublisher
 
   def set_published(value)
     issue.published = value
-    save_result = issue.save
+    issue.save!
     reindex_essays
-    save_result
   end
 
   def reindex_essays
     issue.essays.each do |essay|
-      essay.save
+      essay.save!
     end
   end
 

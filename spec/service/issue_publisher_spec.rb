@@ -31,16 +31,16 @@ describe IssuePublisher do
         subject.set_published(true)
       end
 
-      it 'saves the issue and returns the save result' do
-        expect(issue).to receive(:save).and_return('save result')
-        expect(subject.set_published(true)).to be == 'save result'
+      it 'saves the issue' do
+        expect(issue).to receive(:save!)
+        subject.set_published(true)
       end
     end
 
     describe '#reindex_essays' do
       it 'calls save on the issue essays' do
         FactoryGirl.create(:essay, issue: issue)
-        expect(issue.essays.collect.first).to receive(:save)
+        expect(issue.essays.collect.first).to receive(:save!)
         subject.reindex_essays
       end
     end

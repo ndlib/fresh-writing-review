@@ -48,4 +48,16 @@ class Admin::IssuesController < AdminController
     end
   end
 
+  def publish
+    issue = IssueQuery.find(params[:id])
+    IssuePublisher.publish(issue)
+    redirect_to admin_issue_path(issue)
+  end
+
+  def unpublish
+    issue = IssueQuery.find(params[:id])
+    IssuePublisher.unpublish(issue)
+    redirect_to admin_issue_path(issue)
+  end
+
 end
