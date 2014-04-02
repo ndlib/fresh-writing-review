@@ -52,8 +52,8 @@ class IssueDetail
     MarkDownConverter.call(issue.acknowledgements.content)
   end
 
-  def cover_image
-    ""
+  def old_cover_image
+    helpers.image_tag issue.old_cover_image.url(:large)
   end
 
   def essays
