@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401195207) do
+ActiveRecord::Schema.define(version: 20140402202827) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20140401195207) do
     t.integer  "works_cited_id"
     t.integer  "discussion_questions_id"
     t.integer  "instructor_resources_id"
+    t.boolean  "published"
   end
 
   add_index "essays", ["alt_body_id"], name: "index_essays_on_alt_body_id", using: :btree
