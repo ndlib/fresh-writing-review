@@ -6,7 +6,7 @@ class MarkdownComponentFactory::EssayAwardContent
 
   def initialize(params)
     @params = params
-    @essay_award = ::EssayAward.find(self.determine_id)
+    @essay_award = EssayAwardQuery.find(self.determine_id)
   end
 
 

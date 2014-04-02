@@ -7,7 +7,7 @@ class MarkdownComponentFactory::PageContent
 
   def initialize(params)
     @params = params
-    @page = ::Page.find(@params[:page_id])
+    @page = PageQuery.find(self.determine_id)
   end
 
 
