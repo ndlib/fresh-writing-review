@@ -10,6 +10,9 @@ class EssaySolr
   def search
     @search ||= Essay.search do
       fulltext(params[:q])
+
+      with(:published, true)
+
       if params[:style].present?
         essay_style_filter = with(:essay_style_title, params[:style])
         facet :essay_style_title, exclude: [essay_style_filter]

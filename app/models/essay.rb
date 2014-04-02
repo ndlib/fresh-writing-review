@@ -25,7 +25,9 @@ class Essay < ActiveRecord::Base
     string :essay_style_title
     string :issue_year
     string :medium
-    boolean :published_status
+    boolean :published do
+      published?
+    end
   end
 
 
