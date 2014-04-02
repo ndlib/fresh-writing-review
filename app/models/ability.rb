@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    if Editor.count == 0
+    if !user.new_record? && Editor.count == 0
       user.create_editor!
     end
     if user.editor?
