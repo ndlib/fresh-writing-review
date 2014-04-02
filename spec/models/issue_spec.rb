@@ -47,4 +47,14 @@ describe Issue do
     end
 
   end
+
+
+  describe :pdf do
+
+    it "allows you to save an pdf" do
+      subject.pdf = File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2011.pdf'))
+      expect(subject.pdf).to be_present
+    end
+
+  end
 end

@@ -68,4 +68,25 @@ describe IssueDetail do
       described_class.current
     end
   end
+
+
+
+  describe "#pdf_url" do
+    before(:each) do
+      issue.stub(:pdf).and_return(double(url: 'url'))
+    end
+
+
+    it " shows the pdf file if the issue is a pdf issue" do
+      issue.stub(:is_pdf?).and_return(true)
+      expect(subject.pdf_url).to eq("url")
+    end
+
+
+    it "does not give a url if it is not a pdf issue" do
+      issue.stub(:is_pdf?).and_return(false)
+      expect(subject.pdf_url).to eq(nil)
+    end
+
+  end
 end
