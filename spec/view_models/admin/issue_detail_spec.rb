@@ -11,7 +11,7 @@ describe Admin::IssueDetail do
 
 
   it "displays an edit button for the issue" do
-    expect(subject.edit_button).to eq("<a class=\"btn btn-primary\" href=\"/admin/issues/1/edit\">Edit</a>")
+    expect(subject.edit_button).to eq("<a class=\"btn btn-primary\" href=\"/admin/volumes/1/edit\">Edit</a>")
   end
 
 
@@ -39,4 +39,5 @@ describe Admin::IssueDetail do
       expect(subject.file_icon).to eq(nil)
     end
   end
+
 end

@@ -9,7 +9,7 @@ FreshWriting::Application.routes.draw do
   resources :markdown_contents, :controller => :markdown, :only => [:show]
 
   namespace :admin do
-    get '/', to: redirect('/admin/issues')
+    get '/', to: redirect('/admin/volumes')
 
     resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     resources :pages do
@@ -18,7 +18,7 @@ FreshWriting::Application.routes.draw do
     resources :essay_awards, only: [ :new, :create, :edit, :update ] do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
-    resources :issues do
+    resources :issues, path: "volumes" do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
       resources :essays, only: [:new, :create, :show, :edit, :update] do
         resources :essay_awards, only: [ :new, :create, :edit, :update ]
@@ -34,7 +34,7 @@ FreshWriting::Application.routes.draw do
 
   get :essays, to: 'search#index', as: :essay_search
 
-  resources :issues, only: [:index, :show] do
+  resources :issues, path: "volumes", only: [:index, :show] do
     member do
       get :editorial_board, path: "editorial-board"
       get :acknowledgements

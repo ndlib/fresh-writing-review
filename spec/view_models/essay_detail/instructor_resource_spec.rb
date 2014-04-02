@@ -31,13 +31,13 @@ describe EssayDetail::InstructorResources do
   describe '#link_to_detail' do
     it "returns the link if there is instructor content" do
       subject.stub(:has_content?).and_return(true)
-      expect(subject.link_to_detail).to eq("<a class=\"\" href=\"/issues/id/essays/id/instructor_resources\">Instructor Resources</a>")
+      expect(subject.link_to_detail).to eq("<a class=\"\" href=\"/volumes/id/essays/id/instructor_resources\">Instructor Resources</a>")
     end
 
 
     it "allows you set the css class for the link" do
       subject.stub(:has_content?).and_return(true)
-      expect(subject.link_to_detail('css')).to eq("<a class=\"css\" href=\"/issues/id/essays/id/instructor_resources\">Instructor Resources</a>")
+      expect(subject.link_to_detail('css')).to eq("<a class=\"css\" href=\"/volumes/id/essays/id/instructor_resources\">Instructor Resources</a>")
     end
 
 

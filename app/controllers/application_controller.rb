@@ -11,5 +11,21 @@ class ApplicationController < ActionController::Base
     setup_controller_errors
   end
 
+  private
+    def authorize_ability!(ability_name, object)
+      ability = Ability.new(current_user)
+      ability.authorize!(ability_name, object)
+    end
 
+    def authorize_read_issue!(issue)
+      authorize_ability!(:read, issue)
+    end
+
+    def authorize_editor!
+      authorize_ability!(:edit, :all)
+    end
+
+    def authorize_superuser!
+      authorize_ability!(:manage_users, :all)
+    end
 end

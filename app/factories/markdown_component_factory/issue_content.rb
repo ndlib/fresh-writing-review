@@ -7,7 +7,7 @@ class MarkdownComponentFactory::IssueContent
 
   def initialize(params)
     @params = params
-    @issue = ::Issue.friendly.exists?(self.determine_id) ? ::Issue.friendly.find(self.determine_id) : nil
+    @issue =  IssueQuery.find(self.determine_id)
   end
 
 

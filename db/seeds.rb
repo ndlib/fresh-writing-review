@@ -58,6 +58,11 @@ Issue.create(published: true, year: 2006,
   pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2006.pdf')),
   old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
 )
+Issue.create(published: false, year: 2010,
+  title: "Volume 10", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
+  is_pdf: true,
+  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
+)
 
 issue_id = Issue.first.id
 narrative_style = EssayStyle.all[0]

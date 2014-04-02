@@ -9,7 +9,7 @@ describe EssayLink do
 
   describe '#link_to_image' do
     it "renders the correct text" do
-      expect(subject.link_to_image).to eq("<a href=\"/issues/ifid/essays/fid\"><img alt=\"Fff\" src=\"http://placehold.it/211x135/A4A774/fff\" /></a> <a class=\"title\" href=\"/issues/ifid/essays/fid\">title</a>")
+      expect(subject.link_to_image).to eq("<a href=\"/volumes/ifid/essays/fid\"><img alt=\"Fff\" src=\"http://placehold.it/211x135/A4A774/fff\" /></a> <a class=\"title\" href=\"/volumes/ifid/essays/fid\">title</a>")
     end
   end
 
@@ -23,14 +23,14 @@ describe EssayLink do
 
   describe '#link_to_issue' do
     it "renders the correct text" do
-      expect(subject.link_to_issue).to eq("<a href=\"/issues/ifid\">issue</a>")
+      expect(subject.link_to_issue).to eq("<a href=\"/volumes/ifid\">issue</a>")
     end
   end
 
 
   describe '#link_to_style' do
     it "renders the correct text" do
-      expect(subject.link_to_style).to eq("<a href=\"/issues/ifid/style/esfid\">title</a>")
+      expect(subject.link_to_style).to eq("<a href=\"/volumes/ifid/style/esfid\">title</a>")
     end
   end
 

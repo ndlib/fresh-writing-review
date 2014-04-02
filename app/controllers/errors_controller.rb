@@ -1,4 +1,4 @@
-class ErrorsController < ApplicationController
+class ErrorsController < AdminController
 
   def index
     @errors = ErrorLog.errors

@@ -13,18 +13,25 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @issue_detail = IssueDetail.build(self)
+    @issue_detail = build_issue_detail
   end
 
   def editorial_board
-    @issue_detail = IssueDetail.build(self)
+    @issue_detail = build_issue_detail
   end
 
   def acknowledgements
-    @issue_detail = IssueDetail.build(self)
+    @issue_detail = build_issue_detail
   end
 
   def editorial_notes
-    @issue_detail = IssueDetail.build(self)
+    @issue_detail = build_issue_detail
   end
+
+  private
+    def build_issue_detail
+      issue_detail = IssueDetail.build(self)
+      authorize_read_issue!(issue_detail.issue)
+      issue_detail
+    end
 end

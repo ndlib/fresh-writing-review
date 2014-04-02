@@ -50,4 +50,14 @@ describe IssuesController do
       expect(response).to be_success
     end
   end
+
+  describe "unpublished" do
+    let(:issue) { FactoryGirl.create(:issue, published: false) }
+
+    describe "#show" do
+      it "is not authorized" do
+        expect{get :show, id: issue.friendly_id}.to raise_error CanCan::AccessDenied
+      end
+    end
+  end
 end

@@ -39,11 +39,11 @@ describe IssueDetail do
 
   describe '#link_to_show' do
     it 'links to an issue show page' do
-      expect(subject.link_to_show).to eq("<a class=\"\" href=\"/issues/fid\">title</a>")
+      expect(subject.link_to_show).to eq("<a class=\"\" href=\"/volumes/fid\">title</a>")
     end
 
     it "allows you to add the css to the link" do
-      expect(subject.link_to_show('css')).to eq("<a class=\"css\" href=\"/issues/fid\">title</a>")
+      expect(subject.link_to_show('css')).to eq("<a class=\"css\" href=\"/volumes/fid\">title</a>")
     end
   end
 

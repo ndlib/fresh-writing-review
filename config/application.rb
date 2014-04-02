@@ -35,5 +35,10 @@ module FreshWriting
     config.i18n.enforce_available_locales = true
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Precompile additional assets.
+    # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+    # config.assets.precompile += %w( search.js )
+    config.assets.precompile += %w( admin.js admin.css print.css )
   end
 end

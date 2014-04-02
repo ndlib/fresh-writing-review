@@ -8,6 +8,13 @@ module ControllerErrorTrapping
   end
 
   protected
+    def catch_403(exception=nil)
+      log_error(exception)
+
+      respond_to do |format|
+        format.html { render :template => 'errors/error_403', :status => 404 }
+      end
+    end
 
     def catch_404(exception=nil)
       log_error(exception)
@@ -44,6 +51,7 @@ module ControllerErrorTrapping
       # must be first otherwise the others will not fire.
       rescue_from Exception, :with => :catch_500
 
+      rescue_from CanCan::AccessDenied, :with => :catch_403
       rescue_from ActionController::RoutingError, :with => :catch_404
       rescue_from ActionController::UnknownController, :with => :catch_404
       rescue_from AbstractController::ActionNotFound, :with => :catch_404
