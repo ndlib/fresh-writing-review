@@ -39,4 +39,5 @@ describe Admin::IssueDetail do
       expect(subject.file_icon).to eq(nil)
     end
   end
+
 end
