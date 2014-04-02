@@ -86,7 +86,7 @@ class Essay < ActiveRecord::Base
   end
 
   def published?
-    issue.present? && issue.published?
+    self.published && issue.present? && issue.published?
   end
 
   private

@@ -70,22 +70,39 @@ describe Essay do
   end
 
   describe '#published?' do
+    describe 'published issue' do
+      subject { described_class.new(issue: Issue.new(published: true))}
+
+      it "is false when published is false" do
+        subject.published = false
+        expect(subject.published?).to be_false
+      end
+
+      it "is true when published is true" do
+        subject.published = true
+        expect(subject.published?).to be_true
+      end
+    end
+
+    describe 'unpublished issue' do
+      subject { described_class.new(issue: Issue.new(published: false))}
+
+      it "is false when published is false" do
+        subject.published = false
+        expect(subject.published?).to be_false
+      end
+
+      it "is false when published is true" do
+        subject.published = true
+        expect(subject.published?).to be_false
+      end
+    end
+
     it "is false without an issue" do
       subject.issue = nil
+      subject.published = true
       expect(subject.published?).to be_false
     end
-
-    it "is false when the issue is unpublished" do
-      subject.issue = Issue.new(published: false)
-      expect(subject.published?).to be_false
-    end
-
-    it "is true when the issue is published" do
-      subject.issue = Issue.new(published: true)
-      expect(subject.published?).to be_true
-    end
-
-    it "is false when published is set to false"
   end
 
 end
