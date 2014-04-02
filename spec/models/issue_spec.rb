@@ -37,4 +37,14 @@ describe Issue do
       expect(subject.is_pdf?).to be_false
     end
   end
+
+
+  describe :old_cover_image do
+
+    it "allows you to save an old_cover_image" do
+      subject.old_cover_image = File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
+      expect(subject.old_cover_image).to be_present
+    end
+
+  end
 end
