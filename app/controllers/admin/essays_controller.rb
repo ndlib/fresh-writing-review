@@ -42,4 +42,16 @@ class Admin::EssaysController < AdminController
     end
   end
 
+  def publish
+    essay = EssayQuery.find(params[:id])
+    EssayPublisher.publish(essay)
+    redirect_to admin_issue_essay_path(essay.issue, essay)
+  end
+
+  def unpublish
+    essay = EssayQuery.find(params[:id])
+    EssayPublisher.unpublish(essay)
+    redirect_to admin_issue_essay_path(essay.issue, essay)
+  end
+
 end
