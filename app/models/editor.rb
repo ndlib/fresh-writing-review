@@ -3,4 +3,10 @@ class Editor < ActiveRecord::Base
 
   validates_presence_of :username
   validates_uniqueness_of :username
+
+  before_validation :strip_whitespace
+
+  def strip_whitespace
+    self.username = self.username.to_s.strip
+  end
 end
