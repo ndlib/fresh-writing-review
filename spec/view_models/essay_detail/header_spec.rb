@@ -40,14 +40,14 @@ describe EssayDetail::Header do
   describe :issue_link do
 
     it "generates an issue link " do
-      expect(subject.issue_link).to eq("<a href=\"/issues/id\">issue_title</a>")
+      expect(subject.issue_link).to eq("<a href=\"/volumes/id\">issue_title</a>")
     end
   end
 
 
   describe :essay_style_link do
     it "generates a essay style link " do
-      expect(subject.essay_style_link).to eq("<a href=\"/issues/id/style/id\">narrative</a>")
+      expect(subject.essay_style_link).to eq("<a href=\"/volumes/id/style/id\">narrative</a>")
     end
   end
 
