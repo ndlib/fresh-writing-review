@@ -4,6 +4,46 @@ describe IssuePublisher do
   let(:issue) { FactoryGirl.create(:issue) }
   describe 'instance' do
     subject { described_class.new(issue) }
+
+    describe '#publish' do
+      it 'calls #set_published' do
+        expect(subject).to receive(:set_published).with(true)
+        subject.publish
+      end
+    end
+
+    describe '#unpublish' do
+      it 'calls #set_published' do
+        expect(subject).to receive(:set_published).with(false)
+        subject.unpublish
+      end
+    end
+
+    describe '#set_published' do
+      it 'changes issue#published' do
+        issue.published = false
+        subject.set_published(true)
+        expect(issue.published).to be_true
+      end
+
+      it 'calls #reindex_essays' do
+        expect(subject).to receive(:reindex_essays)
+        subject.set_published(true)
+      end
+
+      it 'saves the issue and returns the save result' do
+        expect(issue).to receive(:save).and_return('save result')
+        expect(subject.set_published(true)).to be == 'save result'
+      end
+    end
+
+    describe '#reindex_essays' do
+      it 'calls save on the issue essays' do
+        FactoryGirl.create(:essay, issue: issue)
+        expect(issue.essays.collect.first).to receive(:save)
+        subject.reindex_essays
+      end
+    end
   end
 
   describe 'self' do

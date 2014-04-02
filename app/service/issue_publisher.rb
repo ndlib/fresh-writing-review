@@ -23,8 +23,9 @@ class IssuePublisher
 
   def set_published(value)
     issue.published = value
-    issue.save
+    save_result = issue.save
     reindex_essays
+    save_result
   end
 
   def reindex_essays
