@@ -64,7 +64,7 @@ class IssueDetail
   end
 
   def essays
-    EssayQuery.essays_for_issue(issue).collect { | e | EssayLink.new(e) }
+    EssayQuery.published_essays_for_issue(issue).collect { | e | EssayLink.new(e) }
   end
 
   def render_issue_header

@@ -41,7 +41,7 @@ class EssayAwardDetail
 
 
   def essays
-    @essays ||= EssayQuery.essays_for_issue_and_essay_award(issue.friendly_id, essay_award)
+    @essays ||= EssayQuery.published_essays_for_issue_and_essay_award(issue.friendly_id, essay_award)
   end
 
 
