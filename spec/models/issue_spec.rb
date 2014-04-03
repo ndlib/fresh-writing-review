@@ -45,7 +45,6 @@ describe Issue do
       subject.old_cover_image = File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
       expect(subject.old_cover_image).to be_present
     end
-
   end
 
 

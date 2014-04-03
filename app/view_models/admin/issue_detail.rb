@@ -17,6 +17,7 @@ class Admin::IssueDetail
     @issue = issue
   end
 
+
   def public_link
     if published?
       link_text = "View Volume"

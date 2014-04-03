@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401195207) do
+ActiveRecord::Schema.define(version: 20140402204724) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -142,6 +142,16 @@ ActiveRecord::Schema.define(version: 20140401195207) do
     t.string   "pdf_content_type"
     t.integer  "pdf_file_size"
     t.datetime "pdf_updated_at"
+    t.string   "large_cover_image_file_name"
+    t.string   "large_cover_image_content_type"
+    t.integer  "large_cover_image_file_size"
+    t.datetime "large_cover_image_updated_at"
+    t.string   "small_cover_image_file_name"
+    t.string   "small_cover_image_content_type"
+    t.integer  "small_cover_image_file_size"
+    t.datetime "small_cover_image_updated_at"
+    t.string   "cover_image_credit"
+    t.string   "cover_image_alt"
   end
 
   add_index "issues", ["acknowledgements_id"], name: "index_issues_on_acknowledgements_id", using: :btree
