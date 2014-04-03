@@ -1,6 +1,16 @@
-<h1><%= @essay_detail.volume_title %></h1>
+<h1><%= @essay_detail.volume_link %></h1>
 <h2><%= @essay_detail.essay_title %>  <%= link_to 'Edit', edit_admin_issue_essay_path(1, 1), class: 'btn btn-primary' %></h2>
-<p class="on-off btn-group"><span class="glyphicon glyphicon-eye-open"></span> Published - <a><span class="glyphicon glyphicon-eye-close"></span> Unpublish</a></p>
+<p class="on-off btn-group">
+  <% if @essay_detail.published? %>
+    <span class="glyphicon glyphicon-eye-open"></span> Published -
+    <%= link_to(raw('<span class="glyphicon glyphicon-eye-close"></span> Unpublish'), unpublish_admin_issue_essay_path, method: :put) %></p>
+  <% else %>
+     <span class="glyphicon glyphicon-eye-close"></span> Unpublished -
+     <%= link_to(raw('<span class="glyphicon glyphicon-eye-open"></span> Publish'), publish_admin_issue_essay_path, method: :put) %></p>
+  <% end %>
+  <br>
+  <%= @essay_detail.public_link %>
+</p>
 
 
 <h3 class="author">By <%= @essay_detail.essay_author %></h3>

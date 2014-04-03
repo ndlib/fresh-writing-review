@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20140402204724) do
     t.integer  "works_cited_id"
     t.integer  "discussion_questions_id"
     t.integer  "instructor_resources_id"
+    t.boolean  "published"
   end
 
   add_index "essays", ["alt_body_id"], name: "index_essays_on_alt_body_id", using: :btree

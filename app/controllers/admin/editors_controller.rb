@@ -23,6 +23,7 @@ class Admin::EditorsController < AdminController
   def destroy
     @editor = EditorQuery.find(params[:id])
     @editor.destroy
+    flash[:success] = "Editor \"#{@editor.username}\" deleted"
     redirect_to admin_editors_path
   end
 

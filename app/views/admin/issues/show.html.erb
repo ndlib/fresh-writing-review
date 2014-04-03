@@ -17,11 +17,32 @@
       <h2>Essays</h2>
         <p><%= link_to 'New Essay', new_admin_issue_essay_path(@issue_detail.issue), class: 'btn btn-primary' %></p>
 
-        <ul class="list ">
-          <% @issue_detail.essays.each do | e | %>
-            <li><%= link_to e.title.truncate(40), admin_issue_essay_path(e.issue, e) %> <span class="author">By <%= e.author %></span> <span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span></li>
-          <% end %>
-        </ul>
+        <table class="list ">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Published</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @issue_detail.essays.each do | e | %>
+              <tr>
+                <td><%= link_to e.title.truncate(40), admin_issue_essay_path(e.issue, e) %></td>
+                <td class="author"><%= e.author %></td>
+                <td>
+                  <% if e.published? %>
+                    <span class="glyphicon glyphicon-eye-open"></span> Published
+                  <% else %>
+                     <span class="glyphicon glyphicon-eye-close"></span> Unpublished
+                  <% end %>
+                </td>
+                <td><%= link_to(raw('<span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span>'), admin_issue_essay_path(e.issue, e), method: :delete, confirm: "Delete \"#{e.title}\"?") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
         <hr>
       </div>
     <h2>Extra Pages</h2>

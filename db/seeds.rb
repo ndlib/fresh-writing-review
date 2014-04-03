@@ -85,12 +85,12 @@ end
 
 
 Essay.delete_all
-Essay.create(id: 1, issue_id: issue_id, essay_style: narrative_style, title: "Family of Deer", author: "Terence Clines",
+Essay.create(id: 1, issue_id: issue_id, published: true, essay_style: narrative_style, title: "Family of Deer", author: "Terence Clines",
     body: markdown('narrative_text.txt'),
     author_biography: markdown('biography.txt')
 )
 
-Essay.create(id: 3, issue_id: issue_id, essay_style: analysis_style, title: "Imperfect, Contradictory Beauty",
+Essay.create(id: 3, issue_id: issue_id, published: true, essay_style: analysis_style, title: "Imperfect, Contradictory Beauty",
   body: markdown('two_section_text_part1.txt'),
   alt_body: markdown('two_section_text_part2.txt'),
   alt_title: "Pied Beauty",
@@ -99,7 +99,7 @@ Essay.create(id: 3, issue_id: issue_id, essay_style: analysis_style, title: "Imp
   instructor_resources: markdown('instructor_resources.md')
 )
 
-Essay.create(id: 4, issue_id: issue_id, essay_style: narrative_style, title: "Invisiball Report", author: "Chizo Ekechukwu",
+Essay.create(id: 4, issue_id: issue_id, published: true, essay_style: narrative_style, title: "Invisiball Report", author: "Chizo Ekechukwu",
     body: markdown('video_text.txt'),
     embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/zlMYf8MWI-4" frameborder="0" allowfullscreen></iframe>',
     alt_body: markdown('ekechukwu_transcript.txt'),
@@ -107,7 +107,7 @@ Essay.create(id: 4, issue_id: issue_id, essay_style: narrative_style, title: "In
     author_biography: markdown('biography.txt')
 )
 
-Essay.create(id: 5, issue_id: issue_id, essay_style: research_style, title: "The Streets Are Art", author: "Rachel Zavakos",
+Essay.create(id: 5, issue_id: issue_id, published: true, essay_style: research_style, title: "The Streets Are Art", author: "Rachel Zavakos",
     body: markdown('zavakos_body.txt'),
     works_cited: markdown('zavakos_works_cited.txt'),
     discussion_questions: markdown('zavakos_discussion_questions.txt'),
@@ -116,7 +116,7 @@ Essay.create(id: 5, issue_id: issue_id, essay_style: research_style, title: "The
     essay_award: EssayAward.first
 )
 
-Essay.create(id: 6, issue_id: issue_id, essay_style: analysis_style, title: "Monsoon: Winds of Culture", author: "Jennifer Cha",
+Essay.create(id: 6, issue_id: issue_id, published: true, essay_style: analysis_style, title: "Monsoon: Winds of Culture", author: "Jennifer Cha",
     body: markdown('cha_text.txt'),
     embed: '<object id="kaltura_player_1_dfzuw68y" name="kaltura_player_1_dfzuw68y" type="application/x-shockwave-flash" allowFullScreen="true" allowNetworking="all" allowScriptAccess="always" height="30" width="480" bgcolor="#000000" xmlns:dc="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/searchmonkey/media/" rel="media:video" resource="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y" data="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y"><param name="allowFullScreen" value="true" /><param name="allowNetworking" value="all" /><param name="allowScriptAccess" value="always" /><param name="bgcolor" value="#000000" /><param name="flashVars" value="&entryId=1_dfzuw68y" /><param name="movie" value="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y" /></object>',
     discussion_questions: markdown('zavakos_discussion_questions.txt'),
@@ -125,7 +125,7 @@ Essay.create(id: 6, issue_id: issue_id, essay_style: analysis_style, title: "Mon
     essay_award: EssayAward.first
 )
 
-Essay.create(id: 7, issue_id: issue_id, essay_style: research_style, title: "Easing into the Future: Federal Reserve Policy under Janet Yellen", author: "Emily Campagna",
+Essay.create(id: 7, issue_id: issue_id, published: true, essay_style: research_style, title: "Easing into the Future: Federal Reserve Policy under Janet Yellen", author: "Emily Campagna",
     body: markdown('campagna_text.txt'),
     works_cited: markdown('campagna_works_cited.txt'),
     discussion_questions: markdown('zavakos_discussion_questions.txt'),
