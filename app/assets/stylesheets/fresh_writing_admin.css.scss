@@ -103,10 +103,10 @@ div.issues {
 }
 
 .list .delete .glyphicon-trash {
-	display:none;
+	visibility: hidden;
 }
 .list .delete:hover .glyphicon-trash {
-	display: inline;
+  visibility: visible;
 }
 
 .images {
