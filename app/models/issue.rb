@@ -12,10 +12,10 @@ class Issue < ActiveRecord::Base
   has_attached_file :old_cover_image, styles: { :large => "731>x731"}
   validates_attachment_content_type :old_cover_image, :content_type => %w(image/jpeg image/jpg image/png)
 
-  has_attached_file :large_cover_image, styles: { :large => "900x200#"}, default_url: '/system/placeholders/large_cover_image_placeholder.gif'
+  has_attached_file :large_cover_image, styles: { :large => "900x200#"}, default_url: '/placeholders/large_cover_image_placeholder.gif'
   validates_attachment_content_type :large_cover_image, :content_type => %w(image/jpeg image/jpg image/png)
 
-  has_attached_file :small_cover_image, styles: { :large => "900x90#"}, default_url: '/system/placeholders/small_cover_image_placeholder.gif'
+  has_attached_file :small_cover_image, styles: { :large => "900x90#"}, default_url: '/placeholders/small_cover_image_placeholder.gif'
   validates_attachment_content_type :small_cover_image, :content_type => %w(image/jpeg image/jpg image/png)
 
   has_attached_file :pdf
