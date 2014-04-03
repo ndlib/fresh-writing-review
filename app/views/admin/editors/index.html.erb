@@ -7,7 +7,7 @@
     <ul class="editors list">
       <% @editors.each do |editor| %>
         <li>
-          <%= editor.username %>
+          <%= editor.username %> (<%= editor.is_superuser? ? "Superuser" : "Editor" %>)
           <% if current_user && editor.username != current_user.username %>
             <%= link_to(raw("<span class=\"glyphicon glyphicon-trash\"></span> Delete"), admin_editor_path(editor), method: :delete, class: 'delete') %>
           <% end %>

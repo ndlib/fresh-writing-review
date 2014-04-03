@@ -22,12 +22,16 @@
 
     <div class="row">
       <div class="large-2 columns">
-        <ul class="side-nav">
-          <li><a href="<%= admin_issues_path() %>">Volumes</a></li>
-          <li><a href="">About Page</a></li>
-          <li><a href="">Awards</a></li>
-          <li><%= link_to "Editors", admin_editors_path %></li>
-        </ul>
+        <% if can?(:edit, :all) %>
+          <ul class="side-nav">
+            <li><a href="<%= admin_issues_path() %>">Volumes</a></li>
+            <li><a href="">About Page</a></li>
+            <li><a href="">Awards</a></li>
+            <% if can?(:manage_users, :all) %>
+              <li><%= link_to "Editors", admin_editors_path %></li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
 
       <div class="large-10 columns">
@@ -40,4 +44,5 @@
 
   </body>
   <%= javascript_include_tag "admin" %>
+  <%= render partial: "layouts/google_analytics" %>
 </html>

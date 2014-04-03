@@ -22,14 +22,14 @@ describe EssayStyleDetail do
 
   describe '#link_to_show' do
     it 'links to the style show page' do
-      expect(subject.link_to_show).to match "/issues/#{issue.friendly_id}/style/#{essay_style.friendly_id}"
+      expect(subject.link_to_show).to match "/volumes/#{issue.friendly_id}/style/#{essay_style.friendly_id}"
     end
   end
 
 
   describe '#link_to_issue' do
     it 'links to the issue path' do
-      expect(subject.link_to_issue).to match "/issues/#{issue.friendly_id}"
+      expect(subject.link_to_issue).to match "/volumes/#{issue.friendly_id}"
     end
   end
 

@@ -14,7 +14,7 @@ describe IssueList do
 
   describe '#link_to_issue' do
     it 'links to an issue show page' do
-      expect(subject.link_to_issue(issue)).to match "/issues/#{issue.year}"
+      expect(subject.link_to_issue(issue)).to match "/volumes/#{issue.year}"
     end
   end
 

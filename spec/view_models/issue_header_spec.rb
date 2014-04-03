@@ -58,7 +58,7 @@ describe IssueHeader do
   describe :title do
 
     it "returns the title in a link" do
-      expect(subject.title).to eq("<a class=\"vtitle\" href=\"/issues/fid\">title</a>")
+      expect(subject.title).to eq("<a class=\"vtitle\" href=\"/volumes/fid\">title</a>")
     end
 
   end
@@ -67,7 +67,7 @@ describe IssueHeader do
   describe :header_image do
 
     it "returns the header_image in a link" do
-      expect(subject.header_image).to eq("<a href=\"/issues/fid\"><img alt=\"900x200\" src=\"http://placehold.it/900x200\" /></a>")
+      expect(subject.header_image).to eq("<a href=\"/volumes/fid\"><img alt=\"900x200\" src=\"http://placehold.it/900x200\" /></a>")
     end
   end
 

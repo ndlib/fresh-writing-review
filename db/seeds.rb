@@ -25,10 +25,41 @@ current_issue = Issue.create(published: true, year: 2014, title: "Volume 14", ed
 Issue.create(published: true, year: 2012,
   title: "Volume 12", editorial_notes: markdown('issues', '2012', 'foreword.md'), editorial_board: markdown('issues', '2012', 'board.md'), acknowledgements: markdown('issues', '2012', 'acknowledgements.md'),
   is_pdf: true,
+  pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2012.pdf')),
   old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2012.jpg'))
 )
 Issue.create(published: true, year: 2011,
   title: "Volume 11", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
+  is_pdf: true,
+  pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2011.pdf')),
+  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
+)
+Issue.create(published: true, year: 2010,
+  title: "Volume 10", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
+  is_pdf: true,
+  pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2010.pdf')),
+  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
+)
+Issue.create(published: true, year: 2009,
+  title: "Volume 9", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
+  is_pdf: true,
+  pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2009.pdf')),
+  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
+)
+Issue.create(published: true, year: 2008,
+  title: "Volume 8", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
+  is_pdf: true,
+  pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2008.pdf')),
+  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
+)
+Issue.create(published: true, year: 2006,
+  title: "Volume 6", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
+  is_pdf: true,
+  pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2006.pdf')),
+  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
+)
+Issue.create(published: false, year: 2010,
+  title: "Volume 10", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
   is_pdf: true,
   old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
 )

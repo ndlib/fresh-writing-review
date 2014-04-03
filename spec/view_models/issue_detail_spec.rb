@@ -39,11 +39,11 @@ describe IssueDetail do
 
   describe '#link_to_show' do
     it 'links to an issue show page' do
-      expect(subject.link_to_show).to eq("<a class=\"\" href=\"/issues/fid\">title</a>")
+      expect(subject.link_to_show).to eq("<a class=\"\" href=\"/volumes/fid\">title</a>")
     end
 
     it "allows you to add the css to the link" do
-      expect(subject.link_to_show('css')).to eq("<a class=\"css\" href=\"/issues/fid\">title</a>")
+      expect(subject.link_to_show('css')).to eq("<a class=\"css\" href=\"/volumes/fid\">title</a>")
     end
   end
 
@@ -67,5 +67,26 @@ describe IssueDetail do
       expect(IssueQuery).to receive(:current)
       described_class.current
     end
+  end
+
+
+
+  describe "#pdf_url" do
+    before(:each) do
+      issue.stub(:pdf).and_return(double(url: 'url'))
+    end
+
+
+    it " shows the pdf file if the issue is a pdf issue" do
+      issue.stub(:is_pdf?).and_return(true)
+      expect(subject.pdf_url).to eq("url")
+    end
+
+
+    it "does not give a url if it is not a pdf issue" do
+      issue.stub(:is_pdf?).and_return(false)
+      expect(subject.pdf_url).to eq(nil)
+    end
+
   end
 end

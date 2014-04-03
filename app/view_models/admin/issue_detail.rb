@@ -1,13 +1,12 @@
 class Admin::IssueDetail
   include RailsHelpers
 
-  attr_accessor :issue
+  attr_reader :issue
 
-  delegate :title, to: :issue
+  delegate :title, :published?, to: :issue
 
 
   def self.build(application)
-    issue_id = application.request.params[:id]
     mef = Admin::MarkdownEditorFunctions.build(application)
     self.new(mef.mc.issue, mef)
   end
@@ -16,6 +15,15 @@ class Admin::IssueDetail
   def initialize(issue, mef=nil)
     @mef = mef
     @issue = issue
+  end
+
+  def public_link
+    if published?
+      link_text = "View Volume"
+    else
+      link_text = "Preview Volume"
+    end
+    helpers.link_to(link_text, routes.issue_path(issue.friendly_id))
   end
 
 

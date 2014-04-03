@@ -56,6 +56,13 @@ class IssueDetail
     helpers.image_tag issue.old_cover_image.url(:large)
   end
 
+
+  def pdf_url
+    if is_pdf?
+      issue.pdf.url
+    end
+  end
+
   def essays
     EssayQuery.essays_for_issue(issue).collect { | e | EssayLink.new(e) }
   end

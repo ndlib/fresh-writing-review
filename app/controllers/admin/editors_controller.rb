@@ -12,7 +12,7 @@ class Admin::EditorsController < AdminController
   end
 
   def create
-    @editor = Editor.new(params.require(:editor).permit(:username))
+    @editor = Editor.new(params.require(:editor).permit(:username, :is_superuser))
     if @editor.save
       redirect_to admin_editors_path
     else
@@ -25,11 +25,5 @@ class Admin::EditorsController < AdminController
     @editor.destroy
     redirect_to admin_editors_path
   end
-
-  private
-
-    def authorize_superuser!
-      authorize! :manage_users, :all
-    end
 
 end

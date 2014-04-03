@@ -2,7 +2,7 @@
 
 <% if @issue_detail.is_pdf? %>
   <article>
-    <p class="download"><%= @issue_detail.title %> is available as a PDF <%= link_to('Download', '#', class: "button") %> </p>
+    <p class="download"><%= @issue_detail.title %> is available as a PDF <%= link_to('View PDF', @issue_detail.pdf_url, class: "button") %> </p>
     <%= @issue_detail.old_cover_image %>
   </article>
 <% else %>
