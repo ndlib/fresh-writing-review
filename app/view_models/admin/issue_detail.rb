@@ -29,7 +29,6 @@ class Admin::IssueDetail
   end
 
 
-
   def volume_title
     @issue.title
   end
