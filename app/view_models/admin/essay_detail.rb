@@ -10,7 +10,7 @@ class Admin::EssayDetail
 
   attr_reader :essay
 
-  delegate :published?, to: :essay
+  delegate :published?, :issue, to: :essay
 
   def initialize(essay, mef=nil)
     @mef = mef

@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
       authorize_ability!(:read, issue)
     end
 
+    def authorize_read_essay!(essay)
+      authorize_ability!(:read, essay)
+    end
+
     def authorize_editor!
       authorize_ability!(:edit, :all)
     end

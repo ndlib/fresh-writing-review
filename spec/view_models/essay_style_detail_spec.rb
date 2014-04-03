@@ -56,7 +56,7 @@ describe EssayStyleDetail do
 
   describe :essays do
     it "calls the query" do
-      expect(EssayQuery).to receive(:essays_for_issue_and_essay_style).with(issue, essay_style)
+      expect(EssayQuery).to receive(:published_essays_for_issue_and_essay_style).with(issue, essay_style)
       subject.essays
     end
   end
