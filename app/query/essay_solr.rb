@@ -9,7 +9,9 @@ class EssaySolr
 
   def search
     @search ||= Essay.search do
-      fulltext(params[:q])
+      fulltext params[:q] do
+        boost_fields title: 2.0, author: 1.5, body_plain: 1.3
+      end
 
       with(:published, true)
 
