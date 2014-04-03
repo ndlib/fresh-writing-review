@@ -15,12 +15,12 @@ class EssayQuery
 
   def self.essays_for_issue_and_essay_style(issue_id, essay_style)
     issue = IssueQuery.find(issue_id)
-    issue.essays.where(essay_style: essay_style)
+    issue.essays.where(published: true, essay_style: essay_style)
   end
 
 
   def self.essays_for_issue(issue)
-    issue.essays
+    relation.where(published: true, issue_id: issue.id).order(title: :asc)
   end
 
 

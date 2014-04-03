@@ -94,7 +94,7 @@ class Admin::IssueDetail
 
 
   def essays
-    @issue.essays
+    EssayQuery.essays_for_issue(@issue)
   end
 
 end
