@@ -42,6 +42,13 @@ class Admin::EssaysController < AdminController
     end
   end
 
+  def destroy
+    @essay = EssayQuery.find(params[:id])
+    @essay.destroy!
+    flash[:success] = "Essay \"#{@essay.title}\" deleted"
+    redirect_to admin_issue_path(params[:issue_id])
+  end
+
   def publish
     essay = EssayQuery.find(params[:id])
     EssayPublisher.publish(essay)
