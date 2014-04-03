@@ -1,6 +1,8 @@
 class Admin::EssayDetail
   include RailsHelpers
 
+  attr_accessor :essay
+
 
   def self.build(application)
     essay_id = application.request.params[:id]
