@@ -19,6 +19,7 @@ class EssaysController < ApplicationController
     def build_essay
       essay_detail = EssayDetail.build(self)
       authorize_read_issue!(essay_detail.issue)
+      authorize_read_essay!(essay_detail.essay)
       essay_detail
     end
 
