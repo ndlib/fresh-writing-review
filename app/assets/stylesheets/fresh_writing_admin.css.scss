@@ -45,24 +45,24 @@ h1 {
 
 .list {
 	margin-left:0;
-}
 
-.list li {
-	font-size:1.6rem;
-	list-style:none;
-	padding:5px;
-	color: #666;
+  li, td, th {
+    font-size:1.6rem;
+    list-style:none;
+    padding:5px;
+    color: #666;
+  }
+
+  li:nth-of-type(even) {
+    border-bottom:solid 1px $ltlt-green;
+  }
+  li:nth-of-type(odd) {
+    background:$ltlt-green;
+  }
 }
 
 .on-off {
 	font-size:1.6rem;
-}
-
-.list li:nth-of-type(even) {
-	border-bottom:solid 1px $ltlt-green;
-}
-.list li:nth-of-type(odd) {
-	background:$ltlt-green;
 }
 
 .list.extras li {

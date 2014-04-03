@@ -48,6 +48,9 @@ class Admin::EssayDetail
     }
   end
 
+  def volume_link
+    helpers.link_to(volume_title, routes.admin_issue_path(essay.issue))
+  end
 
   def volume_title
     @essay.issue.title
