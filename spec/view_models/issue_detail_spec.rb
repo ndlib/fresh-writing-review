@@ -87,6 +87,5 @@ describe IssueDetail do
       issue.stub(:is_pdf?).and_return(false)
       expect(subject.pdf_url).to eq(nil)
     end
-
   end
 end

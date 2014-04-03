@@ -21,12 +21,19 @@ EssayStyle.delete_all
 end
 
 Issue.delete_all
-current_issue = Issue.create(published: true, year: 2014, title: "Volume 14", editorial_notes: markdown('issues', '2012', 'foreword.md'), editorial_board: markdown('issues', '2012', 'board.md'), acknowledgements: markdown('issues', '2012', 'acknowledgements.md'))
+current_issue = Issue.create(published: true, year: 2014, title: "Volume 14",
+        editorial_notes: markdown('issues', '2012', 'foreword.md'), editorial_board: markdown('issues', '2012', 'board.md'), acknowledgements: markdown('issues', '2012', 'acknowledgements.md'),
+        large_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', 'nature.jpeg')),
+        small_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', 'nature.jpeg')),
+        cover_image_credit: "The photographer",
+        cover_image_alt: 'trees!!!!'
+        )
 Issue.create(published: true, year: 2012,
   title: "Volume 12", editorial_notes: markdown('issues', '2012', 'foreword.md'), editorial_board: markdown('issues', '2012', 'board.md'), acknowledgements: markdown('issues', '2012', 'acknowledgements.md'),
   is_pdf: true,
   pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2012.pdf')),
-  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2012.jpg'))
+  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2012.jpg')),
+  small_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', 'food.jpeg')),
 )
 Issue.create(published: true, year: 2011,
   title: "Volume 11", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),

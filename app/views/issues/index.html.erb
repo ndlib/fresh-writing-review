@@ -1,4 +1,4 @@
 <h1>Volumes</h1>
 <% @issue_list.each do |issue| %>
-  <h3 class="volume-list"><img src="http://lorempixel.com/731/73/nature/4/"><%= @issue_list.link_to_issue(issue) %></h3>
+  <h3 class="volume-list"><img src="<%= @issue_list.small_cover_image_url(issue) %>"><%= @issue_list.link_to_issue(issue) %></h3>
 <% end %>
