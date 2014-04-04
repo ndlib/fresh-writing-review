@@ -61,7 +61,7 @@ describe EssayAwardDetail do
 
   describe "#essays" do
     it "calls essays the correct essay query" do
-      expect(EssayQuery).to receive(:essays_for_issue_and_essay_award).with(issue.friendly_id, essay_award)
+      expect(EssayQuery).to receive(:published_essays_for_issue_and_essay_award).with(issue.friendly_id, essay_award)
       subject.essays
     end
   end

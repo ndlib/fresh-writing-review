@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe IssueHeader do
 
-  let(:issue) { double(Issue, id: 1, friendly_id: 'fid', title: 'title') }
+  let(:issue) { double(Issue, id: 1, friendly_id: 'fid', title: 'title', large_cover_image: double(Image, url: 'url'), small_cover_image: double(Image, url: 'url'), cover_image_alt: 'alt', cover_image_credit: 'credit') }
   subject { described_class.new(issue, true) }
 
 
@@ -30,7 +30,7 @@ describe IssueHeader do
     describe :image do
 
       it "returns the image for the full image" do
-        expect(subject.image).to eq("<img alt=\"900x200\" src=\"http://placehold.it/900x200\" />")
+        expect(subject.image).to eq("<img alt=\"alt\" src=\"/images/url\" />")
       end
     end
   end
@@ -49,7 +49,7 @@ describe IssueHeader do
     describe :image do
 
       it "returns the image for the full image" do
-        expect(subject.image).to eq("<img alt=\"900x90\" src=\"http://placehold.it/900x90\" />")
+        expect(subject.image).to eq("<img alt=\"alt\" src=\"/images/url\" />")
       end
     end
   end
@@ -67,7 +67,7 @@ describe IssueHeader do
   describe :header_image do
 
     it "returns the header_image in a link" do
-      expect(subject.header_image).to eq("<a href=\"/volumes/fid\"><img alt=\"900x200\" src=\"http://placehold.it/900x200\" /></a>")
+      expect(subject.header_image).to eq("<a href=\"/volumes/fid\"><img alt=\"alt\" src=\"/images/url\" /></a>")
     end
   end
 

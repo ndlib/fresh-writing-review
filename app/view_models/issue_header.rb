@@ -24,9 +24,9 @@ class IssueHeader
 
   def image
     if @show_full_image
-      PlaceholderImage.call(900, 200)
+      helpers.image_tag issue.large_cover_image.url(:large), alt: issue.cover_image_alt
     else
-      PlaceholderImage.call(900, 90)
+      helpers.image_tag issue.small_cover_image.url(:large), alt: issue.cover_image_alt
     end
   end
 
@@ -38,6 +38,11 @@ class IssueHeader
 
   def header_image
     helpers.link_to(image, routes.issue_path(issue.friendly_id))
+  end
+
+
+  def image_credit
+    issue.cover_image_credit
   end
 
 

@@ -15,6 +15,7 @@ class Ability
       end
     else
       can :read, Issue, published: true
+      can :read, Essay, published: true
     end
 
     # Define abilities for the passed in user here. For example:

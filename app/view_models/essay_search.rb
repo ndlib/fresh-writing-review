@@ -6,15 +6,19 @@ class EssaySearch
   end
 
   def initialize(params)
-    @params = params.permit(:q, :style, :issue, :medium)
+    @params = params.permit(:q, :style, :issue, :medium, :page)
   end
 
   def search
     @search ||= EssaySolr.search(params)
   end
 
-
   def results
+    search.results
+  end
+
+
+  def rows
     search.results.collect { | e | EssaySearchRow.new(e) }
   end
 

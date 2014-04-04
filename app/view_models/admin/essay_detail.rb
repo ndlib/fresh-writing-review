@@ -10,6 +10,9 @@ class Admin::EssayDetail
     self.new(mef.mc.essay, mef)
   end
 
+  attr_reader :essay
+
+  delegate :published?, :issue, to: :essay
 
   def initialize(essay, mef=nil)
     @mef = mef
@@ -26,6 +29,15 @@ class Admin::EssayDetail
     @mef.essay_content_status(content_type)
   end
 
+  def public_link
+    if published?
+      link_text = "View Essay"
+    else
+      link_text = "Preview Essay"
+    end
+    helpers.link_to(link_text, routes.issue_essay_path(essay.issue, essay))
+  end
+
 
   def components
     {
@@ -38,6 +50,9 @@ class Admin::EssayDetail
     }
   end
 
+  def volume_link
+    helpers.link_to(volume_title, routes.admin_issue_path(essay.issue))
+  end
 
   def volume_title
     @essay.issue.title

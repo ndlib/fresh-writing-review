@@ -36,6 +36,8 @@ class EssaySolr
 
       order_by(:score, :desc)
       order_by(:sort_title, :asc)
+
+      paginate page: params[:page], per_page: 10
     end
   end
 

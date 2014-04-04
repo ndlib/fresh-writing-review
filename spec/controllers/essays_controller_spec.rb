@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe EssaysController do
 
-  let(:issue) {double(Issue, friendly_id: 'issue_id', published: true)}
+  let(:issue) {double(Issue, friendly_id: 'issue_id')}
   let(:essay) {double(Essay, friendly_id: 'id', issue: issue)}
 
   before(:each) do
     controller.stub(:authorize_read_issue!).and_return(true)
+    controller.stub(:authorize_read_essay!).and_return(true)
     EssayQuery.stub(:essay_for_issue_from_url).with(issue.friendly_id, essay.friendly_id).and_return(essay)
   end
 

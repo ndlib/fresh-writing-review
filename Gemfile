@@ -36,6 +36,7 @@ gem 'mysql2'
 gem "rb-readline"
 gem 'simple_form'
 gem 'sunspot_rails'
+gem 'will_paginate', '~> 3.0'
 
 # Extended PORO functionality
 gem 'virtus'

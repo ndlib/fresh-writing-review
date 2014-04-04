@@ -19,6 +19,16 @@ class Admin::IssueDetail
   end
 
 
+  def public_link
+    if published?
+      link_text = "View Volume"
+    else
+      link_text = "Preview Volume"
+    end
+    helpers.link_to(link_text, routes.issue_path(issue.friendly_id))
+  end
+
+
   def edit_content_link(content_type)
     @mef.issue_content_link(content_type)
   end
@@ -85,7 +95,7 @@ class Admin::IssueDetail
 
 
   def essays
-    @issue.essays
+    EssayQuery.essays_for_issue(@issue)
   end
 
 end

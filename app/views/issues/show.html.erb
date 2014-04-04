@@ -1,5 +1,4 @@
 
-
 <% if @issue_detail.is_pdf? %>
   <article>
     <p class="download"><%= @issue_detail.title %> is available as a PDF <%= link_to('View PDF', @issue_detail.pdf_url, class: "button") %> </p>

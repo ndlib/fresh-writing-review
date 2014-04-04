@@ -26,7 +26,7 @@ class Essay < ActiveRecord::Base
     string :issue_year
     string :medium
     boolean :published do
-      published?
+      issue_and_essay_published?
     end
   end
 
@@ -85,8 +85,12 @@ class Essay < ActiveRecord::Base
     end
   end
 
-  def published?
+  def issue_published?
     issue.present? && issue.published?
+  end
+
+  def issue_and_essay_published?
+    published? && issue_published?
   end
 
   private

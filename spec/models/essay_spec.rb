@@ -69,23 +69,54 @@ describe Essay do
     end
   end
 
-  describe '#published?' do
+  describe '#issue_published?' do
     it "is false without an issue" do
       subject.issue = nil
-      expect(subject.published?).to be_false
+      expect(subject.issue_published?).to be_false
     end
 
-    it "is false when the issue is unpublished" do
+    it "is false with an unpublished issue" do
       subject.issue = Issue.new(published: false)
-      expect(subject.published?).to be_false
+      expect(subject.issue_published?).to be_false
     end
 
-    it "is true when the issue is published" do
+    it "is true with a published issue" do
       subject.issue = Issue.new(published: true)
-      expect(subject.published?).to be_true
+      expect(subject.issue_published?).to be_true
     end
-
-    it "is false when published is set to false"
   end
 
+  describe '#issue_and_essay_published?' do
+    describe 'when #issue_published is true' do
+      before do
+        subject.stub(:issue_published?).and_return(true)
+      end
+
+      it "is false when published is false" do
+        subject.published = false
+        expect(subject.issue_and_essay_published?).to be_false
+      end
+
+      it "is true when published is true" do
+        subject.published = true
+        expect(subject.issue_and_essay_published?).to be_true
+      end
+    end
+
+    describe 'when #issue_published is false' do
+      before do
+        subject.stub(:issue_published?).and_return(false)
+      end
+
+      it "is false when published is false" do
+        subject.published = false
+        expect(subject.issue_and_essay_published?).to be_false
+      end
+
+      it "is false when published is true" do
+        subject.published = true
+        expect(subject.issue_and_essay_published?).to be_false
+      end
+    end
+  end
 end

@@ -6,18 +6,13 @@ class Admin::MarkdownController < AdminController
   def edit
     @markdown_content = nil
     if MarkdownContent.exists?(params[:id])
+      mcf = MarkdownComponentFactory.create(self)
       @markdown_content = MarkdownContent.find(params[:id])
+      @markdown_content.component_parent = mcf.content_type
+      @markdown_content.component_parent_id = mcf.component_parent
     else
       mcf = MarkdownComponentFactory.create(self)
-      markdown_id = nil
-      if mcf.content_type == 'essay'
-        markdown_id = mcf.essay.add_new_component(params[:component_type], "Please Edit")
-      elsif mcf.content_type = 'issue'
-        markdown_id = mcf.issue.add_new_component(params[:component_type], "Please Edit")
-      elsif mcf.content_type = 'essay_award'
-        markdown_id = mcf.essay_award.add_new_component(params[:component_type], "Please Edit")
-      end
-      redirect_to request.url.gsub(/new/, markdown_id.to_s)
+      redirect_to request.url.gsub(/new/, mcf.markdown_id.to_s)
     end
     @markdown_content
   end
@@ -28,7 +23,8 @@ class Admin::MarkdownController < AdminController
 
     if @markdown_content.update_attributes(markdown_content_params)
       flash[:success] = "Content saved"
-      redirect_to :back
+      markdown_content = params[:markdown_content]
+      redirect_to component_redirect_path(markdown_content[:component_parent], markdown_content[:component_parent_id])
     end
   end
 
@@ -39,8 +35,20 @@ class Admin::MarkdownController < AdminController
     render json: { success: true, image_path: i.image.url }
   end
 
-
   private
+
+  def component_redirect_path(component_parent, component_parent_id)
+    case component_parent
+    when 'essay'
+      essay = EssayQuery.find(component_parent_id)
+      admin_issue_essay_path(:issue_id => essay.issue.id, :id => essay.id)
+    when 'issue'
+      issue = IssueQuery.find(component_parent_id)
+      admin_issue_path(:id => issue.id)
+    when 'essay_award'
+    end
+  end
+
 
   def markdown_content_params
     params.require(:markdown_content).permit(:content)

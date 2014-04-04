@@ -45,7 +45,7 @@ class EssayStyleDetail
   end
 
   def essays
-    @essays ||= EssayQuery.essays_for_issue_and_essay_style(issue, essay_style)
+    @essays ||= EssayQuery.published_essays_for_issue_and_essay_style(issue, essay_style)
   end
 
 
