@@ -22,6 +22,7 @@ FreshWriting::Application.routes.draw do
       member do
         put 'publish'
         put 'unpublish'
+        put 'save_images'
       end
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
       resources :essays, except: [:index] do

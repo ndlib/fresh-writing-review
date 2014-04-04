@@ -39,6 +39,11 @@ class Admin::IssueDetail
   end
 
 
+  def image_form
+    @form ||= Admin::IssueImageForm.new(issue)
+  end
+
+
   def volume_title
     @issue.title
   end
