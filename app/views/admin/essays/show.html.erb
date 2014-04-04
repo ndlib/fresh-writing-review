@@ -1,5 +1,5 @@
 <h1><%= @essay_detail.volume_link %></h1>
-<h2><%= @essay_detail.essay_title %>  <%= link_to 'Edit', edit_admin_issue_essay_path(1, 1), class: 'btn btn-primary' %></h2>
+<h2><%= @essay_detail.essay_title %>  <%= link_to 'Edit', edit_admin_issue_essay_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></h2>
 <p class="on-off btn-group">
   <% if @essay_detail.published? %>
     <span class="glyphicon glyphicon-eye-open"></span> Published -
@@ -29,7 +29,7 @@
     <hr>
     <div class="awards">
     <h2>Awards</h2>
-    <p><%= link_to 'Add Award', new_admin_issue_essay_essay_award_path(1, 1), class: 'btn btn-primary' %></p>
+    <p><%= link_to 'Add Award', new_admin_issue_essay_essay_award_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
      </div>
   </div>
 

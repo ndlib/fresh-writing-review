@@ -20,6 +20,7 @@
 /public/system/images
 /public/system/attached_files
 /public/system/issues
+/public/system/essays
 
 # Test coverage dir
 /coverage

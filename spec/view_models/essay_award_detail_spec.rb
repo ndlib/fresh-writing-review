@@ -33,7 +33,7 @@ describe EssayAwardDetail do
 
   describe '#link_to_detail' do
     it 'links to the style show page' do
-      expect(subject.link_to_detail).to eq("<a href=\"/volumes/fid/award/eafid\"><img alt=\"Fff\" src=\"http://placehold.it/211x135/A4A774/fff\" /></a> <a class=\"title\" href=\"/volumes/fid/award/eafid\">title</a>")
+      expect(subject.link_to_detail).to eq("<a href=\"/volumes/fid/award/eafid\"><img alt=\"1\" src=\"/images/1\" /></a> <a class=\"title\" href=\"/volumes/fid/award/eafid\">title</a>")
     end
   end
 
@@ -61,7 +61,7 @@ describe EssayAwardDetail do
 
   describe "#essays" do
     it "calls essays the correct essay query" do
-      expect(EssayQuery).to receive(:essays_for_issue_and_essay_award).with(issue.friendly_id, essay_award)
+      expect(EssayQuery).to receive(:published_essays_for_issue_and_essay_award).with(issue.friendly_id, essay_award)
       subject.essays
     end
   end

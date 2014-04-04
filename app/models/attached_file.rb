@@ -1,5 +1,5 @@
 class AttachedFile < ActiveRecord::Base
-  has_many :essay_files
+  belongs_to :essay
 
   has_attached_file :file
 

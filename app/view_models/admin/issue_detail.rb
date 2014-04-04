@@ -17,6 +17,7 @@ class Admin::IssueDetail
     @issue = issue
   end
 
+
   def public_link
     if published?
       link_text = "View Volume"
@@ -94,7 +95,7 @@ class Admin::IssueDetail
 
 
   def essays
-    @issue.essays
+    EssayQuery.essays_for_issue(@issue)
   end
 
 end

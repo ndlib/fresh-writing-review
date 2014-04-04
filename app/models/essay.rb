@@ -13,13 +13,15 @@ class Essay < ActiveRecord::Base
   belongs_to :discussion_questions, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "discussion_questions_id"
   belongs_to :instructor_resources, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "instructor_resources_id"
 
-  has_one :essay_file
-  has_one :attached_file, through: :essay_file
+  has_one :attached_file
 
   validates :title, presence: true
 
+  has_attached_file :cover_image, styles: { large: "671x429#", small: '211x135#', highlight: '348x223#' }, default_url: '/placeholders/essay_cover_image_placeholder.gif'
+  validates_attachment_content_type :cover_image, :content_type => %w(image/jpeg image/jpg image/png)
+
   searchable do
-    text :title, :body_plain, :alt_body_plain, :discussion_questions_plain, :instructor_resources_plain
+    text :title, :author, :body_plain, :alt_body_plain, :discussion_questions_plain, :instructor_resources_plain, :author_biography_plain
 
     string :sort_title
     string :essay_style_title
@@ -55,6 +57,10 @@ class Essay < ActiveRecord::Base
 
   def instructor_resources_plain
     stripdown(instructor_resources)
+  end
+
+  def author_biography_plain
+    stripdown(author_biography)
   end
 
   def sort_title

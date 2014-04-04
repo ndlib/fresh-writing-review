@@ -19,6 +19,12 @@ class EssayDetail::Embed
   end
 
 
+  def cover_image
+    helpers.image_tag(essay.cover_image.url(:large))
+  end
+
+
+
   def render
     if display_embed?
       return render_to_string('/essays/embed', { object: self })

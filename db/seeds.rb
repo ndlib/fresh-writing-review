@@ -21,12 +21,19 @@ EssayStyle.delete_all
 end
 
 Issue.delete_all
-current_issue = Issue.create(published: true, year: 2014, title: "Volume 14", editorial_notes: markdown('issues', '2012', 'foreword.md'), editorial_board: markdown('issues', '2012', 'board.md'), acknowledgements: markdown('issues', '2012', 'acknowledgements.md'))
+current_issue = Issue.create(published: true, year: 2014, title: "Volume 14",
+        editorial_notes: markdown('issues', '2012', 'foreword.md'), editorial_board: markdown('issues', '2012', 'board.md'), acknowledgements: markdown('issues', '2012', 'acknowledgements.md'),
+        large_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', 'nature.jpeg')),
+        small_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', 'nature.jpeg')),
+        cover_image_credit: "The photographer",
+        cover_image_alt: 'trees!!!!'
+        )
 Issue.create(published: true, year: 2012,
   title: "Volume 12", editorial_notes: markdown('issues', '2012', 'foreword.md'), editorial_board: markdown('issues', '2012', 'board.md'), acknowledgements: markdown('issues', '2012', 'acknowledgements.md'),
   is_pdf: true,
   pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2012.pdf')),
-  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2012.jpg'))
+  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2012.jpg')),
+  small_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', 'food.jpeg')),
 )
 Issue.create(published: true, year: 2011,
   title: "Volume 11", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
@@ -80,7 +87,8 @@ end
 Essay.delete_all
 Essay.create(id: 1, issue_id: issue_id, published: true, essay_style: narrative_style, title: "Family of Deer", author: "Terence Clines",
     body: markdown('narrative_text.txt'),
-    author_biography: markdown('biography.txt')
+    author_biography: markdown('biography.txt'),
+    cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'essay_covers', 'nigthlife.jpeg'))
 )
 
 Essay.create(id: 3, issue_id: issue_id, published: true, essay_style: analysis_style, title: "Imperfect, Contradictory Beauty",
@@ -142,7 +150,5 @@ Page.delete_all
 end
 
 
-a = AttachedFile.create( title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
-e = Essay.find(5)
-EssayFile.create(essay: e, attached_file: a)
+a = AttachedFile.create( essay_id: 5, title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
 

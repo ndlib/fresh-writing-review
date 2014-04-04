@@ -18,6 +18,14 @@ describe Ability do
       expect(subject).to_not be_able_to(:read, Issue.new(published: false))
     end
 
+    it 'can read published essays' do
+      expect(subject).to be_able_to(:read, Essay.new(published: true))
+    end
+
+    it 'can not read unpublished essays' do
+      expect(subject).to_not be_able_to(:read, Essay.new(published: false))
+    end
+
     it 'can not edit' do
       expect(subject).to_not be_able_to(:edit, :all)
     end
@@ -36,6 +44,14 @@ describe Ability do
 
     it 'can read unpublished issues' do
       expect(subject).to be_able_to(:read, Issue.new(published: false))
+    end
+
+    it 'can read published essays' do
+      expect(subject).to be_able_to(:read, Essay.new(published: true))
+    end
+
+    it 'can read unpublished essays' do
+      expect(subject).to be_able_to(:read, Essay.new(published: false))
     end
 
     it 'can edit' do

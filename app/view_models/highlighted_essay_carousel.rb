@@ -14,6 +14,12 @@ class HighlightedEssayCarousel
     end
   end
 
+
+  def hightlighed_cover_image(highlighted_essay)
+    helpers.image_tag(highlighted_essay.essay.cover_image.url(:highlight))
+  end
+
+
   def highlighted_author(highlighted_essay)
     "by #{highlighted_essay.author}"
   end

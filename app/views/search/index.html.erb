@@ -29,11 +29,13 @@
   <% end %>
 </section>
 
+<%= will_paginate @essay_search.results %>
+
 <section class="results">
   <table>
     <tbody>
-      <% @essay_search.results.each do | essay_link | %>
-        <%= essay_link.render %>
+      <% @essay_search.rows.each do | row | %>
+        <%= row.render %>
       <% end %>
     </tbody>
   </table>

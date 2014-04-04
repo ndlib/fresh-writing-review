@@ -70,7 +70,6 @@ describe IssueDetail do
   end
 
 
-
   describe "#pdf_url" do
     before(:each) do
       issue.stub(:pdf).and_return(double(url: 'url'))
@@ -87,6 +86,5 @@ describe IssueDetail do
       issue.stub(:is_pdf?).and_return(false)
       expect(subject.pdf_url).to eq(nil)
     end
-
   end
 end

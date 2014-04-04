@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayDetail::DownloadFile do
 
-  let(:essay) { double(Essay, id: 1, essay_files: [] ) }
+  let(:essay) { double(Essay, id: 1 ) }
   subject { described_class.new(essay) }
 
   describe :self_render do
@@ -18,13 +18,13 @@ describe EssayDetail::DownloadFile do
 
   describe :has_files? do
 
-    it "returns true if the essay_files has any files" do
+    it "returns true if the essay has any files" do
       essay.stub(:attached_file).and_return(double(AttachedFile, id: 1) )
       expect(subject.has_files?).to be_true
     end
 
 
-    it "returns true if the essay_files has any files" do
+    it "returns true if the essay has any files" do
       essay.stub(:attached_file).and_return(nil)
       expect(subject.has_files?).to be_false
     end
