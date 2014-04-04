@@ -22,7 +22,7 @@ class Essay < ActiveRecord::Base
   validates_attachment_content_type :cover_image, :content_type => %w(image/jpeg image/jpg image/png)
 
   searchable do
-    text :title, :body_plain, :alt_body_plain, :discussion_questions_plain, :instructor_resources_plain
+    text :title, :author, :body_plain, :alt_body_plain, :discussion_questions_plain, :instructor_resources_plain, :author_biography_plain
 
     string :sort_title
     string :essay_style_title
@@ -58,6 +58,10 @@ class Essay < ActiveRecord::Base
 
   def instructor_resources_plain
     stripdown(instructor_resources)
+  end
+
+  def author_biography_plain
+    stripdown(author_biography)
   end
 
   def sort_title
