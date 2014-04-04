@@ -26,7 +26,7 @@ class EssayAwardDetail
 
 
   def link_to_detail
-    LinkToRouteWithImage.call(routes.issue_essay_award_path(issue.friendly_id, essay_award.friendly_id), essay_award.title, essay_award.id)
+    LinkToRouteWithImage.call(routes.issue_essay_award_path(issue.friendly_id, essay_award.friendly_id), essay_award.title, essay_award.cover_image.url(:small))
   end
 
 
