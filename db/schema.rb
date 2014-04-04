@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20140404140908) do
     t.datetime "file_updated_at"
     t.string   "title"
     t.text     "body"
+    t.integer  "essay_id"
   end
+
+  add_index "attached_files", ["essay_id"], name: "index_attached_files_on_essay_id", using: :btree
 
   create_table "editors", force: true do |t|
     t.string   "username"
@@ -57,13 +60,6 @@ ActiveRecord::Schema.define(version: 20140404140908) do
   end
 
   add_index "essay_awards", ["body_id"], name: "index_essay_awards_on_body_id", using: :btree
-
-  create_table "essay_files", force: true do |t|
-    t.integer "essay_id"
-    t.integer "attached_file_id"
-  end
-
-  add_index "essay_files", ["essay_id", "attached_file_id"], name: "index_essay_files_on_essay_id_and_attached_file_id", using: :btree
 
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
