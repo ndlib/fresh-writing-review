@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402204724) do
+ActiveRecord::Schema.define(version: 20140404135035) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20140402204724) do
     t.datetime "file_updated_at"
     t.string   "title"
     t.text     "body"
+    t.integer  "essay_id"
   end
+
+  add_index "attached_files", ["essay_id"], name: "index_attached_files_on_essay_id", using: :btree
 
   create_table "editors", force: true do |t|
     t.string   "username"
