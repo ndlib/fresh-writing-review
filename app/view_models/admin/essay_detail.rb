@@ -38,6 +38,12 @@ class Admin::EssayDetail
     helpers.link_to(link_text, routes.issue_essay_path(essay.issue, essay))
   end
 
+
+  def image_form
+    @form ||= Admin::EssayImageForm.new(essay)
+  end
+
+
   def files
     if essay.attached_file
       [essay.attached_file]

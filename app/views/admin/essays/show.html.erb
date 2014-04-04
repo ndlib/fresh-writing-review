@@ -56,7 +56,22 @@
     <h2>Images</h2>
 
     <h3>Cover Image</h3>
-    <%= render partial: '/admin/images/form', locals: { width: 671, height: 429 } %>
+    <div class="image_editor">
+      <div class="image">
+        <%= @essay_detail.image_form.essay_cover_image %>
+        <br><a href="#" class="change">Change</a>
+      </div>
+      <div class="form" style="display:none;">
+        <%= simple_form_for @essay_detail.image_form, url: save_images_admin_issue_essay_path(@essay_detail.issue, @essay_detail.essay), method: 'put' do | f | %>
+          <%= f.input :cover_image, as: :file %>
+          <%= f.input :cover_image_credit %>
+          <%= f.input :cover_image_alt %>
+
+          <%= f.submit :save %>
+        <% end %>
+      </div>
+    </div>
+
 
     <h3>Author Image</h3>
     <%= render partial: '/admin/images/form', locals: { width: 50, height: 75 } %>

@@ -30,7 +30,6 @@ class Admin::IssueImageForm
       self.cover_image_credit = params[:cover_image_credit]
       self.cover_image_alt = params[:cover_image_alt]
     else
-      puts "hi"
       self.cover_image_credit = issue.cover_image_credit
       self.cover_image_alt = issue.cover_image_alt
     end

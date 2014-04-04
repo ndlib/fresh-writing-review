@@ -29,6 +29,7 @@ FreshWriting::Application.routes.draw do
         member do
           put 'publish'
           put 'unpublish'
+          put 'save_images'
         end
         resources :attached_files, except: [ :index ]
         resources :awards, only: [ :new, :create, :edit, :update ]
