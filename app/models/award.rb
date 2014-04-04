@@ -1,5 +1,4 @@
 class Award < ActiveRecord::Base
-  self.table_name = "essay_awards"
   extend FriendlyId
   friendly_id :title, use: :slugged
 
