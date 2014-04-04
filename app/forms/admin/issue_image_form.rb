@@ -8,11 +8,7 @@ class Admin::IssueImageForm
 
   attr_accessor :issue
 
-  attribute :large_cover_image, String
-  attribute :small_cover_image, String
-  attribute :cover_image_credit, String
-  attribute :cover_image_alt, String
-
+  attr_accessor :cover_image_alt, :cover_image_credit, :large_cover_image, :small_cover_image
 
   def self.build(controller)
     issue = IssueQuery.find(controller.params[:id])
@@ -24,8 +20,17 @@ class Admin::IssueImageForm
     @issue = issue
 
     if params.size > 0
-      attributes = params
+      if params[:large_cover_image]
+        self.large_cover_image = params[:large_cover_image]
+      end
+      if params[:small_cover_image]
+        self.small_cover_image = params[:small_cover_image]
+      end
+
+      self.cover_image_credit = params[:cover_image_credit]
+      self.cover_image_alt = params[:cover_image_alt]
     else
+      puts "hi"
       self.cover_image_credit = issue.cover_image_credit
       self.cover_image_alt = issue.cover_image_alt
     end
@@ -55,7 +60,16 @@ class Admin::IssueImageForm
   private
 
     def persist!
-      issue.attributes = attributes
+      if large_cover_image
+        issue.large_cover_image = large_cover_image
+      end
+      if small_cover_image
+        issue.small_cover_image = small_cover_image
+      end
+
+      issue.cover_image_credit = cover_image_credit
+      issue.cover_image_alt = cover_image_alt
+
       issue.save!
     end
 end
