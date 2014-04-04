@@ -1044,6 +1044,10 @@ a.instructor {
   background: url(image-path('instructor.svg')) no-repeat top right;
 
 }
+a.print {
+  background: url(image-path('print.svg')) no-repeat top right;
+  padding-top:12px;
+}
 .on {display:block;}
 .abs { position: absolute; }
 .fixed {
@@ -1061,4 +1065,6 @@ body {
 
 
 
-
+select {
+  -webkit-appearance: menulist !important; 
+}
