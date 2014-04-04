@@ -1,7 +1,9 @@
 class AttachedFile < ActiveRecord::Base
-  has_many :essay_files
+  belongs_to :essay
 
   has_attached_file :file
 
   do_not_validate_attachment_file_type :file
+  validates_attachment_presence :file
+  validates_presence_of :title, :body
 end

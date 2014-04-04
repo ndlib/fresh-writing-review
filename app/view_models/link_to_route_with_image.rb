@@ -16,6 +16,6 @@ class LinkToRouteWithImage
 
 
   def link_to
-    "#{helpers.link_to(PlaceholderImage.call(@width, @height, @image), @route)} #{helpers.link_to(@title, @route, class: "title")}"
+    "#{helpers.link_to(helpers.image_tag(@image), @route)} #{helpers.link_to(@title, @route, class: "title")}"
   end
 end

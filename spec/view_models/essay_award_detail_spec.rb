@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayAwardDetail do
   let(:issue) { double(Issue, title: 'title', id: 1, friendly_id: 'fid') }
-  let(:essay_award) { double(EssayAward, title: 'title', id: 1, friendly_id: 'eafid', body: double(MarkdownContent, content: "Body")) }
+  let(:essay_award) { double(EssayAward, title: 'title', id: 1, friendly_id: 'eafid', body: double(MarkdownContent, content: "Body"), cover_image: double(Image, url:  'url')) }
   let(:essay) { double(Essay, id: 1, title: 'essay')}
 
   subject { described_class.new(issue, essay_award)}
@@ -33,7 +33,7 @@ describe EssayAwardDetail do
 
   describe '#link_to_detail' do
     it 'links to the style show page' do
-      expect(subject.link_to_detail).to eq("<a href=\"/volumes/fid/award/eafid\"><img alt=\"Fff\" src=\"http://placehold.it/211x135/A4A774/fff\" /></a> <a class=\"title\" href=\"/volumes/fid/award/eafid\">title</a>")
+      expect(subject.link_to_detail).to eq("<a href=\"/volumes/fid/award/eafid\"><img alt=\"Url\" src=\"/images/url\" /></a> <a class=\"title\" href=\"/volumes/fid/award/eafid\">title</a>")
     end
   end
 

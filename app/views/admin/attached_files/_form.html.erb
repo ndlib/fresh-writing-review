@@ -1,0 +1,5 @@
+<%= f.input :title %>
+<%= f.input :body %>
+<%= f.input :file %>
+
+<%= f.submit 'Save', class: 'btn btn-primary' %> <%= link_to("Cancel", admin_issue_essay_path(params[:issue_id], params[:essay_id]), class: 'btn') %>

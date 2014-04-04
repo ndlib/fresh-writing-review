@@ -5,7 +5,6 @@ describe IssueHeader do
   let(:issue) { double(Issue, id: 1, friendly_id: 'fid', title: 'title', large_cover_image: double(Image, url: 'url'), small_cover_image: double(Image, url: 'url'), cover_image_alt: 'alt', cover_image_credit: 'credit') }
   subject { described_class.new(issue, true) }
 
-
   describe :self_render do
 
     it "instanciates itself and renders" do
@@ -14,7 +13,6 @@ describe IssueHeader do
       described_class.render(issue, true)
     end
   end
-
 
 
   describe :full_image do

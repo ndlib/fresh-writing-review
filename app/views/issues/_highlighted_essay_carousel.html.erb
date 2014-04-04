@@ -6,7 +6,7 @@
       <li>
         <div>
           <div class="cover">
-              <%= placeholder_image(211, 135, highlighted_essay.essay_id) %>
+              <%= highlighted_essay_carousel.hightlighed_cover_image(highlighted_essay) %>
               <%= highlighted_essay_carousel.link_to_essay(highlighted_essay) %>
               <div class="meta"><%= highlighted_essay_carousel.highlighted_author(highlighted_essay) %>
                             <span><%= highlighted_essay_carousel.highlighted_essay_style(highlighted_essay) %></span></div>
@@ -20,3 +20,4 @@
   </ul>
 </div>
 <% end %>
+<% # highlighted_essay_carousel.hightlighed_cover_image(highlighted_essay) %>

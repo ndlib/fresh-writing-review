@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402204724) do
+ActiveRecord::Schema.define(version: 20140404140908) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20140402204724) do
     t.datetime "file_updated_at"
     t.string   "title"
     t.text     "body"
+    t.integer  "essay_id"
   end
+
+  add_index "attached_files", ["essay_id"], name: "index_attached_files_on_essay_id", using: :btree
 
   create_table "editors", force: true do |t|
     t.string   "username"
@@ -50,22 +53,23 @@ ActiveRecord::Schema.define(version: 20140402204724) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "body_id"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
   end
 
   add_index "essay_awards", ["body_id"], name: "index_essay_awards_on_body_id", using: :btree
-
-  create_table "essay_files", force: true do |t|
-    t.integer "essay_id"
-    t.integer "attached_file_id"
-  end
-
-  add_index "essay_files", ["essay_id", "attached_file_id"], name: "index_essay_files_on_essay_id_and_attached_file_id", using: :btree
 
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
   end
 
   add_index "essay_styles", ["slug"], name: "index_essay_styles_on_slug", unique: true, using: :btree
@@ -89,6 +93,12 @@ ActiveRecord::Schema.define(version: 20140402204724) do
     t.integer  "discussion_questions_id"
     t.integer  "instructor_resources_id"
     t.boolean  "published"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
+    t.string   "cover_image_credit"
+    t.string   "cover_image_alt"
   end
 
   add_index "essays", ["alt_body_id"], name: "index_essays_on_alt_body_id", using: :btree
