@@ -4,6 +4,8 @@
     <div class="controls wmd-panel" id="markdownEditScreen" style="margin-left:0px;">
       <%= f.input :content, cols: 40, rows: 20, label:false, :as => :pagedown, :input_html => { :preview => false } %>
       <%= f.input :id, as: :hidden, value: @markdown_content.id %>
+      <%= f.input :component_parent, as: :hidden, value: @component_parent %>
+      <%= f.input :component_parent_id, as: :hidden, value: @component_parent_id %>
     </div>
   </div>
 

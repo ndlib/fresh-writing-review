@@ -15,7 +15,7 @@ FreshWriting::Application.routes.draw do
     resources :pages do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
-    resources :awards, only: [ :new, :create, :edit, :update ] do
+    resources :awards, only: [ :new, :create, :edit, :update, :show ] do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
     resources :issues, path: "volumes" do
