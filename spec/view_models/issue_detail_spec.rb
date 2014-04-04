@@ -70,7 +70,6 @@ describe IssueDetail do
   end
 
 
-
   describe "#pdf_url" do
     before(:each) do
       issue.stub(:pdf).and_return(double(url: 'url'))

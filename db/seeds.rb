@@ -87,7 +87,8 @@ end
 Essay.delete_all
 Essay.create(id: 1, issue_id: issue_id, published: true, essay_style: narrative_style, title: "Family of Deer", author: "Terence Clines",
     body: markdown('narrative_text.txt'),
-    author_biography: markdown('biography.txt')
+    author_biography: markdown('biography.txt'),
+    cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'essay_covers', 'nigthlife.jpeg'))
 )
 
 Essay.create(id: 3, issue_id: issue_id, published: true, essay_style: analysis_style, title: "Imperfect, Contradictory Beauty",
