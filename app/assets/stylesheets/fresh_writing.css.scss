@@ -89,6 +89,11 @@ a:visited {
 }
 a:active, a:link {
   text-decoration: none !important;
+
+}
+
+a:active {
+  color:$dk-green;
 }
 
 .page-body {
@@ -312,6 +317,17 @@ nav.top-bar {
 	padding-right: 0 !important;
 }
 
+.orbit-bullets-container {
+  clear: both;
+  position: absolute;
+  bottom:35px;
+  width: 100%
+}
+
+.orbit-bullets {
+  margin-bottom: 0;
+}
+
 .orbit-bullets li {
   cursor: pointer;
 }
@@ -333,12 +349,17 @@ nav.top-bar {
   background-color: transparent;
 }
 
+.orbit-container {
+  height:290px;
+}
+
 .slideshow-wrapper .orbit-container .orbit-bullets li {
   display:inline-block;
 }
 
-.volume {
+div.volume {
   position: relative;
+  margin-bottom: 15px;
   a.vtitle {
     position: absolute;
     bottom:0;
@@ -356,7 +377,13 @@ nav.top-bar {
   a {
       border:none;
     }
-
+  .credit {
+    position: absolute;
+    bottom:-1.5em;
+    right:0;
+    font-size: 1.0rem;
+    color:$lt-grey;
+  }
 }
 
 .volume-list {
@@ -377,7 +404,7 @@ nav.top-bar {
   }
 
 .volume.home a.vtitle {
-  font-size: 4.7rem;
+  font-size: 4.5rem;
   padding-top:147px;
   width:230px;
 }
@@ -768,6 +795,20 @@ article {
   .awards {
     margin-bottom:20px;
   }
+  .styles {
+    li {
+      margin-bottom:1em;
+    }
+    a {
+      border:none !important;
+    }
+    .title {
+      color:#fff;
+      margin-top:-1.5em;
+      padding-left:10px;
+      font-size:2.5rem;
+    }
+  }
 }
 
 .side-nav li a:not(.button) {
@@ -790,6 +831,32 @@ article {
 #header .row, #navigation, .page-body, #footer, .row.volume {
 	max-width:$page;
 
+}
+
+.results {
+  font-family: $headers;
+  table {
+    border:none;
+  }
+  td {
+    font-size: 1.6rem;
+    line-height: 1.4em;
+    vertical-align: bottom;
+  }
+  a {
+    border: none;
+
+  }
+  .title {
+    width: 40%;
+    a {
+      color:$dk-green;
+      font-size:2rem;
+    }
+  }
+  .author {
+    color:$lt-green;
+  }
 }
 
 

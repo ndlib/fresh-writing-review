@@ -15,7 +15,7 @@ FreshWriting::Application.routes.draw do
     resources :pages do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
-    resources :awards, only: [ :new, :create, :edit, :update, :show ] do
+    resources :awards do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
     resources :issues, path: "volumes" do
@@ -32,7 +32,7 @@ FreshWriting::Application.routes.draw do
           put 'save_images'
         end
         resources :attached_files, except: [ :index ]
-        resources :awards, only: [ :new, :create, :edit, :update ]
+        resources :essay_awards, except: [ :index, :show ]
         resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
       end
     end

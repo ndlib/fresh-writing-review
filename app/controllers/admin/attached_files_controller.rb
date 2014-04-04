@@ -6,7 +6,7 @@ class Admin::AttachedFilesController < AdminController
 
   def create
     @attached_file = AttachedFile.new(params.require(:attached_file).permit(:file, :title, :body))
-
+    @attached_file.essay = essay
     if @attached_file.save
       flash[:success] = "File \"#{@attached_file.title}\" uploaded"
       redirect_to admin_issue_essay_path(params[:issue_id], params[:essay_id])
@@ -36,5 +36,10 @@ class Admin::AttachedFilesController < AdminController
     flash[:success] = "File \"#{@attached_file.title}\" deleted"
     redirect_to admin_issue_essay_path(params[:issue_id], params[:essay_id])
   end
+
+  private
+    def essay
+      @essay ||= EssayQuery.find(params[:essay_id])
+    end
 
 end

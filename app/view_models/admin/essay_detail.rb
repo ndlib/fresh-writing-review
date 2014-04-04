@@ -5,7 +5,6 @@ class Admin::EssayDetail
 
 
   def self.build(application)
-    essay_id = application.request.params[:id]
     mef = Admin::MarkdownEditorFunctions.build(application)
     self.new(mef.mc.essay, mef)
   end
@@ -52,8 +51,8 @@ class Admin::EssayDetail
     end
   end
 
-  def award
-    essay.award
+  def essay_award
+    essay.essay_award
   end
 
 

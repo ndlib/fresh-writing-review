@@ -43,12 +43,16 @@
     </div>
     <div class="awards">
       <h2>Awards</h2>
-      <% if @essay_detail.award.present? %>
-        <ul>
-          <li><%= @essay_detail.award.inspect %></li>
+      <% if @essay_detail.essay_award.present? %>
+        <ul class="list">
+          <li>
+            <%= link_to @essay_detail.essay_award.title, edit_admin_issue_essay_essay_award_path(@essay_detail.issue, @essay_detail.essay, @essay_detail.essay_award) %>
+            <%= link_to(raw('<span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span>'), admin_issue_essay_essay_award_path(@essay_detail.issue, @essay_detail.essay, @essay_detail.essay_award), method: :delete, confirm: "Remove \"#{@essay_detail.essay_award.title}\"?") %>
+          </li>
         </ul>
+      <% else %>
+        <p><%= link_to 'Add Award', new_admin_issue_essay_essay_award_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
       <% end %>
-      <p><%= link_to 'Add Award', new_admin_issue_essay_award_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
     </div>
   </div>
 
