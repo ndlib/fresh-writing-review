@@ -44,6 +44,10 @@ class Admin::EssayDetail
     end
   end
 
+  def award
+    essay.essay_award
+  end
+
 
   def components
     {

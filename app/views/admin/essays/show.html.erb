@@ -43,6 +43,11 @@
     </div>
     <div class="awards">
       <h2>Awards</h2>
+      <% if @essay_detail.award.present? %>
+        <ul>
+          <li><%= @essay_detail.award.inspect %></li>
+        </ul>
+      <% end %>
       <p><%= link_to 'Add Award', new_admin_issue_essay_essay_award_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
     </div>
   </div>
