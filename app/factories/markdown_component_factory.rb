@@ -6,8 +6,8 @@ module MarkdownComponentFactory
     if @params[:page_id] || @params[:conroller] == 'admin/pages'
       @@content_type = 'page'
       MarkdownComponentFactory::PageContent.new(@params)
-    elsif @params[:essay_award_id] || @params[:controller] == 'admin/essay_awards'
-      @@content_type = 'essay_award'
+    elsif @params[:award_id] || @params[:controller] == 'admin/awards'
+      @@content_type = 'award'
       MarkdownComponentFactory::EssayAwardContent.new(@params)
     elsif @params[:issue_id] && @params[:essay_id] || @params[:controller] == 'admin/essays'
       @@content_type = 'essay'
@@ -17,8 +17,8 @@ module MarkdownComponentFactory
       MarkdownComponentFactory::IssueContent.new(@params)
     end
   end
-  
-  
+
+
   def content_type
     @@content_type
   end

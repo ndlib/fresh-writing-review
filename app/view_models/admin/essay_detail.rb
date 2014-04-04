@@ -45,7 +45,7 @@ class Admin::EssayDetail
   end
 
   def award
-    essay.essay_award
+    essay.award
   end
 
 

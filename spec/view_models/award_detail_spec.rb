@@ -1,19 +1,19 @@
 require 'spec_helper'
 
 
-describe EssayAwardDetail do
+describe AwardDetail do
   let(:issue) { double(Issue, title: 'title', id: 1, friendly_id: 'fid') }
-  let(:essay_award) { double(EssayAward, title: 'title', id: 1, friendly_id: 'eafid', body: double(MarkdownContent, content: "Body"), cover_image: double(Image, url:  'url')) }
+  let(:award) { double(Award, title: 'title', id: 1, friendly_id: 'eafid', body: double(MarkdownContent, content: "Body"), cover_image: double(Image, url:  'url')) }
   let(:essay) { double(Essay, id: 1, title: 'essay')}
 
-  subject { described_class.new(issue, essay_award)}
+  subject { described_class.new(issue, award)}
 
 
 
   describe :build do
     before(:each) do
-      @controller = double(ApplicationController, params: ActionController::Parameters.new(issue_id: issue.friendly_id, id: essay_award.friendly_id ))
-      EssayAwardQuery.stub(:find).with(essay_award.friendly_id).and_return(essay_award)
+      @controller = double(ApplicationController, params: ActionController::Parameters.new(issue_id: issue.friendly_id, id: award.friendly_id ))
+      AwardQuery.stub(:find).with(award.friendly_id).and_return(award)
       IssueQuery.stub(:find).with(issue.friendly_id)
     end
 
@@ -24,7 +24,7 @@ describe EssayAwardDetail do
     end
 
     it "passes the essay into the object" do
-      expect(subject.build(@controller).essay_award).to eq(essay_award)
+      expect(subject.build(@controller).award).to eq(award)
     end
 
   end
@@ -61,7 +61,7 @@ describe EssayAwardDetail do
 
   describe "#essays" do
     it "calls essays the correct essay query" do
-      expect(EssayQuery).to receive(:published_essays_for_issue_and_essay_award).with(issue.friendly_id, essay_award)
+      expect(EssayQuery).to receive(:published_essays_for_issue_and_award).with(issue.friendly_id, award)
       subject.essays
     end
   end
@@ -69,7 +69,7 @@ describe EssayAwardDetail do
 
   describe "#body" do
     it "references the markdown object" do
-      expect(essay_award.body).to respond_to(:content)
+      expect(award.body).to respond_to(:content)
     end
   end
 

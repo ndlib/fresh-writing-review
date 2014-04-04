@@ -15,7 +15,7 @@ FreshWriting::Application.routes.draw do
     resources :pages do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
-    resources :essay_awards, only: [ :new, :create, :edit, :update ] do
+    resources :awards, only: [ :new, :create, :edit, :update ] do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
     resources :issues, path: "volumes" do
@@ -30,7 +30,7 @@ FreshWriting::Application.routes.draw do
           put 'unpublish'
         end
         resources :attached_files, except: [ :index ]
-        resources :essay_awards, only: [ :new, :create, :edit, :update ]
+        resources :awards, only: [ :new, :create, :edit, :update ]
         resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
       end
     end
@@ -57,7 +57,7 @@ FreshWriting::Application.routes.draw do
       end
     end
     resources :essay_styles, only: [:show], path: "style"
-    resources :essay_awards, only: [:show], path: "award"
+    resources :awards, only: [:show], path: "award"
   end
 
   resources :pages, path: "/", only: :show

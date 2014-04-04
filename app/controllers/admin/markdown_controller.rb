@@ -14,8 +14,8 @@ class Admin::MarkdownController < AdminController
         markdown_id = mcf.essay.add_new_component(params[:component_type], "Please Edit")
       elsif mcf.content_type = 'issue'
         markdown_id = mcf.issue.add_new_component(params[:component_type], "Please Edit")
-      elsif mcf.content_type = 'essay_award'
-        markdown_id = mcf.essay_award.add_new_component(params[:component_type], "Please Edit")
+      elsif mcf.content_type = 'award'
+        markdown_id = mcf.award.add_new_component(params[:component_type], "Please Edit")
       end
       redirect_to request.url.gsub(/new/, markdown_id.to_s)
     end

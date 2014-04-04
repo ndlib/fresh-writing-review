@@ -3,7 +3,7 @@ if !defined?(STYLES)
 end
 FactoryGirl.define do
 
-  factory :essay_award do
+  factory :award do
     sequence(:title) { |n| STYLES[n%STYLES.length] }
   end
 end
