@@ -28,8 +28,8 @@ module MarkdownComponentFactory
       self.essay.add_new_component(params[:component_type], "Please Edit")
     elsif self.content_type = 'issue'
       self.issue.add_new_component(params[:component_type], "Please Edit")
-    elsif self.content_type = 'essay_award'
-      self.essay_award.add_new_component(params[:component_type], "Please Edit")
+    elsif self.content_type = 'award'
+      self.award.add_new_component(params[:component_type], "Please Edit")
     end
   end
 
@@ -40,8 +40,8 @@ module MarkdownComponentFactory
       self.essay.id
     when 'issue'
       self.issue.id
-    when 'essay_award'
-      self.essay_award.id
+    when 'award'
+      self.award.id
     end
   end
 
