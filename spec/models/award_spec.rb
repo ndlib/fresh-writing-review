@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe EssayAward do
+describe Award do
 
   subject { described_class.new }
 

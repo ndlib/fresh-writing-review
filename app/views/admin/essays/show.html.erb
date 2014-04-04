@@ -27,10 +27,29 @@
       <li><%= link_to 'Media Embed', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited</li>
     </ul>
     <hr>
+    <div class="files">
+      <h2>Files</h2>
+      <% if @essay_detail.files.present? %>
+        <ul class="list">
+          <% @essay_detail.files.each do |file| %>
+            <li>
+              <%= link_to file.title, edit_admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay, file) %>
+              <%= link_to(raw('<span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span>'), admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay, file), method: :delete, confirm: "Delete \"#{file.title}\"?") %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p><%= link_to 'Upload File', new_admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
+      <% end %>
+    </div>
     <div class="awards">
-    <h2>Awards</h2>
-    <p><%= link_to 'Add Award', new_admin_issue_essay_essay_award_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
-     </div>
+      <h2>Awards</h2>
+      <% if @essay_detail.award.present? %>
+        <ul>
+          <li><%= @essay_detail.award.inspect %></li>
+        </ul>
+      <% end %>
+      <p><%= link_to 'Add Award', new_admin_issue_essay_award_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
+    </div>
   </div>
 
   <div class="large-6 columns">

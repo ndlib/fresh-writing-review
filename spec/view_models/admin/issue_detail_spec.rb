@@ -2,16 +2,50 @@ require 'spec_helper'
 
 describe Admin::IssueDetail do
 
-  let(:issue) { double(Issue, id: 1, title: 'title', published?: true, is_pdf?: true )}
-  subject { Admin::IssueDetail.new(issue)}
+  let(:markdown_editor_functions) { double(Admin::MarkdownEditorFunctions, issue_content_status: 'Done', issue_content_link: '/admin/volumes/test') }
+  let(:issue) { double(Issue, id: 1, title: 'title', published?: true, is_pdf?: true, essays: [1,2,3])}
+  subject { Admin::IssueDetail.new(issue, markdown_editor_functions) }
 
-  it "has a title" do
-    expect(subject.title).to eq("title")
+  context "Issue Detail Attributes" do
+    it "has an attached issue" do
+      expect(subject.issue).to eq(issue)
+    end
+
+    it "has a title" do
+      expect(subject.title).to eq("title")
+    end
+
+    it "#volume_title" do
+      expect(subject.volume_title).to eq("title")
+    end
+
+    it "#essays" do
+      # expect(subject.essays.count).to eq 3
+    end
+
+    it "#issue_id" do
+      expect(subject.issue_id).to eq 1
+    end
   end
-
 
   it "displays an edit button for the issue" do
     expect(subject.edit_button).to eq("<a class=\"btn btn-primary\" href=\"/admin/volumes/1/edit\">Edit</a>")
+  end
+
+  context "Content Edit Routing" do
+
+    describe "#edit_content_status" do
+      it "returns the status for content" do
+        expect(subject.edit_content_status('test')).to eq("Done")
+      end
+    end
+
+    describe "#edit_content_link" do
+      it "returns the issue content link" do
+        expect(subject.edit_content_link('test')).to eq("/admin/volumes/test")
+      end
+    end
+
   end
 
 

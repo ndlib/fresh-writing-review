@@ -65,11 +65,6 @@ Issue.create!(published: true, year: 2006,
   pdf: File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2006.pdf')),
   old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
 )
-Issue.create!(published: false, year: 2010,
-  title: "Volume 10", editorial_notes: markdown('issues', '2011', 'foreword.md'), editorial_board: markdown('issues', '2011', 'board.md'), acknowledgements: markdown('issues', '2011', 'acknowledgements.md'),
-  is_pdf: true,
-  old_cover_image: File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
-)
 
 issue_id = Issue.first.id
 narrative_style = EssayStyle.all[0]
@@ -78,9 +73,9 @@ research_style = EssayStyle.all[2]
 definition_style = EssayStyle.all[3]
 
 
-EssayAward.delete_all
+Award.delete_all
 ['McPartlin Award', 'Snite Museum of Art'].each do | title |
-  EssayAward.create!(title: title, body: markdown('award_text.md'))
+  Award.create!(title: title, body: markdown('award_text.md'))
 end
 
 
@@ -114,7 +109,7 @@ Essay.create!(id: 5, issue_id: issue_id, published: true, essay_style: research_
     discussion_questions: markdown('zavakos_discussion_questions.txt'),
     author_biography: markdown('biography_long.md'),
     placement: 1,
-    essay_award: EssayAward.first
+    award: Award.first
 )
 
 Essay.create!(id: 6, issue_id: issue_id, published: true, essay_style: analysis_style, title: "Monsoon: Winds of Culture", author: "Jennifer Cha",
@@ -123,7 +118,7 @@ Essay.create!(id: 6, issue_id: issue_id, published: true, essay_style: analysis_
     discussion_questions: markdown('zavakos_discussion_questions.txt'),
     author_biography: markdown('biography.txt'),
     placement: 2,
-    essay_award: EssayAward.first
+    award: Award.first
 )
 
 Essay.create!(id: 7, issue_id: issue_id, published: true, essay_style: research_style, title: "Easing into the Future: Federal Reserve Policy under Janet Yellen", author: "Emily Campagna",
@@ -149,6 +144,6 @@ Page.delete_all
   Page.create!(title: page.titleize, path: page, body: markdown('pages', "#{page}.md"))
 end
 
-
-a = AttachedFile.create!( essay_id: 5, title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
+AttachedFile.destroy_all
+AttachedFile.create!( essay_id: 5, title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
 

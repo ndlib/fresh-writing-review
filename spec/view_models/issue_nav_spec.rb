@@ -44,10 +44,10 @@ describe IssueNav do
   end
 
 
-  describe '#essay_awards' do
-    it 'calls EssayAwardQuery' do
-      expect(EssayAwardQuery).to receive(:all).and_return([])
-      subject.essay_awards
+  describe '#awards' do
+    it 'calls AwardQuery' do
+      expect(AwardQuery).to receive(:all).and_return([])
+      subject.awards
     end
   end
 

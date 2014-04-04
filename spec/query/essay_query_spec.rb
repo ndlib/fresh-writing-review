@@ -61,16 +61,16 @@ describe EssayQuery do
   end
 
 
-  describe "#published_essays_for_issue_and_essay_award" do
+  describe "#published_essays_for_issue_and_award" do
     before do
       @issue = FactoryGirl.create(:issue)
-      @essay_award = FactoryGirl.create(:essay_award)
-      @essays = FactoryGirl.create_list(:essay, 2, issue: @issue, essay_award: @essay_award, placement: [ 1, 2 ])
+      @award = FactoryGirl.create(:award)
+      @essays = FactoryGirl.create_list(:essay, 2, issue: @issue, award: @award, placement: [ 1, 2 ])
     end
 
 
     it "returns the essays for the issue and the award" do
-      found = subject.published_essays_for_issue_and_essay_award(@issue.friendly_id, @essay_award)
+      found = subject.published_essays_for_issue_and_award(@issue.friendly_id, @award)
       expect(found.count).to be == 2
       expect(found).to eq(@essays)
     end
@@ -83,7 +83,7 @@ describe EssayQuery do
       @essays[0].placement = 2
       @essays[0].save!
 
-      found = subject.published_essays_for_issue_and_essay_award(@issue.friendly_id, @essay_award)
+      found = subject.published_essays_for_issue_and_award(@issue.friendly_id, @award)
       expect(found.first).to eq(@essays[1])
       expect(found.last).to eq(@essays[0])
     end
@@ -91,13 +91,13 @@ describe EssayQuery do
 
     it "returns an empty array for a different award" do
       alternate_award = FactoryGirl.create(:issue)
-      found = subject.published_essays_for_issue_and_essay_award(alternate_award.friendly_id, @essay_award)
+      found = subject.published_essays_for_issue_and_award(alternate_award.friendly_id, @award)
       expect(found.count).to be == 0
     end
 
-    it "returns an empty array for a different essay_award" do
-      alternate_award = FactoryGirl.create(:essay_award)
-      found = subject.published_essays_for_issue_and_essay_award(@issue.friendly_id, alternate_award)
+    it "returns an empty array for a different award" do
+      alternate_award = FactoryGirl.create(:award)
+      found = subject.published_essays_for_issue_and_award(@issue.friendly_id, alternate_award)
       expect(found.count).to be == 0
     end
 
