@@ -8,7 +8,7 @@ module MarkdownComponentFactory
       MarkdownComponentFactory::PageContent.new(@params)
     elsif @params[:award_id] || @params[:controller] == 'admin/awards'
       @@content_type = 'award'
-      MarkdownComponentFactory::EssayAwardContent.new(@params)
+      MarkdownComponentFactory::AwardContent.new(@params)
     elsif @params[:issue_id] && @params[:essay_id] || @params[:controller] == 'admin/essays'
       @@content_type = 'essay'
       MarkdownComponentFactory::EssayContent.new(@params)

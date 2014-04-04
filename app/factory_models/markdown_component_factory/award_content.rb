@@ -1,4 +1,4 @@
-class MarkdownComponentFactory::EssayAwardContent
+class MarkdownComponentFactory::AwardContent
   include RailsHelpers
   include MarkdownComponentFactory
 
