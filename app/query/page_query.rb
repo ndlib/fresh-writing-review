@@ -1,7 +1,7 @@
 class PageQuery
 
   def self.all
-    relation
+    relation.order(:title)
   end
 
   def self.find(id)
