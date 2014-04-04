@@ -149,7 +149,5 @@ Page.delete_all
 end
 
 
-a = AttachedFile.create( title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
-e = Essay.find(5)
-EssayFile.create(essay: e, attached_file: a)
+a = AttachedFile.create( essay_id: 5, title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
 

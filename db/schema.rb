@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404135337) do
+ActiveRecord::Schema.define(version: 20140404140058) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -56,13 +56,6 @@ ActiveRecord::Schema.define(version: 20140404135337) do
   end
 
   add_index "essay_awards", ["body_id"], name: "index_essay_awards_on_body_id", using: :btree
-
-  create_table "essay_files", force: true do |t|
-    t.integer "essay_id"
-    t.integer "attached_file_id"
-  end
-
-  add_index "essay_files", ["essay_id", "attached_file_id"], name: "index_essay_files_on_essay_id_and_attached_file_id", using: :btree
 
   create_table "essay_styles", force: true do |t|
     t.string   "slug"
