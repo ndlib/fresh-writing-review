@@ -1,7 +1,7 @@
 
 <ul class="side-nav">
   <h3>Essay Styles</h3>
-   <ul class="list-unstyled">
+   <ul class="list-unstyled styles">
     <% issue_nav.essay_styles.each do |style| %>
       <% if style.has_essays? %>
         <li><%= raw style.link_to_show %></li>
