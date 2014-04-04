@@ -14,7 +14,7 @@ module FreshWriting
 
     additional_autoload_directories = [
       Rails.root.join('lib'),
-      Rails.root.join('app', 'factories'),
+      Rails.root.join('app', 'factory_models'),
       Rails.root.join('app', 'forms'),
       Rails.root.join('app', 'query'),
       Rails.root.join('app', 'service'),

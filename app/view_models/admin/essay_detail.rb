@@ -1,6 +1,8 @@
 class Admin::EssayDetail
   include RailsHelpers
 
+  attr_accessor :essay
+
 
   def self.build(application)
     essay_id = application.request.params[:id]
@@ -34,6 +36,18 @@ class Admin::EssayDetail
       link_text = "Preview Essay"
     end
     helpers.link_to(link_text, routes.issue_essay_path(essay.issue, essay))
+  end
+
+  def files
+    if essay.attached_file
+      [essay.attached_file]
+    else
+      []
+    end
+  end
+
+  def award
+    essay.award
   end
 
 

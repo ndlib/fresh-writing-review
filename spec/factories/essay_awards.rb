@@ -1,9 +1,8 @@
-if !defined?(STYLES)
-  STYLES = %w(Snite McPartlin)
-end
 FactoryGirl.define do
 
   factory :essay_award do
-    sequence(:title) { |n| STYLES[n%STYLES.length] }
+    essay { FactoryGirl.create(:essay) }
+    award { FactoryGirl.create(:award) }
+    sequence(:placement) { |n| n }
   end
 end

@@ -4,7 +4,8 @@ class Essay < ActiveRecord::Base
 
   belongs_to :issue
   belongs_to :essay_style
-  belongs_to :essay_award
+  has_one :essay_award
+  has_one :award, through: :essay_award
 
   belongs_to :body, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "body_id"
   belongs_to :alt_body, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "alt_body_id"

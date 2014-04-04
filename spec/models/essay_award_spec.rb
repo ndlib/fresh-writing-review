@@ -1,26 +1,22 @@
 require 'spec_helper'
 
-
 describe EssayAward do
-
-  subject { described_class.new }
-
-  [:title, :essay].each do |field|
-    it "has the ##{field} attribute" do
-      expect(subject).to respond_to(field)
-      expect(subject).to respond_to("#{field}=")
+  it "has essay award attributes" do
+    %w(essay award placement).each do | attr |
+      expect(subject.respond_to?(attr)).to be_true
+      expect(subject.respond_to?("#{attr}=")).to be_true
     end
   end
 
-  describe '#friendly_id' do
-    it "is based on the year" do
-      subject.title = 'title'
-      subject.save
+  describe '#placement_string' do
+    it 'is nil without a placement' do
+      subject.placement = nil
+      expect(subject.placement_string).to be_nil
+    end
 
-      expect(subject.friendly_id).to be == 'title'
+    it 'ordinalizes the placement' do
+      subject.placement = 1
+      expect(subject.placement_string).to be == '1st'
     end
   end
-
-
-
 end

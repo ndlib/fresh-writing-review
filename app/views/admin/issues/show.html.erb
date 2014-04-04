@@ -58,11 +58,31 @@
     <div class="images">
       <h2>Images</h2>
 
-      <h4>Large Cover Image</h4>
-      <%= render partial: '/admin/images/form', locals: { width: 900, height: 200 } %>
+      <div class="image_editor">
+        <div class="image">
+          <h4>Large Cover Image</h4>
+          <%= @issue_detail.image_form.large_image %>
 
-      <h4>Small Cover Image</h4>
-      <%= render partial: '/admin/images/form', locals: { width: 900, height: 90  } %>
+          <h4>Small Cover Image</h4>
+          <%= @issue_detail.image_form.small_image %>
+
+          <h4>Image Credit: <%= @issue_detail.image_form.cover_image_credit %></h4>
+
+          <h4>Image Alt: <%= @issue_detail.image_form.cover_image_alt %></h4>
+
+          <br><a href="#" class="change">Change</a>
+        </div>
+        <div class="form" style="display:none;">
+          <%= simple_form_for @issue_detail.image_form, url: save_images_admin_issue_path, method: 'put' do | f | %>
+            <%= f.input :large_cover_image, as: :file %>
+            <%= f.input :small_cover_image, as: :file %>
+            <%= f.input :cover_image_credit %>
+            <%= f.input :cover_image_alt %>
+
+            <%= f.submit :save %>
+          <% end %>
+        </div>
+      </div>
 
     </div>
   </div>

@@ -1,0 +1,18 @@
+<% content_for(:issue_header) do %>
+  <%= @award_detail.render_issue_header %>
+<% end %>
+
+<h1><%= @award_detail.title %></h1>
+
+<%= @award_detail.body %>
+
+<ul class="small-block-grid-3 listing">
+  <% place = 1 %>
+  <% @award_detail.essays.each do |essay| %>
+    <li>
+      <h3><%= place.ordinalize %> Place<h3>
+      <%= raw @award_detail.link_to_essay(essay) %>
+      <% place += 1 %>
+    </li>
+  <% end %>
+</ul>

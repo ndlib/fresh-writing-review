@@ -1,4 +1,4 @@
-class EssayAwardQuery
+class AwardQuery
 
 
   def self.all
@@ -12,6 +12,6 @@ class EssayAwardQuery
 
 
   def self.relation
-    EssayAward.all
+    Award.all
   end
 end

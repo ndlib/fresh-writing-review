@@ -50,7 +50,7 @@ class Admin::MarkdownEditorFunctions
   end
 
 
-  def essay_award_content_link
+  def award_content_link
   end
 
   private
@@ -62,8 +62,8 @@ class Admin::MarkdownEditorFunctions
       @mc.essay.send(component_name).blank?
     when 'issue'
       @mc.issue.send(component_name).blank?
-    when 'essay_award'
-      @mc.essay_award.send(component_name).blank?
+    when 'award'
+      @mc.award.send(component_name).blank?
     when 'page'
       @mc.page.send(component_name).blank?
     end
