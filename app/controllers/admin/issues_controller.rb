@@ -48,6 +48,20 @@ class Admin::IssuesController < AdminController
     end
   end
 
+
+  def save_images
+    @form = Admin::IssueImageForm.build(self)
+
+    if @form.add_images!
+      flash[:success] = 'Issue Images Updated'
+      redirect_to admin_issue_path(@form.issue)
+    else
+      flash[:error] = 'Unable to update the issue image.  Please review the error messages below and correct the form.'
+      redirect_to admin_issue_path(@form.issue)
+    end
+  end
+
+
   def publish
     issue = IssueQuery.find(params[:id])
     IssuePublisher.publish(issue)
