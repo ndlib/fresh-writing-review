@@ -31,7 +31,7 @@ FreshWriting::Application.routes.draw do
           put 'unpublish'
         end
         resources :attached_files, except: [ :index ]
-        resources :awards, only: [ :new, :create, :edit, :update ]
+        resources :essay_awards, except: [ :index, :show ]
         resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
       end
     end

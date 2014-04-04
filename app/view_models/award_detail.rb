@@ -39,6 +39,10 @@ class AwardDetail
     essays.size > 0
   end
 
+  def essay_awards
+    @essay_awards ||= EssayAwardQuery.published_essay_awards_for_issue_and_award(issue.friendly_id, award)
+  end
+
 
   def essays
     @essays ||= EssayQuery.published_essays_for_issue_and_award(issue.friendly_id, award)
