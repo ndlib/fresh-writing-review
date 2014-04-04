@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404165627) do
+ActiveRecord::Schema.define(version: 20140404171846) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -88,13 +88,11 @@ ActiveRecord::Schema.define(version: 20140404165627) do
     t.string   "slug"
     t.string   "title"
     t.string   "author"
-    t.integer  "placement"
     t.text     "embed"
     t.string   "alt_title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "essay_style_id"
-    t.integer  "essay_award_id"
     t.integer  "body_id"
     t.integer  "alt_body_id"
     t.integer  "author_biography_id"
@@ -114,7 +112,6 @@ ActiveRecord::Schema.define(version: 20140404165627) do
   add_index "essays", ["author_biography_id"], name: "index_essays_on_author_biography_id", using: :btree
   add_index "essays", ["body_id"], name: "index_essays_on_body_id", using: :btree
   add_index "essays", ["discussion_questions_id"], name: "index_essays_on_discussion_questions_id", using: :btree
-  add_index "essays", ["essay_award_id"], name: "index_essays_on_essay_award_id", using: :btree
   add_index "essays", ["essay_style_id"], name: "index_essays_on_essay_style_id", using: :btree
   add_index "essays", ["instructor_resources_id"], name: "index_essays_on_instructor_resources_id", using: :btree
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree

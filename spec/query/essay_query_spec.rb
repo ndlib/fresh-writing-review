@@ -65,7 +65,7 @@ describe EssayQuery do
     before do
       @issue = FactoryGirl.create(:issue)
       @award = FactoryGirl.create(:award)
-      @essays = FactoryGirl.create_list(:essay, 2, issue: @issue, award: @award, placement: [ 1, 2 ])
+      @essays = FactoryGirl.create_list(:essay, 2, issue: @issue, award: @award)
     end
 
 
