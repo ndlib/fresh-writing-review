@@ -144,6 +144,6 @@ Page.delete_all
   Page.create!(title: page.titleize, path: page, body: markdown('pages', "#{page}.md"))
 end
 
-
-a = AttachedFile.create!( essay_id: 5, title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
+AttachedFile.destroy_all
+AttachedFile.create!( essay_id: 5, title: "Power Point of Essay Images", body: 'This is a power point with lots of exciting pictures about the essay.', file: File.open(Rails.root.join('spec', 'fixtures', 'files', 'zavakos.pptx')))
 
