@@ -14,7 +14,7 @@ class EssayLink
 
 
   def link_to_image
-    LinkToRouteWithImage.call(routes.issue_essay_path(essay.issue.friendly_id, essay.friendly_id), essay.title, essay.id)
+    LinkToRouteWithImage.call(routes.issue_essay_path(essay.issue.friendly_id, essay.friendly_id), essay.title, essay.cover_image.url(:small))
   end
 
 

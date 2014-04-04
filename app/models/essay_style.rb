@@ -1,4 +1,4 @@
-class EssayStyle < ActiveRecord::Base
+  class EssayStyle < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
