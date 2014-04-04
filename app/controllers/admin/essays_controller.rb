@@ -42,6 +42,7 @@ class Admin::EssaysController < AdminController
     end
   end
 
+
   def destroy
     @essay = EssayQuery.find(params[:id])
     @essay.destroy!
@@ -61,4 +62,16 @@ class Admin::EssaysController < AdminController
     redirect_to admin_issue_essay_path(essay.issue, essay)
   end
 
+
+  def save_images
+    @form = Admin::EssayImageForm.build(self)
+
+    if @form.add_images!
+      flash[:success] = 'Essay Images Updated'
+      redirect_to admin_issue_essay_path(@form.essay.issue, @form.essay)
+    else
+      flash[:error] = 'Unable to update the essay image.  Please review the error messages below and correct the form.'
+      redirect_to admin_issue_essay_path(@form.essay.issue, @form.essay)
+    end
+  end
 end

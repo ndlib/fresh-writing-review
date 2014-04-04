@@ -5,7 +5,6 @@ class Admin::EssayDetail
 
 
   def self.build(application)
-    essay_id = application.request.params[:id]
     mef = Admin::MarkdownEditorFunctions.build(application)
     self.new(mef.mc.essay, mef)
   end
@@ -38,6 +37,12 @@ class Admin::EssayDetail
     helpers.link_to(link_text, routes.issue_essay_path(essay.issue, essay))
   end
 
+
+  def image_form
+    @form ||= Admin::EssayImageForm.new(essay)
+  end
+
+
   def files
     if essay.attached_file
       [essay.attached_file]
@@ -46,8 +51,8 @@ class Admin::EssayDetail
     end
   end
 
-  def award
-    essay.award
+  def essay_award
+    essay.essay_award
   end
 
 

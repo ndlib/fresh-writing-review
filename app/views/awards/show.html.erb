@@ -7,12 +7,10 @@
 <%= @award_detail.body %>
 
 <ul class="small-block-grid-3 listing">
-  <% place = 1 %>
-  <% @award_detail.essays.each do |essay| %>
+  <% @award_detail.essay_awards.each do |essay_award| %>
     <li>
-      <h3><%= place.ordinalize %> Place<h3>
-      <%= raw @award_detail.link_to_essay(essay) %>
-      <% place += 1 %>
+      <h3><%= essay_award.placement_string %> Place<h3>
+      <%= raw @award_detail.link_to_essay(essay_award.essay) %>
     </li>
   <% end %>
 </ul>

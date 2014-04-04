@@ -4,11 +4,21 @@ class EssayAward < ActiveRecord::Base
 
   before_validation :set_default_placement
 
+  validates_presence_of :essay, :award
+
   def placement_string
     if placement.present?
       placement.ordinalize
     else
       nil
+    end
+  end
+
+  def title
+    if award.present?
+      "#{award.title}: #{placement_string}"
+    else
+      "Award: #{placement_string}"
     end
   end
 

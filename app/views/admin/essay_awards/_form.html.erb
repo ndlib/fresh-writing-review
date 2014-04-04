@@ -1,0 +1,4 @@
+<%= f.input :award_id, collection: AwardQuery.all, include_blank: false %>
+<%= f.input :placement, collection: [1,2,3].collect{|n| [n.ordinalize, n]}, include_blank: false %>
+
+<%= f.submit 'Save', class: 'btn btn-primary' %> <%= link_to("Cancel", admin_issue_essay_path(params[:issue_id], params[:essay_id]), class: 'btn') %>

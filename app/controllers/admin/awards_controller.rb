@@ -1,6 +1,8 @@
 class Admin::AwardsController < AdminController
 
-  layout 'admin'
+  def index
+    @awards = AwardQuery.all
+  end
 
   def new
 
