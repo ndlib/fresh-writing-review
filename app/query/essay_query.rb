@@ -30,7 +30,7 @@ class EssayQuery
 
   def self.published_essays_for_issue_and_award(issue_id, award)
     issue = IssueQuery.find(issue_id)
-    issue.essays.where(published: true, award: award).order(:placement)
+    award.essays.where(published: true, issue: issue).order("essay_awards.placement")
   end
 
 

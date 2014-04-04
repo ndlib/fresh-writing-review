@@ -77,11 +77,9 @@ describe EssayQuery do
 
 
     it "orders by the placement" do
-      @essays[1].placement = 1
-      @essays[1].save!
+      @essays[1].essay_award.update_attribute(:placement, 1)
 
-      @essays[0].placement = 2
-      @essays[0].save!
+      @essays[0].essay_award.update_attribute(:placement, 2)
 
       found = subject.published_essays_for_issue_and_award(@issue.friendly_id, @award)
       expect(found.first).to eq(@essays[1])

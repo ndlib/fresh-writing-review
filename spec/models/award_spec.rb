@@ -5,7 +5,7 @@ describe Award do
 
   subject { described_class.new }
 
-  [:title, :essay].each do |field|
+  [:title, :essays, :essay_awards].each do |field|
     it "has the ##{field} attribute" do
       expect(subject).to respond_to(field)
       expect(subject).to respond_to("#{field}=")

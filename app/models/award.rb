@@ -2,7 +2,8 @@ class Award < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  has_many :essay
+  has_many :essay_awards
+  has_many :essays, through: :essay_awards
   belongs_to :body, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "body_id"
 
   has_attached_file :cover_image, styles: { small: '211x137#' }, default_url: '/placeholders/essay_award_placeholder.gif'
