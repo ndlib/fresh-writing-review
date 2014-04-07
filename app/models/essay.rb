@@ -21,7 +21,7 @@ class Essay < ActiveRecord::Base
   has_attached_file :cover_image, styles: { large: "671x429#", small: '211x135#', highlight: '348x223#', tiny: '78x50#' }, default_url: '/placeholders/essay_cover_image_placeholder.gif'
   validates_attachment_content_type :cover_image, :content_type => %w(image/jpeg image/jpg image/png)
 
-  has_attached_file :author_image, styles: { small: '140x113#' }, default_url: '/placeholders/author_placeholder.gif'
+  has_attached_file :author_image, styles: { small: '140x113#' }, default_url: '/placeholders/author_placeholder.jpg'
   validates_attachment_content_type :cover_image, :content_type => %w(image/jpeg image/jpg image/png)
 
 

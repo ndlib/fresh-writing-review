@@ -7,7 +7,7 @@ class Admin::EssayImageForm
   include ActiveModel::Validations
 
   attr_accessor :essay
-  attr_accessor :cover_image_alt, :cover_image_credit, :cover_image
+  attr_accessor :cover_image_alt, :cover_image_credit, :cover_image, :author_image
 
 
   def self.build(controller)
@@ -22,6 +22,9 @@ class Admin::EssayImageForm
       if params[:cover_image]
         self.cover_image = params[:cover_image]
       end
+      if params[:author_image]
+        self.author_image = params[:author_image]
+      end
 
       self.cover_image_credit = params[:cover_image_credit]
       self.cover_image_alt = params[:cover_image_alt]
@@ -34,6 +37,11 @@ class Admin::EssayImageForm
 
   def essay_cover_image
     helpers.image_tag essay.cover_image(:large)
+  end
+
+
+  def essay_author_image
+    helpers.image_tag essay.author_image(:small)
   end
 
 
@@ -52,6 +60,9 @@ class Admin::EssayImageForm
     def persist!
       if cover_image
         essay.cover_image = cover_image
+      end
+      if author_image
+        essay.author_image = author_image
       end
 
       essay.cover_image_credit = cover_image_credit
