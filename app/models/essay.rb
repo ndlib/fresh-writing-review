@@ -2,6 +2,8 @@ class Essay < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  has_paper_trail
+
   belongs_to :issue
   belongs_to :essay_style
   has_one :essay_award
@@ -18,8 +20,12 @@ class Essay < ActiveRecord::Base
 
   validates :title, presence: true
 
-  has_attached_file :cover_image, styles: { large: "671x429#", small: '211x135#', highlight: '348x223#' }, default_url: '/placeholders/essay_cover_image_placeholder.gif'
+  has_attached_file :cover_image, styles: { large: "671x429#", small: '211x135#', highlight: '348x223#', tiny: '78x50#' }, default_url: '/placeholders/essay_cover_image_placeholder.gif'
   validates_attachment_content_type :cover_image, :content_type => %w(image/jpeg image/jpg image/png)
+
+  has_attached_file :author_image, styles: { small: '140x113#' }, default_url: '/placeholders/author_placeholder.jpg'
+  validates_attachment_content_type :cover_image, :content_type => %w(image/jpeg image/jpg image/png)
+
 
   searchable do
     text :title, :author, :body_plain, :alt_body_plain, :discussion_questions_plain, :instructor_resources_plain, :author_biography_plain
@@ -85,8 +91,10 @@ class Essay < ActiveRecord::Base
   end
 
   def medium
-    if embed.present?
-      "Multimedia"
+    if published_medium == 'video'
+      "Video Essay"
+    elsif published_medium == 'audio'
+      "Audio Essay"
     else
       "Traditional"
     end

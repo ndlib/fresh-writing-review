@@ -52,6 +52,9 @@ gem 'redcarpet'
 # for the error model
 gem 'state_machine'
 
+# paper trail so we can track and fix revisions
+gem 'paper_trail', '~> 3.0.1'
+
 
 
 group :doc do

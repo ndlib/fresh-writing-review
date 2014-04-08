@@ -29,7 +29,7 @@ class EssayDetail::AuthorBiography
 
 
   def image
-    helpers.image_tag 'author.jpg', width:'50px'
+    helpers.image_tag essay.author_image.url(:small), alt: essay.author
   end
 
 

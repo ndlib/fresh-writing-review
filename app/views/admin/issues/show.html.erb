@@ -1,4 +1,10 @@
 <h1><%= @issue_detail.volume_title %> <%= link_to 'Edit', edit_admin_issue_path(@issue_detail.issue), class: 'btn btn-primary' %></h1>
+<% if @issue_detail.is_pdf? %>
+  <p class="bg-warning">
+    This issue is a 'pdf only' issue.  <br>
+    <%= link_to 'Remove PDF Only', remove_pdf_admin_issue_path(@issue_detail.issue), method: 'put' %>
+    - Do this when all of the essays from this issue have been added to the site.</p>
+<% end %>
 <p class="on-off btn-group">
   <% if @issue_detail.published? %>
     <span class="glyphicon glyphicon-eye-open"></span> Published -

@@ -14,7 +14,7 @@ class EssaySearchRow
 
 
   def image_link_to_essay
-    helpers.link_to(PlaceholderImage.call(78, 50, essay.id), href)
+    helpers.link_to(helpers.image_tag(essay.cover_image.url(:tiny)), href)
   end
 
   def link_to_essay

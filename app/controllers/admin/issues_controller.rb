@@ -74,4 +74,18 @@ class Admin::IssuesController < AdminController
     redirect_to admin_issue_path(issue)
   end
 
+
+  def remove_pdf
+    issue = IssueQuery.find(params[:id])
+    issue.is_pdf = false
+
+    if issue.save
+      flash[:success] = "This issue is no longer a pdf issue. "
+      redirect_to admin_issue_path(issue)
+    else
+      flash[:success] = "Unable to remove pdf only status. "
+      redirect_to admin_issue_path(issue)
+    end
+  end
+
 end

@@ -3,7 +3,7 @@ class Admin::IssueDetail
 
   attr_accessor :issue
 
-  delegate :title, :published?, to: :issue
+  delegate :title, :published?, :is_pdf?, to: :issue
 
 
   def self.build(application)
@@ -28,6 +28,8 @@ class Admin::IssueDetail
 
     helpers.link_to(link_text, routes.issue_path(issue.friendly_id))
   end
+
+
 
 
   def edit_content_link(content_type)
