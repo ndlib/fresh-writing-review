@@ -20,7 +20,9 @@ class EssayDetail::Embed
 
 
   def cover_image
-    helpers.image_tag(essay.cover_image.url(:large))
+    if essay.cover_image.present?
+      helpers.image_tag(essay.cover_image.url(:large))
+    end
   end
 
 
