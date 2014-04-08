@@ -148,7 +148,8 @@ h4.style {
 }
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, select {
-	font-size:1.2rem;
+	font-size:1.8rem;
+	height: auto;
 }
 
 select {
@@ -160,4 +161,8 @@ select {
 table {
 	width: 100%;
 
+}
+
+.side-nav li a:hover:not(.button), .side-nav li a:focus:not(.button) {
+	color:$dk-green;
 }

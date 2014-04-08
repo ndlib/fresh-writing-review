@@ -36,7 +36,7 @@ class Admin::EssayDetail
     else
       link_text = "Preview Essay"
     end
-    helpers.link_to(link_text, routes.issue_essay_path(essay.issue, essay))
+    helpers.link_to(link_text, routes.issue_essay_path(essay.issue, essay), class: 'btn btn-default', target: 'blank')
   end
 
 

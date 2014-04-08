@@ -26,7 +26,7 @@ class Admin::IssueDetail
       link_text = "Preview Volume"
     end
 
-    helpers.link_to(link_text, routes.issue_path(issue.friendly_id))
+    helpers.link_to(link_text, routes.issue_path(issue.friendly_id), class: 'btn btn-default', target: 'blank')
   end
 
 
