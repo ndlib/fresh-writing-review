@@ -28,6 +28,8 @@ class MarkDownConverter
 
 
   def parse_image_tags(text)
+    return text
+
     frag = Nokogiri::HTML(text)
     frag.xpath("//img").each { |img|
       before_text = "#{SPLIT_TEXT}<figure>"
