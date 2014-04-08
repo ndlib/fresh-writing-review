@@ -24,7 +24,6 @@
       <% essay_components.keys.each do |component| %>
         <li><%= link_to essay_components[component], @essay_detail.edit_content_link(component) %> - <%= @essay_detail.edit_content_status(component) %></li>
       <% end %>
-      <li><%= link_to 'Media Embed', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited</li>
     </ul>
     <hr>
     <div class="files">

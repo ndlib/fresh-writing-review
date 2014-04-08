@@ -7,10 +7,15 @@ class EssayDetail::Embed
     self.new(essay).render
   end
 
-  delegate :embed, to: :essay
+  # delegate :embed, to: :essay
 
   def initialize(essay)
     @essay = essay
+  end
+
+
+  def markdown
+    markdown_object.markdown
   end
 
 
@@ -45,6 +50,11 @@ class EssayDetail::Embed
 
     def display_embed?
       essay.published_medium != 'text'
+    end
+
+
+    def markdown_object
+      @markdown_object ||= MarkdownDetail.new(essay.embed)
     end
 
 end

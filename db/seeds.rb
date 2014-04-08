@@ -97,7 +97,7 @@ Essay.create!(id: 3, published_medium: 'text', issue_id: issue_id, published: tr
 
 Essay.create!(id: 4, published_medium: 'video', issue_id: issue_id, published: true, essay_style: narrative_style, title: "Invisiball Report", author: "Chizo Ekechukwu",
     body: markdown('video_text.txt'),
-    embed: '<iframe width="560" height="315" src="//www.youtube.com/embed/zlMYf8MWI-4" frameborder="0" allowfullscreen></iframe>',
+    embed: markdown('ekechukwu_embed.txt'),
     alt_body: markdown('ekechukwu_transcript.txt'),
     alt_title: 'Transcript',
     author_biography: markdown('biography.txt')
@@ -112,7 +112,7 @@ Essay.create!(id: 5, published_medium: 'text', issue_id: issue_id, published: tr
 
 Essay.create!(id: 6, published_medium: 'audio', issue_id: issue_id, published: true, essay_style: analysis_style, title: "Monsoon: Winds of Culture", author: "Jennifer Cha",
     body: markdown('cha_text.txt'),
-    embed: '<object id="kaltura_player_1_dfzuw68y" name="kaltura_player_1_dfzuw68y" type="application/x-shockwave-flash" allowFullScreen="true" allowNetworking="all" allowScriptAccess="always" height="30" width="480" bgcolor="#000000" xmlns:dc="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/searchmonkey/media/" rel="media:video" resource="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y" data="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y"><param name="allowFullScreen" value="true" /><param name="allowNetworking" value="all" /><param name="allowScriptAccess" value="always" /><param name="bgcolor" value="#000000" /><param name="flashVars" value="&entryId=1_dfzuw68y" /><param name="movie" value="https://www.kaltura.com/kwidget/wid/_1023422/ui_conf_id/21300191/entryId/1_dfzuw68y" /></object>',
+    embed: markdown('cha_embed.txt'),
     discussion_questions: markdown('zavakos_discussion_questions.txt'),
     author_biography: markdown('biography.txt')
 )

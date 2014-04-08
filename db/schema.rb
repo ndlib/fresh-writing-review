@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408144951) do
+ActiveRecord::Schema.define(version: 20140408152955) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -111,12 +111,14 @@ ActiveRecord::Schema.define(version: 20140408144951) do
     t.integer  "author_image_file_size"
     t.datetime "author_image_updated_at"
     t.string   "published_medium"
+    t.integer  "embed_id"
   end
 
   add_index "essays", ["alt_body_id"], name: "index_essays_on_alt_body_id", using: :btree
   add_index "essays", ["author_biography_id"], name: "index_essays_on_author_biography_id", using: :btree
   add_index "essays", ["body_id"], name: "index_essays_on_body_id", using: :btree
   add_index "essays", ["discussion_questions_id"], name: "index_essays_on_discussion_questions_id", using: :btree
+  add_index "essays", ["embed_id"], name: "index_essays_on_embed_id", using: :btree
   add_index "essays", ["essay_style_id"], name: "index_essays_on_essay_style_id", using: :btree
   add_index "essays", ["instructor_resources_id"], name: "index_essays_on_instructor_resources_id", using: :btree
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree

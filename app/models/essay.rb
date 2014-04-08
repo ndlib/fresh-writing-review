@@ -15,6 +15,7 @@ class Essay < ActiveRecord::Base
   belongs_to :works_cited, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "works_cited_id"
   belongs_to :discussion_questions, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "discussion_questions_id"
   belongs_to :instructor_resources, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "instructor_resources_id"
+  belongs_to :embed, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "embed_id"
 
   has_one :attached_file
 
