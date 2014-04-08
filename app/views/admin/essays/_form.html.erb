@@ -2,4 +2,6 @@
 <%= f.input :author %>
 <%= f.input :essay_style_id, collection: f.object.essay_style_options %>
 
+<%= f.input :published_medium, collection: [['Traditional', 'text'] ,['Video Essay', 'video'], ['Audio Essay', 'audio']], as: :radio_buttons %>
+
 <%= f.submit 'Save', class: 'btn btn-primary' %>

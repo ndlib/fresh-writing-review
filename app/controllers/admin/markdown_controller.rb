@@ -46,6 +46,11 @@ class Admin::MarkdownController < AdminController
       issue = IssueQuery.find(component_parent_id)
       admin_issue_path(:id => issue.id)
     when 'award'
+      page = AwardQuery.find(component_parent_id)
+      admin_award_path(:id => award.id)
+    when 'page'
+      page = PageQuery.find(component_parent_id)
+      admin_page_path(:id => component_parent_id)
     end
   end
 

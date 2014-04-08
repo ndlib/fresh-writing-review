@@ -8,10 +8,12 @@ class Admin::EssayForm
   attribute :title, String
   attribute :author, String
   attribute :essay_style_id, Integer
+  attribute :published_medium, String
 
   attr_accessor :essay, :issue
 
   validates :title, :author, :essay_style_id, presence: true
+  validates :published_medium, inclusion: { in: %w(text video audio) }
 
   def self.build(controller)
     if controller.params[:id]

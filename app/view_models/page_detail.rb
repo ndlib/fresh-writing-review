@@ -7,7 +7,7 @@ class PageDetail
     self.new(page)
   end
 
-  delegate :title, :body, to: :page
+  delegate :title, :body, :slug, to: :page
 
   def initialize(page)
     @page = page
@@ -15,6 +15,11 @@ class PageDetail
 
   def body
     MarkDownConverter.call(page.body.content)
+  end
+
+
+  def body_id
+    page.body.id
   end
 
   private

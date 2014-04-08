@@ -13,6 +13,7 @@ class Admin::EssayDetail
 
   delegate :published?, :issue, to: :essay
 
+
   def initialize(essay, mef=nil)
     @mef = mef
     @essay = essay
@@ -27,6 +28,7 @@ class Admin::EssayDetail
   def edit_content_status(content_type)
     @mef.essay_content_status(content_type)
   end
+
 
   def public_link
     if published?

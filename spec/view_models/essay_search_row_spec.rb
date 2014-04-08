@@ -3,13 +3,13 @@ require 'spec_helper'
 describe EssaySearchRow do
 
   subject { described_class.new(essay)}
-  let(:essay) { double(Essay, id: 1, title: 'title', author: "author", friendly_id: 'fid', issue: issue, essay_style: essay_style )}
+  let(:essay) { double(Essay, id: 1, title: 'title', author: "author", friendly_id: 'fid', issue: issue, essay_style: essay_style, cover_image: double(Image, url: 'url') )}
   let(:issue) { double(Issue, title: 'issue', friendly_id: 'ifid') }
   let(:essay_style) { double(EssayStyle, title: 'title', friendly_id: 'esfid') }
 
   describe '#image_link_to_essay' do
     it "renders the correct text" do
-      expect(subject.image_link_to_essay).to eq("<a href=\"/volumes/ifid/essays/fid\"><img alt=\"Fff\" src=\"http://placehold.it/78x50/A4A774/fff\" /></a>")
+      expect(subject.image_link_to_essay).to eq("<a href=\"/volumes/ifid/essays/fid\"><img alt=\"Url\" src=\"/images/url\" /></a>")
     end
   end
 

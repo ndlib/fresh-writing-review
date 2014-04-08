@@ -1,11 +1,14 @@
 class Admin::PagesController < AdminController
+  
   def index
     @pages = PageQuery.all
   end
 
+
   def edit
     @page = PageQuery.find(params[:id])
   end
+
 
   def update
     @page = PageQuery.find(params[:id])
@@ -16,6 +19,11 @@ class Admin::PagesController < AdminController
     else
       render action: :edit
     end
+  end
+
+
+  def show
+    @page_detail = PageDetail.build(self)
   end
 
 end

@@ -24,6 +24,13 @@ class EssayDetail::Embed
   end
 
 
+  def embed_css_class
+    if essay.published_medium == 'audio'
+      'audio'
+    else
+      'video'
+    end
+  end
 
   def render
     if display_embed?
@@ -37,7 +44,7 @@ class EssayDetail::Embed
   protected
 
     def display_embed?
-      @essay.embed.present?
+      essay.published_medium != 'text'
     end
 
 end

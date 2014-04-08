@@ -2,6 +2,8 @@ class Issue < ActiveRecord::Base
   extend FriendlyId
   friendly_id :year, use: :slugged
 
+  has_paper_trail
+
   has_many :essays
   has_many :highlighted_essays
 

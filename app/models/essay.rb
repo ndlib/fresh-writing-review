@@ -2,6 +2,8 @@ class Essay < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  has_paper_trail
+
   belongs_to :issue
   belongs_to :essay_style
   has_one :essay_award
@@ -89,8 +91,10 @@ class Essay < ActiveRecord::Base
   end
 
   def medium
-    if embed.present?
-      "Multimedia"
+    if published_medium == 'video'
+      "Video Essay"
+    elsif published_medium == 'audio'
+      "Audio Essay"
     else
       "Traditional"
     end
