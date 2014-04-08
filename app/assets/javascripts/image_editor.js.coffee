@@ -6,7 +6,7 @@ jQuery ($) ->
       image.hide()
       image.siblings('.form').show()
 
-    $('.image_editor button').click (event) ->
+    $('.image_editor .cancel').click (event) ->
       event.preventDefault()
       form = $(this).parents('.form')
       form.hide()

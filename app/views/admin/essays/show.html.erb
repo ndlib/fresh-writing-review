@@ -1,5 +1,9 @@
 <h1><%= @essay_detail.volume_link %></h1>
-<h2><%= @essay_detail.essay_title %>  <%= link_to 'Edit', edit_admin_issue_essay_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></h2>
+<h2><%= @essay_detail.essay_title %> <small>By <%= @essay_detail.essay_author %></small> </h2>
+<p>
+  <%= link_to 'Edit Essay', edit_admin_issue_essay_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %>
+  <%= @essay_detail.public_link %>
+</p>
 <p class="on-off btn-group">
   <% if @essay_detail.published? %>
     <span class="glyphicon glyphicon-eye-open"></span> Published -
@@ -8,13 +12,7 @@
      <span class="glyphicon glyphicon-eye-close"></span> Unpublished -
      <%= link_to(raw('<span class="glyphicon glyphicon-eye-open"></span> Publish'), publish_admin_issue_essay_path, method: :put) %></p>
   <% end %>
-  <br>
-  <%= @essay_detail.public_link %>
 </p>
-
-
-<h3 class="author">By <%= @essay_detail.essay_author %></h3>
-<h4 class="style"><%= @essay_detail.essay_style %></h4>
 <hr>
 <div class="row">
   <div class="large-6 columns">
@@ -22,13 +20,13 @@
     <ul class="list">
       <% essay_components = @essay_detail.components %>
       <% essay_components.keys.each do |component| %>
-        <li><%= link_to essay_components[component], @essay_detail.edit_content_link(component) %> - <%= @essay_detail.edit_content_status(component) %></li>
+        <li><%= link_to essay_components[component], @essay_detail.edit_content_link(component) %> <span><%= @essay_detail.edit_content_status(component) %></span></li>
       <% end %>
       <li><%= link_to 'Media Embed', edit_admin_issue_essay_markdown_content_path(id: "new", essay_id: 1) %> - Not Visited</li>
     </ul>
     <hr>
     <div class="files">
-      <h2>Files</h2>
+      <h2>Companion Material</h2>
       <% if @essay_detail.files.present? %>
         <ul class="list">
           <% @essay_detail.files.each do |file| %>
@@ -38,7 +36,7 @@
           <% end %>
         </ul>
       <% else %>
-        <p><%= link_to 'Upload File', new_admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
+        <p><%= link_to 'Upload Companion Material', new_admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
       <% end %>
     </div>
     <div class="awards">
@@ -75,13 +73,15 @@
       </div>
       <div class="form" style="display:none;">
         <%= simple_form_for @essay_detail.image_form, url: save_images_admin_issue_essay_path(@essay_detail.issue, @essay_detail.essay), method: 'put' do | f | %>
+
           <%= f.input :cover_image, as: :file %>
           <%= f.input :cover_image_credit %>
-          <%= f.input :cover_image_alt %>
+          <%= f.input :cover_image_alt, label: 'Cover Image Alternate', hint: 'The alternate should be filled out with a description of the image.  This is for screen readers.' %>
 
           <%= f.input :author_image, as: :file %>
 
           <%= f.submit :save %>
+          <a class="cancel">Cancel</a>
         <% end %>
       </div>
     </div>
