@@ -1,0 +1,4 @@
+<div class="page-body">
+<h1><%= @page_detail.title %> Page</h1> <a class="btn btn-primary" href="<%= edit_admin_page_markdown_content_path(@page_detail.slug, @page_detail.body_id) + "?content_type=page" %>">Edit</a>
+<%= @page_detail.body %>
+</div>

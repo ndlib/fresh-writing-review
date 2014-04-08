@@ -23,6 +23,7 @@ module MarkdownComponentFactory
     @@content_type
   end
 
+
   def markdown_id
     if self.content_type == 'essay'
       self.essay.add_new_component(params[:component_type], "Please Edit")
@@ -40,6 +41,8 @@ module MarkdownComponentFactory
       self.essay.id
     when 'issue'
       self.issue.id
+    when 'page'
+      self.page.id
     when 'award'
       self.award.id
     end

@@ -140,7 +140,7 @@ end
 
 
 Page.delete_all
-%w(about contact).each do |page|
+%w(about submission_guidelines).each do |page|
   Page.create!(title: page.titleize, path: page, body: markdown('pages', "#{page}.md"))
 end
 
