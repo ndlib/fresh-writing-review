@@ -27,10 +27,10 @@ describe MarkDownConverter do
     let(:title_doc) { Nokogiri::HTML(html_img_title) }
     let(:no_title_doc) { Nokogiri::HTML(html_img_no_title) }
 
-    it "convertes img title" do
-      binding.pry
 
-      raise
+    it "convertes img title" do
+
+
     end
   end
 end
