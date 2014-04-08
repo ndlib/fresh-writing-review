@@ -89,8 +89,10 @@ class Essay < ActiveRecord::Base
   end
 
   def medium
-    if embed.present?
-      "Multimedia"
+    if published_medium == 'video'
+      "Video Essay"
+    elsif published_medium == 'audio'
+      "Audio Essay"
     else
       "Traditional"
     end
