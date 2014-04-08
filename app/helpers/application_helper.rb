@@ -13,6 +13,10 @@ module ApplicationHelper
     if flash[:error].present?
       content += content_tag(:div, raw(flash[:error]), class: "alert alert-error")
     end
+    if flash[:warning].present?
+      content += content_tag(:div, raw(flash[:warning]), class: "alert alert-warning")
+    end
+
     content_tag(:div, content, id: "notices")
   end
 
