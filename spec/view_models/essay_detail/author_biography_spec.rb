@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayDetail::AuthorBiography do
 
-  let(:essay) { double(Essay, author: 'author', author_biography: double(MarkdownContent, content: 'biography')) }
+  let(:essay) { double(Essay, author: 'author', author_biography: double(MarkdownContent, content: 'biography'), author_image: double(Image, url: 'url')) }
   subject { described_class.new(essay) }
 
 
@@ -34,7 +34,7 @@ describe EssayDetail::AuthorBiography do
 
 
   it "returns the image" do
-    expect(subject.image).to eq("<img alt=\"Author\" src=\"/assets/author.jpg\" width=\"50px\" />")
+    expect(subject.image).to eq("<img alt=\"author\" src=\"/images/url\" />")
   end
 
 
