@@ -24,6 +24,7 @@ class Admin::MarkdownController < AdminController
     if @markdown_content.update_attributes(markdown_content_params)
       flash[:success] = "Content saved"
       markdown_content = params[:markdown_content]
+      parent_persist(markdown_content[:component_parent], markdown_content[:component_parent_id])
       redirect_to component_redirect_path(markdown_content[:component_parent], markdown_content[:component_parent_id])
     end
   end
@@ -46,11 +47,29 @@ class Admin::MarkdownController < AdminController
       issue = IssueQuery.find(component_parent_id)
       admin_issue_path(:id => issue.id)
     when 'award'
-      page = AwardQuery.find(component_parent_id)
+      award = AwardQuery.find(component_parent_id)
       admin_award_path(:id => award.id)
     when 'page'
       page = PageQuery.find(component_parent_id)
       admin_page_path(:id => component_parent_id)
+    end
+  end
+
+
+  def parent_persist(component_parent, component_parent_id)
+    case component_parent
+    when 'essay'
+      essay = EssayQuery.find(component_parent_id)
+      essay.save!
+    when 'issue'
+      issue = IssueQuery.find(component_parent_id)
+      issue.save!
+    when 'award'
+      award = AwardQuery.find(component_parent_id)
+      award.save!
+    when 'page'
+      page = PageQuery.find(component_parent_id)
+      page.save!
     end
   end
 
