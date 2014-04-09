@@ -65,6 +65,7 @@ class Admin::EssayDetail
       :author_biography => 'Author Biography',
       :works_cited => 'Works Cited',
       :discussion_questions => 'Discussion Questions',
+      :embed => 'Embedded Multimedia',
       :instructor_resources => 'Instructor Resources'
     }
   end

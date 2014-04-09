@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe EssayFormat do
 
-  let(:media_essay) { double(Essay, embed: 'embed') }
+  let(:media_essay) { double(Essay, embed: double(MarkdownContent, content: 'embed')) }
   let(:text_essay) { double(Essay, embed: nil )}
-  let(:alternate_text_essay) { double(Essay, embed: '' )}
+  let(:alternate_text_essay) { double(Essay, embed: nil )}
 
 
   describe :media? do

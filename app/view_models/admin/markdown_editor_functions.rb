@@ -58,7 +58,6 @@ class Admin::MarkdownEditorFunctions
   def new_content?(component_name)
     case @mc.content_type
     when 'essay'
-      puts component_name
       @mc.essay.send(component_name).blank?
     when 'issue'
       @mc.issue.send(component_name).blank?

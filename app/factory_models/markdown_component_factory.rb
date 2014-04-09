@@ -2,7 +2,7 @@ module MarkdownComponentFactory
   include RailsHelpers
 
   def self.create(application)
-    @params = application.request.path_parameters
+    @params = application.request.parameters
     if @params[:page_id] || @params[:conroller] == 'admin/pages'
       @@content_type = 'page'
       MarkdownComponentFactory::PageContent.new(@params)
@@ -24,13 +24,18 @@ module MarkdownComponentFactory
   end
 
 
+  def params
+    @params
+  end
+
+
   def markdown_id
     if self.content_type == 'essay'
-      self.essay.add_new_component(params[:component_type], "Please Edit")
+      self.essay.add_new_component(@params[:component_type], "Please Edit")
     elsif self.content_type = 'issue'
-      self.issue.add_new_component(params[:component_type], "Please Edit")
+      self.issue.add_new_component(@params[:component_type], "Please Edit")
     elsif self.content_type = 'award'
-      self.award.add_new_component(params[:component_type], "Please Edit")
+      self.award.add_new_component(@params[:component_type], "Please Edit")
     end
   end
 

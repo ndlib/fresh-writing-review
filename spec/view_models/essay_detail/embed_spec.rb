@@ -4,8 +4,8 @@ require 'spec_helper'
 describe EssayDetail::Embed do
 
   let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
-  let(:essay) { double(Essay, friendly_id: 'id', embed: "embed", issue: issue, published_medium: 'video') }
-  let(:no_embed_essay) { double(Essay, friendly_id: 'id', embed: "", issue: issue, published_medium: 'text') }
+  let(:essay) { double(Essay, friendly_id: 'id', embed: double(MarkdownContent, content: "embed"), issue: issue, published_medium: 'video') }
+  let(:no_embed_essay) { double(Essay, friendly_id: 'id', embed: nil, issue: issue, published_medium: 'text') }
   subject { described_class.new(essay) }
 
   describe :self_render do
@@ -25,7 +25,7 @@ describe EssayDetail::Embed do
 
 
   it "returns the embed" do
-    expect(subject.embed).to eq("embed")
+    expect(subject.markdown).to eq("<p>embed</p>\n")
   end
 
 

@@ -12,15 +12,18 @@ describe Image do
       image_object.image = image_file_1
       image_object.should have_attached_file(:image)
     end
+
     it "should validate image presence" do
       image_object.image = image_file_1
       image_object.should validate_attachment_presence(:image)
     end
+
     it "should store the file correctly" do
       image_object.image = image_file_1
       image_object.save!
       FileTest.exist?(Rails.root.join("public/system/images/#{image_object.id}/original/test_image_1.jpg")).should be_true
     end
+
     it "should validate the file type" do
       image_object.image = image_file_2
       image_object.should validate_attachment_content_type(:image).allowing('image/jpeg', 'image/jpg', 'image/png').rejecting('text/plain', 'text/xml')
