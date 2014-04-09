@@ -13,7 +13,7 @@ class EssayFormat
 
 
   def text?
-    @essay.embed.nil? || @essay.embed.empty?
+    @essay.embed.nil? || @essay.embed.content.empty?
   end
 
 end
