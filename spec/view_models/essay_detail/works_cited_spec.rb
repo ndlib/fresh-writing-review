@@ -23,7 +23,7 @@ describe EssayDetail::WorksCited do
 
 
   it "returns the markdown" do
-    expect(subject.markdown).to eq("<p>works_cited</p>")
+    expect(subject.markdown).to match "<p>works_cited</p>"
   end
 
 

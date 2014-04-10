@@ -22,7 +22,7 @@ describe EssayDetail::Body do
 
 
   it "returns the markdown" do
-    expect(subject.markdown).to eq("<p>body</p>")
+    expect(subject.markdown).to match "<p>body</p>"
   end
 
 
