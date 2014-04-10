@@ -65,12 +65,14 @@ class Admin::IssuesController < AdminController
   def publish
     issue = IssueQuery.find(params[:id])
     IssuePublisher.publish(issue)
+    flash[:success] = 'Issue has been published.'
     redirect_to admin_issue_path(issue)
   end
 
   def unpublish
     issue = IssueQuery.find(params[:id])
     IssuePublisher.unpublish(issue)
+    flash[:success] = 'Issue has been unpublished.'
     redirect_to admin_issue_path(issue)
   end
 
