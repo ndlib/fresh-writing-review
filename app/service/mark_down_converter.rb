@@ -8,6 +8,7 @@ class MarkDownConverter
     self.new(text).convert
   end
 
+  attr_reader :text
 
   def initialize(text)
     @text = text.to_s
@@ -15,7 +16,7 @@ class MarkDownConverter
 
 
   def convert
-    converted_text = renderer.render(@text)
+    converted_text = renderer.render(text)
 #    converted_text = parse_image_tags(converted_text)
 #    converted_text = add_ul_and_li(converted_text)
 
@@ -77,6 +78,11 @@ class MarkDownConverter
     end
 
     output
+  end
+
+  def preprocess_images(text)
+    expression = /^([!]\[.*)\n(?=[!]\[)/
+    text.gsub(expression, '\1 ')
   end
 
 end
