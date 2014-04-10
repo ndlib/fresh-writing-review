@@ -5,6 +5,7 @@
     <% @awards.each do |award| %>
       <tr>
         <td><%= link_to award.title, edit_admin_award_path(award) %></td>
+        <td><a class="btn btn-primary" href="<%= edit_admin_award_markdown_content_path(award.id, award.body.id) %>">Edit Description</a></td>
       </tr>
     <% end %>
   </tbody>

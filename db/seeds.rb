@@ -78,6 +78,16 @@ Award.delete_all
   Award.create!(title: title, body: markdown('award_text.md'))
 end
 
+# Inline images for essays
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_1_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_2_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_3_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_4_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_5_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_6_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_7_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_8_orig.png')))
+
 
 Essay.delete_all
 Essay.create!(id: 1, published_medium: 'text', issue_id: issue_id, published: true, essay_style: narrative_style, title: "Family of Deer", author: "Terence Clines",
