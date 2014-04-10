@@ -38,7 +38,7 @@ class HighlightedEssayCarousel
   end
 
   def body(highlighted_essay)
-    "<p>" + StripDownConverter.call(highlighted_essay.essay.body.content).scan(/.{1,250}\b/m).first + "...</p>"
+    "<p>" + StripDownConverter.call(highlighted_essay.essay.body.content).scan(/.{1,250}\b/m).first.strip + "...</p>"
   end
 
   private
