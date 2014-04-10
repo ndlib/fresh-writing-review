@@ -20,7 +20,7 @@
       <h2>Content</h2>
       <ul class="list">
         <% @essay_detail.components_with_content.each do |component, component_title| %>
-          <li><%= link_to component_title, @essay_detail.edit_content_link(component) %></li>
+          <li><%= link_to raw("<span class=\"glyphicon glyphicon-ok-circle\"></span> #{component_title}"), @essay_detail.edit_content_link(component) %></li>
         <% end %>
       </ul>
     <% end %>
@@ -28,7 +28,7 @@
       <h2>Add Content</h2>
       <ul class="list">
         <% @essay_detail.components_without_content.each do |component, component_title| %>
-          <li><%= link_to raw("<span class=\"glyphicon glyphicon-plus\"></span> #{component_title}"), @essay_detail.edit_content_link(component) %></li>
+          <li><%= link_to raw("<span class=\"glyphicon glyphicon-plus-sign\"></span> #{component_title}"), @essay_detail.edit_content_link(component) %></li>
         <% end %>
       </ul>
     <% end %>
