@@ -170,3 +170,7 @@ table {
 .side-nav li a:hover:not(.button), .side-nav li a:focus:not(.button) {
 	color:$dk-green;
 }
+
+.side-nav li li {
+  padding-left: 15px;
+}
