@@ -53,12 +53,16 @@ class Admin::EssaysController < AdminController
   def publish
     essay = EssayQuery.find(params[:id])
     EssayPublisher.publish(essay)
+
+    flash[:success] = 'Essay has been published.'
     redirect_to admin_issue_essay_path(essay.issue, essay)
   end
 
   def unpublish
     essay = EssayQuery.find(params[:id])
     EssayPublisher.unpublish(essay)
+
+    flash[:success] = 'Essay has been unpublished.'
     redirect_to admin_issue_essay_path(essay.issue, essay)
   end
 
