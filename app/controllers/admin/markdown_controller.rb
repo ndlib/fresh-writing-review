@@ -33,7 +33,7 @@ class Admin::MarkdownController < AdminController
   def add_image
     md = MarkdownContent.find(params[:id])
     i = md.images.create(:image => params[:file])
-    render json: { success: true, image_path: i.image.url }
+    render json: { success: true, image_path: i.image.url(:small) }
   end
 
   private
