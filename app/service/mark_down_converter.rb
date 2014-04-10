@@ -1,13 +1,14 @@
 class MarkDownConverter
 
   SPLIT_TEXT = '$$##!!@@##$$%%$$'
-  SPLIT_TEXT = ''
+#  SPLIT_TEXT = ''
   include RailsHelpers
 
   def self.call(text)
     self.new(text).convert
   end
 
+  attr_reader :text
 
   def initialize(text)
     @text = text.to_s
@@ -15,12 +16,9 @@ class MarkDownConverter
 
 
   def convert
-    converted_text = renderer.render(@text)
-    converted_text = parse_image_tags(converted_text)
-    converted_text = add_ul_and_li(converted_text)
-
-    converted_text = renderer.render(@text)
-    converted_text = parse_image_tags(converted_text)
+    converted_text = renderer.render(text)
+#    converted_text = parse_image_tags(converted_text)
+#    converted_text = add_ul_and_li(converted_text)
 
     helpers.raw renderer.render(converted_text)
   end
@@ -30,11 +28,6 @@ class MarkDownConverter
     @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(:hard_wrap => true), :autolink => true, :space_after_headers => true)
   end
 
-
-  def pre_fix_markdown(text)
-
-
-  end
 
 
   def parse_image_tags(text)
@@ -87,4 +80,10 @@ class MarkDownConverter
     output
   end
 
+  def preprocess_images(text)
+    expression = /^([!]\[.*)\n(?=[!]\[)/
+    text.gsub(expression, '\1 ')
+  end
+
 end
+
