@@ -16,13 +16,19 @@
 <hr>
 <div class="row">
   <div class="large-7 columns">
+    <h2>Content</h2>
     <% if @essay_detail.components_with_content.present? %>
-      <h2>Content</h2>
-      <ul class="list">
-        <% @essay_detail.components_with_content.each do |component, component_title| %>
-          <li><span class="glyphicon glyphicon-ok-circle"></span> <%= link_to raw("#{component_title}"), @essay_detail.edit_content_link(component) %></li>
-        <% end %>
-      </ul>
+      <% if @essay_detail.components_with_content.size > 0 %>
+        <ul class="list">
+          <% @essay_detail.components_with_content.each do |component, component_title| %>
+            <li><span class="glyphicon glyphicon-ok-circle"></span> <%= link_to raw("#{component_title}"), @essay_detail.edit_content_link(component) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% else %>
+      <div class="bg-warning">
+        No Content has been added to this essay.  Select content from the list below to add content to this essay.
+      </div>
     <% end %>
     <% if @essay_detail.components_without_content.present? %>
       <h2>Add Content</h2>
