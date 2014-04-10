@@ -343,6 +343,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
+  nokogiri
   pagedown-bootstrap-rails
   paper_trail (~> 3.0.1)
   paperclip
