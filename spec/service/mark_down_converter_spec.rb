@@ -72,6 +72,13 @@ In addition to building community, street art connects nature to the city. Artis
 
         it_behaves_like "preprocessed_images"
       end
+
+      describe "three images single line breaks" do
+        let(:input) {"Example text\n![image alt][1]\n![image alt2][2]\n![image alt3][3]\nMore example text"}
+        let(:output) {"Example text\n\n![image alt][1] ![image alt2][2] ![image alt3][3]\n\nMore example text"}
+
+        it_behaves_like "preprocessed_images"
+      end
     end
   end
 end
