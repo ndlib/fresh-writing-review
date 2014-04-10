@@ -21,7 +21,7 @@ class MarkDownConverter
     converted_text = parse_image_tags(converted_text)
     converted_text = add_ul_and_li(converted_text)
 
-    helpers.raw renderer.render(converted_text)
+    helpers.raw converted_text
   end
 
 
@@ -95,7 +95,7 @@ class MarkDownConverter
 
   def preprocess_image_newlines(text)
     # insert newlines before and after images to ensure surrounding text is in <p> tags
-    expression = /\s*(([ ]*[!](\[[^\]]+\])+)+)\n*\s*/
+    expression = /\s*(([ \n\r]*[!](\[[^\]]+\])+)+)\n*\s*/
     text.gsub(expression,"\n\n" + '\1' + "\n\n")
   end
 end
