@@ -24,7 +24,7 @@ describe EssayDetail::InstructorResources do
 
 
   it "returns the markdown" do
-    expect(subject.markdown).to eq("<p>resource</p>")
+    expect(subject.markdown).to match "<p>resource</p>"
   end
 
 

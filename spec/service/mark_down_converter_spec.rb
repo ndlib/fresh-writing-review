@@ -11,7 +11,7 @@ describe MarkDownConverter do
     end
 
     it 'adds a p tag' do
-      expect(subject.call("a\n")).to be == "<p>a</p>"
+      expect(subject.call("a\n")).to match "<p>a</p>"
     end
 
     it 'converts single line breaks' do
