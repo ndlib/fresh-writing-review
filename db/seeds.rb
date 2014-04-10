@@ -15,6 +15,8 @@ def markdown(*paths)
   MarkdownContent.create!(content: test_file(*paths))
 end
 
+MarkdownContent.delete_all
+
 EssayStyle.delete_all
 %w(Narrative Analysis Research Definition Rebuttal Reflective).each do |style|
   EssayStyle.create!(title: style)
@@ -98,8 +100,6 @@ Essay.create!(id: 1, published_medium: 'text', issue_id: issue_id, published: tr
 
 Essay.create!(id: 3, published_medium: 'text', issue_id: issue_id, published: true, essay_style: analysis_style, title: "Imperfect, Contradictory Beauty",
   body: markdown('two_section_text_part1.txt'),
-  alt_body: markdown('two_section_text_part2.txt'),
-  alt_title: "Pied Beauty",
   author: "Nathan McDevitt",
   author_biography: markdown('biography_long.md'),
   instructor_resources: markdown('instructor_resources.md')

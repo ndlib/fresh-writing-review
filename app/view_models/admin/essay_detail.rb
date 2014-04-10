@@ -61,11 +61,11 @@ class Admin::EssayDetail
   def components
     {
       :body => 'Body Content',
-      :alt_body => 'Alternate Body',
       :author_biography => 'Author Biography',
       :works_cited => 'Works Cited',
       :discussion_questions => 'Discussion Questions',
       :embed => 'Embedded Multimedia',
+      :alt_body => 'Media Transcript',
       :instructor_resources => 'Instructor Resources'
     }
   end
