@@ -70,6 +70,18 @@ class Admin::EssayDetail
     }
   end
 
+  def components_with_content
+    @components_with_content ||= components.reject{|k,v| content_blank?(k)}
+  end
+
+  def components_without_content
+    @components_without_content ||= components.reject{|k,v| !content_blank?(k)}
+  end
+
+  def content_blank?(content_type)
+    @mef.content_blank?(content_type)
+  end
+
   def volume_link
     helpers.link_to(volume_title, routes.admin_issue_path(essay.issue))
   end
