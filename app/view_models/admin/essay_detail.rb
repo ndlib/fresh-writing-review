@@ -60,7 +60,7 @@ class Admin::EssayDetail
 
   def components
     {
-      :body => 'Body Content',
+      :body => 'Essay',
       :author_biography => 'Author Biography',
       :works_cited => 'Works Cited',
       :discussion_questions => 'Discussion Questions',
