@@ -7,8 +7,8 @@ describe HighlightedEssayCarousel do
 
   before do
     @highlighted_essays = [
-      FactoryGirl.create(:highlighted_essay, issue: issue, essay: FactoryGirl.create(:essay, issue: issue)),
-      FactoryGirl.create(:highlighted_essay, issue: issue, essay: FactoryGirl.create(:essay, issue: issue))
+      FactoryGirl.create(:highlighted_essay, issue: issue, essay: FactoryGirl.create(:essay, issue: issue, body: FactoryGirl.create(:markdown_content))),
+      FactoryGirl.create(:highlighted_essay, issue: issue, essay: FactoryGirl.create(:essay, issue: issue, body: FactoryGirl.create(:markdown_content)))
     ]
   end
 
@@ -23,6 +23,20 @@ describe HighlightedEssayCarousel do
       essay = @highlighted_essays.first
       expect(subject.link_to_essay(essay)).to match "/essays/#{essay.friendly_id}"
     end
+  end
+
+
+  describe '#body' do
+    let(:text) {  "A few nights ago, I came across a family of deer on my way back to Notre Dame from St. Mary’s at midnight. Because of the late hour, I was the only person walking on the road. The only visible colors were the blackness of the night and the orange moreworkds go here" }
+    let(:correct_text) {  "A few nights ago, I came across a family of deer on my way back to Notre Dame from St. Mary’s at midnight. Because of the late hour, I was the only person walking on the road. The only visible colors were the blackness of the night and the orange..." }
+
+    let(:highligted_essay) { double(HighlightedEssay, essay: double(Essay, body: double( MarkdownContent, content: text))) }
+
+    it "breaks after 200 characters on the word boundry" do
+      expect(subject.body(highligted_essay)).to eq("<p>#{correct_text}</p>")
+    end
+
+
   end
 
   describe '#render' do

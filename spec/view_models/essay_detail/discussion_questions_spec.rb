@@ -22,7 +22,7 @@ describe EssayDetail::DiscussionQuestions do
 
 
   it "returns the markdown" do
-    expect(subject.markdown).to eq("<p>questions</p>\n")
+    expect(subject.markdown).to match "<p>questions</p>"
   end
 
 

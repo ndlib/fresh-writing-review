@@ -53,19 +53,33 @@ class Admin::MarkdownEditorFunctions
   def award_content_link
   end
 
+  def content_blank?(component_name)
+    content = content_object(component_name)
+    if content.nil?
+      true
+    else
+      content.content_blank?
+    end
+  end
+
   private
 
-  def new_content?(component_name)
+  def content_object(component_name)
     case @mc.content_type
     when 'essay'
-      @mc.essay.send(component_name).blank?
+      @mc.essay.send(component_name)
     when 'issue'
-      @mc.issue.send(component_name).blank?
+      @mc.issue.send(component_name)
     when 'award'
-      @mc.award.send(component_name).blank?
+      @mc.award.send(component_name)
     when 'page'
-      @mc.page.send(component_name).blank?
+      @mc.page.send(component_name)
     end
+  end
+
+  def new_content?(component_name)
+    content = content_object(component_name)
+    content.blank?
   end
 
 end

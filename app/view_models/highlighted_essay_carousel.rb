@@ -16,7 +16,7 @@ class HighlightedEssayCarousel
 
 
   def hightlighed_cover_image(highlighted_essay)
-    helpers.image_tag(highlighted_essay.essay.cover_image.url(:highlight))
+    helpers.link_to(helpers.image_tag(highlighted_essay.essay.cover_image.url(:highlight)), routes.issue_essay_path(issue.friendly_id, highlighted_essay.friendly_id))
   end
 
 
@@ -38,7 +38,7 @@ class HighlightedEssayCarousel
   end
 
   def body(highlighted_essay)
-    MarkDownConverter.call(highlighted_essay.body)
+    "<p>" + StripDownConverter.call(highlighted_essay.essay.body.content).scan(/.{1,250}\b/m).first.strip + "...</p>"
   end
 
   private

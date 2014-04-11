@@ -36,7 +36,7 @@ class Admin::EssayImageForm
 
 
   def essay_cover_image
-    helpers.image_tag essay.cover_image(:large)
+    helpers.image_tag essay.cover_image(:highlight)
   end
 
 

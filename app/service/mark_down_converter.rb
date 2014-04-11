@@ -21,7 +21,7 @@ class MarkDownConverter
     converted_text = parse_image_tags(converted_text)
     converted_text = add_ul_and_li(converted_text)
 
-    helpers.raw renderer.render(converted_text)
+    helpers.raw converted_text
   end
 
 
@@ -36,13 +36,14 @@ class MarkDownConverter
     # each of the images later.
     frag = Nokogiri::HTML.fragment(text)
     frag.css('img').each { |img|
-      before_text = "#{IMAGE_SPLIT_TEXT}<figure>"
+      full_link = img["src"].gsub("/small/","/original/")
+      inner_contents = "<a href=\"#{full_link}\" data-lightbox=\"essay\" data-title=\"#{img['title']}\">#{img.to_html}</a>"
       if img['title']
-        after_text = "<figcaption>#{img['title']}</figcaption></figure>#{IMAGE_SPLIT_TEXT}"
-      else
-        after_text = "</figure>#{IMAGE_SPLIT_TEXT}"
+        inner_contents += "<figcaption>#{img['title']}</figcaption>"
       end
-      img.replace(before_text + img.to_html + after_text)
+      before_text = "#{IMAGE_SPLIT_TEXT}<figure>"
+      after_text = "</figure>#{IMAGE_SPLIT_TEXT}"
+      img.replace(before_text + inner_contents + after_text)
      }
 
      frag.to_html
@@ -82,10 +83,21 @@ class MarkDownConverter
   end
 
   def preprocess_images(text)
+    processed = preprocess_images_combine_into_single_line(text)
+    processed = preprocess_image_newlines(processed)
+    processed
+  end
+
+  def preprocess_images_combine_into_single_line(text)
     # combine multiple lines of markdown images into one line
-    expression = /^([!]\[.*)\n(?=[!]\[)/
+    expression = /\s*([!](\[[^\]]+\])+)\s*(?=[!]\[)/
     text.gsub(expression, '\1 ')
   end
 
+  def preprocess_image_newlines(text)
+    # insert newlines before and after images to ensure surrounding text is in <p> tags
+    expression = /\s*((\s*[!](\[[^\]]+\])+)+)\n*\s*/
+    text.gsub(expression,"\n\n" + '\1' + "\n\n")
+  end
 end
 

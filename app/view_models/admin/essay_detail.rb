@@ -60,14 +60,26 @@ class Admin::EssayDetail
 
   def components
     {
-      :body => 'Body Content',
-      :alt_body => 'Alternate Body',
+      :body => 'Essay Body',
       :author_biography => 'Author Biography',
       :works_cited => 'Works Cited',
       :discussion_questions => 'Discussion Questions',
       :embed => 'Embedded Multimedia',
+      :alt_body => 'Media Transcript',
       :instructor_resources => 'Instructor Resources'
     }
+  end
+
+  def components_with_content
+    @components_with_content ||= components.reject{|k,v| content_blank?(k)}
+  end
+
+  def components_without_content
+    @components_without_content ||= components.reject{|k,v| !content_blank?(k)}
+  end
+
+  def content_blank?(content_type)
+    @mef.content_blank?(content_type)
   end
 
   def volume_link

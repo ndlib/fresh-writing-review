@@ -55,6 +55,7 @@ gem 'state_machine'
 # paper trail so we can track and fix revisions
 gem 'paper_trail', '~> 3.0.1'
 
+gem 'nokogiri'
 
 
 group :doc do
