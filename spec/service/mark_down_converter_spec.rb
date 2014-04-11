@@ -89,8 +89,11 @@ In addition to building community, street art connects nature to the city. Artis
     end
 
     describe '#parse_image_tags' do
-      let(:input) {"<img src=\"/system/images/1/small/figure_1_orig.png\" title=\"Test Title\">"}
-      let(:output) {"#{described_class::IMAGE_SPLIT_TEXT}<figure><img src=\"/system/images/1/small/figure_1_orig.png\" title=\"Test Title\"><figcaption>Test Title</figcaption></figure>#{described_class::IMAGE_SPLIT_TEXT}"}
+      let(:image_path) { "/system/images/1/small/figure_1_orig.png" }
+      let(:caption) { "Test Title" }
+      let(:image) { "<img src=\"#{image_path}\" title=\"#{caption}\">" }
+      let(:input) { image }
+      let(:output) {"#{described_class::IMAGE_SPLIT_TEXT}<figure>#{image}<figcaption>#{caption}</figcaption></figure>#{described_class::IMAGE_SPLIT_TEXT}"}
 
       it "adds additional html around images" do
         expect(subject.parse_image_tags(input)).to be == output
