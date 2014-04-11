@@ -36,13 +36,14 @@ class MarkDownConverter
     # each of the images later.
     frag = Nokogiri::HTML.fragment(text)
     frag.css('img').each { |img|
-      before_text = "#{IMAGE_SPLIT_TEXT}<figure>"
+      full_link = img["src"].gsub("/small/","/original/")
+      inner_contents = "<a href=\"#{full_link}\">#{img.to_html}</a>"
       if img['title']
-        after_text = "<figcaption>#{img['title']}</figcaption></figure>#{IMAGE_SPLIT_TEXT}"
-      else
-        after_text = "</figure>#{IMAGE_SPLIT_TEXT}"
+        inner_contents += "<figcaption>#{img['title']}</figcaption>"
       end
-      img.replace(before_text + img.to_html + after_text)
+      before_text = "#{IMAGE_SPLIT_TEXT}<figure>"
+      after_text = "</figure>#{IMAGE_SPLIT_TEXT}"
+      img.replace(before_text + inner_contents + after_text)
      }
 
      frag.to_html

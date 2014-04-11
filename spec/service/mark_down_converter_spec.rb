@@ -95,8 +95,16 @@ In addition to building community, street art connects nature to the city. Artis
       let(:input) { image }
       let(:output) {"#{described_class::IMAGE_SPLIT_TEXT}<figure>#{image}<figcaption>#{caption}</figcaption></figure>#{described_class::IMAGE_SPLIT_TEXT}"}
 
-      it "adds additional html around images" do
-        expect(subject.parse_image_tags(input)).to be == output
+      it "adds a caption" do
+        expect(subject.parse_image_tags(input)).to match("<figcaption>#{caption}</figcaption>")
+      end
+
+      it "adds a figure tag around the image" do
+        expect(subject.parse_image_tags(input)).to match(/<figure>.*<img.*<\/figure>/)
+      end
+
+      it "adds a link" do
+        expect(subject.parse_image_tags(input)).to match(/<a.*<img.*<\/a>/)
       end
     end
   end
