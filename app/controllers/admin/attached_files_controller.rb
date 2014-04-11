@@ -1,7 +1,7 @@
 class Admin::AttachedFilesController < AdminController
 
   def new
-    @attached_file = AttachedFile.new
+    @attached_file = AttachedFile.new(essay: essay)
   end
 
   def create

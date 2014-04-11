@@ -11,6 +11,17 @@ class MarkdownContent < ActiveRecord::Base
     content.to_s.strip.blank?
   end
 
+
+  def parent
+    @parent ||= component_parent.titleize.constantize.find_by_id(component_parent_id)
+  end
+
+
+  def parent_title
+    parent.title
+  end
+
+
   private
 
     def set_content_to_string

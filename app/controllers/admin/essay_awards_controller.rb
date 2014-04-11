@@ -1,7 +1,7 @@
 class Admin::EssayAwardsController < AdminController
 
   def new
-    @essay_award = EssayAward.new
+    @essay_award = EssayAward.new(essay: essay)
   end
 
   def create
