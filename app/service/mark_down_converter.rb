@@ -37,7 +37,7 @@ class MarkDownConverter
     frag = Nokogiri::HTML.fragment(text)
     frag.css('img').each { |img|
       full_link = img["src"].gsub("/small/","/original/")
-      inner_contents = "<a href=\"#{full_link}\">#{img.to_html}</a>"
+      inner_contents = "<a href=\"#{full_link}\" data-lightbox=\"essay\" data-title=\"#{img['title']}\">#{img.to_html}</a>"
       if img['title']
         inner_contents += "<figcaption>#{img['title']}</figcaption>"
       end

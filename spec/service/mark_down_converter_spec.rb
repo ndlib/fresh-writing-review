@@ -106,6 +106,11 @@ In addition to building community, street art connects nature to the city. Artis
       it "adds a link" do
         expect(subject.parse_image_tags(input)).to match(/<a.*<img.*<\/a>/)
       end
+
+      it "adds lightbox data attributes" do
+        expect(subject.parse_image_tags(input)).to match(/data-lightbox/)
+        expect(subject.parse_image_tags(input)).to match(/data-title/)
+      end
     end
   end
 end
