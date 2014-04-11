@@ -12,6 +12,9 @@ module MarkdownComponentFactory
     elsif @params[:issue_id] && @params[:essay_id] || @params[:controller] == 'admin/essays'
       @@content_type = 'essay'
       MarkdownComponentFactory::EssayContent.new(@params)
+    elsif @params[:essay_style_id] || @params[:controller] == 'admin/essay_styles'
+      @@content_type = 'essay_style'
+      MarkdownComponentFactory::EssayStyleContent.new(@params)
     else
       @@content_type = 'issue'
       MarkdownComponentFactory::IssueContent.new(@params)

@@ -29,6 +29,7 @@
               <li><%= link_to page.title + " Page", admin_page_path(page.id) %></li>
             <% end %>
             <li><%= link_to "Awards", admin_awards_path() %></li>
+            <li><%= link_to "Essay Styles", admin_essay_styles_path() %></li>
             <% if can?(:manage_users, :all) %>
               <li><%= link_to "Editors", admin_editors_path %></li>
             <% end %>

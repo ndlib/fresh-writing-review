@@ -18,6 +18,9 @@ FreshWriting::Application.routes.draw do
     resources :awards do
       resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
     end
+    resources :essay_styles do
+      resources :markdown_contents, :controller => :markdown, :only => [:edit, :update]
+    end
     resources :issues, path: "volumes" do
       member do
         put 'publish'
