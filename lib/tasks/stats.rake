@@ -8,5 +8,6 @@ namespace :todolist do
     ::STATS_DIRECTORIES << ["View Models", "app/view_models"]
     ::STATS_DIRECTORIES << ["Query", "app/query"]
     ::STATS_DIRECTORIES << ["Form", "app/forms"]
+    ::STATS_DIRECTORIES << ["Factory Models", "app/factory_models"]
   end
 end
