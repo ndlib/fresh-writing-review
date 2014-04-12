@@ -15,6 +15,11 @@ class MarkdownComponentFactory::AwardContent
   end
 
 
+  def component_name
+    'Description'
+  end
+
+
   def determine_id
     if @params[:controller] == 'admin/awards'
       @params[:id]

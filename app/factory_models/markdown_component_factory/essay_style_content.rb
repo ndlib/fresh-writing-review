@@ -15,6 +15,11 @@ class MarkdownComponentFactory::EssayStyleContent
   end
 
 
+  def component_name
+    'Description'
+  end
+
+
   def determine_id
     if @params[:controller] == 'admin/essay_styles'
       @params[:id]
