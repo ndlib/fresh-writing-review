@@ -48,6 +48,7 @@ jQuery ($) ->
                $("#wmd-input-content").val(alt_text)
                return
                ), 0
+             $("#uploadForm").trigger("reset")
              dialogClose()
            else
              alert response.message
