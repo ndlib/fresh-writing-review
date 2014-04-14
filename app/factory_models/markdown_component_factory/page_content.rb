@@ -16,6 +16,11 @@ class MarkdownComponentFactory::PageContent
   end
 
 
+  def component_name
+    'Page Body'
+  end
+
+
   def determine_id
     if @params[:controller] == 'admin/pages'
       @params[:id]

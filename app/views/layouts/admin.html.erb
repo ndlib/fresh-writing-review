@@ -25,12 +25,21 @@
         <% if can?(:edit, :all) %>
           <ul class="side-nav">
             <li><%= link_to "Volumes", admin_issues_path() %></li>
-            <% PageQuery.all.each do |page| %>
-              <li><%= link_to page.title + " Page", admin_page_path(page.id) %></li>
-            <% end %>
-            <li><%= link_to "Awards", admin_awards_path() %></li>
+            <li><hr></li>
+            <li><h4>Sections</h4><ul class="list-unstyled">
+              <li><%= link_to "Essay Styles", admin_essay_styles_path() %></li>
+              <li><%= link_to "Awards", admin_awards_path() %></li>
+              </ul>
+            </li>
+            <li><h4>Pages</h4><ul class="list-unstyled">
+                <% PageQuery.all.each do |page| %>
+                  <li><%= link_to page.title, admin_page_path(page.id) %></li>
+                <% end %>
+              </ul>
+            </li>
+            <li><hr></li>
             <% if can?(:manage_users, :all) %>
-              <li><%= link_to "Editors", admin_editors_path %></li>
+              <li><%= link_to "Website Editors", admin_editors_path %></li>
             <% end %>
           </ul>
         <% end %>

@@ -19,4 +19,4 @@
 //= require issues.js
 //= require foundation_init.js
 //= require fresh_writting.js
-
+//= require lightbox.js

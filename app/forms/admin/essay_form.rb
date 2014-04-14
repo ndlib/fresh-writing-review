@@ -12,7 +12,7 @@ class Admin::EssayForm
 
   attr_accessor :essay, :issue
 
-  validates :title, :author, :essay_style_id, presence: true
+  validates :title, :author, :essay_style_id, :published_medium, presence: true
   validates :published_medium, inclusion: { in: %w(text video audio) }
 
   def self.build(controller)

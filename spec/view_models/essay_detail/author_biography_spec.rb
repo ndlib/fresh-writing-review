@@ -29,7 +29,7 @@ describe EssayDetail::AuthorBiography do
 
 
   it "returns the markdown" do
-    expect(subject.markdown).to eq("<p>biography</p>\n")
+    expect(subject.markdown).to match "<p>biography</p>"
   end
 
 

@@ -20,6 +20,12 @@ class EssayStyleDetail
     @issue_detail = IssueDetail.new(issue)
   end
 
+
+  def body
+    MarkdownDetail.new(essay_style.body).markdown
+  end
+
+
   def style_id
     essay_style.id
   end
@@ -44,6 +50,7 @@ class EssayStyleDetail
     EssayLink.render(essay)
   end
 
+
   def essays
     @essays ||= EssayQuery.published_essays_for_issue_and_essay_style(issue, essay_style)
   end
@@ -67,11 +74,14 @@ class EssayStyleDetail
     IssueHeader.render(issue, false)
   end
 
+
   def highlighted_essay
     @highlighted_essay ||= HighlightedEssayDetail.new(issue, essay_style)
   end
 
+
   private
+  
     def issue_detail
       @issue_detail
     end

@@ -25,7 +25,7 @@ describe EssayDetail::Embed do
 
 
   it "returns the embed" do
-    expect(subject.markdown).to eq("<p>embed</p>\n")
+    expect(subject.markdown).to match "<p>embed</p>"
   end
 
 

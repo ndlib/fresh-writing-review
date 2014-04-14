@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="large-8 columns end">
+    <h1>Edit Essay Style</h1>
+
+    <%= simple_form_for @essay_style, url: admin_essay_style_path(@essay_style), html: { class: 'form-horizontal'} do | f | %>
+      <%= render partial: "form", locals: {f: f} %>
+    <% end %>
+
+  </div>
+</div>

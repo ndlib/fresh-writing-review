@@ -15,9 +15,11 @@ def markdown(*paths)
   MarkdownContent.create!(content: test_file(*paths))
 end
 
+MarkdownContent.delete_all
+
 EssayStyle.delete_all
 %w(Narrative Analysis Research Definition Rebuttal Reflective).each do |style|
-  EssayStyle.create!(title: style)
+  EssayStyle.create!(title: style, body: MarkdownContent.new(:content => style + " Authors often misinterpret the cake as a sportless difference, when in actuality it feels more like a fleeceless advertisement. The zeitgeist contends that some posit the unsashed hardhat to be less than nagging. However, a graphic is a sunflower from the right perspective. Unfortunately, that is wrong; on the contrary, the literature would have us believe that an awash bomb is not but a beech."))
 end
 
 Issue.delete_all
@@ -78,6 +80,16 @@ Award.delete_all
   Award.create!(title: title, body: markdown('award_text.md'))
 end
 
+# Inline images for essays
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_1_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_2_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_3_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_4_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_5_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_6_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_7_orig.png')))
+Image.create(:image => File.open(Rails.root.join('public', 'system', 'test', 'zavakos', 'figure_8_orig.png')))
+
 
 Essay.delete_all
 Essay.create!(id: 1, published_medium: 'text', issue_id: issue_id, published: true, essay_style: narrative_style, title: "Family of Deer", author: "Terence Clines",
@@ -88,8 +100,6 @@ Essay.create!(id: 1, published_medium: 'text', issue_id: issue_id, published: tr
 
 Essay.create!(id: 3, published_medium: 'text', issue_id: issue_id, published: true, essay_style: analysis_style, title: "Imperfect, Contradictory Beauty",
   body: markdown('two_section_text_part1.txt'),
-  alt_body: markdown('two_section_text_part2.txt'),
-  alt_title: "Pied Beauty",
   author: "Nathan McDevitt",
   author_biography: markdown('biography_long.md'),
   instructor_resources: markdown('instructor_resources.md')

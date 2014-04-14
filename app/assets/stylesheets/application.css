@@ -15,6 +15,7 @@
  *= require ./bootstrap-custom
  *= require ./foundation_and_overrides
  *= require ./fresh_writing
+ *= require ./lightbox
  */
 
 

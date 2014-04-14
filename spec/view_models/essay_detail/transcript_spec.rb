@@ -25,7 +25,7 @@ describe EssayDetail::Transcript do
 
 
   it "returns the markdown" do
-    expect(subject.markdown).to eq("<p>alt_body</p>\n")
+    expect(subject.markdown).to match "<p>alt_body</p>"
   end
 
 

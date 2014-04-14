@@ -1,17 +1,17 @@
-class MarkdownComponentFactory::AwardContent
+class MarkdownComponentFactory::EssayStyleContent
   include RailsHelpers
   include MarkdownComponentFactory
 
-  attr_accessor :award
+  attr_accessor :essay_style
 
   def initialize(params)
     @params = params
-    @award = AwardQuery.find(self.determine_id)
+    @essay_style = EssayStyleQuery.find(self.determine_id)
   end
 
 
   def id
-    @award.id
+    @essay_style.id
   end
 
 
@@ -21,13 +21,11 @@ class MarkdownComponentFactory::AwardContent
 
 
   def determine_id
-    if @params[:controller] == 'admin/awards'
+    if @params[:controller] == 'admin/essay_styles'
       @params[:id]
     else
-      @params[:award_id]
+      @params[:essay_style_id]
     end
   end
-
-
 
 end

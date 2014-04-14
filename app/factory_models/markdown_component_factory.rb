@@ -12,6 +12,9 @@ module MarkdownComponentFactory
     elsif @params[:issue_id] && @params[:essay_id] || @params[:controller] == 'admin/essays'
       @@content_type = 'essay'
       MarkdownComponentFactory::EssayContent.new(@params)
+    elsif @params[:essay_style_id] || @params[:controller] == 'admin/essay_styles'
+      @@content_type = 'essay_style'
+      MarkdownComponentFactory::EssayStyleContent.new(@params)
     else
       @@content_type = 'issue'
       MarkdownComponentFactory::IssueContent.new(@params)
@@ -31,11 +34,11 @@ module MarkdownComponentFactory
 
   def markdown_id
     if self.content_type == 'essay'
-      self.essay.add_new_component(@params[:component_type], "Please Edit")
+      self.essay.add_new_component(@params[:component_type], "")
     elsif self.content_type = 'issue'
-      self.issue.add_new_component(@params[:component_type], "Please Edit")
+      self.issue.add_new_component(@params[:component_type], "")
     elsif self.content_type = 'award'
-      self.award.add_new_component(@params[:component_type], "Please Edit")
+      self.award.add_new_component(@params[:component_type], "")
     end
   end
 
@@ -52,5 +55,8 @@ module MarkdownComponentFactory
       self.award.id
     end
   end
+
+
+
 
 end

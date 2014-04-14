@@ -121,6 +121,10 @@ div.issues {
 	margin-left: 2em;
 }
 
+div.image img {
+  max-height: 200px;
+}
+
 .images h2 {
 	margin-top:0;
 
@@ -173,4 +177,8 @@ table {
 
 .side-nav li a:hover:not(.button), .side-nav li a:focus:not(.button) {
 	color:$dk-green;
+}
+
+.side-nav li li {
+  padding-left: 15px;
 }
