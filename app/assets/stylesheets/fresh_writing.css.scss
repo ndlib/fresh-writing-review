@@ -692,8 +692,17 @@ article {
 
     .small-block-grid-2 {
       margin:0 30px;
+      float: right;
       li {
         padding-left:0;
+        margin:0;
+
+      }
+      li:only-child {
+        width:100%;
+      }
+      li+li {
+        width:50%;
       }
     }
 
@@ -702,7 +711,7 @@ article {
       vertical-align: text-top;
       display: inline-block;
       float: left;
-      width: 49%;
+      width: 99%;
       margin-right: 1%;
 
 
