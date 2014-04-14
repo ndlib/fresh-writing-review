@@ -102,13 +102,17 @@ a:active {
 
 /* ARTICLE */
 
-.page-body p {
+.page-body p, .body ul {
   color:#333;
   font-family: $content;
   font-size:2rem;
   margin-left:30px;
   margin-right:30px;
   margin-bottom:3rem;
+}
+
+.body ul li {
+  margin-left:30px;
 }
 
 .attachments {
@@ -683,7 +687,7 @@ article {
       //margin:.4em 0 1.4em 1.4em;
       vertical-align: text-top;
       display: inline-block;
-      width: 330px;
+      
     }
 
     .small-block-grid-2 {
@@ -697,10 +701,16 @@ article {
 
       vertical-align: text-top;
       display: inline-block;
+      float: left;
+      width: 49%;
+      margin-right: 1%;
+
 
       img {
         margin:0;
+        width: 100%;
       }
+    
     }
     figcaption {
       font-size:1.2rem;
@@ -724,6 +734,8 @@ article {
     clear:both;
   }
 }
+
+
 
 .page-body .download {
   margin-top:28px;
@@ -1073,6 +1085,7 @@ article {
   .style {
     height:auto;
     margin-bottom:.8rem;
+    color:$lt-green;
   }
 }
 

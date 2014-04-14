@@ -43,6 +43,14 @@ h1 {
 	color:$dk-green;
 }
 
+p {
+	font-size:1.6rem;
+}
+p.bg-warning {
+	padding:4px;
+	background:$ltlt-green;
+}
+
 .list {
 	margin-left:0;
 
