@@ -7,6 +7,8 @@ class Admin::MarkdownController < AdminController
     @markdown_content = nil
     if MarkdownContent.exists?(params[:id])
       mcf = MarkdownComponentFactory.create(self)
+      @parent_title = mcf.send(mcf.content_type).title
+      @component_name = mcf.component_name
       @markdown_content = MarkdownContent.find(params[:id])
       @markdown_content.component_parent = mcf.content_type
       @markdown_content.component_parent_id = mcf.component_parent
@@ -47,8 +49,9 @@ class Admin::MarkdownController < AdminController
       issue = IssueQuery.find(component_parent_id)
       admin_issue_path(:id => issue.id)
     when 'award'
-      award = AwardQuery.find(component_parent_id)
       admin_awards_path()
+    when 'essay_style'
+      admin_essay_styles_path()
     when 'page'
       page = PageQuery.find(component_parent_id)
       admin_page_path(:id => component_parent_id)

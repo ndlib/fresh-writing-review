@@ -1,0 +1,12 @@
+<h1>Essay Styles</h1>
+
+<table class="list">
+  <tbody>
+    <% @essay_styles.each do |essay_style| %>
+      <tr>
+        <td><%= link_to essay_style.title, edit_admin_essay_style_path(essay_style) %></td>
+        <td><a class="btn btn-primary" href="<%= edit_admin_essay_style_markdown_content_path(essay_style.id, essay_style.body.id) %>">Edit Description</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

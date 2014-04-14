@@ -19,7 +19,7 @@ MarkdownContent.delete_all
 
 EssayStyle.delete_all
 %w(Narrative Analysis Research Definition Rebuttal Reflective).each do |style|
-  EssayStyle.create!(title: style)
+  EssayStyle.create!(title: style, body: MarkdownContent.new(:content => style + " Authors often misinterpret the cake as a sportless difference, when in actuality it feels more like a fleeceless advertisement. The zeitgeist contends that some posit the unsashed hardhat to be less than nagging. However, a graphic is a sunflower from the right perspective. Unfortunately, that is wrong; on the contrary, the literature would have us believe that an awash bomb is not but a beech."))
 end
 
 Issue.delete_all
