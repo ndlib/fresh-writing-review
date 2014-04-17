@@ -25,8 +25,25 @@ label {
 	color:$lt-green;
 }
 
-#header .row {
+#header .row, #navigation {
 	max-width: 100%;
+}
+
+.top-bar-section ul li:first-child {
+	padding: 0 43px;
+}
+
+.top-bar-section ul li:last-child {
+	float: left;
+}
+
+ul.dropdown {
+	margin-left:43px;
+}
+
+ul.dropdown li {
+	background:#fff;
+	padding:0 10px;
 }
 
 #header h2 {

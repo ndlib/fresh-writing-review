@@ -19,8 +19,17 @@
       <div class="large-10 columns"><h2></h2></div>
     </div>
     </header>
+    <%= render partial: 'layouts/admin_navigation' %>
+
 
     <div class="row">
+      
+
+      <div class="large-10 columns">
+        <%= display_notices %>
+        <%= yield %>
+
+      </div>
       <div class="large-2 columns">
         <% if can?(:edit, :all) %>
           <ul class="side-nav">
@@ -44,13 +53,6 @@
           </ul>
         <% end %>
       </div>
-
-      <div class="large-10 columns">
-        <%= display_notices %>
-        <%= yield %>
-
-      </div>
-
     </div>
 
   </body>

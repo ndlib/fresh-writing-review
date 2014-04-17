@@ -1,0 +1,34 @@
+<nav class="top-bar" id="navigation" data-topbar>
+<ul class="title-area">
+
+<li class="toggle-topbar menu-icon">
+<a href="">Menu</a>
+</li>
+</ul>
+  <section class="top-bar-section">
+
+  <ul>
+    <li>
+      <%= link_to("Home", root_path) %>
+    </li>
+    <li>
+      <%= link_to "Volumes", admin_issues_path() %>
+    </li>
+    <li class="has-dropdown">
+      <a href="">Site Information</a>
+        <ul class="dropdown">
+          <li><%= link_to "Essay Styles", admin_essay_styles_path() %></li>
+          <li><%= link_to "Awards", admin_awards_path() %></li>
+          <% PageQuery.all.each do |page| %>
+                  <li><%= link_to page.title, admin_page_path(page.id) %></li>
+          <% end %>
+          <% if can?(:manage_users, :all) %>
+              <li><%= link_to "Website Editors", admin_editors_path %></li>
+            <% end %>
+        </ul>
+    </li>
+
+  </ul>
+
+  </section>
+</nav>
