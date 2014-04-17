@@ -14,13 +14,22 @@ class EssayDetail::Body
   end
 
 
+  def has_content?
+    markdown_object.present?
+  end
+
+
   def markdown
     markdown_object.markdown
   end
 
 
   def render
-    return render_to_string('/essays/body', { object: self })
+    if has_content?
+      return render_to_string('/essays/body', { object: self })
+    else
+      ""
+    end
   end
 
   protected

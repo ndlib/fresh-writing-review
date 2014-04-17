@@ -19,7 +19,7 @@ class EssayDetail::AuthorBiography
 
 
   def has_content?
-    markdown.present?
+    markdown_object.present?
   end
 
 
