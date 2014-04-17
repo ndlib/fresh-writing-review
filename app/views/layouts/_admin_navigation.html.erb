@@ -14,7 +14,7 @@
     <li class="has-dropdown">
       <%= link_to "Volumes", admin_issues_path() %>
       <ul class="dropdown">
-        <li><a href="#">Current Volume</a></li>
+        <li><a href="<%= admin_issue_path(IssueDetail.current.issue) %>">Current Volume</a></li>
       </ul>
     </li>
     <li class="has-dropdown">
@@ -25,7 +25,7 @@
           <% PageQuery.all.each do |page| %>
                   <li><%= link_to page.title, admin_page_path(page.id) %></li>
           <% end %>
-          
+
         </ul>
     </li>
 <% if can?(:manage_users, :all) %>
