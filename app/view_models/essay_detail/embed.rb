@@ -20,7 +20,9 @@ class EssayDetail::Embed
 
 
   def transcript_link
-    helpers.link_to('Transcript', routes.transcript_issue_essay_path(essay.issue.friendly_id, essay.friendly_id))
+    if EssayDetail::Transcript.new(essay).has_content?
+      helpers.link_to('Transcript', routes.transcript_issue_essay_path(essay.issue.friendly_id, essay.friendly_id))
+    end
   end
 
 

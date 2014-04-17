@@ -4,7 +4,7 @@ require 'spec_helper'
 describe EssayDetail::Embed do
 
   let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
-  let(:essay) { double(Essay, friendly_id: 'id', embed: double(MarkdownContent, content: "embed"), issue: issue, published_medium: 'video') }
+  let(:essay) { double(Essay, friendly_id: 'id', alt_body: double(MarkdownContent, content: "alt"), embed: double(MarkdownContent, content: "embed"), issue: issue, published_medium: 'video') }
   let(:no_embed_essay) { double(Essay, friendly_id: 'id', embed: nil, issue: issue, published_medium: 'text') }
   subject { described_class.new(essay) }
 

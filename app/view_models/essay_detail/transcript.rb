@@ -19,6 +19,11 @@ class EssayDetail::Transcript
   end
 
 
+  def has_content?
+    markdown_object.present?
+  end
+
+
   def markdown
     markdown_object.markdown
   end
