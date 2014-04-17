@@ -90,13 +90,13 @@ class MarkDownConverter
 
   def preprocess_images_combine_into_single_line(text)
     # combine multiple lines of markdown images into one line
-    expression = /\s*([!](\[[^\]]+\])+)\s*(?=[!]\[)/
+    expression = /\s*([!](\[[^\]]*\])+)\s*(?=[!]\[)/
     text.gsub(expression, '\1 ')
   end
 
   def preprocess_image_newlines(text)
     # insert newlines before and after images to ensure surrounding text is in <p> tags
-    expression = /\s*((\s*[!](\[[^\]]+\])+)+)\n*\s*/
+    expression = /\s*((\s*[!](\[[^\]]*\])+)+)\n*\s*/
     text.gsub(expression,"\n\n" + '\1' + "\n\n")
   end
 end
