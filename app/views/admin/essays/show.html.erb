@@ -85,7 +85,7 @@
         <h3>Author Image</h3>
         <%= @essay_detail.image_form.essay_author_image %>
 
-        <br>
+        <br/><br/><a href="#" class="change btn btn-primary">Change</a><br/><br/>
       </div>
       <div class="form" style="display:none;">
         <%= simple_form_for @essay_detail.image_form, url: save_images_admin_issue_essay_path(@essay_detail.issue, @essay_detail.essay), method: 'put' do | f | %>
