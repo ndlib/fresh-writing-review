@@ -66,9 +66,10 @@
   <div class="large-4 columns">
     <div class="images">
       <h2>Images</h2>
-
       <div class="image_editor">
         <div class="image">
+          <a href="#" class="change btn btn-primary">Edit</a>
+
           <h4>Large Cover Image</h4>
           <%= @issue_detail.image_form.large_image %>
 
@@ -79,12 +80,11 @@
 
           <h4>Image Alt: <%= @issue_detail.image_form.cover_image_alt %></h4>
 
-          <br><a href="#" class="change btn btn-primary">Change</a>
         </div>
         <div class="form" style="display:none;">
           <%= simple_form_for @issue_detail.image_form, url: save_images_admin_issue_path, method: 'put' do | f | %>
-            <%= f.input :large_cover_image, as: :file %>
-            <%= f.input :small_cover_image, as: :file %>
+            <%= f.input :large_cover_image, as: :file, hint: "Image Dimensions 900x200" %>
+            <%= f.input :small_cover_image, as: :file, hint: "Image Dimensions 900x90" %>
             <%= f.input :cover_image_credit, label: 'Image Credit' %>
             <%= f.input :cover_image_alt, label: 'Image Alternate', hint: 'The alternate should be filled out with a description of the image.  This is for screen readers.' %>
 
