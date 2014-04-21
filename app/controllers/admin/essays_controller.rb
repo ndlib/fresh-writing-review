@@ -68,7 +68,7 @@ class Admin::EssaysController < AdminController
 
   def highlight
     essay = EssayQuery.find(params[:id])
-    EssayHighlighter.publish(essay)
+    EssayHighlighter.highlight(essay)
 
     flash[:success] = "Essay has been highlighted"
     redirect_to admin_issue_essay_path(essay.issue, essay)
@@ -76,7 +76,7 @@ class Admin::EssaysController < AdminController
 
   def unhighlight
     essay = EssayQuery.find(params[:id])
-    EssayHighlighter.publish(essay)
+    EssayHighlighter.unhighlight(essay)
 
     flash[:success] = "Essay has been unhighlighted"
     redirect_to admin_issue_essay_path(essay.issue, essay)

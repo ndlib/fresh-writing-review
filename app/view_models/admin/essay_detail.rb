@@ -57,6 +57,10 @@ class Admin::EssayDetail
     essay.essay_award
   end
 
+  def highlighted?
+    essay.highlighted_essay.present?
+  end
+
 
   def components
     {
