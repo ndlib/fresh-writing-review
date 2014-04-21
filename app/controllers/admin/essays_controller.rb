@@ -66,6 +66,22 @@ class Admin::EssaysController < AdminController
     redirect_to admin_issue_essay_path(essay.issue, essay)
   end
 
+  def highlight
+    essay = EssayQuery.find(params[:id])
+    EssayHighlighter.publish(essay)
+
+    flash[:success] = "Essay has been highlighted"
+    redirect_to admin_issue_essay_path(essay.issue, essay)
+  end
+
+  def unhighlight
+    essay = EssayQuery.find(params[:id])
+    EssayHighlighter.publish(essay)
+
+    flash[:success] = "Essay has been unhighlighted"
+    redirect_to admin_issue_essay_path(essay.issue, essay)
+  end
+
 
   def save_images
     @form = Admin::EssayImageForm.build(self)

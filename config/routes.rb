@@ -33,6 +33,8 @@ FreshWriting::Application.routes.draw do
         member do
           put 'publish'
           put 'unpublish'
+          put 'highlight'
+          put 'unhighlight'
           put 'save_images'
         end
         resources :attached_files, except: [ :index ]
