@@ -119,4 +119,13 @@ describe Essay do
       end
     end
   end
+
+  describe '#highlighted_essay' do
+    let(:highlighted_essay) { FactoryGirl.create(:highlighted_essay) }
+    subject { highlighted_essay.essay }
+
+    it "destroys the highlighted_essay on destroy" do
+      expect { subject.destroy }.to change{ HighlightedEssay.count}.by(-1)
+    end
+  end
 end

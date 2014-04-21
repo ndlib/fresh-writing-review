@@ -17,6 +17,8 @@ class Essay < ActiveRecord::Base
   belongs_to :instructor_resources, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "instructor_resources_id"
   belongs_to :embed, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "embed_id"
 
+  has_one :highlighted_essay, dependent: :destroy
+
   has_one :attached_file
 
   validates :title, presence: true
