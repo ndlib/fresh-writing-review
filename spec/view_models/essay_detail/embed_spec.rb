@@ -31,7 +31,7 @@ describe EssayDetail::Embed do
 
   describe :transcript_link do
     it "returns the link" do
-      expect(subject.transcript_link).to eq("<a href=\"/volumes/id/essays/id/transcript\">Transcript</a>")
+      expect(subject.transcript_link).to eq("<a href=\"/volumes/id/essays/id/transcript\" target=\"_blank\">Transcript</a>")
     end
   end
 

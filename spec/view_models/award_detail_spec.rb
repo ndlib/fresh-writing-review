@@ -40,7 +40,7 @@ describe AwardDetail do
 
   describe "#link_to_essay" do
     it "calls the essay link render" do
-      expect(EssayLink).to receive(:render).with(essay)
+      expect(EssayLink).to receive(:render).with(essay, false)
       subject.link_to_essay(essay)
     end
   end
