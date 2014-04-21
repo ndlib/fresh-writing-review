@@ -733,6 +733,7 @@ article {
   aside.author {
     margin-bottom:2em;
     float: left;
+    width: 100%;
     img {
       float: left;
       margin:0 1rem 1rem 0;
@@ -802,6 +803,7 @@ article {
     font-family: $content;
     text-indent: -2rem;
     margin-left:60px;
+    margin-bottom:1.2em;
   }
 }
 
@@ -844,6 +846,11 @@ article {
   border-bottom:solid 2px #fff;
 
 
+}
+
+.side-nav li a:hover:not(.button), .side-nav li a:active:not(.button) {
+  color:$lt-grey;
+  border-bottom:solid 2px $yellow;
 }
 
 .side-nav li a.title:hover:not(.button) {

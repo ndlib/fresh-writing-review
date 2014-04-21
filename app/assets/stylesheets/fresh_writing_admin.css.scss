@@ -199,3 +199,31 @@ table {
 .side-nav li li {
   padding-left: 15px;
 }
+
+#previewWindow img {
+    float: right;
+    margin-right: 0;
+    margin-left: 3%;
+    margin-top: 1px;
+    max-width: 46%;
+}
+
+footer {
+	border-top:solid 1px $ltlt-green;
+	margin:2em 0;
+	padding:4em 0;
+}
+
+.admin {
+	margin:0 2%;
+	width:96%;
+}
+
+.help-block {
+	font-size:1.1rem;
+	margin-left: 8px;
+}
+
+.image_editor .file {
+	margin-bottom:5px;
+}
