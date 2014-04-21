@@ -6,7 +6,7 @@ class Essay < ActiveRecord::Base
 
   belongs_to :issue
   belongs_to :essay_style
-  has_one :essay_award
+  has_one :essay_award, dependent: :destroy
   has_one :award, through: :essay_award
 
   belongs_to :body, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "body_id"
@@ -16,6 +16,8 @@ class Essay < ActiveRecord::Base
   belongs_to :discussion_questions, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "discussion_questions_id"
   belongs_to :instructor_resources, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "instructor_resources_id"
   belongs_to :embed, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "embed_id"
+
+  has_one :highlighted_essay, dependent: :destroy
 
   has_one :attached_file
 
