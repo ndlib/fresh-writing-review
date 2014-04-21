@@ -35,6 +35,29 @@ describe Admin::IssueForm do
     end
   end
 
+  describe :validations do
+    let(:issue) { Issue.new }
+    let(:valid_params) { { title: 'title', year: 'year' }}
+    subject { described_class.new(issue, valid_params) }
+
+
+    it "checks that there are unique years" do
+      Issue.new(title: 'title', year: 'year').save!
+      subject.save!
+
+      expect(subject.error_on(:year)).to be_true
+    end
+
+    it "validates the presence of title" do
+      expect( described_class.new(issue, {}).error_on(:title)).to be_true
+    end
+
+    it "validates the presence of year" do
+      expect( described_class.new(issue, {}).error_on(:year)).to be_true
+    end
+
+  end
+
 
   describe :new_record do
 

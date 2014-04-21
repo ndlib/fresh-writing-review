@@ -10,6 +10,7 @@ class Admin::IssueForm
 
   validates :title, :year, presence: true
 
+
   attr_accessor :issue
 
   def self.build(controller)
@@ -44,8 +45,7 @@ class Admin::IssueForm
 
 
   def save!
-    if valid?
-      persist!
+    if valid? && persist
       true
     else
       false
@@ -55,8 +55,17 @@ class Admin::IssueForm
 
   protected
 
-    def persist!
+    def persist
       @issue.attributes = attributes
+
+      if !@issue.valid?
+        @issue.errors.each do | key, value |
+          self.errors[key] << value
+        end
+
+        return false
+      end
+
       @issue.save!
       CopyPreviousIssuePages.call(@issue)
     end

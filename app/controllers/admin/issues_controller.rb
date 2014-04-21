@@ -25,7 +25,7 @@ class Admin::IssuesController < AdminController
       flash[:success] = 'Issue Created'
       redirect_to admin_issue_path(@form.issue)
     else
-      flash.new[:error] = 'Unable to create the issue.  Please review the error messages below and correct the form.'
+      flash.now[:error] = 'Unable to create the issue.  Please review the error messages below and correct the form.'
       render :new
     end
   end
