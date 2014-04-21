@@ -6,9 +6,9 @@
 
 <%= @award_detail.body %>
 
-<ul class="small-block-grid-3 listing">
+<ul class="">
   <% @award_detail.essay_awards.each do |essay_award| %>
-    <li>
+    <li class="<%= essay_award.placement_string %>-place">
       <h3><%= essay_award.placement_string %> Place<h3>
       <%= raw @award_detail.link_to_essay(essay_award.essay) %>
     </li>

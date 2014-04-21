@@ -37,7 +37,7 @@ describe EssayLink do
 
   describe :render do
     it "renders the correct partial" do
-      expect(subject).to receive(:render_to_string).with('/essays/link', { object: subject })
+      expect(subject).to receive(:render_to_string).with('/essays/link', { object: subject, show_volume_style_links: true })
       subject.render
     end
   end
