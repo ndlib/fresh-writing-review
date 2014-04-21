@@ -47,7 +47,7 @@ class EssayStyleDetail
 
 
   def link_to_essay(essay)
-    EssayLink.render(essay)
+    EssayLink.render(essay, false)
   end
 
 
@@ -81,7 +81,7 @@ class EssayStyleDetail
 
 
   private
-  
+
     def issue_detail
       @issue_detail
     end

@@ -2,14 +2,15 @@ class EssayLink
 
   include RailsHelpers
 
-  attr_accessor :essay
+  attr_reader :essay, :show_volume_style_links
 
-  def self.render(essay)
-    self.new(essay).render
+  def self.render(essay, show_volume_style_links = true)
+    self.new(essay, show_volume_style_links).render
   end
 
-  def initialize(essay)
+  def initialize(essay, show_volume_style_links = true)
     @essay = essay
+    @show_volume_style_links = show_volume_style_links
   end
 
 
@@ -34,6 +35,6 @@ class EssayLink
 
 
   def render
-    render_to_string '/essays/link', object: self
+    render_to_string '/essays/link', object: self, show_volume_style_links: show_volume_style_links
   end
 end

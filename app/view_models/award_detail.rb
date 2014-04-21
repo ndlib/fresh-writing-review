@@ -31,7 +31,7 @@ class AwardDetail
 
 
   def link_to_essay(essay)
-    EssayLink.render(essay)
+    EssayLink.render(essay, false)
   end
 
 

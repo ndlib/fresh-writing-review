@@ -1,9 +1,11 @@
 <%= raw object.link_to_image %>
 <div class="meta">
   <%= raw object.author %>
-  <span>
-    <em><%= raw object.link_to_issue %>
-    •</em>
-    <%= raw object.link_to_style %>
-  </span>
+  <% if show_volume_style_links %>
+    <span>
+      <em><%= raw object.link_to_issue %>
+      •</em>
+      <%= raw object.link_to_style %>
+    </span>
+  <% end %>
 </div>
