@@ -37,12 +37,20 @@ class Admin::IssueImageForm
 
 
   def large_image
-    helpers.image_tag issue.large_cover_image(:large)
+    if issue.large_cover_image.present?
+      helpers.image_tag issue.large_cover_image(:large)
+    else
+      helpers.image_tag '/placeholders/admin_large_cover_image_placeholder.gif'
+    end
   end
 
 
   def small_image
-    helpers.image_tag issue.small_cover_image(:large)
+    if issue.small_cover_image.present?
+      helpers.image_tag issue.small_cover_image(:large)
+    else
+      helpers.image_tag '/placeholders/admin_large_cover_image_placeholder.gif'
+    end
   end
 
 

@@ -36,12 +36,20 @@ class Admin::EssayImageForm
 
 
   def essay_cover_image
-    helpers.image_tag essay.cover_image(:highlight)
+    if essay.cover_image.present?
+      helpers.image_tag essay.cover_image(:highlight)
+    else
+      helpers.image_tag '/placeholders/admin_essay_cover_image_placeholder.gif'
+    end
   end
 
 
   def essay_author_image
-    helpers.image_tag essay.author_image(:small)
+    if essay.author_image.present?
+      helpers.image_tag essay.author_image(:small)
+    else
+      helpers.image_tag '/placeholders/admin_author_placeholder.gif'
+    end
   end
 
 
