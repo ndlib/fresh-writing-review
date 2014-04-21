@@ -6,32 +6,30 @@
 </li>
 </ul>
   <section class="top-bar-section">
-
-  <ul>
-    <li>
-      <%= link_to("Home", root_path) %>
-    </li>
-    <li class="has-dropdown">
-      <%= link_to "Volumes", admin_issues_path() %>
-      <ul class="dropdown">
-        <li><a href="<%= admin_issue_path(IssueDetail.current.issue) %>">Current Volume</a></li>
-      </ul>
-    </li>
-    <li class="has-dropdown">
-      <a href="">Site Pages</a>
+    <ul>
+      <li>
+        <%= link_to("Home", root_path) %>
+      </li>
+      <li class="has-dropdown">
+        <%= link_to "Volumes", admin_issues_path() %>
         <ul class="dropdown">
-          <li><%= link_to "Essay Styles", admin_essay_styles_path() %></li>
-          <li><%= link_to "Awards", admin_awards_path() %></li>
-          <% PageQuery.all.each do |page| %>
-                  <li><%= link_to page.title, admin_page_path(page.id) %></li>
-          <% end %>
-
+          <li><a href="<%= admin_issue_path(IssueDetail.current.issue) %>">Current Volume</a></li>
         </ul>
-    </li>
-<% if can?(:manage_users, :all) %>
-              <li><%= link_to "Website Editors", admin_editors_path %></li>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">Site Pages</a>
+          <ul class="dropdown">
+            <li><%= link_to "Essay Styles", admin_essay_styles_path() %></li>
+            <li><%= link_to "Awards", admin_awards_path() %></li>
+            <% PageQuery.all.each do |page| %>
+              <li><%= link_to page.title, admin_page_path(page.id) %></li>
             <% end %>
-  </ul>
+          </ul>
+      </li>
+      <% if can?(:manage_users, :all) %>
+        <li><%= link_to "Website Editors", admin_editors_path %></li>
+      <% end %>
+    </ul>
 
   </section>
 </nav>

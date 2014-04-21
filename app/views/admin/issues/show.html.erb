@@ -58,7 +58,7 @@
     <ul class="list extras">
       <% issue_components = @issue_detail.components %>
       <% issue_components.keys.each do |component| %>
-        <li><%= link_to issue_components[component], @issue_detail.edit_content_link(component) %> - <%= @issue_detail.edit_content_status(component) %></li>
+        <li><%= link_to issue_components[component], @issue_detail.edit_content_link(component) %></li>
       <% end %>
     </ul>
   </div>
