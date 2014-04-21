@@ -128,4 +128,13 @@ describe Essay do
       expect { subject.destroy }.to change{ HighlightedEssay.count}.by(-1)
     end
   end
+
+  describe '#essay_award' do
+    let(:essay_award) { FactoryGirl.create(:essay_award) }
+    subject { essay_award.essay }
+
+    it "destroys the essay_award on destroy" do
+      expect { subject.destroy }.to change{ EssayAward.count}.by(-1)
+    end
+  end
 end
