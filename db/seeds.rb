@@ -6,6 +6,10 @@
 #   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create!(name: 'Emanuel', city: cities.first)
 
+if Rails.env.production?
+  raise "No seeding in production!"
+end
+
 def test_file(*paths)
   paths = ['spec', 'fixtures'] + paths
   IO.read(Rails.root.join(*paths))
