@@ -15,9 +15,9 @@
 <div class="large-1 columns">&nbsp;</div>
 <div class="large-6 columns">
   <article class="page-body" id="previewSurround">
-  <div id="previewWindow" class="body">
+  <div id="previewWindow" class="<%= @component_name != 'Works Cited' ? 'body' : '' %>">
     <h3 class="control-label">Preview</h3>
-    <div class="wmd-preview" id="wmd-preview-content">
+    <div class="wmd-preview <%= @component_name == 'Works Cited' ? 'workscited' : '' %>" id="wmd-preview-content">
     </div>
     </article>
   </div>
