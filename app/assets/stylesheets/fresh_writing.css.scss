@@ -687,7 +687,7 @@ article {
       //margin:.4em 0 1.4em 1.4em;
       vertical-align: text-top;
       display: inline-block;
-      
+
     }
 
     .small-block-grid-2 {
@@ -719,7 +719,7 @@ article {
         margin:0;
         width: 100%;
       }
-    
+
     }
     figcaption {
       font-size:1.2rem;
@@ -792,7 +792,7 @@ article {
   }
 }
 
-.worksited {
+.workscited {
   border-top:1px solid $lt-green;
   h3 {
     color:$dk-green;
@@ -912,7 +912,7 @@ article {
     margin-left:0;
     margin-right:0;
   }
-  .page-body .worksited p {
+  .page-body .workscited p {
     margin-left:2rem;
   }
   .branding {
@@ -1166,10 +1166,10 @@ body {
 
 
 select {
-  -webkit-appearance: menulist !important; 
+  -webkit-appearance: menulist !important;
 }
 
-.awards { 
+.awards {
   margin:0 140px;
   li {
     list-style: none;
