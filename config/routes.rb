@@ -56,6 +56,7 @@ FreshWriting::Application.routes.draw do
       get :editorial_board, path: "editorial-board"
       get :acknowledgements
       get :editorial_notes, path: "note"
+      get :submission_guidelines, path: "submission-guidelines"
     end
 
     resources :essays, only: [:index, :show ] do

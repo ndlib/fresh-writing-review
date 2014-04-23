@@ -21,4 +21,11 @@ describe PageQuery do
       expect{ subject.find('fake')}.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
+
+  describe '#submission_guidelines' do
+    it 'calls find with submission_guidelines' do
+      expect(subject).to receive(:find).with('submission_guidelines')
+      subject.submission_guidelines
+    end
+  end
 end

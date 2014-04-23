@@ -27,6 +27,10 @@ class IssueNav
     helpers.link_to("Acknowledgements", routes.acknowledgements_issue_path(friendly_id))
   end
 
+  def link_to_submission_guidelines
+    helpers.link_to("Submission Guidelines", routes.submission_guidelines_issue_path(friendly_id))
+  end
+
   def essay_styles
     EssayStyleQuery.all.collect {|essay_style| EssayStyleDetail.new(issue, essay_style)}
   end

@@ -52,6 +52,10 @@ class IssueDetail
     MarkDownConverter.call(issue.acknowledgements.content)
   end
 
+  def submission_guidelines_page
+    @submission_guidelines_page ||= PageDetail.new(PageQuery.submission_guidelines)
+  end
+
   def old_cover_image
     helpers.image_tag issue.old_cover_image.url(:large)
   end

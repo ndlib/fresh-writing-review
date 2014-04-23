@@ -28,6 +28,10 @@ class IssuesController < ApplicationController
     @issue_detail = build_issue_detail
   end
 
+  def submission_guidelines
+    @issue_detail = build_issue_detail
+  end
+
   private
     def build_issue_detail
       issue_detail = IssueDetail.build(self)

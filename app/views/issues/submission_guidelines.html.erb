@@ -1,0 +1,11 @@
+<% content_for(:issue_header) do %>
+
+  <%= @issue_detail.render_issue_header %>
+
+<% end %>
+<% content_for(:left_column) do %>
+  <%= @issue_detail.render_nav %>
+<% end %>
+
+<h1><%= @issue_detail.submission_guidelines_page.title %></h1>
+<%= @issue_detail.submission_guidelines_page.body %>

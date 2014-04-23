@@ -8,6 +8,10 @@ class PageQuery
     relation.friendly.find(id)
   end
 
+  def self.submission_guidelines
+    self.find('submission_guidelines')
+  end
+
   def self.relation
     Page.all
   end
