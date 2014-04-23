@@ -7,15 +7,16 @@ jQuery ($) ->
     ), 2000
 
     $("#uploadFile").change ->
-      $("#uploadPlaceholder").val($(this).val())
+      placeholderName = $(this).val().replace("C:\\fakepath\\", "")
+      $("#uploadPlaceholder").val(placeholderName)
       return
 
     $('textarea.wmd-input').each (i, input) ->
       attr = $(input).attr('id').split('wmd-input')[1]
-      
+
       converter = Markdown.getSanitizingConverter()
       editor = new Markdown.Editor(converter, attr)
-      
+
       dialog = $("#insertImageDialog").modal('hide')
       file = $("#uploadFile")
       loader = $("#uploadLoader")
@@ -44,7 +45,7 @@ jQuery ($) ->
                full_caption = deriveCaption(caption, credit)
                callback response.image_path + ' "' + full_caption + '"'
                re = /enter image description here/g
-               alt_text = $("#wmd-input-content").val().replace(re, $("#altText").val()) 
+               alt_text = $("#wmd-input-content").val().replace(re, $("#altText").val())
                $("#wmd-input-content").val(alt_text)
                return
                ), 0
@@ -60,7 +61,7 @@ jQuery ($) ->
            full_caption = ''
            if caption
              full_caption = caption
-           
+
            if credit
              full_caption = full_caption + ' - ' + credit
 
