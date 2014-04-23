@@ -572,7 +572,7 @@ div.volume {
   bottom:3.1rem;
 }
 
-.results .meta, .cover .meta, .listing .meta {
+.results .meta, .cover .meta, .listing .meta, .aessay .meta {
   color:$lt-green;
   font-size:1.3rem;
   padding:5px 0;
@@ -1168,3 +1168,51 @@ body {
 select {
   -webkit-appearance: menulist !important; 
 }
+
+.awards { 
+  margin:0 140px;
+  li {
+    list-style: none;
+    clear: both;
+    h3 {
+      float: left;
+      height:0;
+      width:80px;
+      padding-top:60px;
+      overflow:hidden;
+      background-repeat: no-repeat;
+      background-size:contain;
+    }
+
+    .aessay {
+      float: left;
+      width: 211px;
+      position: relative;
+      margin-left:1em;
+      .title {
+        position: absolute;
+        left:0;
+        bottom:3.1rem;
+        background:rgba(68,131,75,0.7);
+        color: #fff;
+        width: 210px;
+        width:100%;
+        padding:5px;
+        font-size: 1.8rem;
+        font-family: $headers;
+        border:none;
+      }
+    }
+  }
+
+}
+
+li.a1st-place h3 {
+      background-image:url(image-path('1st.svg'));
+    }
+li.a2nd-place h3 {
+      background-image:url(image-path('2nd.svg'));
+    }
+li.a3rd-place h3 {
+      background-image:url(image-path('3rd.svg'));
+    }

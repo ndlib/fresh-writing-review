@@ -227,3 +227,15 @@ footer {
 .image_editor .file {
 	margin-bottom:5px;
 }
+
+#new_editor label {
+	margin-right:1em;
+}
+
+#new_editor .col-lg-6, #new_editor label {
+	float: left;
+}
+
+#new_editor .editor_username .col-lg-6 input {
+	width: 400px;
+}

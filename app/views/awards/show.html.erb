@@ -6,11 +6,11 @@
 
 <%= @award_detail.body %>
 
-<ul class="">
+<ul class="awards">
   <% @award_detail.essay_awards.each do |essay_award| %>
-    <li class="<%= essay_award.placement_string %>-place">
-      <h3><%= essay_award.placement_string %> Place<h3>
-      <%= raw @award_detail.link_to_essay(essay_award.essay) %>
+    <li class="a<%= essay_award.placement_string %>-place">
+      <h3><%= essay_award.placement_string %> Place</h3>
+      <div class="aessay"><%= raw @award_detail.link_to_essay(essay_award.essay) %></div>
     </li>
   <% end %>
 </ul>
