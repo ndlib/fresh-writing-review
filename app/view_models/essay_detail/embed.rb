@@ -19,12 +19,9 @@ class EssayDetail::Embed
   end
 
 
-  def transcript_link
-    if EssayDetail::Transcript.new(essay).has_content?
-      helpers.link_to('Transcript', routes.transcript_issue_essay_path(essay.issue.friendly_id, essay.friendly_id), target: '_blank')
-    end
+  def has_transcript?
+    EssayDetail::Transcript.new(essay).has_content?
   end
-
 
   def transcript
     EssayDetail::Transcript.new(essay).markdown

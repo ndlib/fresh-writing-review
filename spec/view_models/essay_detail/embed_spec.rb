@@ -29,9 +29,14 @@ describe EssayDetail::Embed do
   end
 
 
-  describe :transcript_link do
-    it "returns the link" do
-      expect(subject.transcript_link).to eq("<a href=\"/volumes/id/essays/id/transcript\" target=\"_blank\">Transcript</a>")
+  describe :has_transcript? do
+    it "returns the true if there is a transcript" do
+      expect(subject.has_transcript?).to be_true
+    end
+
+    it "returns false if there is no transcript" do
+      essay.alt_body.stub(:content).and_return("")
+      expect(subject.has_transcript?).to be_false
     end
   end
 
