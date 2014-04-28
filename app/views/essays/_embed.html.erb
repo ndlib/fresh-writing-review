@@ -1,2 +1,10 @@
 <div class="flex-video <%= object.embed_css_class %>"><%= object.markdown %></div>
-<div class="transcript"><%= raw object.transcript_link %></div>
+
+<dl class="transcript accordion" data-accordion="myAccordionGroup">
+  <dd>
+    <a href="#transcript">Transcript</a>
+    <div id="transcript" class="content">
+      <%= object.transcript %>
+    </div>
+  </dd>
+</dl>

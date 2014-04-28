@@ -26,6 +26,11 @@ class EssayDetail::Embed
   end
 
 
+  def transcript
+    EssayDetail::Transcript.new(essay).markdown
+  end
+
+
   def cover_image
     if essay.cover_image.present?
       helpers.image_tag(essay.cover_image.url(:large))

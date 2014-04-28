@@ -623,7 +623,19 @@ div.audio {
     display: inline-block;
     border: none;
   }
+  dd {
+    background:$lt-grey;
+  }
 }
+
+.transcript .content {
+  max-height: 400px;
+  overflow:scroll;
+  margin-bottom: 40px;
+  border: 1px solid black;
+}
+
+
 
 .page-body article   h1 {
     margin-top:1.5em;
@@ -1216,3 +1228,6 @@ li.a2nd-place h3 {
 li.a3rd-place h3 {
       background-image:url(image-path('3rd.svg'));
     }
+
+
+
