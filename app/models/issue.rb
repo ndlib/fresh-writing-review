@@ -15,10 +15,10 @@ class Issue < ActiveRecord::Base
   validates_attachment_content_type :old_cover_image, :content_type => %w(image/jpeg image/jpg image/png)
 
   has_attached_file :large_cover_image, styles: { :large => "900x200#"}, default_url: '/placeholders/large_cover_image_placeholder.gif'
-  validates_attachment_content_type :large_cover_image, :content_type => %w(image/jpeg image/jpg image/png), :message => 'file must have the file type and exentensions of jpeg, jpg, png'
+  validates_attachment_content_type :large_cover_image, :content_type => %w(image/jpeg image/jpg image/png), :message => 'file must have the file type and exentension of jpeg, jpg or png'
 
   has_attached_file :small_cover_image, styles: { :large => "900x90#"}, default_url: '/placeholders/small_cover_image_placeholder.gif'
-  validates_attachment_content_type :small_cover_image, :content_type => %w(image/jpeg image/jpg image/png), :message => 'file must have the file type and exentensions of jpeg, jpg, png'
+  validates_attachment_content_type :small_cover_image, :content_type => %w(image/jpeg image/jpg image/png), :message => 'file must have the file type and exentension of jpeg, jpg or png'
 
   has_attached_file :pdf
   validates_attachment_content_type :pdf, :content_type => %w(application/pdf)
