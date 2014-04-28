@@ -81,8 +81,7 @@
     <h2>Images</h2>
     <div class="image_editor">
       <div class="image">
-
-        <a href="#" class="change btn btn-primary">Edit</a>
+        <%= link_to 'Edit', edit_images_admin_issue_essay_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %>
 
         <h3>Cover Image</h3>
         <%= @essay_detail.image_form.essay_cover_image %>
@@ -93,19 +92,6 @@
 
         <h3>Author Image</h3>
         <%= @essay_detail.image_form.essay_author_image %>
-      </div>
-      <div class="form" style="display:none;">
-        <%= simple_form_for @essay_detail.image_form, url: save_images_admin_issue_essay_path(@essay_detail.issue, @essay_detail.essay), method: 'put' do | f | %>
-
-          <%= f.input :cover_image, as: :file, hint: 'Image dimensions 670x430' %>
-          <%= f.input :cover_image_credit %>
-          <%= f.input :cover_image_alt, label: 'Cover Image Alternate', hint: 'The alternate should be filled out with a description of the image.  This is for screen readers.' %>
-
-          <%= f.input :author_image, as: :file, hint: 'Image dimensions 140x113' %>
-
-          <%= f.submit :save, class: 'btn btn-primary' %>
-          <a class="cancel">Cancel</a>
-        <% end %>
       </div>
     </div>
   </div>

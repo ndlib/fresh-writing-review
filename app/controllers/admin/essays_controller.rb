@@ -83,6 +83,11 @@ class Admin::EssaysController < AdminController
   end
 
 
+  def edit_images
+    @form = Admin::EssayImageForm.build(self)
+  end
+
+
   def save_images
     @form = Admin::EssayImageForm.build(self)
 
@@ -90,8 +95,8 @@ class Admin::EssaysController < AdminController
       flash[:success] = 'Essay Images Updated'
       redirect_to admin_issue_essay_path(@form.essay.issue, @form.essay)
     else
-      flash[:error] = 'Unable to update the essay image.  Please review the error messages below and correct the form.'
-      redirect_to admin_issue_essay_path(@form.essay.issue, @form.essay)
+      flash.now[:error] = 'Unable to update the essay image.  Please review the error messages below and correct the form.'
+      render :edit_images
     end
   end
 end

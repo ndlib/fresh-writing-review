@@ -48,6 +48,9 @@ class Admin::IssuesController < AdminController
     end
   end
 
+  def edit_images
+    @form = Admin::IssueImageForm.build(self)
+  end
 
   def save_images
     @form = Admin::IssueImageForm.build(self)
@@ -56,8 +59,8 @@ class Admin::IssuesController < AdminController
       flash[:success] = 'Issue Images Updated'
       redirect_to admin_issue_path(@form.issue)
     else
-      flash[:error] = 'Unable to update the issue image.  Please review the error messages below and correct the form.'
-      redirect_to admin_issue_path(@form.issue)
+      flash.now[:error] = 'Unable to update the issue image.  Please review the error messages below and correct the form.'
+      render :edit_images
     end
   end
 

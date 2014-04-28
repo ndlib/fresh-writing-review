@@ -25,6 +25,7 @@ FreshWriting::Application.routes.draw do
       member do
         put 'publish'
         put 'unpublish'
+        get 'edit_images'
         put 'save_images'
         put 'remove_pdf'
       end
@@ -35,6 +36,7 @@ FreshWriting::Application.routes.draw do
           put 'unpublish'
           put 'highlight'
           put 'unhighlight'
+          get 'edit_images'
           put 'save_images'
         end
         resources :attached_files, except: [ :index ]

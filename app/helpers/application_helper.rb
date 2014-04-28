@@ -11,7 +11,7 @@ module ApplicationHelper
       content += content_tag(:div, raw(flash[:success]), class: "alert alert-success")
     end
     if flash[:error].present?
-      content += content_tag(:div, raw(flash[:error]), class: "alert alert-error")
+      content += content_tag(:div, raw(flash[:error]), class: "alert alert-danger")
     end
     if flash[:warning].present?
       content += content_tag(:div, raw(flash[:warning]), class: "alert alert-warning")
@@ -31,4 +31,5 @@ module ApplicationHelper
       'home'
     end
   end
+
 end

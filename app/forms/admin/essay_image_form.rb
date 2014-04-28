@@ -9,6 +9,7 @@ class Admin::EssayImageForm
   attr_accessor :essay
   attr_accessor :cover_image_alt, :cover_image_credit, :cover_image, :author_image
 
+  validates :cover_image_credit, :cover_image_alt, length: { maximum: 250 }
 
   def self.build(controller)
     essay = EssayQuery.find(controller.params[:id])
@@ -18,7 +19,7 @@ class Admin::EssayImageForm
 
   def initialize(essay, params = {})
     @essay = essay
-    if params.size > 0
+    if params && params.size > 0
       if params[:cover_image]
         self.cover_image = params[:cover_image]
       end
@@ -32,6 +33,11 @@ class Admin::EssayImageForm
       self.cover_image_credit = essay.cover_image_credit
       self.cover_image_alt = essay.cover_image_alt
     end
+  end
+
+
+  def essay_title
+    essay.title
   end
 
 
@@ -54,8 +60,7 @@ class Admin::EssayImageForm
 
 
   def add_images!
-    if valid?
-      persist!
+    if valid? && persist!
       true
     else
       false
@@ -76,7 +81,17 @@ class Admin::EssayImageForm
       essay.cover_image_credit = cover_image_credit
       essay.cover_image_alt = cover_image_alt
 
+      if !essay.valid?
+        essay.errors.each do | key, value |
+          self.errors[key] << value
+        end
+
+        return false
+      end
+
       essay.save!
+
+      true
     end
 
 end

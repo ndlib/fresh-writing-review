@@ -1,0 +1,20 @@
+
+<div class="row">
+  <div class="large-8 columns end">
+
+  <h1>Edit Images: <%= @form.essay_title %></h1>
+  <hr>
+<%= simple_form_for @form, url: save_images_admin_issue_essay_path(@form.essay.issue, @form.essay), method: 'put' do | f | %>
+
+  <%= f.input :cover_image, as: :file, hint: 'Image dimensions 670x430' %>
+  <%= f.input :cover_image_credit %>
+  <%= f.input :cover_image_alt, label: 'Cover Image Alternate', hint: 'The alternate should be filled out with a description of the image.  This is for screen readers.' %>
+
+  <hr>
+  <%= f.input :author_image, as: :file, hint: 'Image dimensions 140x113' %>
+
+  <%= f.submit :save, class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', admin_issue_essay_path(@form.essay.issue, @form.essay) %>
+<% end %>
+</div>
+</div>
