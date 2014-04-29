@@ -42,7 +42,7 @@ class IssueHeader
 
 
   def image_credit
-    issue.cover_image_credit.scan(/.{1,100}\b/m).first
+    issue.cover_image_credit.to_s.scan(/.{1,100}\b/m).first
   end
 
 
@@ -52,7 +52,7 @@ class IssueHeader
 
 
   def image_credit_too_long?
-    issue.cover_image_credit.scan(/.{1,100}\b/m).size > 1
+    issue.cover_image_credit.to_s.scan(/.{1,100}\b/m).size > 1
   end
 
   def render

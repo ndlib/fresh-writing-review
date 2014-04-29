@@ -36,7 +36,7 @@ class EssayDetail::Embed
 
 
   def image_credit
-    essay.cover_image_credit.scan(/.{1,100}\b/m).first
+    essay.cover_image_credit.to_s.scan(/.{1,100}\b/m).first
   end
 
 
@@ -46,7 +46,7 @@ class EssayDetail::Embed
 
 
   def image_credit_too_long?
-    essay.cover_image_credit.scan(/.{1,100}\b/m).size > 1
+    essay.cover_image_credit.to_s.scan(/.{1,100}\b/m).size > 1
   end
 
   def embed_css_class
