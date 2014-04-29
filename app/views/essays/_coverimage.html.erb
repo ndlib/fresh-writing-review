@@ -1,3 +1,10 @@
-<div>
+<div class="essay_image">
   <p><%= object.cover_image %></p>
+  <span class="credit">
+    <% if object.image_credit_too_long? %>
+      <span data-tooltip class="has-tip" title="<%= object.image_full_credit %>"><%= object.image_credit %></span>
+    <% else %>
+      <%= object.image_credit %>
+    <% end %>
+  </span>
 </div>

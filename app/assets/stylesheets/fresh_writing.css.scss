@@ -387,8 +387,14 @@ div.volume {
     right:0;
     font-size: 1.0rem;
     color:$lt-grey;
+
+    .has-tip {
+      color:$lt-grey;
+    }
   }
 }
+
+
 
 .volume-list {
   position:relative;

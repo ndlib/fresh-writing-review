@@ -35,6 +35,20 @@ class EssayDetail::Embed
   end
 
 
+  def image_credit
+    essay.cover_image_credit.scan(/.{1,100}\b/m).first
+  end
+
+
+  def image_full_credit
+    essay.cover_image_credit
+  end
+
+
+  def image_credit_too_long?
+    essay.cover_image_credit.scan(/.{1,100}\b/m).size > 1
+  end
+
   def embed_css_class
     if essay.published_medium == 'audio'
       'audio'

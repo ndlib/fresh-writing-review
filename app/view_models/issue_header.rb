@@ -42,9 +42,18 @@ class IssueHeader
 
 
   def image_credit
+    issue.cover_image_credit.scan(/.{1,100}\b/m).first
+  end
+
+
+  def image_full_credit
     issue.cover_image_credit
   end
 
+
+  def image_credit_too_long?
+    issue.cover_image_credit.scan(/.{1,100}\b/m).size > 1
+  end
 
   def render
     return render_to_string('/issues/header', { object: self })
