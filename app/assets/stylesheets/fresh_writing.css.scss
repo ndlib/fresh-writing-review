@@ -367,7 +367,7 @@ div.volume {
   a.vtitle {
     position: absolute;
     bottom:0;
-    right:0;
+    left:0;
     margin:0;
     padding:55px 12px 12px;
     font-family: $headers;
@@ -517,9 +517,10 @@ div.volume {
       width: 210px;
       width:calc(100% - 1.25rem);
       padding:5px;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-family: $headers;
       border:none;
+      line-height: 1.2;
     }
     img, a.title { transition: all .2s ease-in-out;}
   }
@@ -849,13 +850,26 @@ article {
       border:none !important;
     }
     .title {
-      color:#fff;
+      color:$dk-green;
       margin-top:-1.5em;
       padding-left:10px;
       font-size:2.5rem;
     }
   }
 }
+
+.side-nav .awards li a:not(.button).title {
+   color:$dk-green;
+      margin-top:-3.5em;
+      padding-left:10px;
+      font-size:2.5rem;
+}
+
+.side-nav .awards li a:not(.button), .side-nav .awards li a:not(.button):hover {
+  border:none;
+}
+
+
 
 .side-nav li a:not(.button) {
   font-size: 1.7rem;
@@ -950,14 +964,34 @@ article {
       }
 
     }
+
   }
+  .page-body h1 {
+    margin-top:0;
+  }
+
+  .volume-list a.title {
+      padding-top:8px;
+      font-size:1.4rem;
+    }
   .top-bar-section ul li {
     padding:0 5px !important;
   }
   .top-bar-section ul li:last-child {
     float: left;
   }
+.listing li a.title {
+  font-size:1.4rem;
+   bottom: 8.6rem;
+}
 
+.listing.volume li a.title {
+  bottom: 6.6rem;
+}
+.results .meta span, .cover .meta span, .listing .meta span, .aessay .meta span {
+  float: none;
+  display: block;
+}
 .top-bar .toggle-topbar.menu-icon {
     margin-top: 0;
     padding-left: 40px;
@@ -1193,6 +1227,7 @@ select {
   li {
     list-style: none;
     clear: both;
+
     h3 {
       float: left;
       height:0;
@@ -1208,6 +1243,7 @@ select {
       width: 211px;
       position: relative;
       margin-left:1em;
+      margin-bottom:2.5em;
       .title {
         position: absolute;
         left:0;
@@ -1217,13 +1253,23 @@ select {
         width: 210px;
         width:100%;
         padding:5px;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-family: $headers;
         border:none;
+        line-height: 1.2;
       }
     }
   }
 
+}
+
+.side-nav .awards {
+  margin:0 0 4em;
+}
+
+.lb-data .lb-close {
+  text-decoration: none;
+  border:none;
 }
 
 li.a1st-place h3 {

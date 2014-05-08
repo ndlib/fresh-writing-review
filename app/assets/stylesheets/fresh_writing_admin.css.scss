@@ -239,3 +239,31 @@ footer {
 #new_editor .editor_username .col-lg-6 input {
 	width: 400px;
 }
+
+.awards {
+	margin:0;
+}
+
+.right-off-canvas-menu {
+	background:#fff;
+
+}
+
+.padding {
+	padding:14px;
+}
+
+.help li {
+	font-size:12px;
+	color:$lt-green;
+}
+
+.help h4 {
+	color:$lt-green;
+}
+
+.help .btn-primary, .help .btn-default {
+	padding:3px 6px;
+	font-size:12px ;
+	cursor: default;
+}

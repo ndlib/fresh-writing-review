@@ -1,3 +1,5 @@
+
+  
 <h1><%= @issue_detail.volume_title %></h1>
 <% if @issue_detail.is_pdf? %>
   <p class="bg-warning">
@@ -21,7 +23,7 @@
 </p>
 <hr>
 <div class="row">
-  <div class="large-8 columns">
+  <div class="large-6 columns">
     <div class="essays">
       <h2>Essays</h2>
         <p><%= link_to 'New Essay', new_admin_issue_essay_path(@issue_detail.issue), class: 'btn btn-primary' %></p>
@@ -96,4 +98,24 @@
 
     </div>
   </div>
+  <div class="large-2 columns help">
+  <h3>Help</h3>
+  
+    
+<ul><li>The <span class="btn btn-primary">Edit Volume</span> button allows you to edit the Volume Name and Year.</li>
+<li>The <span class="btn btn-default">View Volume</span> button allows you to see the public view of the volume in its current state.</li>
+<li>You may want to consider “Unpublishing” a volume until you are finished editing.</li></ul>
+
+
+<h4>New Essay</h4>
+<ul><li>Click on the <span class="btn btn-primary">New Essay</span> button to begin adding new essay content.</li></ul>
+<h4>Edit an Essay</h4>
+<ul>
+  <li>Click on the Essay title link to edit an existing essay.</li>
+</ul>
+
+<h4>Extra Pages</h4>
+<ul><li>You can also edit Acknowledgements, Note From the Editor, and Editorial Board sections from the Volume editing page.  By default, content from the last published volume is carried over to these pages.  Be sure to check dates or other content that my require change before publishing a new volume. </li> </ul>
+  </div>
 </div>
+

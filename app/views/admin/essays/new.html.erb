@@ -1,10 +1,17 @@
 <div class="row">
-  <div class="large-8 columns end">
+  <div class="large-8 columns ">
 <h1><%= @form.page_title %></h1>
 
 <%= simple_form_for @form, url: admin_issue_essays_path(@form.issue), html: { class: 'form-horizontal'} do | f | %>
   <%= render partial: 'form', locals: { f: f } %>
 <% end %>
 
+  </div>
+  <div class="large-2 columns help">
+  <h3>Help</h3>
+<ul>  	<li>On the “New Essay” page, complete the title and author fields. </li> 
+<li>Select an “Essay Style” from the dropdown menu.</li>
+<li>Select the appropriate essay medium.</li>
+<li>Click the “Save” button when you have completed all of the fields.</li></ul>
   </div>
 </div>
