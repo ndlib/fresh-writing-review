@@ -1,6 +1,6 @@
 <div class="row">
   <div class="large-8 columns end">
-    <h1>Add Companion Material<small> to <%= @attached_file.essay.title.truncate(40) %></small></h1>
+    <h1>Add Attached File<small> to <%= @attached_file.essay.title.truncate(40) %></small></h1>
 
     <%= simple_form_for @attached_file, url: admin_issue_essay_attached_files_path, html: { class: 'form-horizontal'} do | f | %>
       <%= render partial: "form", locals: {f: f} %>

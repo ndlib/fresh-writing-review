@@ -47,9 +47,9 @@
         <% end %>
       </ul>
     <% end %>
-    <hr>
     <div class="files">
-      <h2>Companion Material</h2>
+      <h2>Attached Files</h2>
+      <p>Companion Materials and Instructore Resources Files</p>
       <% if @essay_detail.files.present? %>
         <ul class="list">
           <% @essay_detail.files.each do |file| %>
@@ -59,7 +59,7 @@
           <% end %>
         </ul>
       <% end %>
-      <p><%= link_to 'Upload Companion Material', new_admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
+      <p><%= link_to 'Upload Attached File', new_admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
     </div>
     <div class="awards">
       <h2>Awards</h2>
