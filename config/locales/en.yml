@@ -25,3 +25,12 @@ en:
       already_authenticated: ""
       timeout: ""
       unauthenticated: ""
+  simple_form:
+    hints:
+      attached_file:
+        file_relationship: 'Companion Materials appear at the top of the essay.  Instructor Resources appear in the instructor resources section.'
+    options:
+      attached_file:
+        file_relationship:
+          companion_material: "Companion Material"
+          instructor_resource: "Instructor Resource"

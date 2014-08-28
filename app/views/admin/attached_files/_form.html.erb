@@ -1,3 +1,4 @@
+<%= f.input :file_relationship, collection: [:companion_material, :instructor_resource], include_blank: false %>
 <%= f.input :title, hint: 'The title appears as the label for the download link for the file. ' %>
 <%= f.input :body, label: 'Short Description', hint: 'Fill this out if you need more description for the companion material then the title can convey.' %>
 <%= f.input :file %>
