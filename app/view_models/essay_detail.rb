@@ -32,8 +32,8 @@ class EssayDetail
   end
 
 
-  def render_attached_file
-    EssayDetail::DownloadFile.render(essay)
+  def render_companion_material
+    EssayDetail::CompanionMaterial.render(essay)
   end
 
 

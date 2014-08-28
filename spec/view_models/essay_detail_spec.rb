@@ -120,10 +120,10 @@ describe EssayDetail do
   end
 
 
-  describe :render_attached_file do
+  describe :render_companion_material do
     it "calls the sub view model" do
-      expect(EssayDetail::DownloadFile).to receive(:render).with(essay)
-      subject.render_attached_file
+      expect(EssayDetail::CompanionMaterial).to receive(:render).with(essay)
+      subject.render_companion_material
     end
   end
 
