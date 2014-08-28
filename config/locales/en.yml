@@ -26,8 +26,13 @@ en:
       timeout: ""
       unauthenticated: ""
   simple_form:
+    labels:
+      attached_file:
+        body: 'Short Description'
     hints:
       attached_file:
+        title: 'The title appears as the label for the download link for the file.'
+        body: 'Fill this out if you need more description for the companion material then the title can convey.'
         file_relationship: 'Companion Materials appear at the top of the essay.  Instructor Resources appear in the instructor resources section.'
     options:
       attached_file:
