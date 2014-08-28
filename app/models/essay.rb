@@ -111,6 +111,22 @@ class Essay < ActiveRecord::Base
     published? && issue_published?
   end
 
+  def attached_files_sorted
+    attached_files.order(:title)
+  end
+
+  def attached_files_for(file_relationship)
+    attached_files_sorted.where(file_relationship: file_relationship)
+  end
+
+  def companion_material_files
+    attached_files_for('companion_material')
+  end
+
+  def instructor_resources_files
+    attached_files_for('instructor_resource')
+  end
+
   private
 
     def stripdown(markdown)

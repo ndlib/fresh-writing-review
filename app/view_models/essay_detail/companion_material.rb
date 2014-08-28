@@ -9,7 +9,7 @@ class EssayDetail::CompanionMaterial < Draper::Decorator
   end
 
   def files
-    essay.attached_files
+    essay.companion_material_files
   end
 
   def has_files?

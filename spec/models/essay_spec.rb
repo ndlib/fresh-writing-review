@@ -120,6 +120,38 @@ describe Essay do
     end
   end
 
+  describe '#attached_files_sorted' do
+    it 'sorts attached_files by title' do
+      attached_files = double()
+      expect(subject).to receive(:attached_files).and_return(attached_files)
+      expect(attached_files).to receive(:order).with(:title).and_return([])
+      expect(subject.attached_files_sorted).to eq([])
+    end
+  end
+
+  describe '#attached_files_for' do
+    it 'filters attached files by file_relationship' do
+      attached_files = double()
+      expect(subject).to receive(:attached_files_sorted).and_return(attached_files)
+      expect(attached_files).to receive(:where).with(file_relationship: 'companion_material').and_return([])
+      expect(subject.attached_files_for('companion_material')).to eq([])
+    end
+  end
+
+  describe '#companion_material_files' do
+    it 'returns companion material files' do
+      expect(subject).to receive(:attached_files_for).with('companion_material').and_return([])
+      expect(subject.companion_material_files).to eq([])
+    end
+  end
+
+  describe '#instructor_resources_files' do
+    it 'returns instructor resources files' do
+      expect(subject).to receive(:attached_files_for).with('instructor_resource').and_return([])
+      expect(subject.instructor_resources_files).to eq([])
+    end
+  end
+
   describe '#highlighted_essay' do
     let(:highlighted_essay) { FactoryGirl.create(:highlighted_essay) }
     subject { highlighted_essay.essay }

@@ -34,12 +34,12 @@ describe EssayDetail::CompanionMaterial do
   describe '#files' do
     it "returns an array of files" do
       file = attached_file()
-      expect(essay).to receive(:attached_files).and_return([file])
+      expect(essay).to receive(:companion_material_files).and_return([file])
       expect(subject.files).to eq([file])
     end
 
     it "returns an empty array if the essay has no files" do
-      expect(essay).to receive(:attached_files).and_return([])
+      expect(essay).to receive(:companion_material_files).and_return([])
       expect(subject.files).to eq([])
     end
   end
