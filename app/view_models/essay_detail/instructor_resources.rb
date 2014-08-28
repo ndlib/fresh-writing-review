@@ -27,7 +27,23 @@ class EssayDetail::InstructorResources
 
 
   def has_content?
+    has_markdown_content? || has_files?
+  end
+
+  def has_markdown_content?
     markdown_object.present?
+  end
+
+  def files
+    essay.instructor_resources_files
+  end
+
+  def has_files?
+    files.present?
+  end
+
+  def decorated_files
+    EssayDetail::DownloadFile.decorate_collection(files)
   end
 
 

@@ -2,6 +2,27 @@ require 'spec_helper'
 
 describe MarkdownDetail do
 
+  describe 'no content' do
+    subject { described_class.new(nil) }
+
+    describe '#markdown' do
+      it 'returns an empty string' do
+        expect(subject.markdown).to eq('')
+      end
+    end
+
+    describe '#present?' do
+      it 'is false' do
+        expect(subject.present?).to be_false
+      end
+    end
+
+    describe '#blank?' do
+      it 'is true' do
+        expect(subject.blank?).to be_true
+      end
+    end
+  end
 
   describe :markdown do
 

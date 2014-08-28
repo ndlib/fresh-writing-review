@@ -1,22 +1,30 @@
 class MarkdownDetail
-
+  attr_reader :markdown_content
   def initialize(markdown_content)
     @markdown_content = markdown_content
   end
 
 
   def markdown
-    MarkDownConverter.call(@markdown_content.content)
+    MarkDownConverter.call(content)
   end
 
 
   def present?
-    !@markdown_content.nil? && @markdown_content.content.present?
+    content.present?
   end
 
 
   def blank?
-    @markdown_content.nil? || @markdown_content.content.blank?
+    content.blank?
+  end
+
+  def content
+    if markdown_content.present?
+      markdown_content.content
+    else
+      nil
+    end
   end
 
 end

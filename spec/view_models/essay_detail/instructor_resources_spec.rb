@@ -3,7 +3,9 @@ require 'spec_helper'
 
 describe EssayDetail::InstructorResources do
 
-
+  def attached_file(params = {})
+    double(AttachedFile, params)
+  end
   let(:issue) { double(Issue, year: '2014', friendly_id: 'id') }
   let(:essay) { double(Essay, friendly_id: 'id', embed: "embed", issue: issue, instructor_resources: double(MarkdownContent, content: 'resource')) }
   subject { described_class.new(essay) }
@@ -47,21 +49,64 @@ describe EssayDetail::InstructorResources do
     end
   end
 
+  describe '#has_content?' do
+    it "returns true if #has_markdown_content? is true" do
+      subject.stub(:has_markdown_content?).and_return(true)
+      subject.stub(:has_files?).and_return(false)
+    end
 
-  describe "#has_content" do
+    it "returns true if #has_files? is true" do
+      subject.stub(:has_markdown_content?).and_return(false)
+      subject.stub(:has_files?).and_return(true)
+    end
+
+    it "returns false if neither is true" do
+      subject.stub(:has_markdown_content?).and_return(false)
+      subject.stub(:has_files?).and_return(false)
+    end
+  end
+
+
+  describe "#has_markdown_content?" do
 
     it "returns true if the markdown_content object says it has content" do
       subject.send(:markdown_object).stub(:present?).and_return(true)
-      expect(subject.has_content?).to be_true
+      expect(subject.has_markdown_content?).to be_true
     end
-
 
     it "returns false if the markdown_content object says it does not have content" do
       subject.send(:markdown_object).stub(:present?).and_return(false)
-      expect(subject.has_content?).to be_false
+      expect(subject.has_markdown_content?).to be_false
+    end
+
+  end
+
+  describe '#has_files?' do
+
+    it "returns true if there are any files" do
+      subject.stub(:files).and_return([attached_file()])
+      expect(subject.has_files?).to be_true
     end
 
 
+    it "returns false if there are no files" do
+      subject.stub(:files).and_return([])
+      expect(subject.has_files?).to be_false
+    end
+
+  end
+
+  describe '#files' do
+    it "returns an array of files" do
+      file = attached_file()
+      expect(essay).to receive(:instructor_resources_files).and_return([file])
+      expect(subject.files).to eq([file])
+    end
+
+    it "returns an empty array if the essay has no files" do
+      expect(essay).to receive(:instructor_resources_files).and_return([])
+      expect(subject.files).to eq([])
+    end
   end
 
   describe :render do
