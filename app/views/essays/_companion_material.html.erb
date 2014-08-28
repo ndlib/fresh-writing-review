@@ -1,4 +1,6 @@
 <div class="attachments panel">
   <h3>Companion Material</h3>
-
+  <% object.decorated_files.each do |file| %>
+    <%= file.render %>
+  <% end %>
 </div>

@@ -3,39 +3,23 @@ require 'spec_helper'
 
 describe EssayDetail::DownloadFile do
 
-  let(:essay) { double(Essay, id: 1 ) }
-  subject { described_class.new(essay) }
+  let(:attached_file) { double(AttachedFile, id: 1) }
+  subject { described_class.new(attached_file) }
 
   describe :self_render do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
 
-      described_class.render(essay)
+      described_class.render(attached_file)
     end
-  end
-
-
-  describe :has_files? do
-
-    it "returns true if the essay has any files" do
-      essay.stub(:attached_file).and_return(double(AttachedFile, id: 1) )
-      expect(subject.has_files?).to be_true
-    end
-
-
-    it "returns true if the essay has any files" do
-      essay.stub(:attached_file).and_return(nil)
-      expect(subject.has_files?).to be_false
-    end
-
   end
 
 
   describe :title do
 
     it "returns the title from the file" do
-      essay.stub(:attached_file).and_return(double(AttachedFile, id: 1, title: "title"))
+      expect(attached_file).to receive(:title).and_return("title")
       expect(subject.title).to eq("title")
     end
 
@@ -45,7 +29,7 @@ describe EssayDetail::DownloadFile do
   describe :body do
 
     it "returns the body if there is a body" do
-      essay.stub(:attached_file).and_return(double(AttachedFile, id: 1, body: "body"))
+      expect(attached_file).to receive(:body).and_return("body")
       expect(subject.body).to eq("body")
     end
 
