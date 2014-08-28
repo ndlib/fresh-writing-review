@@ -27,6 +27,11 @@ describe Admin::EssayDetail do
       expect(subject.essay_style).to eq("test style")
     end
 
+    it "#files" do
+      expect(essay).to receive(:attached_files).and_return(['file'])
+      expect(subject.files).to eq(['file'])
+    end
+
   end
 
   describe '#highlighted?' do

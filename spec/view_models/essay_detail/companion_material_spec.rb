@@ -18,14 +18,14 @@ describe EssayDetail::CompanionMaterial do
 
   describe :has_files? do
 
-    it "returns true if the essay has any files" do
-      essay.stub(:attached_file).and_return(attached_file())
+    it "returns true if there are any files" do
+      subject.stub(:files).and_return([attached_file()])
       expect(subject.has_files?).to be_true
     end
 
 
-    it "returns false if the essay has no files" do
-      essay.stub(:attached_file).and_return(nil)
+    it "returns false if there are no files" do
+      subject.stub(:files).and_return([])
       expect(subject.has_files?).to be_false
     end
 
@@ -34,12 +34,12 @@ describe EssayDetail::CompanionMaterial do
   describe '#files' do
     it "returns an array of files" do
       file = attached_file()
-      essay.stub(:attached_file).and_return(file)
+      expect(essay).to receive(:attached_files).and_return([file])
       expect(subject.files).to eq([file])
     end
 
     it "returns an empty array if the essay has no files" do
-      essay.stub(:attached_file).and_return(nil)
+      expect(essay).to receive(:attached_files).and_return([])
       expect(subject.files).to eq([])
     end
   end

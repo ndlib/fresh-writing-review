@@ -46,11 +46,7 @@ class Admin::EssayDetail
 
 
   def files
-    if essay.attached_file
-      [essay.attached_file]
-    else
-      []
-    end
+    essay.attached_files
   end
 
   def essay_award

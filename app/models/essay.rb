@@ -19,7 +19,7 @@ class Essay < ActiveRecord::Base
 
   has_one :highlighted_essay, dependent: :destroy
 
-  has_one :attached_file
+  has_many :attached_files
 
   validates :title, presence: true
 
