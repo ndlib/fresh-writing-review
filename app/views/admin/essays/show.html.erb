@@ -58,9 +58,8 @@
               <%= link_to(raw('<span class="delete"><span class="glyphicon glyphicon-trash"></span> Delete</span>'), admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay, file), method: :delete, confirm: "Delete \"#{file.title}\"?") %></li>
           <% end %>
         </ul>
-      <% else %>
-        <p><%= link_to 'Upload Companion Material', new_admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
       <% end %>
+      <p><%= link_to 'Upload Companion Material', new_admin_issue_essay_attached_file_path(@essay_detail.issue, @essay_detail.essay), class: 'btn btn-primary' %></p>
     </div>
     <div class="awards">
       <h2>Awards</h2>
@@ -99,7 +98,7 @@
     <h3>Help</h3>
     <ul>
       <li>
-        Once you have saved the essay title, author, and type, you can begin to add content.  Click on the desired content section link to add or paste in content from another source.  Any text content that you enter into the Markdown field will be immediately visible in the Preview pane.  See <a href="/documents/MarkdownSyntaxGuide.pdf">documentation</a> for additional information about the Markdown utility.  
+        Once you have saved the essay title, author, and type, you can begin to add content.  Click on the desired content section link to add or paste in content from another source.  Any text content that you enter into the Markdown field will be immediately visible in the Preview pane.  See <a href="/documents/MarkdownSyntaxGuide.pdf">documentation</a> for additional information about the Markdown utility.
 
       </li>
       <li>
