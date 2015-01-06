@@ -616,6 +616,19 @@ div.volume {
 div.audio {
   padding-bottom:0;
   padding-top:30px;
+
+}
+
+div.flex-video.audio {
+  height: auto;
+  iframe {
+    position: relative;
+  }
+  p {
+    object {
+      height: 31px;
+    }
+  }
 }
 
 .transcript {
