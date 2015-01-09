@@ -137,17 +137,23 @@ article {
   margin-bottom:3px;
 }
 
-blockquote {
+.redactor-editor blockquote, blockquote {
   border-left-color:$lt-green;
   background-color: $ltlt-green;
-  padding:10px 0;
-  margin-left:30px;
+  padding:10px 20px !important;
+  margin-left:30px !important;
   margin-right:30px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid $lt-green;
+  font-style: normal;
   p {
 
   }
 }
-
+.redactor-editor blockquote:before, .redactor-editor blockquote:after {
+content: "";
+}
 
 
 @media screen,projection {
@@ -661,8 +667,24 @@ div.flex-video.audio {
 .page-body article   h1 {
     margin-top:1.5em;
   }
+article > .body > p:first-of-type:first-letter {
+  float: left;
+  color: $dk-green;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
+}
+article > .body > blockquote p:first-of-type:first-letter {
+  float:none;
+  font-size: 1em;
+  line-height: 1em;
+  padding:0;
+  color:$dk-grey;
+}
 
-article {
+article, .redactor-editor {
 
   margin-bottom:40px;
 
@@ -698,22 +720,7 @@ article {
     background:url(image-path('branch.jpg')) no-repeat center bottom;
     padding-bottom:30px;
 
-    p:first-of-type:first-letter {
-      float: left;
-      color: $dk-green;
-      font-size: 75px;
-      line-height: 60px;
-      padding-top: 4px;
-      padding-right: 8px;
-      padding-left: 3px;
-    }
-    blockquote p:first-of-type:first-letter {
-      float:none;
-      font-size: 1em;
-      line-height: 1em;
-      padding:0;
-      color:$dk-grey;
-    }
+
 
 
     img {

@@ -21,6 +21,7 @@
 /public/system/attached_files
 /public/system/issues
 /public/system/essays
+/public/system/redactor_assets
 
 # Test coverage dir
 /coverage
@@ -31,3 +32,4 @@
 /solr/development
 /solr/pids
 /solr/test
+/undefined

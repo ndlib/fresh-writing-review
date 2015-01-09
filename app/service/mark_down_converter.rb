@@ -18,7 +18,7 @@ class MarkDownConverter
   def convert
     converted_text = preprocess_images(text)
     converted_text = renderer.render(converted_text)
-    converted_text = parse_image_tags(converted_text)
+    #converted_text = parse_image_tags(converted_text)
     converted_text = add_ul_and_li(converted_text)
 
     helpers.raw converted_text

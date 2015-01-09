@@ -1,4 +1,5 @@
 FreshWriting::Application.routes.draw do
+  mount RedactorRails::Engine => '/redactor_rails'
   devise_for :users
 
   # You can have the root of your site routed with "root"
