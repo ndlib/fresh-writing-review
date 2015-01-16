@@ -14,11 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require bootstrap
-//= require markdown.converter		
-//= require markdown.editor		
-//= require markdown.sanitizer		
-//= require markdown.extra		
-//= require markdown_editor.js
 //= require issues.js
 //= require foundation_init.js
 //= require redactor-rails
