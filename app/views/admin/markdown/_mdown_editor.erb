@@ -1,5 +1,12 @@
 <%= simple_form_for @markdown_content, :url => admin_markdown_content_path(@markdown_content), html: {class: "form-horizontal redactor"} do |f| %>
-  <%= f.input :content, cols: 40, rows: 20, label:false, :as => :pagedown %>
+  <div class="control-group">
+    <div class="controls wmd-panel" id="markdownEditScreen" style="margin-left:0px;">
+      <%= f.input :content, cols: 40, rows: 20, label:false, :as => :pagedown, :input_html => { :preview => false } %>
+      <%= f.input :id, as: :hidden, value: @markdown_content.id %>
+      <%= f.input :component_parent, as: :hidden, value: @component_parent %>	
+      <%= f.input :component_parent_id, as: :hidden, value: @component_parent_id %>	
+    </div>		
+  </div>
   <div class="control-group">
     <div class="form-actions">
       <%= f.submit "Save", class: "btn btn-primary" %>
