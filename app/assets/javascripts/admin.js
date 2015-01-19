@@ -16,5 +16,6 @@
 //= require bootstrap
 //= require issues.js
 //= require foundation_init.js
+//= require scriptbuttons.js
 //= require redactor-rails
 //= require fresh_writting.js
