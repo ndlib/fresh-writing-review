@@ -11,10 +11,17 @@ jQuery ($) ->
         'formatting'
         'bold'
         'italic'
+        'deleted'
+        'underline'
         'unorderedlist'
         'orderedlist'
+        'outdent'
+        'indent'
         'image'
         'link'
+        'table'
+        'alignment'
+        'horizontalrule'
       ]
       buttonSource: true
       focus: true
