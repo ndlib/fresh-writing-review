@@ -14,7 +14,7 @@ class PageDetail
   end
 
   def body
-    MarkDownConverter.call(page.body.content)
+    page.body.content
   end
 
 

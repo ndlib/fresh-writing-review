@@ -41,15 +41,15 @@ class IssueDetail
   end
 
   def editorial_notes
-    MarkDownConverter.call(issue.editorial_notes.content)
+    issue.editorial_notes.content
   end
 
   def editorial_board
-    MarkDownConverter.call(issue.editorial_board.content)
+    issue.editorial_board.content
   end
 
   def acknowledgements
-    MarkDownConverter.call(issue.acknowledgements.content)
+    issue.acknowledgements.content
   end
 
   def submission_guidelines_page

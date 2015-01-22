@@ -16,11 +16,11 @@ class HighlightedEssayDetail
   end
 
   def body
-    MarkDownConverter.call(highlighted_essay.body)
+    highlighted_essay.body
   end
 
   def biography
-    MarkDownConverter.call(highlighted_essay.biography)
+    highlighted_essay.biography
   end
 
   def essay_id
