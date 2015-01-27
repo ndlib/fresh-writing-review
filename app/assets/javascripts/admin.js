@@ -18,4 +18,5 @@
 //= require foundation_init.js
 //= require scriptbuttons.js
 //= require redactor-rails
+//= require redactor-rails/config.js
 //= require fresh_writting.js
