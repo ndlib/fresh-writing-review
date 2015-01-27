@@ -18,22 +18,19 @@ describe IssueDetail do
 
   describe '#editorial_notes' do
     it 'formats the issue editorial_notes' do
-      expect(MarkDownConverter).to receive(:call).with(issue.editorial_notes.content)
-      subject.editorial_notes
+      expect(subject.editorial_notes).to be == issue.editorial_notes.content
     end
   end
 
   describe '#editorial_board' do
     it 'formats the issue board' do
-      expect(MarkDownConverter).to receive(:call).with(issue.editorial_board.content)
-      subject.editorial_board
+      expect(subject.editorial_board).to be == issue.editorial_board.content
     end
   end
 
   describe '#acknowledgements' do
     it 'formats the issue acknowledgements' do
-      expect(MarkDownConverter).to receive(:call).with(issue.acknowledgements.content)
-      subject.acknowledgements
+      expect(subject.acknowledgements).to be == issue.acknowledgements.content
     end
   end
 

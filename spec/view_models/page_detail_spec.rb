@@ -14,8 +14,7 @@ describe PageDetail do
 
   describe '#body' do
     it 'formats the page body' do
-      expect(MarkDownConverter).to receive(:call).with(page.body.content)
-      subject.body
+      expect(subject.body).to be == page.body.content
     end
   end
 end
