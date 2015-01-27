@@ -7,12 +7,12 @@ pre_development:
 pre_production:
   sessions:
     default:
-      database: freshwriting_pre_production
+      database: freshwriting_pprd
       hosts:
         - dbpprd.library.nd.edu:27017
 production:
   sessions:
     default:
-      database: freshwriting_production
+      database: freshwriting_prod
       hosts:
         - dbprod.library.nd.edu:27017
