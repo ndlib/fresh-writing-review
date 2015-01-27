@@ -17,6 +17,6 @@
 //= require issues.js
 //= require foundation_init.js
 //= require scriptbuttons.js
-//= require redactor-rails
-//= require redactor-rails/config.js
+//= require redactor.js
+//= require config.js
 //= require fresh_writting.js
