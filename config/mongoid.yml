@@ -1,4 +1,4 @@
-pre_development:
+development:
   sessions:
     default:
       database: fresh_writing_development
