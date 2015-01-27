@@ -11,7 +11,7 @@
  *= require foundation_and_overrides
  *= require font-awesome
  *= require pagedown_bootstrap
- *= require redactor-rails
+ *= require redactor.css
  *= require_self
  *= require ./bootstrap-custom
  *= require ./foundation_and_overrides
