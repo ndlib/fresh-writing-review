@@ -29,6 +29,11 @@ class EssayDetail::Transcript
   end
 
 
+  def to_html
+    markdown_object.to_html
+  end
+
+
   def render
     if display_body?
       return render_to_string('/essays/transcript', { object: self })

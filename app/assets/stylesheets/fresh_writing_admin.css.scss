@@ -77,7 +77,14 @@ h1, .redactor-dropdown .redactor-formatting-h1 {
 	font-family: $headers;
 	color:$dk-green;
 }
-
+.redactor-dropdown-blockquote {
+  background-color: #e8e9dc;
+  font-style: normal;
+  font-size: 17.5px;
+}
+.redactor-editor ol {
+  font-size: 10px;
+}
 p {
 	font-size:1.6rem;
 }

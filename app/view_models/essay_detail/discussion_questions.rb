@@ -19,6 +19,11 @@ class EssayDetail::DiscussionQuestions
   end
 
 
+  def to_html
+    markdown_object.to_html
+  end
+
+
   def render
     if markdown_object.present?
       return render_to_string('/essays/discussion_questions', { object: self })

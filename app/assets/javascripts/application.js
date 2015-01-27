@@ -15,7 +15,6 @@
 //= require foundation
 //= require bootstrap
 //= require pagedown_bootstrap
-//= require markdown_editor.js
 //= require issues.js
 //= require foundation_init.js
 //= require fresh_writting.js

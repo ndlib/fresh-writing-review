@@ -24,6 +24,11 @@ class EssayDetail::Body
   end
 
 
+  def to_html
+    markdown_object.to_html
+  end
+
+
   def render
     if has_content?
       return render_to_string('/essays/body', { object: self })

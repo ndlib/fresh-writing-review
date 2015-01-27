@@ -2,7 +2,7 @@
 <div class="follow">
   <%= object.back_to_essay_link %>
 </div>
-<%= object.markdown %>
+<%= object.to_html %>
 <div class="attachments">
   <% object.decorated_files.each do |file| %>
     <%= file.render %>

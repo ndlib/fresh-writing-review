@@ -29,6 +29,11 @@ class EssayDetail::AlternateBody
   end
 
 
+  def to_html
+    markdown_object.to_html
+  end
+
+
   def render
     if display_alt_body?
       return render_to_string('/essays/alternate_body', { object: self })

@@ -9,6 +9,9 @@ class MarkdownDetail
     MarkDownConverter.call(content)
   end
 
+  def to_html
+    content.html_safe
+  end
 
   def present?
     content.present?

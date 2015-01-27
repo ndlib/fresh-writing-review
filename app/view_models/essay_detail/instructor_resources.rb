@@ -26,6 +26,11 @@ class EssayDetail::InstructorResources
   end
 
 
+  def to_html
+    markdown_object.to_html
+  end
+
+
   def has_content?
     has_markdown_content? || has_files?
   end

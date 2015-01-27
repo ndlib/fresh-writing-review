@@ -29,6 +29,8 @@ jQuery ($) ->
       formatting: [
         'p'
         'blockquote'
+        'h1'
+        'h2'
         'h3'
       ]
       imageUpload: "/redactor_rails/pictures?" + params

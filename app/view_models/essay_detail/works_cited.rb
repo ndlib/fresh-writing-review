@@ -19,6 +19,11 @@ class EssayDetail::WorksCited
   end
 
 
+  def to_html
+    markdown_object.to_html
+  end
+
+
   def has_content?
     markdown_object.present?
   end

@@ -19,6 +19,11 @@ class EssayDetail::Embed
   end
 
 
+  def to_html
+    markdown_object.to_html
+  end
+
+
   def has_transcript?
     EssayDetail::Transcript.new(essay).has_content?
   end
