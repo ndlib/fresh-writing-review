@@ -35,7 +35,7 @@ gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastruct
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
 gem 'mysql2'
 gem "rb-readline"
-gem "redactor-rails", git: 'git@github.com:ndlib/redactor-rails.git'
+gem "redactor-rails", git: 'https://github.com/ndlib/redactor-rails.git'
 gem "carrierwave"
 gem "carrierwave-mongoid", :require => "carrierwave/mongoid"
 gem "mini_magick"

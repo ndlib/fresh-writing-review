@@ -19,8 +19,8 @@ GIT
       rails
 
 GIT
-  remote: git@github.com:ndlib/redactor-rails.git
-  revision: 5483564d53742822dd0ed35221f46a817117dedc
+  remote: https://github.com/ndlib/redactor-rails.git
+  revision: 25c9a97ab90567b9d41df8670d8853ebc2b74c2f
   specs:
     redactor-rails (0.5.0)
       devise
