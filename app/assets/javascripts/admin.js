@@ -20,3 +20,5 @@
 //= require redactor.js
 //= require config.js
 //= require fresh_writting.js
+//= require together-settings.js
+//= require togetherjs-min.js
