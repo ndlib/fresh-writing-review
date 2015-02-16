@@ -17,6 +17,7 @@ task :pre_production do
   # Customize pre_production configuration
   set :rails_env, 'pre_production'
   role :app, "fwpprd-vm.library.nd.edu"
+  set :branch, "together"
 end
 
 desc "Setup for the production environment"
