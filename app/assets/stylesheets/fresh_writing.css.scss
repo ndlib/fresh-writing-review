@@ -1137,6 +1137,21 @@ article, .redactor-editor {
     margin-left: 0;
     margin-right: 0;
   }
+
+}
+
+@media only screen and (max-width : 1030px) {
+  .volume img {
+    width: 100%;
+  }
+
+  .page-body article {
+    padding-right: 100px;
+  }
+
+  .follow {
+
+  }
 }
 
 
