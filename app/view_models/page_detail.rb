@@ -14,13 +14,19 @@ class PageDetail
   end
 
   def body
-    page.body.content
+    markdown_object.to_html
   end
 
 
   def body_id
     page.body.id
   end
+
+  protected
+
+    def markdown_object
+      @markdown_object ||= MarkdownDetail.new(page.body)
+    end
 
   private
     def page
