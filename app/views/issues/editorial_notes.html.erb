@@ -7,4 +7,4 @@
   <%= @issue_detail.render_nav %>
 <% end %>
 
-<p><%= @issue_detail.editorial_notes %></p>
+<p><%= @issue_detail.editorial_notes.html_safe %></p>
