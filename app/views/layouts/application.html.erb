@@ -9,6 +9,9 @@
     <%= stylesheet_link_tag    "application" %>
     <%= stylesheet_link_tag 'print', media: 'print' %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript">jwplayer.key="7SdTZX7u32woAkiZKrebDsv/UljBWNQSgUONjQIxqxY=";</script>
+  </head>
     <%= csrf_meta_tags %>
 </head>
 <body>
@@ -90,6 +93,6 @@
       </div>
 
     </footer>
-    <%= javascript_include_tag "application" %>
+
   <%= render partial: "layouts/google_analytics" %>
 </html>

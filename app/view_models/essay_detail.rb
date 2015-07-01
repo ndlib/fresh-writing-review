@@ -36,11 +36,13 @@ class EssayDetail
     EssayDetail::CompanionMaterial.render(essay)
   end
 
-
   def render_embed
     EssayDetail::Embed.render(essay)
   end
 
+  def render_wowza_media
+    EssayDetail::WowzaMedia.render(essay)
+  end
 
   def render_body
     EssayDetail::Body.render(essay)

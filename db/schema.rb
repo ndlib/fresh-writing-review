@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122141003) do
+ActiveRecord::Schema.define(version: 20150122151000) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20150122141003) do
     t.datetime "author_image_updated_at"
     t.string   "published_medium"
     t.integer  "embed_id"
+    t.integer  "wowza_media_id"
   end
 
   add_index "essays", ["alt_body_id"], name: "index_essays_on_alt_body_id", using: :btree
@@ -127,6 +128,7 @@ ActiveRecord::Schema.define(version: 20150122141003) do
   add_index "essays", ["issue_id"], name: "index_essays_on_issue_id", using: :btree
   add_index "essays", ["slug"], name: "index_essays_on_slug", unique: true, using: :btree
   add_index "essays", ["works_cited_id"], name: "index_essays_on_works_cited_id", using: :btree
+  add_index "essays", ["wowza_media_id"], name: "index_essays_on_wowza_media_id", using: :btree
 
   create_table "highlighted_essays", force: true do |t|
     t.integer  "issue_id"

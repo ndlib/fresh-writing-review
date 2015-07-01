@@ -16,6 +16,7 @@ class Essay < ActiveRecord::Base
   belongs_to :discussion_questions, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "discussion_questions_id"
   belongs_to :instructor_resources, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "instructor_resources_id"
   belongs_to :embed, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "embed_id"
+  belongs_to :wowza_media, class_name: "MarkdownContent", dependent: :destroy, foreign_key: "wowza_media_id"
 
   has_one :highlighted_essay, dependent: :destroy
 

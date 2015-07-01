@@ -66,7 +66,8 @@ class Admin::EssayDetail
       :discussion_questions => 'Discussion Questions',
       :embed => 'Embedded Multimedia',
       :alt_body => 'Media Transcript',
-      :instructor_resources => 'Instructor Resources'
+      :instructor_resources => 'Instructor Resources',
+      :wowza_media => 'Wowza Media'
     }
   end
 
