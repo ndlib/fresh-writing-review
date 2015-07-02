@@ -13,6 +13,9 @@ class EssayDetail::Embed
     @essay = essay
   end
 
+  def has_content?
+    markdown_object.present?
+  end
 
   def markdown
     markdown_object.markdown

@@ -1,3 +1,4 @@
+<% if object.has_content? %>
 <div class="flex-video <%= object.embed_css_class %>"><%= object.to_html %></div>
 
 <% if object.has_transcript? %>
@@ -9,4 +10,5 @@
       </div>
     </dd>
   </dl>
+<% end %>
 <% end %>
