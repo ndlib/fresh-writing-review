@@ -20,4 +20,3 @@
 //= require fresh_writting.js
 //= require lightbox.js
 //= require flash_detection.js
-//= require jwplayer
