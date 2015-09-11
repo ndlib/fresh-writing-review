@@ -18,3 +18,6 @@ jQuery ($) ->
 
 
   $(document).ready(ready)
+
+  $('.title').css 'margin-top', ->
+    -$(this).outerHeight()
