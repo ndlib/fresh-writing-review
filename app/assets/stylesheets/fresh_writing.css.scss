@@ -490,7 +490,7 @@ div.volume {
 }
 
 .listing.volume li a.title {
-  bottom:4.3rem;
+  /*bottom:4.3rem;*/
 }
 
 .listing.volume li em {
@@ -513,17 +513,24 @@ div.volume {
 
 .listing {
   li {
-    position:relative;
-    display: flex;
+    
+    /*display: flex;
     flex-wrap:wrap;
     
     * {
       flex-grow: 1;
+    }*/
+    a {
+      position: relative;
     }
     a.title {
       /*position: absolute;
       left:0.625rem;
       bottom:4.3rem;*/
+      display: block;
+      width: 100% !important;
+      float: left;
+      z-index: 5000;
       background:rgba(68,131,75,0.7);
       color: #fff;
       width: 210px;
@@ -533,6 +540,7 @@ div.volume {
       font-family: $headers;
       border:none;
       line-height: 1.2;
+      
     }
     img, a.title { transition: all .2s ease-in-out;}
   }
@@ -1033,11 +1041,11 @@ article, .redactor-editor {
   }
 .listing li a.title {
   font-size:1.4rem;
-   bottom: 8.6rem;
+   /*bottom: 8.6rem;*/
 }
 
 .listing.volume li a.title {
-  bottom: 6.6rem;
+  /*bottom: 6.6rem;*/
 }
 .results .meta span, .cover .meta span, .listing .meta span, .aessay .meta span {
   float: none;
