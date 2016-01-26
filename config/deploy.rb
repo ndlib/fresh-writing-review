@@ -9,7 +9,7 @@ require 'hesburgh/jenkins'
 # require 'hesburgh/whenever'
 
 set :application, 'freshwriting'
-set :repository,  "git@git.library.nd.edu:fresh_writing"
+set :repository,  "https://github.com/ndlib/fresh-writing-review.git"
 set :application_symlinks, ['config/initializers/devise_secret.rb']
 
 desc "Setup for the Pre-Production environment"
