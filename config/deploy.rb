@@ -6,10 +6,9 @@ require 'hesburgh/vm'
 require 'hesburgh/rails'
 require 'hesburgh/rails_db'
 require 'hesburgh/jenkins'
-# require 'hesburgh/whenever'
 
 set :application, 'freshwriting'
-set :repository,  "https://github.com/ndlib/fresh-writing-review.git"
+set :repository,  "https://github.com/ndlib/fresh-writing.git"
 set :application_symlinks, ['config/initializers/devise_secret.rb']
 
 desc "Setup for the Pre-Production environment"
