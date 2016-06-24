@@ -9,7 +9,7 @@ class Admin::EssayImageForm
   attr_accessor :essay
   attr_accessor :cover_image_alt, :cover_image_credit, :cover_image, :author_image
 
-  validates :cover_image_credit, :cover_image_alt, length: { maximum: 250 }
+  validates :cover_image_alt, length: { maximum: 250 }
 
   def self.build(controller)
     essay = EssayQuery.find(controller.params[:id])

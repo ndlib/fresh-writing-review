@@ -33,3 +33,6 @@
 /solr/pids
 /solr/test
 /undefined
+
+# additional
+/config/database.yml

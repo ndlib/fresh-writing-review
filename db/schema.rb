@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122151000) do
+ActiveRecord::Schema.define(version: 20160621013228) do
 
   create_table "attached_files", force: true do |t|
     t.string   "file_file_name"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20150122151000) do
     t.string   "cover_image_content_type"
     t.integer  "cover_image_file_size"
     t.datetime "cover_image_updated_at"
-    t.string   "cover_image_credit"
+    t.text     "cover_image_credit"
     t.string   "cover_image_alt"
     t.string   "author_image_file_name"
     t.string   "author_image_content_type"
