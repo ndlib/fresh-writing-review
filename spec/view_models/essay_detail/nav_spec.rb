@@ -4,7 +4,7 @@ describe EssayDetail::Nav do
 
   let(:issue) { double(Issue, friendly_id: 'fid', title: 'title')}
   let(:essay_style) { double(EssayDetail, id: 1, friendly_id: 'efid', title: 'title')}
-  let(:essay) { double(Essay, title: 'test title', body: double(MarkdownContent, content: "body"), issue: issue, friendly_id: 'essay_fid', essay_style: essay_style, instructor_resources: double(MarkdownContent, content: ""), discussion_questions: double(MarkdownContent, content: ""), author_biography: double(MarkdownContent, content: ""), works_cited: double(MarkdownContent, content: "")) }
+  let(:essay) { double(Essay, instructor_resources_files: nil, title: 'test title', body: double(MarkdownContent, content: "body"), issue: issue, friendly_id: 'essay_fid', essay_style: essay_style, instructor_resources: double(MarkdownContent, content: ""), discussion_questions: double(MarkdownContent, content: ""), author_biography: double(MarkdownContent, content: ""), works_cited: double(MarkdownContent, content: "")) }
 
   subject { described_class.new(essay) }
 

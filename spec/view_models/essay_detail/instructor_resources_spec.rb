@@ -116,10 +116,10 @@ describe EssayDetail::InstructorResources do
       subject.render
     end
 
-
     it "renders with out error " do
+      file = attached_file(title: "test", file: double(EssayDetail::DownloadFile, url: "test"), body: "test")
+      expect(essay).to receive(:instructor_resources_files).and_return([file])
       expect { subject.render }.to_not raise_error
     end
-
   end
 end
