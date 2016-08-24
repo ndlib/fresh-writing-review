@@ -23,5 +23,5 @@ desc "Setup for the production environment"
 task :production do
   # Customize production configuration
   set :rails_env, 'production'
-  role :app, "fwprod-vm.library.nd.edu"
+  role :app, "freshwriting.library.nd.edu"
 end
