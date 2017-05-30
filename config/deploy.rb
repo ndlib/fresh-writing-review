@@ -15,7 +15,7 @@ desc "Setup for the Pre-Production environment"
 task :pre_production do
   # Customize pre_production configuration
   set :rails_env, 'pre_production'
-  role :app, "libnd-freshwriting.library.nd.edu"
+  role :app, "libnd-freshwriting.lc.nd.edu"
   set :branch, "master"
 end
 
