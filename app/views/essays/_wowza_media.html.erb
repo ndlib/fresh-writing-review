@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
   }
   var height = (type == "mp3") ? 40 : 320;
   var iosURL = "https//wowza.library.nd.edu:443/freshwriting/_definst_/" + type + ":" + fileName + "/playlist.m3u8";
-  var defaultURL = "rtmps://wowza.library.nd.edu:443/freshwriting/_definst_/" + type + ":" + fileName;
+  var defaultURL = "rtmp://wowza.library.nd.edu:1935/freshwriting/_definst_/" + type + ":" + fileName;
   jwplayer('jwplayer').setup({
     "fallback":true,
     "width": 480,
