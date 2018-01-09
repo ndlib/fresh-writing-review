@@ -25,3 +25,13 @@ task :production do
   set :rails_env, 'production'
   role :app, "freshwriting.lc.nd.edu"
 end
+
+desc "Setup for the Staging environment"
+task :staging do
+  # Customize staging configuration
+  set :rails_env, 'staging'
+  role :app, "freshwriting-staging.lc.nd.edu"
+  set :branch, "master"
+end
+
+
