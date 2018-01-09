@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.0.3'
+gem 'rails', '~> 4.1.16'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer'
+gem 'therubyracer', '~> 0.12.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -24,16 +24,17 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'json'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'cancan'
-gem 'devise'
+gem 'devise', '~> 3.2.4'
 gem 'devise_cas_authenticatable'
 gem 'draper'
 gem 'foundation-rails', '~> 5.1.1'
 gem 'friendly_id', '~> 5.0.0'
 gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
 gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.17'
 gem "rb-readline"
 gem "redactor-rails"
 gem "carrierwave"
@@ -50,7 +51,7 @@ gem 'sprockets', '~> 2.11.0'
 gem 'virtus'
 
 # for file uploads
-gem 'paperclip'
+gem 'paperclip', '~> 4.2.2'
 
 # two gems for markdown editor
 gem 'font-awesome-rails'
@@ -63,7 +64,7 @@ gem 'state_machine'
 # paper trail so we can track and fix revisions
 gem 'paper_trail', '~> 3.0.1'
 
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.8.1'
 
 # Server monitoring
 gem 'newrelic_rpm'
