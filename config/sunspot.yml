@@ -16,6 +16,15 @@ pre_production:
     # read_timeout: 2
     # open_timeout: 0.5
 
+staging:
+  solr:
+    hostname: localhost
+    port: 8080
+    log_level: WARNING
+    path: /solr/freshwriting
+    # read_timeout: 2
+    # open_timeout: 0.5
+
 development:
   solr:
     hostname: localhost
@@ -29,4 +38,3 @@ test:
     port: 8983
     log_level: WARNING
     path: /solr/test
-
