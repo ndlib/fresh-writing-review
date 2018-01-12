@@ -16,3 +16,9 @@ production:
       database: freshwriting_prod
       hosts:
         - dbprod.library.nd.edu:27017
+staging:
+  sessions:
+    default:
+      database: fresh_writing_staging
+      hosts:
+        - localhost:27017
