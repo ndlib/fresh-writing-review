@@ -38,6 +38,7 @@ gem "hesburgh_api", git: 'git@github.com:/ndlib/hesburgh_api'
 gem 'mysql2', '~> 0.3.17'
 gem "rb-readline"
 gem "redactor-rails"
+gem "responders"
 gem "carrierwave"
 gem "carrierwave-mongoid", :require => "carrierwave/mongoid"
 gem "mini_magick"
