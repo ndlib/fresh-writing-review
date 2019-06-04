@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1.16'
+gem 'rails', '~> 4.2.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -25,6 +25,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'json'
+gem 'bigdecimal'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'cancan'
 gem 'devise', '~> 3.2.4'
@@ -32,8 +33,8 @@ gem 'devise_cas_authenticatable'
 gem 'draper'
 gem 'foundation-rails', '~> 5.1.1'
 gem 'friendly_id', '~> 5.0.0'
-gem "hesburgh_infrastructure", git: 'git@git.library.nd.edu:hesburgh_infrastructure'
-gem "hesburgh_api", git: 'git@git.library.nd.edu:hesburgh_api'
+gem "hesburgh_infrastructure", git: 'git@github.com:/ndlib/hesburgh_infrastructure'
+gem "hesburgh_api", git: 'git@github.com:/ndlib/hesburgh_api'
 gem 'mysql2', '~> 0.3.17'
 gem "rb-readline"
 gem "redactor-rails"
