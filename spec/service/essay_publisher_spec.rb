@@ -23,7 +23,7 @@ describe EssayPublisher do
       it 'changes essay#published' do
         essay.published = false
         subject.set_published(true)
-        expect(essay.published).to be_true
+        expect(essay.published).to be_truthy
       end
 
       it 'saves the essay' do

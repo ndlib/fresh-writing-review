@@ -7,7 +7,7 @@ describe EssayDetail::CompanionMaterial do
   let(:essay) { double(Essay, id: 1 ) }
   subject { described_class.new(essay) }
 
-  describe :self_render do
+  describe 'self_render' do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
@@ -16,17 +16,17 @@ describe EssayDetail::CompanionMaterial do
     end
   end
 
-  describe :has_files? do
+  describe 'has_files?' do
 
     it "returns true if there are any files" do
       subject.stub(:files).and_return([attached_file()])
-      expect(subject.has_files?).to be_true
+      expect(subject.has_files?).to be_truthy
     end
 
 
     it "returns false if there are no files" do
       subject.stub(:files).and_return([])
-      expect(subject.has_files?).to be_false
+      expect(subject.has_files?).to be_falsey
     end
 
   end

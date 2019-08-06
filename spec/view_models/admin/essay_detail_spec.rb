@@ -38,12 +38,12 @@ describe Admin::EssayDetail do
     it 'is true when a highlighted_essay is present' do
       highlighted = FactoryGirl.create(:highlighted_essay)
       expect(essay).to receive(:highlighted_essay).and_return(highlighted)
-      expect(subject.highlighted?).to be_true
+      expect(subject.highlighted?).to be_truthy
     end
 
     it 'is false when a highlighted_essay is not present' do
       expect(essay).to receive(:highlighted_essay).and_return(nil)
-      expect(subject.highlighted?).to be_false
+      expect(subject.highlighted?).to be_falsey
     end
   end
 

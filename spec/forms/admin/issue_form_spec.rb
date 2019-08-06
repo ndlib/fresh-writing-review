@@ -8,7 +8,7 @@ describe Admin::IssueForm do
   let(:new_controller) { double(ApplicationController, params: {} ) }
   let(:edit_controller) { double(ApplicationController, params: {id: 1} ) }
 
-  describe :build do
+  describe 'build' do
     before(:each) do
       IssueQuery.stub(:find).with(1).and_return(double(Issue, id: 1, new_record?: false, attributes: {} ))
       Issue.stub(:first).and_return(double(Issue, id: 1, new_record?: false, attributes: {} ))
@@ -17,13 +17,13 @@ describe Admin::IssueForm do
 
     it "creates a new issue if no id is passed in" do
       form = Admin::IssueForm.build(new_controller)
-      expect(form.issue.new_record?).to be_true
+      expect(form.issue.new_record?).to be true
     end
 
 
     it "uses the issue of the id passed in" do
       form = Admin::IssueForm.build(edit_controller)
-      expect(form.issue.new_record?).to be_false
+      expect(form.issue.new_record?).to be false
     end
   end
 
@@ -35,31 +35,32 @@ describe Admin::IssueForm do
     end
   end
 
-  describe :validations do
+  describe 'validations' do
     let(:issue) { Issue.new }
-    let(:valid_params) { { title: 'title', year: 'year' }}
+    let(:valid_params) { { title: 'title', year: 2010 }}
+    let(:invalid_admin_issue_form) { Admin::IssueForm.new(issue, {}) }
     subject { described_class.new(issue, valid_params) }
 
 
     it "checks that there are unique years" do
-      Issue.new(title: 'title', year: 'year').save!
+      Issue.new(title: 'title2', year: 2010).save!
       subject.save!
-
-      expect(subject.error_on(:year)).to be_true
+      expect( subject.errors[:year].size).to eq(1)
     end
 
     it "validates the presence of title" do
-      expect( described_class.new(issue, {}).error_on(:title)).to be_true
+      invalid_admin_issue_form.valid?
+      expect(invalid_admin_issue_form.errors[:title].size).to eq(1)
     end
 
     it "validates the presence of year" do
-      expect( described_class.new(issue, {}).error_on(:year)).to be_true
+      invalid_admin_issue_form.valid?
+      expect(invalid_admin_issue_form.errors[:year].size).to eq(1)
     end
-
   end
 
 
-  describe :new_record do
+  describe 'new_record' do
 
     subject { described_class.new(issue, valid_params) }
 

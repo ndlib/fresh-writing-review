@@ -4,7 +4,7 @@ describe EssayAwardQuery do
   subject { described_class }
   let(:essay_award) { FactoryGirl.create(:essay_award) }
 
-  describe :find do
+  describe 'find' do
     it "returns the essay award found " do
       expect(subject.find(essay_award.id)).to eq(essay_award)
     end

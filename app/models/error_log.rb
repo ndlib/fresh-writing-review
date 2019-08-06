@@ -17,7 +17,6 @@ class ErrorLog < ActiveRecord::Base
     state :resolved
   end
 
-
   def self.log_error(controller, exception)
     error = ErrorLog.create(
       message: determine_message(exception),

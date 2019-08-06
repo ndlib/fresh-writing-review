@@ -10,14 +10,15 @@ describe Essay do
 
   it "has the essay attributes" do
     ['title', 'body', 'issue', 'embed', 'alt_body', 'alt_title', 'author', 'author_biography', 'works_cited', 'discussion_questions', 'attached_files', 'essay_style', 'award', 'instructor_resources'].each do | attr |
-      expect(subject.respond_to?(attr)).to be_true
-      expect(subject.respond_to?("#{attr}=")).to be_true
+      expect(subject.respond_to?(attr)).to be_truthy
+      expect(subject.respond_to?("#{attr}=")).to be_truthy
     end
   end
 
 
   it "validates the title" do
-    expect(subject).to have(1).error_on(:title)
+    subject.valid?
+    expect(subject.errors.count).to eq(1)
   end
 
 
@@ -72,17 +73,17 @@ describe Essay do
   describe '#issue_published?' do
     it "is false without an issue" do
       subject.issue = nil
-      expect(subject.issue_published?).to be_false
+      expect(subject.issue_published?).to be_falsey
     end
 
     it "is false with an unpublished issue" do
       subject.issue = Issue.new(published: false)
-      expect(subject.issue_published?).to be_false
+      expect(subject.issue_published?).to be_falsey
     end
 
     it "is true with a published issue" do
       subject.issue = Issue.new(published: true)
-      expect(subject.issue_published?).to be_true
+      expect(subject.issue_published?).to be_truthy
     end
   end
 
@@ -94,12 +95,12 @@ describe Essay do
 
       it "is false when published is false" do
         subject.published = false
-        expect(subject.issue_and_essay_published?).to be_false
+        expect(subject.issue_and_essay_published?).to be_falsey
       end
 
       it "is true when published is true" do
         subject.published = true
-        expect(subject.issue_and_essay_published?).to be_true
+        expect(subject.issue_and_essay_published?).to be_truthy
       end
     end
 
@@ -110,12 +111,12 @@ describe Essay do
 
       it "is false when published is false" do
         subject.published = false
-        expect(subject.issue_and_essay_published?).to be_false
+        expect(subject.issue_and_essay_published?).to be_falsey
       end
 
       it "is false when published is true" do
         subject.published = true
-        expect(subject.issue_and_essay_published?).to be_false
+        expect(subject.issue_and_essay_published?).to be_falsey
       end
     end
   end

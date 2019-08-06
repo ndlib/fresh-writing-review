@@ -3,8 +3,8 @@ require 'spec_helper'
 describe EssayAward do
   it "has essay award attributes" do
     %w(essay award placement).each do | attr |
-      expect(subject.respond_to?(attr)).to be_true
-      expect(subject.respond_to?("#{attr}=")).to be_true
+      expect(subject.respond_to?(attr)).to be_truthy
+      expect(subject.respond_to?("#{attr}=")).to be_truthy
     end
   end
 

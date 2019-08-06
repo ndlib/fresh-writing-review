@@ -9,7 +9,7 @@ describe EssaySearchRow do
 
   describe '#image_link_to_essay' do
     it "renders the correct text" do
-      expect(subject.image_link_to_essay).to eq("<a href=\"/volumes/ifid/essays/fid\"><img alt=\"Url\" src=\"/images/url\" /></a>")
+      expect(subject.image_link_to_essay).to eq("<a href=\"/volumes/ifid/essays/fid\"><img src=\"/images/url\" alt=\"Url\" /></a>")
     end
   end
 
@@ -41,7 +41,7 @@ describe EssaySearchRow do
   end
 
 
-  describe :render do
+  describe 'render' do
     it "renders the correct partial" do
       expect(subject).to receive(:render_to_string).with('/search/row', { object: subject })
       subject.render

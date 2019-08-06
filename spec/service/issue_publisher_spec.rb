@@ -23,7 +23,7 @@ describe IssuePublisher do
       it 'changes issue#published' do
         issue.published = false
         subject.set_published(true)
-        expect(issue.published).to be_true
+        expect(issue.published).to be_truthy
       end
 
       it 'calls #reindex_essays' do

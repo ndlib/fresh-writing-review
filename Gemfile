@@ -35,7 +35,8 @@ gem 'foundation-rails', '~> 5.1.1'
 gem 'friendly_id', '~> 5.0.0'
 gem "hesburgh_infrastructure", git: 'git@github.com:/ndlib/hesburgh_infrastructure'
 gem "hesburgh_api", git: 'git@github.com:/ndlib/hesburgh_api'
-gem 'mysql2', '~> 0.3.17'
+# gem 'mysql2', '~> 0.3.17'
+gem 'mysql2', '~> 0.4.10'
 gem "rb-readline"
 gem "redactor-rails"
 gem "responders"
@@ -62,6 +63,7 @@ gem 'redcarpet'
 
 # for the error model
 gem 'state_machine'
+gem 'state_machines-activerecord'
 
 # paper trail so we can track and fix revisions
 gem 'paper_trail', '~> 3.0.1'

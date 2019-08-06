@@ -80,10 +80,9 @@ describe Ability do
 
     it 'creates an editor with superuser permission when no editors exist' do
       User.any_instance.unstub(:create_editor!)
-      expect(user.is_superuser?).to be_false
+      expect(user.is_superuser?).to be_falsey
       expect{ described_class.new(user) }.to change{Editor.count}.by(1)
-      expect(user.is_superuser?).to be_true
+      expect(user.is_superuser?).to be_truthy
     end
-
   end
 end

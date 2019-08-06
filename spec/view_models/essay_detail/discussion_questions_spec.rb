@@ -6,7 +6,7 @@ describe EssayDetail::DiscussionQuestions do
   let(:essay) { double(Essay, discussion_questions: double(MarkdownContent, content: "questions")) }
   subject { described_class.new(essay) }
 
-  describe :self_render do
+  describe 'self_render' do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
@@ -26,8 +26,8 @@ describe EssayDetail::DiscussionQuestions do
   end
 
 
-  describe :render do
-    context :has_works_cited do
+  describe 'render' do
+    context 'has_works_cited' do
 
       it "renders the template " do
         expect(subject).to receive(:render_to_string).with('/essays/discussion_questions', { object: subject })
@@ -41,7 +41,7 @@ describe EssayDetail::DiscussionQuestions do
       end
     end
 
-    context :no_work_cited do
+    context 'no_work_cited' do
       let(:essay) { double(Essay, discussion_questions: double(MarkdownContent, content: nil)) }
 
       it "does not render the template" do
@@ -50,6 +50,5 @@ describe EssayDetail::DiscussionQuestions do
       end
     end
   end
-
 end
 

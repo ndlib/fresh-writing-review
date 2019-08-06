@@ -19,12 +19,12 @@ describe HighlightedEssayDetail do
 
   describe '#present?' do
     it 'is true' do
-      expect(subject.present?).to be_true
+      expect(subject.present?).to be_truthy
     end
 
     it 'is false when there is no highlighted essay' do
       @highlighted_essay.destroy
-      expect(subject.present?).to be_false
+      expect(subject.present?).to be_falsey
     end
   end
 

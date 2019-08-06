@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SearchController do
 
 
-  describe :index do
+  describe 'index' do
     it "does not fail" do
       get :index
       expect(response).to be_success

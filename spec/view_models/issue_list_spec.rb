@@ -19,7 +19,7 @@ describe IssueList do
   end
 
 
-  describe :build do
+  describe 'build' do
     it "calls only the published issues" do
       expect(IssueQuery).to receive(:published)
       described_class.build(controller)

@@ -15,7 +15,7 @@ describe CopyPreviousIssuePages do
     IssueQuery.stub(:previous_issue).and_return(old_issue)
   end
 
-  describe :copy! do
+  describe 'copy!' do
 
     it "saves the issue when the copy is complete" do
       expect(issue).to receive(:save!)
@@ -57,8 +57,5 @@ describe CopyPreviousIssuePages do
       subject.copy!
       expect(issue.editorial_notes.content).to eq("old_content")
     end
-
   end
-
-
 end

@@ -12,7 +12,7 @@ describe EssaysController do
   end
 
 
-  describe :show do
+  describe 'show' do
     it "does not fail" do
       get :show, issue_id: issue.friendly_id, id: essay.friendly_id
       expect(response).to be_success
@@ -25,7 +25,7 @@ describe EssaysController do
   end
 
 
-  describe :transcript do
+  describe 'transcript' do
     it "does not fail" do
       get :transcript, issue_id: issue.friendly_id, id: essay.friendly_id
       expect(response).to be_success
@@ -38,7 +38,7 @@ describe EssaysController do
   end
 
 
-  describe :instructor_resources do
+  describe 'instructor_resources' do
 
     it "does not fail" do
       get :instructor_resources, issue_id: issue.friendly_id, id: essay.friendly_id

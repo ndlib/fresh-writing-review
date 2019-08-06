@@ -5,7 +5,7 @@ describe EssayQuery do
   subject { described_class }
   let(:essay) { FactoryGirl.create(:essay) }
 
-  describe :find do
+  describe 'find' do
     it "returns the essay found " do
       expect(subject.find(essay.id)).to eq(essay)
     end
@@ -17,7 +17,7 @@ describe EssayQuery do
   end
 
 
-  describe :essay_for_issue_from_url do
+  describe 'essay_for_issue_from_url' do
 
     it "returns the essay for a specific issue" do
       expect(subject.essay_for_issue_from_url(essay.issue.friendly_id, essay.friendly_id)).to eq(essay)
@@ -98,9 +98,5 @@ describe EssayQuery do
       found = subject.published_essays_for_issue_and_award(@issue.friendly_id, alternate_award)
       expect(found.count).to be == 0
     end
-
-
-
-
   end
 end

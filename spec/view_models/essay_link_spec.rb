@@ -9,7 +9,7 @@ describe EssayLink do
 
   describe '#link_to_image' do
     it "renders the correct text" do
-      expect(subject.link_to_image).to eq("<a href=\"/volumes/ifid/essays/fid\"><img alt=\"Url\" src=\"/images/url\" /></a> <a class=\"title\" href=\"/volumes/ifid/essays/fid\">title</a>")
+      expect(subject.link_to_image).to eq("<a href=\"/volumes/ifid/essays/fid\"><img src=\"/images/url\" alt=\"Url\" /></a> <a class=\"title\" href=\"/volumes/ifid/essays/fid\">title</a>")
     end
   end
 
@@ -35,12 +35,10 @@ describe EssayLink do
   end
 
 
-  describe :render do
+  describe 'render' do
     it "renders the correct partial" do
       expect(subject).to receive(:render_to_string).with('/essays/link', { object: subject, show_volume_style_links: true })
       subject.render
     end
   end
-
-
 end

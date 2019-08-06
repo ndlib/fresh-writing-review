@@ -6,7 +6,7 @@ describe EssayDetail::Body do
   let(:essay) { double(Essay, body: double(MarkdownContent, content: "body")) }
   subject { described_class.new(essay) }
 
-  describe :self_render do
+  describe 'self_render' do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
@@ -26,7 +26,7 @@ describe EssayDetail::Body do
   end
 
 
-  describe :render do
+  describe 'render' do
     it "renders the template " do
       expect(subject).to receive(:render_to_string).with('/essays/body', { object: subject })
       subject.render
