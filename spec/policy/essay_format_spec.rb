@@ -7,7 +7,7 @@ describe EssayFormat do
   let(:alternate_text_essay) { double(Essay, embed: nil )}
 
 
-  describe :media? do
+  describe 'media?' do
 
     it "returns true for a media essay" do
       expect(described_class.new(media_essay)).to be_media
@@ -23,7 +23,7 @@ describe EssayFormat do
   end
 
 
-  describe :text? do
+  describe 'text?' do
 
     it "returns true for a media essay" do
       expect(described_class.new(media_essay)).to_not be_text

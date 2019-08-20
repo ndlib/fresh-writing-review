@@ -1,19 +1,15 @@
 require 'spec_helper'
-
+include ControllerErrorTrapping
 
 class ErrorTrappingTestController < ApplicationController
   setup_controller_errors
 end
 
-describe ErrorTrappingTestController  do
+describe ErrorTrappingTestController, :type => :controller  do
 
-  before do
-    described_class.send(:setup_controller_errors)
-  end
+  describe 'routing_error' do
 
-  describe :routing_error do
-
-    controller do
+    controller(ErrorTrappingTestController) do
       def index
         raise ActionController::RoutingError.new("not found")
       end
@@ -28,9 +24,9 @@ describe ErrorTrappingTestController  do
   end
 
 
-  describe :unknown_controller do
+  describe 'unknown_controller' do
 
-    controller do
+    controller(ErrorTrappingTestController) do
       def index
         raise ActionController::UnknownController.new("not found")
       end
@@ -45,9 +41,9 @@ describe ErrorTrappingTestController  do
   end
 
 
-  describe :record_not_found do
+  describe 'record_not_found' do
 
-    controller do
+    controller(ErrorTrappingTestController) do
       def index
         raise ActiveRecord::RecordNotFound.new("not found")
       end
@@ -62,9 +58,9 @@ describe ErrorTrappingTestController  do
   end
 
 
-  describe :action_not_found do
+  describe 'action_not_found' do
 
-    controller do
+    controller(ErrorTrappingTestController) do
       def index
         raise AbstractController::ActionNotFound.new("not found")
       end
@@ -79,9 +75,9 @@ describe ErrorTrappingTestController  do
   end
 
 
-  describe :general_error do
+  describe 'general_error' do
 
-    controller do
+    controller(ErrorTrappingTestController) do
       def index
         raise
       end

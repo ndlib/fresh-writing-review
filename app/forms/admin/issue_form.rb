@@ -10,7 +10,6 @@ class Admin::IssueForm
 
   validates :title, :year, presence: true
 
-
   attr_accessor :issue
 
   def self.build(controller)

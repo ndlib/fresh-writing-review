@@ -54,7 +54,7 @@ describe EssayStyleDetail do
   end
 
 
-  describe :essays do
+  describe 'essays' do
     it "calls the query" do
       expect(EssayQuery).to receive(:published_essays_for_issue_and_essay_style).with(issue, essay_style)
       subject.essays
@@ -66,12 +66,12 @@ describe EssayStyleDetail do
 
     it "returns true if the style has essays" do
       subject.stub(:essays).and_return([ double(Essay) ])
-      expect(subject.has_essays?).to be_true
+      expect(subject.has_essays?).to be_truthy
     end
 
     it "returns false if the style does not" do
       subject.stub(:essays).and_return([ ])
-      expect(subject.has_essays?).to be_false
+      expect(subject.has_essays?).to be_falsey
     end
   end
 

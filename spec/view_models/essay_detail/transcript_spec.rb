@@ -7,7 +7,7 @@ describe EssayDetail::Transcript do
   let(:essay) { double(Essay, embed: "embed", alt_body: double(MarkdownContent, content: "alt_body"), issue: issue) }
   subject { described_class.new(essay) }
 
-  describe :self_render do
+  describe 'self_render' do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
@@ -29,13 +29,13 @@ describe EssayDetail::Transcript do
   end
 
 
-  describe :display_body? do
-    context :has_a_body do
+  describe 'display_body?' do
+    context 'has_a_body' do
       it "returns true if the markdown_detail says it is there and the format is text " do
         subject.stub(:essay_format).and_return(double(EssayFormat, media?: true))
         subject.stub(:markdown_object).and_return(double(MarkdownDetail, present?: true))
 
-        expect(subject.send(:display_body?)).to be_true
+        expect(subject.send(:display_body?)).to be_truthy
       end
 
 
@@ -43,16 +43,16 @@ describe EssayDetail::Transcript do
         subject.stub(:essay_format).and_return(double(EssayFormat, media?: true))
         subject.stub(:markdown_object).and_return(double(MarkdownDetail, present?: false))
 
-        expect(subject.send(:display_body?)).to be_false
+        expect(subject.send(:display_body?)).to be_falsey
       end
     end
 
-    context :no_body do
+    context 'no_body' do
       it "returns false if there is no body and the format is text" do
         subject.stub(:essay_format).and_return(double(EssayFormat, media?: false))
         subject.stub(:markdown_object).and_return(double(MarkdownDetail, present?: true))
 
-        expect(subject.send(:display_body?)).to be_false
+        expect(subject.send(:display_body?)).to be_falsey
       end
 
 
@@ -60,15 +60,15 @@ describe EssayDetail::Transcript do
         subject.stub(:essay_format).and_return(double(EssayFormat, media?: false))
         subject.stub(:markdown_object).and_return(double(MarkdownDetail, present?: false))
 
-        expect(subject.send(:display_body?)).to be_false
+        expect(subject.send(:display_body?)).to be_falsey
       end
 
     end
   end
 
 
-  describe :render do
-    context :display_body? do
+  describe 'render' do
+    context 'display_body?' do
       before(:each) do
         subject.stub(:display_body?).and_return(true)
       end
@@ -85,7 +85,7 @@ describe EssayDetail::Transcript do
 
     end
 
-    context :no_embed do
+    context 'no_embed' do
       before(:each) do
         subject.stub(:display_body?).and_return(false)
       end

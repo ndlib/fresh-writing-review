@@ -8,7 +8,7 @@ describe EssayDetail::Embed do
   let(:no_embed_essay) { double(Essay, friendly_id: 'id', embed: nil, issue: issue, published_medium: 'text') }
   subject { described_class.new(essay) }
 
-  describe :self_render do
+  describe 'self_render' do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
@@ -29,20 +29,20 @@ describe EssayDetail::Embed do
   end
 
 
-  describe :has_transcript? do
+  describe 'has_transcript?' do
     it "returns the true if there is a transcript" do
-      expect(subject.has_transcript?).to be_true
+      expect(subject.has_transcript?).to be_truthy
     end
 
     it "returns false if there is no transcript" do
       essay.alt_body.stub(:content).and_return("")
-      expect(subject.has_transcript?).to be_false
+      expect(subject.has_transcript?).to be_falsey
     end
   end
 
 
 
-  describe :render do
+  describe 'render' do
     it "renders the template " do
       expect(subject).to receive(:render_to_string).with('/essays/embed', { object: subject })
       subject.render
@@ -54,7 +54,7 @@ describe EssayDetail::Embed do
     end
 
 
-    context :no_embed_essay do
+    context 'no_embed_essay' do
       subject { described_class.new(no_embed_essay) }
 
       it "renders the feature image" do

@@ -24,22 +24,22 @@ describe Issue do
   describe '#is_pdf?' do
     it 'is true if is_pdf is true' do
       subject.is_pdf = true
-      expect(subject.is_pdf?).to be_true
+      expect(subject.is_pdf?).to be_truthy
     end
 
     it 'is false if is_pdf is false' do
       subject.is_pdf = false
-      expect(subject.is_pdf?).to be_false
+      expect(subject.is_pdf?).to be_falsey
     end
 
     it 'is false if is_pdf is nil' do
       subject.is_pdf = nil
-      expect(subject.is_pdf?).to be_false
+      expect(subject.is_pdf?).to be_falsey
     end
   end
 
 
-  describe :old_cover_image do
+  describe 'old_cover_image' do
 
     it "allows you to save an old_cover_image" do
       subject.old_cover_image = File.open(Rails.root.join('spec', 'fixtures', 'images', 'covers', '2011.jpg'))
@@ -48,12 +48,11 @@ describe Issue do
   end
 
 
-  describe :pdf do
+  describe 'pdf' do
 
     it "allows you to save an pdf" do
       subject.pdf = File.open(Rails.root.join('spec', 'fixtures', 'files', 'issues', '2011.pdf'))
       expect(subject.pdf).to be_present
     end
-
   end
 end

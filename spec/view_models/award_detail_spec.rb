@@ -10,7 +10,7 @@ describe AwardDetail do
 
 
 
-  describe :build do
+  describe 'build' do
     before(:each) do
       @controller = double(ApplicationController, params: ActionController::Parameters.new(issue_id: issue.friendly_id, id: award.friendly_id ))
       AwardQuery.stub(:find).with(award.friendly_id).and_return(award)
@@ -33,7 +33,7 @@ describe AwardDetail do
 
   describe '#link_to_detail' do
     it 'links to the style show page' do
-      expect(subject.link_to_detail).to eq("<a href=\"/volumes/fid/award/eafid\"><img alt=\"Url\" src=\"/images/url\" /></a> <a class=\"title\" href=\"/volumes/fid/award/eafid\">title</a>")
+      expect(subject.link_to_detail).to eq("<a href=\"/volumes/fid/award/eafid\"><img src=\"/images/url\" alt=\"Url\" /></a> <a class=\"title\" href=\"/volumes/fid/award/eafid\">title</a>")
     end
   end
 
@@ -49,12 +49,12 @@ describe AwardDetail do
   describe "#has_essays?" do
     it "is true when the award has essays" do
       subject.stub(:essays).and_return([essay])
-      expect(subject.has_essays?).to be_true
+      expect(subject.has_essays?).to be_truthy
     end
 
     it "returns false when the award does not have essays" do
       subject.stub(:essays).and_return([])
-      expect(subject.has_essays?).to be_false
+      expect(subject.has_essays?).to be_falsey
     end
   end
 

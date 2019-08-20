@@ -1,13 +1,12 @@
 require 'spec_helper'
 
-
 describe EssayDetail::AuthorBiography do
 
   let(:essay) { double(Essay, author: 'author', author_biography: double(MarkdownContent, content: 'biography'), author_image: double(Image, url: 'url')) }
   subject { described_class.new(essay) }
 
 
-  describe :self_render do
+  describe 'self_render' do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
@@ -38,9 +37,8 @@ describe EssayDetail::AuthorBiography do
   end
 
 
-
-  describe :render do
-    context :has_discussion_questions do
+  describe 'render' do
+    context 'has_discussion_questions' do
 
       it "renders the template " do
         expect(subject).to receive(:render_to_string).with('/essays/author_biography', { object: subject })
@@ -53,7 +51,7 @@ describe EssayDetail::AuthorBiography do
       end
     end
 
-    context :no_work_cited do
+    context 'no_work_cited' do
       let(:essay) { double(Essay, author_biography: double(MarkdownContent, content: nil), author: 'author') }
 
       it "does not render the template" do

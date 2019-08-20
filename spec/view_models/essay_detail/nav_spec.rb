@@ -9,7 +9,7 @@ describe EssayDetail::Nav do
   subject { described_class.new(essay) }
 
 
-  describe :self_render do
+  describe 'self_render' do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
@@ -19,39 +19,39 @@ describe EssayDetail::Nav do
 
   end
 
-  describe :issue_link do
-    it " calls the link method" do
+  describe 'issue_link' do
+    it "calls the link method" do
       IssueDetail.any_instance.should_receive(:link_to_show).with('tool-link volume')
       subject.issue_link
     end
   end
 
 
-  describe :style_link do
-    it " calls the link method" do
+  describe 'style_link' do
+    it "calls the link method" do
       EssayStyleDetail.any_instance.should_receive(:short_link_to_show).with('tool-link style')
       subject.style_link
     end
   end
 
 
-  describe :discussion_questions_link do
-    it " calls the link method" do
+  describe 'discussion_questions_link' do
+    it "calls the link method" do
       expect(EssayDetail::DiscussionQuestions).to receive(:render).with(essay)
       subject.discussion_questions_link
     end
   end
 
 
-  describe :instructor_rescouces_link do
-    it " calls the link method" do
+  describe 'instructor_rescouces_link' do
+    it "calls the link method" do
       EssayDetail::InstructorResources.any_instance.should_receive(:link_to_detail).with('tool-link instructor')
       subject.instructor_resources_link
     end
   end
 
 
-  describe :author_biography_link do
+  describe 'author_biography_link' do
 
     it "adds the link if there is an author biography " do
       EssayDetail::AuthorBiography.any_instance.stub(:has_content?).and_return(true)
@@ -62,11 +62,10 @@ describe EssayDetail::Nav do
       EssayDetail::AuthorBiography.any_instance.stub(:has_content?).and_return(false)
       expect(subject.author_biography_link).to eq(nil)
     end
-
   end
 
 
-  describe :works_cited_link do
+  describe 'works_cited_link' do
 
     it "adds the link if there is an author biography " do
       EssayDetail::WorksCited.any_instance.stub(:has_content?).and_return(true)
@@ -77,18 +76,17 @@ describe EssayDetail::Nav do
       EssayDetail::WorksCited.any_instance.stub(:has_content?).and_return(false)
       expect(subject.works_cited_link).to eq(nil)
     end
-
   end
 
 
 
-  describe :top_of_the_page_link do
+  describe 'top_of_the_page_link' do
     it "creates the link" do
-      expect(subject.top_of_page_link).to eq("<a class=\"top tool-link\" href=\"#\" target=\"_top\">Top of Page</a>")
+      expect(subject.top_of_page_link).to eq("<a target=\"_top\" class=\"top tool-link\" href=\"#\">Top of Page</a>")
     end
   end
 
-  describe :render do
+  describe 'render' do
     it "renders the template " do
       expect(subject).to receive(:render_to_string).with('/essays/nav', { object: subject })
       subject.render

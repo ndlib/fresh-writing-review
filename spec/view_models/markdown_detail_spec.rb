@@ -13,18 +13,18 @@ describe MarkdownDetail do
 
     describe '#present?' do
       it 'is false' do
-        expect(subject.present?).to be_false
+        expect(subject.present?).to be_falsey
       end
     end
 
     describe '#blank?' do
       it 'is true' do
-        expect(subject.blank?).to be_true
+        expect(subject.blank?).to be_truthy
       end
     end
   end
 
-  describe :markdown do
+  describe 'markdown' do
 
     subject { described_class.new(MarkdownContent.new(content: "markdown text"))}
 
@@ -36,7 +36,7 @@ describe MarkdownDetail do
   end
 
 
-  describe :present? do
+  describe 'present?' do
     subject { described_class }
 
     it "returns true when markdown is present" do
@@ -53,7 +53,7 @@ describe MarkdownDetail do
   end
 
 
-  describe :blank? do
+  describe 'blank?' do
     subject { described_class }
 
     it "returns true when markdown is present" do

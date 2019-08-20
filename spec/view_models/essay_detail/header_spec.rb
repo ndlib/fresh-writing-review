@@ -7,7 +7,7 @@ describe EssayDetail::Header do
   let(:essay) { double(Essay, title: 'title', author: "Bob Bobbers", issue: issue, essay_style: essay_style) }
   subject { described_class.new(essay)}
 
-  describe :self_render do
+  describe 'self_render' do
 
     it "instanciates itself and renders" do
       described_class.any_instance.should_receive(:render)
@@ -17,8 +17,7 @@ describe EssayDetail::Header do
 
   end
 
-
-  describe :title do
+  describe 'title' do
     let(:essay) { double(Essay, title: 'title') }
 
     it "delegates this to essay" do
@@ -29,7 +28,7 @@ describe EssayDetail::Header do
   end
 
 
-  describe :author do
+  describe 'author' do
 
     it "creates a named anchor link and adds the by text" do
       expect(subject.author).to eq("By <a href=\"#author_biography\">Bob Bobbers</a>")
@@ -37,7 +36,7 @@ describe EssayDetail::Header do
   end
 
 
-  describe :issue_link do
+  describe 'issue_link' do
 
     it "generates an issue link " do
       expect(subject.issue_link).to eq("<a href=\"/volumes/id\">issue_title</a>")
@@ -45,15 +44,13 @@ describe EssayDetail::Header do
   end
 
 
-  describe :essay_style_link do
+  describe 'essay_style_link' do
     it "generates a essay style link " do
       expect(subject.essay_style_link).to eq("<a href=\"/volumes/id/style/id\">narrative</a>")
     end
   end
 
-
-
-  describe :render do
+  describe 'render' do
     it "renders the template " do
       expect(subject).to receive(:render_to_string).with('/essays/header', { object: subject })
       subject.render
@@ -63,5 +60,4 @@ describe EssayDetail::Header do
       expect { subject.render }.to_not raise_error
     end
   end
-
 end
