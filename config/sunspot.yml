@@ -12,7 +12,7 @@ prep:
     hostname: localhost
     port: 8080
     log_level: WARNING
-    path: /solr/fw
+    path: /solr/freshwriting
 
 pre_production:
   solr:
