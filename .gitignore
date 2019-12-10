@@ -38,3 +38,5 @@
 /config/database.yml
 config/initializers/abstract_mysql2_adapter.rb
 config/initializers/webmock_allow_localhost.rb
+
+secrets.yml

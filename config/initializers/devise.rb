@@ -1,10 +1,14 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+
+require 'omniauth-oktaoauth'
+
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '69bf73135454e636221ee0c725cfc7d09dfa29560ec0883398c5bbc02f44048c04d6e8c014de29003bc30d39b3c0fa9fd889ff813142151f23edef46b26b64ba'
+  config.secret_key = Rails.application.secrets["secret_key_base"]
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -252,7 +256,23 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.cas_base_url = Rails.configuration.cas_base
+  #config.cas_base_url = Rails.configuration.cas_base
+  # Okta
+  okta_issuer = Rails.application.secrets.okta['base_auth_url'] + Rails.application.secrets.okta['auth_server_id']
+  config.omniauth(:oktaoauth,
+                  Rails.application.secrets.okta["client_id"],
+                  Rails.application.secrets.okta["client_secret"],
+                  :scope => 'openid profile email netid',
+                  :fields => ['profile', 'email', 'netid'],
+                  :client_options => {
+                    site: okta_issuer,
+                    authorize_url: okta_issuer + "/v1/authorize",
+                    token_url: okta_issuer + "/v1/token",
+                  },
+                  :redirect_uri => Rails.application.secrets.okta["redirect_url"],
+                  :auth_server_id => Rails.application.secrets.okta["auth_server_id"],
+                  :issuer => okta_issuer,
+                  :strategy_class => OmniAuth::Strategies::Oktaoauth)
 
   # you can override these if you need to, but cas_base_url is usually enough
   # config.cas_login_url = "https://cas.myorganization.com/login"

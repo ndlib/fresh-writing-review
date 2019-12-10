@@ -19,6 +19,15 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Request-Method'] = 'PUT, GET, POST, DELETE, OPTIONS'
   end
 
+  protected
+    def authenticate_user!
+      if session[:netid]
+        super
+      else
+        redirect_to user_omniauth_authorize_path(:oktaoauth)
+      end
+    end
+
   private
     def authorize_ability!(ability_name, object)
       ability = Ability.new(current_user)
@@ -39,5 +48,10 @@ class ApplicationController < ActionController::Base
 
     def authorize_superuser!
       authorize_ability!(:manage_users, :all)
+    end
+
+    # Overwriting the sign_out redirect path method
+    def after_sign_out_path_for(resource_or_scope)
+      Rails.application.secrets.okta['logout_url']
     end
 end
