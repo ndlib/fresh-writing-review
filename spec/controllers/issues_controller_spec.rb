@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe IssuesController do
-  let(:issue) { FactoryGirl.create(:issue) }
+  let(:issue) { FactoryBot.create(:issue) }
   describe "#index" do
     it "succeeds" do
       get :index
@@ -52,7 +52,7 @@ describe IssuesController do
   end
 
   describe "unpublished" do
-    let(:issue) { FactoryGirl.create(:issue, published: false) }
+    let(:issue) { FactoryBot.create(:issue, published: false) }
 
     describe "#show" do
       it "is not authorized" do

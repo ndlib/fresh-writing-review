@@ -30,7 +30,7 @@ describe Essay do
   end
 
   describe '#essay_style' do
-    let(:essay_style) { FactoryGirl.create(:essay_style) }
+    let(:essay_style) { FactoryBot.create(:essay_style) }
 
     it 'belongs to an essay style' do
       expect(subject.essay_style).to be_nil
@@ -154,7 +154,7 @@ describe Essay do
   end
 
   describe '#highlighted_essay' do
-    let(:highlighted_essay) { FactoryGirl.create(:highlighted_essay) }
+    let(:highlighted_essay) { FactoryBot.create(:highlighted_essay) }
     subject { highlighted_essay.essay }
 
     it "destroys the highlighted_essay on destroy" do
@@ -163,7 +163,7 @@ describe Essay do
   end
 
   describe '#essay_award' do
-    let(:essay_award) { FactoryGirl.create(:essay_award) }
+    let(:essay_award) { FactoryBot.create(:essay_award) }
     subject { essay_award.essay }
 
     it "destroys the essay_award on destroy" do

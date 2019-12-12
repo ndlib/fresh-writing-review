@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe HighlightedEssayDetail do
-  let(:issue) { FactoryGirl.create(:issue) }
-  let(:essay_style) { FactoryGirl.create(:essay_style) }
-  let(:essay) { FactoryGirl.create(:essay, issue: issue, essay_style: essay_style) }
+  let(:issue) { FactoryBot.create(:issue) }
+  let(:essay_style) { FactoryBot.create(:essay_style) }
+  let(:essay) { FactoryBot.create(:essay, issue: issue, essay_style: essay_style) }
 
   subject { described_class.new(issue, essay_style) }
 
   before do
-    @highlighted_essay = FactoryGirl.create(:highlighted_essay, issue: issue, essay_style: essay_style, essay: essay)
+    @highlighted_essay = FactoryBot.create(:highlighted_essay, issue: issue, essay_style: essay_style, essay: essay)
   end
 
   describe '#title' do

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe EssayAwardQuery do
   subject { described_class }
-  let(:essay_award) { FactoryGirl.create(:essay_award) }
+  let(:essay_award) { FactoryBot.create(:essay_award) }
 
   describe 'find' do
     it "returns the essay award found " do
@@ -17,9 +17,9 @@ describe EssayAwardQuery do
 
   describe "#published_essay_awards_for_issue_and_award" do
     before do
-      @issue = FactoryGirl.create(:issue)
-      @award = FactoryGirl.create(:award)
-      @essays = FactoryGirl.create_list(:essay, 2, issue: @issue, award: @award)
+      @issue = FactoryBot.create(:issue)
+      @award = FactoryBot.create(:award)
+      @essays = FactoryBot.create_list(:essay, 2, issue: @issue, award: @award)
     end
 
 
@@ -41,13 +41,13 @@ describe EssayAwardQuery do
 
 
     it "returns an empty array for a different award" do
-      alternate_award = FactoryGirl.create(:issue)
+      alternate_award = FactoryBot.create(:issue)
       found = subject.published_essay_awards_for_issue_and_award(alternate_award.friendly_id, @award)
       expect(found.count).to be == 0
     end
 
     it "returns an empty array for a different award" do
-      alternate_award = FactoryGirl.create(:award)
+      alternate_award = FactoryBot.create(:award)
       found = subject.published_essay_awards_for_issue_and_award(@issue.friendly_id, alternate_award)
       expect(found.count).to be == 0
     end

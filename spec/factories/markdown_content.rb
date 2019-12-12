@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :markdown_content do
-    content "body"
+    content { "body" }
   end
 end

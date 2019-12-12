@@ -103,7 +103,7 @@ group :development, :test do
   gem "guard-coffeescript"
   gem "guard-rails"
   gem "guard-rspec"
-  gem "guard-spork"
+  gem "guard-spork", "2.1.0"
   gem "spork", "1.0.0rc4"
   gem "growl"
 

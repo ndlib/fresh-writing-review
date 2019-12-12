@@ -3,9 +3,9 @@ require 'spec_helper'
 describe HighlightedEssay do
   subject { described_class.new }
 
-  let(:issue) { FactoryGirl.create(:issue) }
-  let(:essay) { FactoryGirl.create(:essay) }
-  let(:essay_style) { FactoryGirl.create(:essay_style) }
+  let(:issue) { FactoryBot.create(:issue) }
+  let(:essay) { FactoryBot.create(:essay) }
+  let(:essay_style) { FactoryBot.create(:essay_style) }
 
   [:body].each do |field|
     it "has the ##{field} attribute" do

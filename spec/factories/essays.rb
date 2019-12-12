@@ -1,8 +1,8 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :essay do
-    issue { FactoryGirl.create(:issue) }
-    essay_style { FactoryGirl.create(:essay_style) }
+    issue { FactoryBot.create(:issue) }
+    essay_style { FactoryBot.create(:essay_style) }
     sequence(:title) { |n| "Test Essay #{n}" }
-    published true
+    published { true }
   end
 end

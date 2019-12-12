@@ -36,7 +36,7 @@ describe Admin::EssayDetail do
 
   describe '#highlighted?' do
     it 'is true when a highlighted_essay is present' do
-      highlighted = FactoryGirl.create(:highlighted_essay)
+      highlighted = FactoryBot.create(:highlighted_essay)
       expect(essay).to receive(:highlighted_essay).and_return(highlighted)
       expect(subject.highlighted?).to be_truthy
     end

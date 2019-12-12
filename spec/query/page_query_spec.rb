@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe PageQuery do
   subject { described_class }
-  let(:page) { FactoryGirl.create(:page) }
+  let(:page) { FactoryBot.create(:page) }
 
   describe '#all' do
     it 'returns all pages' do
-      FactoryGirl.create_list(:page, 2)
+      FactoryBot.create_list(:page, 2)
       expect(subject.all.count).to be == 2
     end
   end

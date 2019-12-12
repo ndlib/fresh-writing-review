@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe HighlightedEssayCarousel do
-  let(:issue) { FactoryGirl.create(:issue) }
+  let(:issue) { FactoryBot.create(:issue) }
 
   subject { described_class.new(issue) }
 
   before do
     @highlighted_essays = [
-      FactoryGirl.create(:highlighted_essay, issue: issue, essay: FactoryGirl.create(:essay, issue: issue, body: FactoryGirl.create(:markdown_content))),
-      FactoryGirl.create(:highlighted_essay, issue: issue, essay: FactoryGirl.create(:essay, issue: issue, body: FactoryGirl.create(:markdown_content)))
+      FactoryBot.create(:highlighted_essay, issue: issue, essay: FactoryBot.create(:essay, issue: issue, body: FactoryBot.create(:markdown_content))),
+      FactoryBot.create(:highlighted_essay, issue: issue, essay: FactoryBot.create(:essay, issue: issue, body: FactoryBot.create(:markdown_content)))
     ]
   end
 
