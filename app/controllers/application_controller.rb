@@ -54,4 +54,9 @@ class ApplicationController < ActionController::Base
     def after_sign_out_path_for(resource_or_scope)
       Rails.application.secrets.okta['logout_url']
     end
+
+    # post Okta login send user to this route
+    def after_sign_in_path_for(resource_or_scope)
+      "/admin/volumes"
+    end
 end

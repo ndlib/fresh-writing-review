@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-FreshWriting::Application.config.secret_key_base = '047d51020ae1fedb2020646ac2d019e0b61591822eeea235cf4a69269f1e826ac975f695b0074dd202c5b8f5f462763b57ce91d2dc1d8f934319070dd0c75f4b'
+#FreshWriting::Application.config.secret_key_base = '047d51020ae1fedb2020646ac2d019e0b61591822eeea235cf4a69269f1e826ac975f695b0074dd202c5b8f5f462763b57ce91d2dc1d8f934319070dd0c75f4b'
