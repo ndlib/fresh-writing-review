@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'json'
 gem 'bigdecimal'
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'cancan'
 gem 'devise', '~> 3.5.0'
 gem 'omniauth-oktaoauth'
