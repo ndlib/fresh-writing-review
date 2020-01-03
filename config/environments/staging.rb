@@ -80,6 +80,6 @@ FreshWriting::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.cas_base = 'https://login-test.cc.nd.edu/cas'
+  config.cas_base = 'https://login.nd.edu/cas'
   Paperclip.options[:command_path] = "/usr/local/bin"
 end
