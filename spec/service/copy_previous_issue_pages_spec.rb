@@ -7,7 +7,7 @@ describe CopyPreviousIssuePages do
   let(:acknowledgements) { double(MarkdownContent, content: 'body') }
   let(:editorial_board) { double(MarkdownContent, content: 'body') }
   let(:editorial_notes) { double(MarkdownContent, content: 'body') }
-  let(:old_content) { FactoryGirl.create(:markdown_content, content: 'old_content') }
+  let(:old_content) { FactoryBot.create(:markdown_content, content: 'old_content') }
 
   subject { described_class.new(issue) }
 

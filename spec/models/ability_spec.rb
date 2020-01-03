@@ -76,7 +76,7 @@ describe Ability do
   end
 
   describe 'automatic superuser' do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
 
     it 'creates an editor with superuser permission when no editors exist' do
       User.any_instance.unstub(:create_editor!)

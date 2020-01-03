@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe IssueNav do
-  let(:issue) { FactoryGirl.create(:issue) }
+  let(:issue) { FactoryBot.create(:issue) }
 
   subject { described_class.new(issue) }
 

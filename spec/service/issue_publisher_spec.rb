@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe IssuePublisher do
-  let(:issue) { FactoryGirl.create(:issue) }
+  let(:issue) { FactoryBot.create(:issue) }
   describe 'instance' do
     subject { described_class.new(issue) }
 
@@ -39,7 +39,7 @@ describe IssuePublisher do
 
     describe '#reindex_essays' do
       it 'calls save on the issue essays' do
-        FactoryGirl.create(:essay, issue: issue)
+        FactoryBot.create(:essay, issue: issue)
         expect(issue.essays.collect.first).to receive(:save!)
         subject.reindex_essays
       end

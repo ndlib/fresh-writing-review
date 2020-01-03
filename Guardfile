@@ -15,7 +15,7 @@ end
 
 # Automatically start/restart your Rails development server
 # https://github.com/ranmocy/guard-rails
-hesburgh_guard.rails do
+hesburgh_guard.rails port: 3000 do
   # Watch any custom paths
 
   callback(:start_end) do

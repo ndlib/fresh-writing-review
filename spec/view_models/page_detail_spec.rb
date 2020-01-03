@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe PageDetail do
-  let(:page) { FactoryGirl.create(:page) }
+  let(:page) { FactoryBot.create(:page) }
   let(:controller) { double(ApplicationController, params: ActionController::Parameters.new(id: page.friendly_id)) }
 
   subject { described_class.build(controller) }

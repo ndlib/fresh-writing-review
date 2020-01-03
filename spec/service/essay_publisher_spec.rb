@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe EssayPublisher do
-  let(:essay) { FactoryGirl.create(:essay) }
+  let(:essay) { FactoryBot.create(:essay) }
   describe 'instance' do
     subject { described_class.new(essay) }
 

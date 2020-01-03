@@ -5,7 +5,7 @@ describe HighlightedEssayQuery do
 
   describe "#for_issue_and_essay_style" do
     before do
-      @highlighted_essay = FactoryGirl.create(:highlighted_essay)
+      @highlighted_essay = FactoryBot.create(:highlighted_essay)
       @issue = @highlighted_essay.issue
       @essay_style = @highlighted_essay.essay_style
     end
@@ -15,20 +15,20 @@ describe HighlightedEssayQuery do
     end
 
     it "returns nil for a different issue" do
-      alternate_issue = FactoryGirl.create(:issue)
+      alternate_issue = FactoryBot.create(:issue)
       expect(subject.for_issue_and_essay_style(alternate_issue, @essay_style)).to be_nil
     end
 
     it "returns nil for a different essay_style" do
-      alternate_style = FactoryGirl.create(:essay_style)
+      alternate_style = FactoryBot.create(:essay_style)
       expect(subject.for_issue_and_essay_style(@issue, alternate_style)).to be_nil
     end
   end
 
   describe "#for_issue" do
     before do
-      @issue = FactoryGirl.create(:issue)
-      @highlighted_essays = FactoryGirl.create_list(:highlighted_essay, 2, issue: @issue)
+      @issue = FactoryBot.create(:issue)
+      @highlighted_essays = FactoryBot.create_list(:highlighted_essay, 2, issue: @issue)
     end
 
     it "returns the highlighted essays for the issue" do
@@ -36,7 +36,7 @@ describe HighlightedEssayQuery do
     end
 
     it "returns an empty set for a different issue" do
-      alternate_issue = FactoryGirl.create(:issue)
+      alternate_issue = FactoryBot.create(:issue)
       expect(subject.for_issue(alternate_issue).count).to be == 0
     end
   end

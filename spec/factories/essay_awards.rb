@@ -1,8 +1,8 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :essay_award do
-    essay { FactoryGirl.create(:essay) }
-    award { FactoryGirl.create(:award) }
+    essay { FactoryBot.create(:essay) }
+    award { FactoryBot.create(:award) }
     sequence(:placement) { |n| n }
   end
 end

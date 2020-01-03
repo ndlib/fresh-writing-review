@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe EssayStyleDetail do
-  let(:issue) { FactoryGirl.create(:issue) }
-  let(:essay_style) { FactoryGirl.create(:essay_style) }
-  let(:essay) { FactoryGirl.create(:essay, issue: issue, essay_style: essay_style) }
+  let(:issue) { FactoryBot.create(:issue) }
+  let(:essay_style) { FactoryBot.create(:essay_style) }
+  let(:essay) { FactoryBot.create(:essay, issue: issue, essay_style: essay_style) }
   let(:controller) { double(ApplicationController, params: ActionController::Parameters.new(issue_id: issue.friendly_id, id: essay_style.friendly_id)) }
 
   subject { described_class.build(controller) }
@@ -77,7 +77,7 @@ describe EssayStyleDetail do
 
   describe '#render_highlighted_essay' do
     it 'renders the partial' do
-      FactoryGirl.create(:highlighted_essay, essay: essay, issue: issue, essay_style: essay_style)
+      FactoryBot.create(:highlighted_essay, essay: essay, issue: issue, essay_style: essay_style)
       expect(subject).to receive(:render_to_string).with("essay_styles/highlighted_essay", highlighted_essay_detail: subject.highlighted_essay)
       subject.render_highlighted_essay
     end

@@ -29,7 +29,7 @@ gem 'bigdecimal'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'cancan'
 gem 'devise', '~> 3.5.0'
-gem 'devise_cas_authenticatable'
+gem 'omniauth-oktaoauth'
 gem 'draper'
 gem 'foundation-rails', '~> 5.1.1'
 gem 'friendly_id', '~> 5.0.0'
@@ -95,7 +95,7 @@ group :development, :test do
   #gem "debugger"
   gem "rspec-rails"
   gem "capybara"
-  gem "factory_girl_rails", require: false
+  gem "factory_bot_rails", require: false
   gem "faker"
 
   gem "guard"
@@ -103,7 +103,7 @@ group :development, :test do
   gem "guard-coffeescript"
   gem "guard-rails"
   gem "guard-rspec"
-  gem "guard-spork"
+  gem "guard-spork", "2.1.0"
   gem "spork", "1.0.0rc4"
   gem "growl"
 
@@ -111,6 +111,6 @@ group :development, :test do
 end
 
 group :test do
-  gem "webmock"
+  gem "webmock", "~> 3.7.6"
   gem "simplecov", require: false
 end

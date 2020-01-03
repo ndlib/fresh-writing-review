@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe IssueQuery do
   subject { described_class }
-  let(:issue) { FactoryGirl.create(:issue) }
-  let(:unpublished_issue) { FactoryGirl.create(:unpublished_issue) }
+  let(:issue) { FactoryBot.create(:issue) }
+  let(:unpublished_issue) { FactoryBot.create(:unpublished_issue) }
   describe '#all' do
     it 'returns all issues' do
-      FactoryGirl.create_list(:issue, 2)
+      FactoryBot.create_list(:issue, 2)
       expect(subject.all.count).to be == 2
     end
 
@@ -19,9 +19,9 @@ describe IssueQuery do
 
 
     it 'orders by year' do
-      first = FactoryGirl.create(:issue, year: 2010)
-      last = FactoryGirl.create(:issue, year: 2000)
-      middle = FactoryGirl.create(:issue, year: 2005)
+      first = FactoryBot.create(:issue, year: 2010)
+      last = FactoryBot.create(:issue, year: 2000)
+      middle = FactoryBot.create(:issue, year: 2005)
       expect(subject.all.first).to eq(first)
       expect(subject.all.last).to eq(last)
     end
@@ -29,16 +29,16 @@ describe IssueQuery do
 
   describe '#published' do
     it 'returns all published issues' do
-      FactoryGirl.create_list(:issue, 2)
+      FactoryBot.create_list(:issue, 2)
       unpublished_issue
       expect(subject.published.count).to be == 2
     end
 
 
     it 'orders by year' do
-      first = FactoryGirl.create(:issue, year: 2010)
-      last = FactoryGirl.create(:issue, year: 2000)
-      middle = FactoryGirl.create(:issue, year: 2005)
+      first = FactoryBot.create(:issue, year: 2010)
+      last = FactoryBot.create(:issue, year: 2000)
+      middle = FactoryBot.create(:issue, year: 2005)
       expect(subject.published.first).to eq(first)
       expect(subject.published.last).to eq(last)
     end
@@ -47,9 +47,9 @@ describe IssueQuery do
 
   describe '#current' do
     it 'returns the most recent issue' do
-      current = FactoryGirl.create(:issue, year: 2010)
-      FactoryGirl.create(:issue, year: 2000)
-      FactoryGirl.create(:issue, year: 2005)
+      current = FactoryBot.create(:issue, year: 2010)
+      FactoryBot.create(:issue, year: 2000)
+      FactoryBot.create(:issue, year: 2005)
       expect(subject.current).to eq(current)
     end
 

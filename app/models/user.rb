@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :cas_authenticatable, :trackable
+  devise :omniauthable, omniauth_providers: [:oktaoauth]
 
   has_one :editor, foreign_key: :username, primary_key: :username
 

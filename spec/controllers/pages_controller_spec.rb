@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe PagesController do
-  let(:page) { FactoryGirl.create(:page) }
+  let(:page) { FactoryBot.create(:page) }
 
 
   describe "#show" do

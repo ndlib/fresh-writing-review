@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :editor do
-    user { FactoryGirl.create(:user) }
+    user { FactoryBot.create(:user) }
   end
 end

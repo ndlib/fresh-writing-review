@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe EssayQuery do
   subject { described_class }
-  let(:essay) { FactoryGirl.create(:essay) }
+  let(:essay) { FactoryBot.create(:essay) }
 
   describe 'find' do
     it "returns the essay found " do
@@ -24,7 +24,7 @@ describe EssayQuery do
     end
 
     it "raises active record not found when the issue is not found " do
-      i = FactoryGirl.create(:issue)
+      i = FactoryBot.create(:issue)
       expect{ described_class.essay_for_issue_from_url(i.friendly_id, essay.friendly_id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
 
@@ -36,9 +36,9 @@ describe EssayQuery do
 
   describe "#published_essays_for_issue_and_essay_style" do
     before do
-      @issue = FactoryGirl.create(:issue)
-      @essay_style = FactoryGirl.create(:essay_style)
-      @essays = FactoryGirl.create_list(:essay, 2, issue: @issue, essay_style: @essay_style)
+      @issue = FactoryBot.create(:issue)
+      @essay_style = FactoryBot.create(:essay_style)
+      @essays = FactoryBot.create_list(:essay, 2, issue: @issue, essay_style: @essay_style)
     end
 
     it "returns the essays for the issue and essay_style" do
@@ -48,13 +48,13 @@ describe EssayQuery do
     end
 
     it "returns an empty array for a different issue" do
-      alternate_issue = FactoryGirl.create(:issue)
+      alternate_issue = FactoryBot.create(:issue)
       found = subject.published_essays_for_issue_and_essay_style(alternate_issue.friendly_id, @essay_style)
       expect(found.count).to be == 0
     end
 
     it "returns an empty array for a different essay_style" do
-      alternate_style = FactoryGirl.create(:essay_style)
+      alternate_style = FactoryBot.create(:essay_style)
       found = subject.published_essays_for_issue_and_essay_style(@issue.friendly_id, alternate_style)
       expect(found.count).to be == 0
     end
@@ -63,9 +63,9 @@ describe EssayQuery do
 
   describe "#published_essays_for_issue_and_award" do
     before do
-      @issue = FactoryGirl.create(:issue)
-      @award = FactoryGirl.create(:award)
-      @essays = FactoryGirl.create_list(:essay, 2, issue: @issue, award: @award)
+      @issue = FactoryBot.create(:issue)
+      @award = FactoryBot.create(:award)
+      @essays = FactoryBot.create_list(:essay, 2, issue: @issue, award: @award)
     end
 
 
@@ -88,13 +88,13 @@ describe EssayQuery do
 
 
     it "returns an empty array for a different award" do
-      alternate_award = FactoryGirl.create(:issue)
+      alternate_award = FactoryBot.create(:issue)
       found = subject.published_essays_for_issue_and_award(alternate_award.friendly_id, @award)
       expect(found.count).to be == 0
     end
 
     it "returns an empty array for a different award" do
-      alternate_award = FactoryGirl.create(:award)
+      alternate_award = FactoryBot.create(:award)
       found = subject.published_essays_for_issue_and_award(@issue.friendly_id, alternate_award)
       expect(found.count).to be == 0
     end

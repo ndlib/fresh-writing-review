@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe IssueList do
-  let(:issue) { FactoryGirl.create(:issue) }
+  let(:issue) { FactoryBot.create(:issue) }
   let(:controller) { double(ApplicationController) }
 
   subject { described_class.build(controller) }

@@ -4,7 +4,7 @@ describe "issues/index.html.erb" do
   let(:issue_list) { IssueList.build(double()) }
 
   before do
-    FactoryGirl.create(:issue)
+    FactoryBot.create(:issue)
   end
 
   it "succeeds" do

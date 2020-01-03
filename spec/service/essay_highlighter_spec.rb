@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe EssayHighlighter do
-  let(:essay) { FactoryGirl.create(:essay) }
+  let(:essay) { FactoryBot.create(:essay) }
   describe 'instance' do
     subject { described_class.new(essay) }
 
@@ -14,7 +14,7 @@ describe EssayHighlighter do
 
     describe '#unhighlight' do
       it 'removes a highlighted_essay' do
-        highlighted_essay = FactoryGirl.create(:highlighted_essay, essay: essay)
+        highlighted_essay = FactoryBot.create(:highlighted_essay, essay: essay)
         expect{subject.unhighlight}.to change{ HighlightedEssay.count }.by(-1)
       end
     end
