@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "237b1ab5-011c-4083-84e3-58107491b0a2",
+		"name": "Freshwriting",
+		"description": "# Freshwriting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Smoke",
+			"item": [
+				{
+					"name": "Get Admin Root",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/admin",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Root",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d3718ad-b2bb-4865-a12a-1a3aabd691ac",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}",
+							"host": [
+								"{{BaseURL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "## Smoke Tests for Freshwriting",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "97803a3a-4f0f-4c64-be15-d157cfd25353",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7b82ef7-f3e8-4af1-a032-9ea10eb15bc6",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 3000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
