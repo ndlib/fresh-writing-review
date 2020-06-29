@@ -31,6 +31,8 @@ FreshWriting::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.force_ssl = true
+
   config.cas_base = 'https://cas.library.nd.edu/cas'
   Paperclip.options[:command_path] = "/usr/local/bin"
 end

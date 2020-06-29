@@ -1,23 +1,23 @@
 development:
-  sessions:
+  clients:
     default:
       database: fresh_writing_development
       hosts:
         - localhost:27017
 pre_production:
-  sessions:
+  clients:
     default:
       database: freshwriting_pprd
       hosts:
         - dbpprd.library.nd.edu:27017
 production:
-  sessions:
+  clients:
     default:
       database: freshwriting_prod
       hosts:
         - dbprod.library.nd.edu:27017
 staging:
-  sessions:
+  clients:
     default:
       database: fresh_writing_staging
       hosts:

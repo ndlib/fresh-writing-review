@@ -8,20 +8,22 @@ jQuery ($) ->
     $("#wmd-input-content").redactor
       buttons: [
         'html'
-        'formatting'
+        'format'
         'bold'
         'italic'
         'deleted'
         'underline'
-        'unorderedlist'
-        'orderedlist'
-        'outdent'
-        'indent'
+        'ul'
+        'ol'
         'image'
         'link'
+        'line'
+        'sup'
+        'sub'
+      ]
+      plugins: [
         'table'
         'alignment'
-        'horizontalrule'
       ]
       buttonSource: true
       focus: true
@@ -48,9 +50,7 @@ jQuery ($) ->
       fileUpload: "/redactor_rails/documents?" + params
       fileGetJson: "/redactor_rails/documents"
       path: "/assets/redactor-rails"
-      plugins: ['scriptbuttons']
     $(".redactor-editor").focus()
 
   $(document).ready(ready)
   $(document).on('page:load', ready)
-
