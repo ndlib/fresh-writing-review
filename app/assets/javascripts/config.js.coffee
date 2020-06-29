@@ -21,6 +21,10 @@ jQuery ($) ->
         'sup'
         'sub'
       ]
+      plugins: [
+        'table'
+        'alignment'
+      ]
       buttonSource: true
       focus: true
       focusEnd: true

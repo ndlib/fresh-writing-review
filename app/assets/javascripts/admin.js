@@ -17,5 +17,7 @@
 //= require issues.js
 //= require foundation_init.js
 //= require redactor.js
+//= require alignment.js
+//= require table.js
 //= require config.js
 //= require fresh_writting.js
