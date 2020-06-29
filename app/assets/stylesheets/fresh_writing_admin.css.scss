@@ -12,23 +12,29 @@ h1, h2, h3, h4, h5, h6
 {
 	font-family: $headers;
 }
-.redactor-dropdown .redactor-formatting-h1,
-.redactor-dropdown .redactor-formatting-h2,
-.redactor-dropdown .redactor-formatting-h3,
+.redactor-dropdown-item-h1,
+.redactor-dropdown-item-h2,
+.redactor-dropdown-item-h3,
 {
-	font-family: $headers;
-    font-weight: normal;
+	font-family: $headers !important;
+    font-weight: normal !important;
+}
+.redactor-dropdown-item-h2 {
+  font-size: 24px !important;
+}
+.redactor-dropdown-item-h3 {
+  font-size: 21px !important;
 }
 
 h2, h3
 {
 	color:$lt-green;
 }
-.redactor-dropdown .redactor-formatting-h2,
-.redactor-dropdown .redactor-formatting-h3
+.redactor-dropdown-item-h2,
+.redactor-dropdown-item-h3
 {
-	color:$lt-green;
-    font-weight: normal;
+  color:$lt-green !important;
+  font-weight: normal !important;
 }
 #redactor-droparea {
   padding: 40px 20px;
@@ -73,11 +79,13 @@ h3.control-label {
 	margin-bottom:0;
 }
 
-h1, .redactor-dropdown .redactor-formatting-h1 {
-	font-family: $headers;
-	color:$dk-green;
+h1, .redactor-dropdown-item-h1 {
+	font-family: $headers !important;
+  font-size: 36px !important;
+  font-weight: normal !important;
+	color:$dk-green !important;
 }
-.redactor-dropdown-blockquote {
+.redactor-dropdown-item-blockquote {
   background-color: #e8e9dc;
   font-style: normal;
   font-size: 17.5px;
