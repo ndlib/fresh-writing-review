@@ -68,7 +68,7 @@ gem 'state_machines-activerecord'
 # paper trail so we can track and fix revisions
 gem 'paper_trail', '~> 3.0.1'
 
-gem 'nokogiri', '~> 1.8.1'
+gem 'nokogiri', '~> 1.10.10'
 
 # Server monitoring
 gem 'newrelic_rpm'
