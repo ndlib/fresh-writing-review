@@ -23,6 +23,7 @@ test: &test
   <<: *mysql_settings
   database: fresh_writing_test
   username: root
+  password: root
 
 
 pre_production:
