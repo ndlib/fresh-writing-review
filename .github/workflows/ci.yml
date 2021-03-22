@@ -34,10 +34,14 @@ jobs:
     #   run:  mysql -e "CREATE DATABASE fresh_writing_test;" -uroot -proot
 
     - name: Prepare database
+      env:
+        RAILS_ENV: test
       run: |
         bundle exec rake db:create
         bundle exec rake db:migrate
         bundle exec rake db:test:prepare
 
     - name: Run rake spec
+      env:
+        RAILS_ENV: test
       run: bundle exec rake spec
