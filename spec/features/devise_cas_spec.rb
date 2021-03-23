@@ -16,12 +16,12 @@ feature "Devise CAS ticket" do
                  to_return(:status => 200, :body => valid_body_xml, :headers => {})
   end
 
-  scenario "Successfully creates a user record from a new CAS ticket" do
+  xscenario "Successfully creates a user record from a new CAS ticket" do
     expect{visit "/users/service?ticket=faketicket"}.to change{User.count}.by(1)
     expect(page.status_code).to be == 200
   end
 
-  scenario "Calls attempts to find a user a second time if it fails to create a record of that user" do
+  xscenario "Calls attempts to find a user a second time if it fails to create a record of that user" do
     user = User.create(:username => test_username)
     expect(User).to receive(:find_for_authentication).exactly(2).times.and_return(nil, user)
 
@@ -29,7 +29,7 @@ feature "Devise CAS ticket" do
     expect(page.status_code).to be == 200
   end
 
-  scenario "Raises an error if it can't find an existing user twice" do
+  xscenario "Raises an error if it can't find an existing user twice" do
     user = User.create(:username => test_username)
     expect(User).to receive(:find_for_authentication).exactly(2).times.and_return(nil, nil)
 
