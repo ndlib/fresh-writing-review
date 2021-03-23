@@ -29,6 +29,7 @@ jobs:
     - name: copy example files
       run: |
         cp config/database.example.yml config/database.yml
+        cp config/secrets.examples.yml config/secrets.yml
         
     # - name: create fresh_writing_test DB
     #   run:  mysql -e "CREATE DATABASE fresh_writing_test;" -uroot -proot
