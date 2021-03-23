@@ -14,8 +14,6 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.4
-      env:
-        ImageOS: ubuntu18
 
     - name: Install bundler
       run: gem install bundler -v 1.17.3
@@ -31,9 +29,6 @@ jobs:
         cp config/database.example.yml config/database.yml
         cp config/secrets.examples.yml config/secrets.yml
         
-    # - name: create fresh_writing_test DB
-    #   run:  mysql -e "CREATE DATABASE fresh_writing_test;" -uroot -proot
-
     - name: Prepare database
       env:
         RAILS_ENV: test
