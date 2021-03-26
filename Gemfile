@@ -48,7 +48,7 @@ gem 'sunspot_rails'
 gem 'will_paginate', '~> 3.0'
 
 # Sprockets has an error with version 2.12 with Foundation scss
-gem 'sprockets', '~> 2.11.0'
+gem 'sprockets', '~> 2.12.5'
 
 # Extended PORO functionality
 gem 'virtus'
