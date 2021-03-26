@@ -301,7 +301,7 @@ GEM
       devise
       mime-types
       orm_adapter
-    redcarpet (3.4.0)
+    redcarpet (3.5.1)
     ref (2.0.0)
     regexp_parser (1.5.1)
     request_store (1.4.1)
