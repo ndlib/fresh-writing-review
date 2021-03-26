@@ -54,7 +54,7 @@ gem 'sprockets', '~> 2.11.0'
 gem 'virtus'
 
 # for file uploads
-gem 'paperclip', '~> 4.2.2'
+gem 'paperclip', '~> 5.2.0'
 
 # two gems for markdown editor
 gem 'font-awesome-rails'
